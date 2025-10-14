@@ -13,9 +13,14 @@ function Preloader() {
             document.body.classList.add('ss-show');
         };
 
-        window.addEventListener('load', handleLoad);
-
-        return () => window.removeEventListener('load', handleLoad);
+        // Check if the page is already loaded
+        if (document.readyState === 'complete') {
+            handleLoad();
+        } else {
+            window.addEventListener('load', handleLoad);
+            // Cleanup the event listener
+            return () => window.removeEventListener('load', handleLoad);
+        }
     }, []);
 
     if (!show) return null;
