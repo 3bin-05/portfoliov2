@@ -2984,9 +2984,10 @@ td:last-child {
     --gap                : calc(var(--gutter) * 2);
     --min-width          : 300px;
     display              : grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(var(--min-width), 100%), 1fr));
+    grid-template-columns: repeat(3, 1fr);
     -moz-column-gap      : var(--gap);
     column-gap           : var(--gap);
+    align-items          : start;
 }
 
 .grid-list-items__item {
@@ -3949,6 +3950,7 @@ td:last-child {
         padding-top: var(--vspace-5);
     }
 }
+
 
 
 /* ===================================================================

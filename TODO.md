@@ -1,7 +1,7 @@
-# TODO: Reduce Font Size of Quote "Logic meets creativity."
+# TODO for Updating Works.jsx
 
-## Tasks
-- [ ] Add CSS rule for .s-intro__content-quote to reduce font size and integrate better with typography
-- [ ] Ensure the quote still stands out as a quote but doesn't overpower the main heading
-- [ ] Test the changes on different screen sizes
-- [ ] Verify visual hierarchy is improved
+- [x] Update imports: Add Swiper and SwiperSlide, remove unused image imports
+- [x] Update section class to include "target-section" and change title to "Selected Works."
+- [x] Replace the lead paragraph section with the new folio-entries row containing 6 portfolio entries
+- [x] Add the testimonials section with Swiper component
+- [x] Remove the old s-works__projects and s-works__btn sections

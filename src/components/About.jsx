@@ -37,33 +37,107 @@ function About() {
                 </div>
             </div>
 
-            <div className="row s-about__content-stats">
-                <div className="column xl-3 md-6 tab-12">
-                    <div className="s-about__content-stat">
-                        <h3><span>127</span></h3>
-                        <h5>Awards Received</h5>
-                    </div>
+            <div className="row s-about__content">
+                <div className="column xl-12">
+            <div className="grid-list-items s-about__blocks">
+                <div className="grid-list-items__item s-about__block">
+                    <h4 className="s-about__block-title">Experience</h4>
+                    <ul className="s-about__list">
+                        <li>
+                            Spotify
+                            <span>Product Designer</span>
+                        </li>
+                        <li>
+                            Dropbox
+                            <span>Interface Developer</span>
+                        </li>
+                        <li>
+                            Google
+                            <span>Lead UI Designer</span>
+                        </li>
+                        <li>
+                            Figma
+                            <span>UI Designer</span>
+                        </li>
+                        <li>
+                            Microsoft
+                            <span>UI Designer</span>
+                        </li>
+                        <li>
+                            Adobe
+                            <span>Creative Designer</span>
+                        </li>
+                    </ul>
                 </div>
-                <div className="column xl-3 md-6 tab-12">
-                    <div className="s-about__content-stat">
-                        <h3><span>1505</span></h3>
-                        <h5>Cups of Coffee</h5>
-                    </div>
+                <div className="grid-list-items__item s-about__block">
+                    <h4 className="s-about__block-title">Awards</h4>
+                    <ul className="s-about__list">
+                        <li>
+                            <a href="#0">
+                                Site Of The Month
+                                <span>Awwwards — 2023</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                Site Of The Day
+                                <span>Awwwards — 2023</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                Agency of The Year
+                                <span>Awwwards — 2022</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                FWA of The Month
+                                <span>FWA — 2022</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                Site Of The Month
+                                <span>Awwwards — 2022</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                Developer of The Year
+                                <span>Awwwards — 2021</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div className="column xl-3 md-6 tab-12">
-                    <div className="s-about__content-stat">
-                        <h3><span>109</span></h3>
-                        <h5>Projects Completed</h5>
-                    </div>
+                <div className="grid-list-items__item s-about__block">
+                    <h4 className="s-about__block-title">Skills</h4>
+                    <ul className="s-about__list">
+                        <li>
+                            Product Design
+                        </li>
+                        <li>
+                            UI/UX Design
+                        </li>
+                        <li>
+                            Prototyping
+                        </li>
+                        <li>
+                            Frontend Development
+                        </li>
+                        <li>
+                            Illustration
+                        </li>
+                        <li>
+                            Visual Design
+                        </li>
+                    </ul>
                 </div>
-                <div className="column xl-3 md-6 tab-12">
-                    <div className="s-about__content-stat">
-                        <h3><span>102</span></h3>
-                        <h5>Happy Clients</h5>
-                    </div>
                 </div>
+        </div>
             </div>
         </section>
+        
     );
 }
 
