@@ -46,7 +46,7 @@ function Footer() {
                     <a href="mailto:ebin05reji@gmail.com" className="btn btn--primary btn--large u-fullwidth">Message Me</a>
                 </div>
                 <div className="column xl-6 tab-12">
-                    <a href="#0" className="btn btn--stroke btn--large u-fullwidth">Get My CV</a>
+                    <a href="/cv.pdf" download className="btn btn--stroke btn--large u-fullwidth">Get My CV</a>
                 </div>
             </div>
 

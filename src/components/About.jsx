@@ -13,24 +13,26 @@ function About() {
 
             <div className="row s-about__content">
                 <div className="column xl-6 md-12 s-about__content-main">
-                    <h3 className="s-about__content-title">Hello, I'm Jonathan Doe.</h3>
+                    <h3 className="s-about__content-title">Hi there, I’m <span style={{ color: 'orange' }}>Ebin Reji</span> </h3>
                     <p className="s-about__content-summary">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        An aspiring Computer Engineer and UI/UX enthusiast passionate about crafting meaningful and user-focused digital experiences. I’m currently pursuing my BTech in Computer Science at Sree Buddha College of Engineering, Patoor, where I’ve built a strong foundation in Python, React, and web development.
                     </p>
                     <div className="s-about__content-btn">
-                        <a href="#0" className="btn">Download CV</a>
+                        <a href="/cv.pdf" download className="btn">Download CV</a>
                     </div>
                 </div>
 
                 <div className="column xl-6 md-12 s-about__content-secondary">
-                    <p className="attention-getter">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    <h3 className="s-about__content-title">Education & Qualifications</h3>
+                    <p>
+                        <strong>Central Board of Secondary Education</strong><br />
+                        (2021-2023)<br />
+                        I completed my 12th grade under the CBSE curriculum with a focus on Computer Science, which helped me build a strong foundation in programming and technology.
                     </p>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        <strong>Bachelor of Technology in Computer Science and Engineering </strong><br />
+                        (2023-2027)<br />
+                        I am currently pursuing a B.Tech in Computer Science and Engineering at Sree Buddha College of Engineering, Patoor. My studies focus on preparing myself for a successful career in the tech industry.
                     </p>
                 </div>
             </div>

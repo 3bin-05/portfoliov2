@@ -13,11 +13,11 @@ function StylesPage() {
                     <div className="column lg-12 s-intro__content-inner grid-block grid-16">
                         <div className="s-intro__content-text">
                             <div className="s-intro__content-pretitle text-pretitle">Hello</div>
-                            <h1 className="s-intro__content-title">
-                                I'm Jonathan Doe <br />
-                                a product designer <br />
-                                base in Somewhere.
-                            </h1>
+                        <h1 className="s-intro__content-title">
+                            I'm Ebin Reji <br />
+                            a UI/UX Designer <br />
+                            based in Kerala, India.
+                        </h1>
                             <div className="s-intro__content-btns">
                                 <a className="btn" href="/#about">More About Me</a>
                                 <a className="btn btn--stroke" href="/#footer">Get In Touch</a>
@@ -36,7 +36,7 @@ function StylesPage() {
                     <img src={introBg} srcSet={`${introBg} 1x, ${introBg} 2x`} alt="" />
                 </div>
                 <div className="s-intro__btn-download">
-                    <a className="btn btn--stroke" href="#0">Get My CV</a>
+                    <a className="btn btn--stroke" href="/cv.pdf" download>Download CV</a>
                 </div>
                 <div className="s-intro__scroll-down">
                     <a href="#styles" className="smoothscroll">

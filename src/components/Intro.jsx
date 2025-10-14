@@ -11,7 +11,7 @@ function Intro() {
                         <h1 className="s-intro__content-title">
                             I'm Ebin Reji <br />
                             a UI/UX Designer <br />
-                            “Logic meets creativity.”
+                            <span className="s-intro__content-quote">“Logic meets creativity.”</span>
                         </h1>
                         <div className="s-intro__content-btns">
                             <a className="btn" href="#about">More About Me</a>
@@ -31,7 +31,7 @@ function Intro() {
                 <img src={introBg} srcSet={`${introBg} 1x, ${introBg} 2x`} alt="" />
             </div>
             <div className="s-intro__btn-download">
-                <a className="btn btn--stroke" href="#0">Get My CV</a>
+                <a className="btn btn--stroke" href="/cv.pdf" download>Get My CV</a>
             </div>
             <div className="s-intro__scroll-down">
                 <a href="#about" className="smoothscroll">

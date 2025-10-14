@@ -3413,6 +3413,11 @@ td:last-child {
     margin-bottom : var(--vspace-1_25);
 }
 
+.s-intro__content-quote {
+    font-size: 0.6em;
+    opacity  : 0.8;
+}
+
 .s-intro__content-btns {
     --color-btn           : var(--color-text-dark);
     --color-btn-text      : var(--color-white);
@@ -3868,6 +3873,7 @@ td:last-child {
 }
 
 
+
 /* ===================================================================
  * # ABOUT
  *
@@ -3876,6 +3882,13 @@ td:last-child {
 .s-about {
     padding-top: var(--vspace-7);
     color      : var(--color-3);
+}
+
+/* specific hover for DOWNLOAD CV button */
+.s-about__content-btn .btn:hover {
+    background-color: var(--color-1);
+    border-color    : var(--color-1);
+    color           : var(--color-white);
 }
 
 /* --------------------------------------------------------------------
