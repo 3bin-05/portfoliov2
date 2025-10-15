@@ -14,8 +14,8 @@ function Footer() {
             <div className="row s-footer__content">
                 <div className="column xl-6 md-12 s-footer__block s-footer__about">
                     <p className="attention-getter">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas illum quasi facere libero,
-                        fugiat laboriosam possimus amet consectetur adipisicing elit reprehenderit eveniet tempore quisquam ipsa id esse. Facere ratione dignissimos.
+                       “Always excited to meet creative minds, collaborate on meaningful projects, and bring great ideas to life. Every amazing design starts with a simple conversation.”
+                       
                     </p>
                 </div>
 

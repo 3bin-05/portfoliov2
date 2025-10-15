@@ -44,77 +44,50 @@ function About() {
                     <h4 className="s-about__block-title">Experience</h4>
                     <ul className="s-about__list">
                         <li>
-                            Spotify
-                            <span>Product Designer</span>
+                            The Purple Movement
+                            <span>UI/UX Developer</span>
                         </li>
                         <li>
-                            Dropbox
-                            <span>Interface Developer</span>
-                        </li>
-                        <li>
-                            Google
-                            <span>Lead UI Designer</span>
-                        </li>
-                        <li>
-                            Figma
-                            <span>UI Designer</span>
-                        </li>
-                        <li>
-                            Microsoft
-                            <span>UI Designer</span>
-                        </li>
-                        <li>
-                            Adobe
-                            <span>Creative Designer</span>
+                            Tinkerhub
+                            <span>Tech Team UI Developer</span>
                         </li>
                     </ul>
                 </div>
                 <div className="grid-list-items__item s-about__block">
-                    <h4 className="s-about__block-title">Awards</h4>
+                    <h4 className="s-about__block-title">Current Jobs</h4>
                     <ul className="s-about__list">
                         <li>
                             <a href="#0">
-                                Site Of The Month
-                                <span>Awwwards — 2023</span>
+                                IEEE SB SBCE Sub-Execom Program Co ordination Team
+                                <span>2025 — Present</span>
                             </a>
                         </li>
                         <li>
                             <a href="#0">
-                                Site Of The Day
-                                <span>Awwwards — 2023</span>
+                                Mulearn SBC UI/UX Lead
+                                <span>2025 — Present</span>
                             </a>
                         </li>
                         <li>
                             <a href="#0">
-                                Agency of The Year
-                                <span>Awwwards — 2022</span>
+                                Tinkerhub Tech Team UI Developer
+                                <span>2025 — Present</span>
                             </a>
                         </li>
                         <li>
                             <a href="#0">
-                                FWA of The Month
-                                <span>FWA — 2022</span>
+                                The Purple Movement UI/UX Developer
+                                <span>2025 — Present</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#0">
-                                Site Of The Month
-                                <span>Awwwards — 2022</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#0">
-                                Developer of The Year
-                                <span>Awwwards — 2021</span>
-                            </a>
-                        </li>
+                      
                     </ul>
                 </div>
                 <div className="grid-list-items__item s-about__block">
                     <h4 className="s-about__block-title">Skills</h4>
                     <ul className="s-about__list">
                         <li>
-                            Product Design
+                            Figma Design
                         </li>
                         <li>
                             UI/UX Design
@@ -126,10 +99,10 @@ function About() {
                             Frontend Development
                         </li>
                         <li>
-                            Illustration
+                            React and JavaScript
                         </li>
                         <li>
-                            Visual Design
+                            Vibe Coder
                         </li>
                     </ul>
                 </div>
