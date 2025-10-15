@@ -2984,10 +2984,9 @@ td:last-child {
     --gap                : calc(var(--gutter) * 2);
     --min-width          : 300px;
     display              : grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--min-width), 100%), 1fr));
     -moz-column-gap      : var(--gap);
     column-gap           : var(--gap);
-    align-items          : start;
 }
 
 .grid-list-items__item {
@@ -3412,11 +3411,6 @@ td:last-child {
     letter-spacing: -0.025em;
     margin-top    : 0;
     margin-bottom : var(--vspace-1_25);
-}
-
-.s-intro__content-quote {
-    font-size: 0.6em;
-    opacity  : 0.8;
 }
 
 .s-intro__content-btns {
@@ -3874,7 +3868,6 @@ td:last-child {
 }
 
 
-
 /* ===================================================================
  * # ABOUT
  *
@@ -3883,13 +3876,6 @@ td:last-child {
 .s-about {
     padding-top: var(--vspace-7);
     color      : var(--color-3);
-}
-
-/* specific hover for DOWNLOAD CV button */
-.s-about__content-btn .btn:hover {
-    background-color: var(--color-1);
-    border-color    : var(--color-1);
-    color           : var(--color-white);
 }
 
 /* --------------------------------------------------------------------
@@ -3950,7 +3936,6 @@ td:last-child {
         padding-top: var(--vspace-5);
     }
 }
-
 
 
 /* ===================================================================
