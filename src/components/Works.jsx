@@ -167,7 +167,22 @@ I’ve successfully organized  mentored members in UI/UX fundamentals, and colla
                                     </p>
                                 </div>
                             </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="s-testimonials__slide swiper-slide">
+                                    <div className="s-testimonials__author">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSggNB_uNazKerQB1VrUcV8AtanngWDhyaKcQ&s" alt="Author image" className="s-testimonials__avatar" />
+                                        <cite className="s-testimonials__cite">
+                                            <strong>IEEE SB SBCE</strong>
+                                            <span>Sub-Execom Program Coordination</span>
+                                        </cite>
+                                    </div>
+                                    <p>
+                                        The Program Coordination team is responsible for planning, organizing, and managing various events and activities under IEEE. The team ensures smooth execution of programs by coordinating with different committees, scheduling sessions, and handling event logistics. Their goal is to deliver well-structured, impactful events that enhance member engagement and learning.
+                                    </p>
+                                </div>
+                            </SwiperSlide>
                         </Swiper>
+                        
                     </div>
                 </div>
             </div>
