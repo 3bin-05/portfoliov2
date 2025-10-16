@@ -25,8 +25,8 @@ function Works() {
                             <img src={purpleImage} srcSet={purpleImage} alt="" />
                         </div>
                         <div className="entry__info">
-                            <h4 className="entry__title">White Knit Cap</h4>
-                            <div className="entry__cat">Frontend Design</div>
+                            <h4 className="entry__title">The Purple Movement</h4>
+                            <div className="entry__cat">UI/UX Design</div>
                         </div>
                     </a>
                     <div className="glightbox-desc entry__desc-01">
@@ -44,8 +44,8 @@ function Works() {
                             <img src={bsImage} srcSet={bsImage} alt="" />
                         </div>
                         <div className="entry__info">
-                            <h4 className="entry__title">WoodCraft</h4>
-                            <div className="entry__cat">Product Design</div>
+                            <h4 className="entry__title">Beyond Syllabus</h4>
+                            <div className="entry__cat">UI/UX design</div>
                         </div>
                     </a>
                     <div className="glightbox-desc entry__desc-02">
@@ -63,8 +63,8 @@ function Works() {
                             <img src={tinkerImage} srcSet={tinkerImage} alt="" />
                         </div>
                         <div className="entry__info">
-                            <h4 className="entry__title">Caffeine & Tulips</h4>
-                            <div className="entry__cat">Brand Identity</div>
+                            <h4 className="entry__title">Tinkerhub SBCE</h4>
+                            <div className="entry__cat">UI/UX Design</div>
                         </div>
                     </a>
                     <div className="glightbox-desc entry__desc-03">
@@ -82,49 +82,11 @@ function Works() {
                             <img src={ckjImage} srcSet={ckjImage}alt="" />
                         </div>
                         <div className="entry__info">
-                            <h4 className="entry__title">Grayscale</h4>
-                            <div className="entry__cat">Product Design</div>
+                            <h4 className="entry__title">Clickjack testing on SBCE website</h4>
+                            <div className="entry__cat">Cyber Security</div>
                         </div>
                     </a>
                     <div className="glightbox-desc entry__desc-04">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Inventore ipsum iste soluta fugiat, impedit illum ducimus
-                            deleniti facilis ab, tempora non! Nisi, tempora provident.
-                            <a href="https://www.behance.net/">Project Link</a>.
-                        </p>
-                    </div>
-                </div>
-                <div className="column entry">
-                    <a href="images/folio/gallery/g-lamp.jpg" className="entry__link glightbox" data-glightbox="title: The Lamp; description: .entry__desc-05">
-                        <div className="entry__thumb">
-                            <img src="https://via.placeholder.com/400x300/ffff00/000000?text=The+Lamp" srcSet="https://via.placeholder.com/400x300/ffff00/000000?text=The+Lamp 1x, https://via.placeholder.com/800x600/ffff00/000000?text=The+Lamp 2x" alt="" />
-                        </div>
-                        <div className="entry__info">
-                            <h4 className="entry__title">The Lamp</h4>
-                            <div className="entry__cat">Brand Identity</div>
-                        </div>
-                    </a>
-                    <div className="glightbox-desc entry__desc-05">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Inventore ipsum iste soluta fugiat, impedit illum ducimus
-                            deleniti facilis ab, tempora non! Nisi, tempora provident.
-                            <a href="https://www.behance.net/">Project Link</a>.
-                        </p>
-                    </div>
-                </div>
-                <div className="column entry">
-                    <a href="images/folio/gallery/g-tropical.jpg" className="entry__link glightbox" data-glightbox="title: Tropical; description: .entry__desc-06">
-                        <div className="entry__thumb">
-                            <img src="https://via.placeholder.com/400x300/00ff00/000000?text=Tropical" srcSet="https://via.placeholder.com/400x300/00ff00/000000?text=Tropical 1x, https://via.placeholder.com/800x600/00ff00/000000?text=Tropical 2x" alt="" />
-                        </div>
-                        <div className="entry__info">
-                            <h4 className="entry__title">Tropical</h4>
-                            <div className="entry__cat">Frontend Design</div>
-                        </div>
-                    </a>
-                    <div className="glightbox-desc entry__desc-06">
                         <p>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                             Inventore ipsum iste soluta fugiat, impedit illum ducimus
