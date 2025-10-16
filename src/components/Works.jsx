@@ -39,7 +39,7 @@ function Works() {
                     </div>
                 </div>
                 <div className="column entry">
-                    <a href={bsImage} className="entry__link glightbox" data-glightbox="title: WoodCraft; description: .entry__desc-02">
+                    <a href="https://beyondsyllabus.in" target="_blank" rel="noopener noreferrer" className="entry__link glightbox" data-glightbox="title: WoodCraft; description: .entry__desc-02">
                         <div className="entry__thumb">
                             <img src={bsImage} srcSet={bsImage} alt="" />
                         </div>
@@ -58,7 +58,7 @@ function Works() {
                     </div>
                 </div>
                 <div className="column entry">
-                    <a href={tinkerImage} className="entry__link glightbox" data-glightbox="title: Caffeine & Tulips; description: .entry__desc-03">
+                    <a href={tinkerImage} target="_blank" rel="noopener noreferrer" className="entry__link glightbox" data-glightbox="title: Caffeine & Tulips; description: .entry__desc-03">
                         <div className="entry__thumb">
                             <img src={tinkerImage} srcSet={tinkerImage} alt="" />
                         </div>
@@ -77,7 +77,7 @@ function Works() {
                     </div>
                 </div>
                 <div className="column entry">
-                    <a href={bsImage} className="entry__link glightbox" data-glightbox="title: Grayscale; description: .entry__desc-04">
+                    <a href="https://github.com/3bin-05/clickjack" target="_blank" rel="noopener noreferrer" className="entry__link glightbox" data-glightbox="title: Grayscale; description: .entry__desc-04">
                         <div className="entry__thumb">
                             <img src={ckjImage} srcSet={ckjImage}alt="" />
                         </div>
