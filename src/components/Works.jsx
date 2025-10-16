@@ -20,7 +20,7 @@ function Works() {
 
             <div className="row folio-entries">
                 <div className="column entry">
-                    <a href={purpleImage} className="entry__link glightbox" data-glightbox="title: White Knit Cap; description: .entry__desc-01">
+                    <a href="https://purple-movement.com" className="entry__link glightbox" data-glightbox="title: White Knit Cap; description: .entry__desc-01">
                         <div className="entry__thumb">
                             <img src={purpleImage} srcSet={purpleImage} alt="" />
                         </div>
