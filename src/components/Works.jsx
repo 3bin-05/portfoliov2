@@ -13,7 +13,7 @@ function Works() {
             <div className="row">
                 <div className="column xl-12">
                     <div className="section-header" data-num="02">
-                        <h2 className="text-display-title">Projects.</h2>
+                        <h2 className="text-display-title">My Projects.</h2>
                     </div>
                 </div>
             </div>
