@@ -70,7 +70,7 @@ function About() {
                         </li>
                         <li>
                             <a href="#0">
-                                Tinkerhub Tech Team UI Developer
+                                Tinkerhub SBCE Tech Team UI Developer
                                 <span>2025 — Present</span>
                             </a>
                         </li>

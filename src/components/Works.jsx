@@ -2,6 +2,10 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import purpleImage from '../assets/images/folio/purple.jpg';
+import bsImage from '../assets/images/folio/BS.jpg';
+import tinkerImage from '../assets/images/folio/tinker.jpg';
+import ckjImage from '../assets/images/folio/ckj.jpg';
 
 function Works() {
     return (
@@ -16,9 +20,9 @@ function Works() {
 
             <div className="row folio-entries">
                 <div className="column entry">
-                    <a href="https://purple-movement.com/_next/image?url=%2Fimages%2Faic.jpg&w=384&q=75" className="entry__link glightbox" data-glightbox="title: White Knit Cap; description: .entry__desc-01">
+                    <a href={purpleImage} className="entry__link glightbox" data-glightbox="title: White Knit Cap; description: .entry__desc-01">
                         <div className="entry__thumb">
-                            <img src="https://purple-movement.com/_next/image?url=%2Fimages%2Faic.jpg&w=384&q=75" srcSet="https://purple-movement.com/_next/image?url=%2Fimages%2Faic.jpg&w=384&q=75" alt="" />
+                            <img src={purpleImage} srcSet={purpleImage} alt="" />
                         </div>
                         <div className="entry__info">
                             <h4 className="entry__title">White Knit Cap</h4>
@@ -35,9 +39,9 @@ function Works() {
                     </div>
                 </div>
                 <div className="column entry">
-                    <a href="images/folio/gallery/g-woodcraft.jpg" className="entry__link glightbox" data-glightbox="title: WoodCraft; description: .entry__desc-02">
+                    <a href={bsImage} className="entry__link glightbox" data-glightbox="title: WoodCraft; description: .entry__desc-02">
                         <div className="entry__thumb">
-                            <img src="https://via.placeholder.com/400x300/8b4513/ffffff?text=WoodCraft" srcSet="https://via.placeholder.com/400x300/8b4513/ffffff?text=WoodCraft 1x, https://via.placeholder.com/800x600/8b4513/ffffff?text=WoodCraft 2x" alt="" />
+                            <img src={bsImage} srcSet={bsImage} alt="" />
                         </div>
                         <div className="entry__info">
                             <h4 className="entry__title">WoodCraft</h4>
@@ -54,9 +58,9 @@ function Works() {
                     </div>
                 </div>
                 <div className="column entry">
-                    <a href="images/folio/gallery/g-tulips.jpg" className="entry__link glightbox" data-glightbox="title: Caffeine & Tulips; description: .entry__desc-03">
+                    <a href={tinkerImage} className="entry__link glightbox" data-glightbox="title: Caffeine & Tulips; description: .entry__desc-03">
                         <div className="entry__thumb">
-                            <img src="https://via.placeholder.com/400x300/ff69b4/ffffff?text=Caffeine+%26+Tulips" srcSet="https://via.placeholder.com/400x300/ff69b4/ffffff?text=Caffeine+%26+Tulips 1x, https://via.placeholder.com/800x600/ff69b4/ffffff?text=Caffeine+%26+Tulips 2x" alt="" />
+                            <img src={tinkerImage} srcSet={tinkerImage} alt="" />
                         </div>
                         <div className="entry__info">
                             <h4 className="entry__title">Caffeine & Tulips</h4>
@@ -73,9 +77,9 @@ function Works() {
                     </div>
                 </div>
                 <div className="column entry">
-                    <a href="images/folio/gallery/g-grayscale.jpg" className="entry__link glightbox" data-glightbox="title: Grayscale; description: .entry__desc-04">
+                    <a href={bsImage} className="entry__link glightbox" data-glightbox="title: Grayscale; description: .entry__desc-04">
                         <div className="entry__thumb">
-                            <img src="https://via.placeholder.com/400x300/808080/ffffff?text=Grayscale" srcSet="https://via.placeholder.com/400x300/808080/ffffff?text=Grayscale 1x, https://via.placeholder.com/800x600/808080/ffffff?text=Grayscale 2x" alt="" />
+                            <img src={ckjImage} srcSet={ckjImage}alt="" />
                         </div>
                         <div className="entry__info">
                             <h4 className="entry__title">Grayscale</h4>
@@ -147,7 +151,7 @@ function Works() {
                             <SwiperSlide>
                                 <div className="s-testimonials__slide swiper-slide">
                                     <div className="s-testimonials__author">
-                                        <img src="https://media.licdn.com/dms/image/v2/D560BAQG6raXCDhNeyQ/company-logo_200_200/B56ZfWj23rHQAI-/0/1751651414732/the_purple_movement_logo?e=2147483647&v=beta&t=Zy4QCD3yZ-ow0hzYP1olWN-9Xfuk3N6E7TQOql4D3SY" alt="Avatar" className="s-testimonials__avatar" />
+                                        <img src={purpleImage} alt="Avatar" className="s-testimonials__avatar" />
                                         <cite className="s-testimonials__cite">
                                             <strong>The Purple Movement</strong>
                                             <span>UI/UX Developer</span>
