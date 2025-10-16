@@ -1,5 +1,4 @@
 import React from 'react';
-import SpotifyWidget from './SpotifyWidget';
 
 function About() {
     return (
@@ -21,7 +20,6 @@ function About() {
                     <div className="s-about__content-btn">
                         <a href="/cv.pdf" download className="btn">Download CV</a>
                     </div>
-                    <SpotifyWidget />
                 </div>
 
                 <div className="column xl-6 md-12 s-about__content-secondary">

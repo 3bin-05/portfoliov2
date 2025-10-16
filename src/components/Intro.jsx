@@ -1,4 +1,3 @@
-import SpotifyWidget from './SpotifyWidget.jsx';
 import React from 'react';
 import introBg from '../assets/images/intro-bg.jpg';
 

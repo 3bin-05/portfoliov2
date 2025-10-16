@@ -197,34 +197,6 @@
     --border-radius: 5px;
 }
 
-/* Example CSS for the new widget. You'll need to adapt this for your layout. */
-.s-intro__spotify-widget {
-    /* Position it near the social links, or another clean spot */
-    position: absolute;
-    bottom: 250px; /* Example position */
-    left: 100px; /* Example position */
-    z-index: 100;
-    padding: 15px;
-    background-color: #f7f7f7; /* Light background to make it stand out */
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Spotify widget in About section */
-.s-about__spotify {
-    margin-top: var(--vspace-1);
-    padding: var(--vspace-1);
-    background-color: var(--color-gray-5);
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.s-about__spotify iframe {
-    border-radius: var(--border-radius);
-    width: 100% !important;
-    height: 360px !important;
-}
-
 /* ------------------------------------------------------------------- 
  * ## spacing and typescale
  * ------------------------------------------------------------------- */
