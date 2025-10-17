@@ -3413,6 +3413,11 @@ td:last-child {
     margin-bottom : var(--vspace-1_25);
 }
 
+.s-intro__content-quote {
+    font-size: 5rem;
+    color: var(--color-text-light);
+}
+
 .s-intro__content-btns {
     --color-btn           : var(--color-text-dark);
     --color-btn-text      : var(--color-white);
@@ -3876,6 +3881,12 @@ td:last-child {
 .s-about {
     padding-top: var(--vspace-7);
     color      : var(--color-3);
+}
+
+.s-about__content-btn .btn:hover {
+    background-color: var(--color-1-light);
+    border-color    : var(--color-1-light);
+    color           : white;
 }
 
 /* --------------------------------------------------------------------
