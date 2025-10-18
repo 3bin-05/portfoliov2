@@ -9,7 +9,18 @@ import ckjImage from '../assets/images/folio/ckj.jpg';
 
 function Works() {
     return (
-        <section id="works" className="s-works target-section">
+        <section id="works" className="s-works target-section" style={{ position: 'relative' }}>
+            <div className="snow-container">
+                {Array.from({ length: 50 }, (_, i) => (
+                    <span
+                        key={i}
+                        style={{
+                            '--i': i,
+                            '--j': Math.floor(Math.random() * 20)
+                        }}
+                    ></span>
+                ))}
+            </div>
             <div className="row">
                 <div className="column xl-12">
                     <div className="section-header" data-num="02">
@@ -113,7 +124,7 @@ function Works() {
                             <SwiperSlide>
                                 <div className="s-testimonials__slide swiper-slide">
                                     <div className="s-testimonials__author">
-                                        <img src={purpleImage} alt="Avatar" className="s-testimonials__avatar" />
+                                        <img src="https://media.licdn.com/dms/image/v2/D560BAQG6raXCDhNeyQ/company-logo_200_200/B56ZfWj23rHQAI-/0/1751651414732/the_purple_movement_logo?e=2147483647&v=beta&t=Zy4QCD3yZ-ow0hzYP1olWN-9Xfuk3N6E7TQOql4D3SY" alt="Avatar" className="s-testimonials__avatar" />
                                         <cite className="s-testimonials__cite">
                                             <strong>The Purple Movement</strong>
                                             <span>UI/UX Developer</span>

@@ -2,7 +2,18 @@ import React from 'react';
 
 function About() {
     return (
-        <section id="about" className="s-about">
+        <section id="about" className="s-about" style={{ position: 'relative' }}>
+            <div className="snow-container">
+                {Array.from({ length: 50 }, (_, i) => (
+                    <span
+                        key={i}
+                        style={{
+                            '--i': i,
+                            '--j': Math.floor(Math.random() * 20)
+                        }}
+                    ></span>
+                ))}
+            </div>
             <div className="row">
                 <div className="column lg-12">
                     <div className="section-header" data-num="01">

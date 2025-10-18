@@ -4452,3 +4452,68 @@ td:last-child {
         right: -2rem;
     }
 }
+
+/* Snow Effect */
+.snow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.snow-container span {
+    /* --- CUSTOMIZATION OPTIONS --- */
+    --snow-opacity: 0.8; /* <--- Change this value (0.0 to 1.0) to adjust opacity */
+    --snow-color: #ffcc99; /* Light Orange/Apricot */
+    /* ----------------------------- */
+
+    /* Initial particle styling */
+    position: absolute;
+    top: -10px; /* Start slightly above the container */
+    width: calc(3px + var(--i) * 0.2px); /* Varying sizes */
+    height: calc(3px + var(--i) * 0.2px);
+    background: var(--snow-color);
+    opacity: var(--snow-opacity);
+    border-radius: 50%;
+
+    /* Positioning and Animation */
+    left: calc(var(--i) * 5%); /* Horizontal position based on the --i variable */
+    animation: fall calc(20s + var(--i) * 0.5s) linear infinite; /* Speed varies */
+    animation-delay: calc(var(--j) * -1s); /* Stagger the start times */
+
+    /* Subtle side-to-side drift */
+    transform: translateX(0);
+    animation-name: fall, sway;
+    animation-duration: calc(20s + var(--i) * 0.5s), calc(5s + var(--i) * 0.3s);
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: normal, alternate;
+}
+
+/* Keyframes for the falling motion */
+@keyframes fall {
+    0% {
+        top: -10%;
+        transform: translateY(0);
+    }
+    100% {
+        top: 110%; /* Fall completely past the bottom */
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes for the side-to-side sway motion (drift) */
+@keyframes sway {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(100px); /* Adjust '100px' for less/more drift */
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
