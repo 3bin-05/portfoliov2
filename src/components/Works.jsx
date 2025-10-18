@@ -114,6 +114,7 @@ function Works() {
                     <div className="swiper-container s-testimonials__slider">
                         <Swiper
                             slidesPerView={1}
+                            loop={true}
                             pagination={{ clickable: true }}
                             breakpoints={{
                                 401: { slidesPerView: 1, spaceBetween: 20 },
