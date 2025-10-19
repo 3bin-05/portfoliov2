@@ -55,7 +55,7 @@ function Works() {
                             <img src={bsImage} srcSet={bsImage} alt="" />
                         </div>
                         <div className="entry__info">
-                            <h4 className="entry__title">Beyond Syllabus</h4>
+                            <h4 className="entry__title">Development Under Work</h4>
                             <div className="entry__cat">UI/UX design</div>
                         </div>
                     </a>
@@ -74,7 +74,7 @@ function Works() {
                             <img src={tinkerImage} srcSet={tinkerImage} alt="" />
                         </div>
                         <div className="entry__info">
-                            <h4 className="entry__title">Tinkerhub SBCE</h4>
+                            <h4 className="entry__title">Development Under Work</h4>
                             <div className="entry__cat">UI/UX Design</div>
                         </div>
                     </a>
