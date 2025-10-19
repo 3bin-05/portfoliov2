@@ -86,7 +86,7 @@ function Header({ isStylesPage }) {
                                 <li><a href="#footer" onClick={(e) => scrollToSection(e, '#footer')}>Contact</a></li>
                             </>
                         )}
-                         <li><Link to="/styles">Styles</Link></li>
+                         
                     </ul>
                 </nav>
             </div>
