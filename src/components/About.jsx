@@ -69,7 +69,7 @@ function About() {
                     <ul className="s-about__list">
                         <li>
                             <a href="#0">
-                                IEEE SB SBCE Sub-Execom Program Co ordination Team
+                                The Purple Movement UI/UX Developer
                                 <span>2025 — Present</span>
                             </a>
                         </li>
@@ -85,13 +85,12 @@ function About() {
                                 <span>2025 — Present</span>
                             </a>
                         </li>
-                        <li>
+                         <li>
                             <a href="#0">
-                                The Purple Movement UI/UX Developer
+                                IEEE SB SBCE Sub-Execom Program Co ordination Team
                                 <span>2025 — Present</span>
                             </a>
                         </li>
-                      
                     </ul>
                 </div>
                 <div className="grid-list-items__item s-about__block">
