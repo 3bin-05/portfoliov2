@@ -3154,6 +3154,23 @@ td:last-child {
     color              : var(--color-gray-14);
     padding            : 0 1.2rem;
     transition-property: color, background-color;
+    position           : relative;
+}
+
+.s-header__menu-links a::after {
+    content          : '';
+    position         : absolute;
+    bottom           : 0;
+    left             : 0;
+    width            : 0;
+    height           : 2px;
+    background-color : var(--color-1);
+    transition       : width 0.3s ease-in-out;
+}
+
+.s-header__menu-links a:hover::after,
+.s-header__menu-links a:focus::after {
+    width: 100%;
 }
 
 .s-header__menu-links .current a {
