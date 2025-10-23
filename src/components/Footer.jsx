@@ -1,5 +1,5 @@
 import React from 'react';
-
+import resume from '../assets/images/resume/Ebin reji.pdf';
 function Footer() {
     return (
         <footer id="footer" className="s-footer">
@@ -46,7 +46,7 @@ function Footer() {
                     <a href="mailto:ebin05reji@gmail.com" className="btn btn--primary btn--large u-fullwidth">Message Me</a>
                 </div>
                 <div className="column xl-6 tab-12">
-                    <a href="/cv.pdf" download className="btn btn--stroke btn--large u-fullwidth">Get My CV</a>
+                    <a href={resume} target="_blank" rel="noopener noreferrer" className="btn btn--stroke btn--large u-fullwidth">Get My CV</a>
                 </div>
             </div>
 
