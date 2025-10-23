@@ -1,5 +1,6 @@
 import React from 'react';
 import introBg from '../assets/images/intro-bg.jpg';
+import resume from '../assets/images/resume/Ebin reji.pdf';
 
 function Intro() {
     return (
@@ -31,7 +32,7 @@ function Intro() {
                 <img src={introBg} srcSet={`${introBg} 1x, ${introBg} 2x`} alt="" />
             </div>
             <div className="s-intro__btn-download">
-                <a className="btn btn--stroke" href="/cv.pdf" download>Get My CV</a>
+                <a className="btn btn--stroke" href={resume} target="_blank" rel="noopener noreferrer">Get My CV</a>
             </div>
             <div className="s-intro__scroll-down">
                 <a href="#about" className="smoothscroll">

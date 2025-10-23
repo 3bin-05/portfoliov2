@@ -1,4 +1,4 @@
-import React from 'react';
+import resume from '../assets/images/resume/Ebin reji.pdf';
 
 function About() {
     return (
@@ -29,7 +29,7 @@ function About() {
                         An aspiring Computer Engineer and UI/UX enthusiast passionate about crafting meaningful and user-focused digital experiences. I’m currently pursuing my BTech in Computer Science at Sree Buddha College of Engineering, Patoor, where I’ve built a strong foundation in Python, React, and web development.
                     </p>
                     <div className="s-about__content-btn">
-                        <a href="/cv.pdf" download className="btn">Download CV</a>
+                        <a href={resume} className="btn" target="_blank" rel="noopener noreferrer">Download CV</a>
                     </div>
                 </div>
 
