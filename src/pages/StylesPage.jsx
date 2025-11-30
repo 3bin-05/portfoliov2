@@ -1,9 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import introBg from '../assets/images/intro-bg.jpg';
-import sampleImage from '../assets/images/sample-image.jpg';
-import wheel500 from '../assets/images/wheel-500.jpg';
-import wheel1000 from '../assets/images/wheel-1000.jpg';
 
 function StylesPage() {
     return (
