@@ -1,13 +1,4 @@
-# TODO List
+# TODO for Adding Gallery Section
 
-## Completed Tasks
-
-- [x] Add snow effect CSS to styles.css
-- [x] Add snow effect to About section in About.jsx
-- [x] Add snow effect to Works section in Works.jsx
-
-## Pending Tasks
-
-- [ ] Test the snow effect in the browser to ensure it renders correctly
-- [ ] Adjust snow effect parameters if needed (e.g., speed, opacity, color)
-- [ ] Add images to the new Gallery section
+- [x] Create Gallery.jsx component with image display from folio folder
+- [x] Update HomePage.jsx to import and include Gallery component below Works

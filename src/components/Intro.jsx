@@ -1,6 +1,6 @@
 import React from 'react';
 import introBg from '../assets/images/intro-bg.jpg';
-import resume from '../assets/images/resume/Ebin reji.pdf';
+import resume from '../assets/images/resume/EbinResume.pdf';
 
 function Intro() {
     return (

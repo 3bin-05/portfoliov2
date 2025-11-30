@@ -5,7 +5,7 @@ function Numbers() {
     <section id="numbers" className="s-numbers">
       <div className="row">
         <div className="column lg-12">
-          <div className="section-header" data-num="03">
+          <div className="section-header" data-num="04">
             <h2 className="text-display-title">Numbers.</h2>
           </div>
         </div>

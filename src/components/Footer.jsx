@@ -1,11 +1,11 @@
 import React from 'react';
-import resume from '../assets/images/resume/Ebin reji.pdf';
+import resume from '../assets/images/resume/EbinResume.pdf';
 function Footer() {
     return (
         <footer id="footer" className="s-footer">
             <div className="row">
                 <div className="column lg-12">
-                    <div className="section-header light-on-dark" data-num="04">
+                    <div className="section-header light-on-dark" data-num="05">
                         <h2 className="text-display-title">Get In Touch.</h2>
                     </div>
                 </div>
