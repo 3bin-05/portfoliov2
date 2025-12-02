@@ -8,7 +8,10 @@ import tinkerImage from "../assets/images/folio/tinker.jpg";
 import ckjImage from "../assets/images/folio/ckj.jpg";
 import chadImage from "../assets/images/folio/chad.jpg";
 import nptelImage from "../assets/images/folio/nptel.jpg";
+import moonImage from "../assets/images/folio/moon.jpg";
+import notionImage from "../assets/images/folio/notion.jpg";
 import nptelpy from "../assets/images/certificate/nptelpy.pdf";
+
 
 function Works() {
   return (
@@ -180,6 +183,56 @@ function Works() {
             <div className="entry__info">
               <h4 className="entry__title">Joy of computing with python</h4>
               <div className="entry__cat">NPTEL certificate</div>
+            </div>
+          </a>
+          <div className="glightbox-desc entry__desc-04">
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
+              facilis ab, tempora non! Nisi, tempora provident.
+              <a href="https://www.behance.net/">Project Link</a>.
+            </p>
+          </div>
+        </div>
+        <div className="column entry">
+          <a
+            href="https://cotton-light-6fe.notion.site/28ae88508ec48155b4b6dde03a96e1da?v=28ae88508ec481708570000cc2b1ec4c&source=copy_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="entry__link glightbox"
+            data-glightbox="title: Grayscale; description: .entry__desc-04"
+          >
+            <div className="entry__thumb">
+              <img src={notionImage} srcSet={notionImage} alt="" />
+            </div>
+            <div className="entry__info">
+              <h4 className="entry__title">Project planner schedule</h4>
+              <div className="entry__cat">Refer all my endevours</div>
+            </div>
+          </a>
+          <div className="glightbox-desc entry__desc-04">
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
+              facilis ab, tempora non! Nisi, tempora provident.
+              <a href="https://www.behance.net/">Project Link</a>.
+            </p>
+          </div>
+        </div>
+        <div className="column entry">
+          <a
+            href="https://moon-gules-ten.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="entry__link glightbox"
+            data-glightbox="title: Grayscale; description: .entry__desc-04"
+          >
+            <div className="entry__thumb">
+              <img src={moonImage} srcSet={moonImage} alt="" />
+            </div>
+            <div className="entry__info">
+              <h4 className="entry__title">Moon phase tracker</h4>
+              <div className="entry__cat">This was made for NASA space app challenge 2025</div>
             </div>
           </a>
           <div className="glightbox-desc entry__desc-04">
