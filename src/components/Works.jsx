@@ -77,7 +77,7 @@ function Works() {
               <img src={bsImage} srcSet={bsImage} alt="" />
             </div>
             <div className="entry__info">
-              <h4 className="entry__title">Development Under Work</h4>
+              <h4 className="entry__title">Beyond syllabus</h4>
               <div className="entry__cat">UI/UX design</div>
             </div>
           </a>
@@ -92,7 +92,7 @@ function Works() {
         </div>
         <div className="column entry">
           <a
-            href={tinkerImage}
+            href="www.figma.com/design/eXVkbmKh9gvApqb4Kk8OLk/TINKERHUB-SBCE?node-id=0-1&t=LWqHRDXECKbJT956-1"
             target="_blank"
             rel="noopener noreferrer"
             className="entry__link glightbox"
@@ -102,7 +102,7 @@ function Works() {
               <img src={tinkerImage} srcSet={tinkerImage} alt="" />
             </div>
             <div className="entry__info">
-              <h4 className="entry__title">Development Under Work</h4>
+              <h4 className="entry__title">Tinkerhub SBCE</h4>
               <div className="entry__cat">UI/UX Design</div>
             </div>
           </a>
