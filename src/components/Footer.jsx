@@ -1,5 +1,5 @@
 import React from 'react';
-import resume from '../assets/images/resume/EbinResume.pdf';
+import resume from '../assets/images/resume/Resume.pdf';
 function Footer() {
     return (
         <footer id="footer" className="s-footer">
