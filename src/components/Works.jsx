@@ -92,7 +92,7 @@ function Works() {
         </div>
         <div className="column entry">
           <a
-            href="www.figma.com/design/eXVkbmKh9gvApqb4Kk8OLk/TINKERHUB-SBCE?node-id=0-1&t=LWqHRDXECKbJT956-1"
+            href="https://www.figma.com/design/eXVkbmKh9gvApqb4Kk8OLk/TINKERHUB-SBCE?node-id=0-1&t=XUaJ7WugFRGSVDdi-1"
             target="_blank"
             rel="noopener noreferrer"
             className="entry__link glightbox"
