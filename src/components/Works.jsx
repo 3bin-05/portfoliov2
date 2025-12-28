@@ -11,7 +11,7 @@ import nptelImage from "../assets/images/folio/nptel.jpg";
 import moonImage from "../assets/images/folio/moon.jpg";
 import notionImage from "../assets/images/folio/notion.jpg";
 import nptelpy from "../assets/images/certificate/nptelpy.pdf";
-
+import musbc from "../assets/images/icons/musbc.png";
 
 function Works() {
   return (
@@ -311,7 +311,7 @@ function Works() {
                 <div className="s-testimonials__slide swiper-slide">
                   <div className="s-testimonials__author">
                     <img
-                      src="https://media.licdn.com/dms/image/v2/D560BAQGELCB6XhdFHQ/company-logo_200_200/B56ZhvEYS1G0AI-/0/1754210076342/mulearnsbc_logo?e=1766016000&v=beta&t=tsmpoC9m8NEJbqlMZvIRRxHs3FQ-hVxOeIi-CJ0BM0s"
+                      src={musbc}
                       alt="Author image"
                       className="s-testimonials__avatar"
                     />
