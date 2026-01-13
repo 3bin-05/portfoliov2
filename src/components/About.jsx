@@ -1,5 +1,6 @@
 import resume from "../assets/images/resume/Resume.pdf";
 import CircularText from "./CircularText";
+import SpotlightCard from "./SpotlightCard";
 function About() {
   return (
     <section id="about" className="s-about" style={{ position: "relative" }}>
@@ -54,6 +55,17 @@ function About() {
 
         <div className="column xl-6 md-12 s-about__content-secondary">
           <h3 className="s-about__content-title">Education & Qualifications</h3>
+          <SpotlightCard
+            className="custom-spotlight-card"
+            spotlightColor="orange"
+          >
+             <p>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/9/95/CBSE_new_logo.svg/1280px-CBSE_new_logo.svg.png"
+                alt="CBSE Logo"
+                style={{ width: "50px", marginBottom: "-30px" }}
+              />
+            </p>
           <p>
             <strong>Central Board of Secondary Education</strong>
             <br />
@@ -62,7 +74,15 @@ function About() {
             focus on Computer Science, which helped me build a strong foundation
             in programming and technology.
           </p>
+          <p></p>
           <p>
+              <img
+                src="https://sbce.ac.in/assets/sbce_logo.png"
+                alt="SBCE Logo"
+                style={{ width: "50px", marginBottom: "-25px" }}
+              />
+            </p>
+           <p>
             <strong>
               Bachelor of Technology in Computer Science and Engineering{" "}
             </strong>
@@ -73,6 +93,7 @@ function About() {
             studies focus on preparing myself for a successful career in the
             tech industry.
           </p>
+          </SpotlightCard>
         </div>
       </div>
 
