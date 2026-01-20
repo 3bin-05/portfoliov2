@@ -57,7 +57,7 @@ function About() {
           <h3 className="s-about__content-title">Education & Qualifications</h3>
           <SpotlightCard
             className="custom-spotlight-card"
-            spotlightColor="orange"
+            spotlightColor= "rgba(255, 255, 255, 0.5)"
           >
              <p>
               <img
@@ -151,6 +151,7 @@ function About() {
                 <li>Frontend Development</li>
                 <li>React and JavaScript</li>
                 <li>Vibe Coder</li>
+                <li>Python</li>
               </ul>
             </div>
           </div>

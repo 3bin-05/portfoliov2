@@ -11,7 +11,7 @@ function Intro() {
                         <div className="s-intro__content-pretitle text-pretitle">Hi there</div>
                         <h1 className="s-intro__content-title">
                             I'm Ebin Reji <br />
-                            a UI/UX Designer <br />
+                            a Software Dev <br />
                             <span className="s-intro__content-quote">“Logic meets creativity.”</span>
                         </h1>
                         <div className="s-intro__content-btns">

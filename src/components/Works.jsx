@@ -12,6 +12,7 @@ import moonImage from "../assets/images/folio/moon.jpg";
 import notionImage from "../assets/images/folio/notion.jpg";
 import nptelpy from "../assets/images/certificate/nptelpy.pdf";
 import musbc from "../assets/images/icons/musbc.png";
+import osq from "../assets/images/icons/osq.jpeg";
 
 function Works() {
   return (
@@ -232,7 +233,9 @@ function Works() {
             </div>
             <div className="entry__info">
               <h4 className="entry__title">Moon phase tracker</h4>
-              <div className="entry__cat">This was made for NASA space app challenge 2025</div>
+              <div className="entry__cat">
+                This was made for NASA space app challenge 2025
+              </div>
             </div>
           </a>
           <div className="glightbox-desc entry__desc-04">
@@ -304,6 +307,27 @@ function Works() {
                     interfaces, improving user interaction flows, and
                     collaborating closely with developers to bring ideas to
                     life.
+                  </p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="s-testimonials__slide swiper-slide">
+                  <div className="s-testimonials__author">
+                    <img
+                      src={osq}
+                      alt="Avatar"
+                      className="s-testimonials__avatar"
+                    />
+                    <cite className="s-testimonials__cite">
+                      <strong>Open Source Quest by R3ACTOR</strong>
+                      <span>Tech Volunteer</span>
+                    </cite>
+                  </div>
+                  <p>
+                    Open Source Quest is a structured, month-long open-source
+                    contribution program designed to help students gain
+                    real-world experience with professional software development
+                    workflows.{" "}
                   </p>
                 </div>
               </SwiperSlide>

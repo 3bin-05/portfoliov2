@@ -83,7 +83,7 @@ function Footer() {
                 <div className="column xl-6 lg-12">
                     <p className="ss-copyright">
                         <span>© Copyright Ebin Reji 2026</span>
-                        <span>Design by <a href="https://styleshout.com/" target="_blank" rel="noopener noreferrer">StyleShout</a> Distribution by <a href="https://themewagon.com" target="_blank" rel="noopener noreferrer">ThemeWagon</a></span>
+                        <span>Design by Ebin reji with lots of Coffee</span>
                     </p>
                 </div>
             </div>
