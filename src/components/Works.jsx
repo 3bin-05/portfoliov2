@@ -13,6 +13,8 @@ import notionImage from "../assets/images/folio/notion.jpg";
 import nptelpy from "../assets/images/certificate/nptelpy.pdf";
 import musbc from "../assets/images/icons/musbc.png";
 import osq from "../assets/images/icons/osq.jpeg";
+import darkImage from "../assets/images/folio/dark.jpg";
+import darkdoc from "../assets/images/resume/darkdoc.pdf";
 
 function Works() {
   return (
@@ -220,25 +222,23 @@ function Works() {
             </p>
           </div>
         </div>
-        <div className="column entry">
+         <div className="column entry">
           <a
-            href="https://moon-gules-ten.vercel.app"
+            href={darkdoc}
             target="_blank"
             rel="noopener noreferrer"
             className="entry__link glightbox"
-            data-glightbox="title: Grayscale; description: .entry__desc-04"
+            data-glightbox="title: White Knit Cap; description: .entry__desc-01"
           >
             <div className="entry__thumb">
-              <img src={moonImage} srcSet={moonImage} alt="" />
+              <img src={darkImage} srcSet={darkImage} alt="" />
             </div>
             <div className="entry__info">
-              <h4 className="entry__title">Moon phase tracker</h4>
-              <div className="entry__cat">
-                This was made for NASA space app challenge 2025
-              </div>
+              <h4 className="entry__title">Dark Netra</h4>
+              <div className="entry__cat">Developement</div>
             </div>
           </a>
-          <div className="glightbox-desc entry__desc-04">
+          <div className="glightbox-desc entry__desc-01">
             <p>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
