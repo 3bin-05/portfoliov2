@@ -19,22 +19,23 @@ function Preloader() {
       handleLoad();
     } else {
       window.addEventListener("load", handleLoad);
-      // Cleanup the event listener
-      return () => window.removeEventListener("load", handleLoad);
     }
 
-    // Minimum visible time of 10 seconds
+    // Minimum visible time to avoid flash, but short for usability
     const minTimeTimer = setTimeout(() => {
       setMinTimePassed(true);
-    }, 10000);
+    }, 500);
 
-    return () => clearTimeout(minTimeTimer);
+    return () => {
+      window.removeEventListener("load", handleLoad);
+      clearTimeout(minTimeTimer);
+    };
   }, []);
 
   useEffect(() => {
     if (loaded && minTimePassed) {
       setFadeOut(true);
-      setTimeout(() => setShow(false), 3000); // Corresponds to transition duration
+      setTimeout(() => setShow(false), 400); // fade-out transition speed (short)
     }
   }, [loaded, minTimePassed]);
 

@@ -1,0 +1,143 @@
+[
+  {
+    "organization": "IEEE SB SBCE",
+    "totalDuration": "10 mos",
+    "roles": [
+      {
+        "title": "Membership Development Cordinator",
+        "type": "Part-time",
+        "start": "Mar 2026",
+        "end": "Present",
+        "duration": "1 mo",
+        "mode": "On-site",
+        "location": null,
+        "description": null,
+        "skills": []
+      },
+      {
+        "title": "IEEE PROGRAM COORDINATION TEAM",
+        "type": null,
+        "start": "Jun 2025",
+        "end": "Mar 2026",
+        "duration": "10 mos",
+        "mode": "Hybrid",
+        "location": "Sree Buddha College of Engineering",
+        "description": null,
+        "skills": []
+      }
+    ]
+  },
+  {
+    "organization": "MuLearn Foundation",
+    "totalDuration": "2 yrs 10 mos",
+    "roles": [
+      {
+        "title": "UI/UX Core team",
+        "type": "Part-time",
+        "start": "Dec 2025",
+        "end": "Present",
+        "duration": "4 mos",
+        "mode": "Hybrid",
+        "location": "Thiruvananthapuram, Kerala, India",
+        "description": null,
+        "skills": ["Figma", "User Experience Design"]
+      },
+      {
+        "title": "Member",
+        "type": "Full-time",
+        "start": "Jun 2023",
+        "end": "Present",
+        "duration": "2 yrs 10 mos",
+        "mode": "Remote",
+        "location": null,
+        "description": null,
+        "skills": []
+      }
+    ]
+  },
+  {
+    "organization": "TinkerHub SBCE",
+    "totalDuration": "7 mos",
+    "roles": [
+      {
+        "title": "Tech team",
+        "type": "Part-time",
+        "start": "Sep 2025",
+        "end": "Present",
+        "duration": "7 mos",
+        "mode": "On-site",
+        "location": "Sree Buddha College of Engineering, Patoor",
+        "description": null,
+        "skills": ["Figma", "User Interface Design"]
+      }
+    ]
+  },
+  {
+    "organization": "MuLearn SBC",
+    "totalDuration": "8 mos",
+    "roles": [
+      {
+        "title": "UI/UX IG Lead SBC",
+        "type": "Part-time",
+        "start": "Aug 2025",
+        "end": "Present",
+        "duration": "8 mos",
+        "mode": "On-site",
+        "location": "Sree Buddha College of Engineering",
+        "description": "Passionate about crafting intuitive digital experiences and driving creative design initiatives.",
+        "skills": ["Figma", "User Interface Design"]
+      }
+    ]
+  },
+  {
+    "organization": "The Purple Movement",
+    "totalDuration": "8 mos",
+    "roles": [
+      {
+        "title": "UI/UX Developer",
+        "type": "Part-time",
+        "start": "Aug 2025",
+        "end": "Present",
+        "duration": "8 mos",
+        "mode": "Hybrid",
+        "location": "Thiruvananthapuram, Kerala, India",
+        "description": null,
+        "skills": ["Figma", "User Interface Design"]
+      }
+    ]
+  },
+  {
+    "organization": "IEEE",
+    "totalDuration": "1 yr 1 mo",
+    "roles": [
+      {
+        "title": "Member",
+        "type": "Full-time",
+        "start": "Mar 2025",
+        "end": "Present",
+        "duration": "1 yr 1 mo",
+        "mode": null,
+        "location": null,
+        "description": null,
+        "skills": []
+      }
+    ]
+  },
+  {
+    "organization": "Kerala Startup Mission",
+    "totalDuration": "1 mo",
+    "roles": [
+      {
+        "title": "Volunteer",
+        "type": "Part-time",
+        "start": "Dec 2025",
+        "end": "Dec 2025",
+        "duration": "1 mo",
+        "mode": "On-site",
+        "location": "Trivandrum, Kerala, India",
+        "description": null,
+        "skills": []
+      }
+    ]
+  }
+]

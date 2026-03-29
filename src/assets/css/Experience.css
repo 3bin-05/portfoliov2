@@ -1,0 +1,274 @@
+/* Experience.css */
+
+.experience-section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  position: relative;
+  background-color: transparent;
+}
+
+.experience-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Single Master Card */
+.exp-master-card {
+  background: var(--color-gray-6, #f4f5f4); /* Very light grey */
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05); /* Soft premium shadow */
+  animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Continuous Timeline Wrapper */
+.exp-timeline-wrapper {
+  position: relative;
+  /* Space for the vertical line and nodes */
+  padding-left: 3.5rem;
+}
+
+/* The Vertical Continuous Line */
+.exp-timeline-line {
+  position: absolute;
+  top: 10px;
+  bottom: 0px;
+  left: 20px; /* Fixed position */
+  transform: translateX(-50%); /* Centered exactly at 20px */
+  width: 3px;
+  background: var(--color-gray-11, #d4d6d4);
+  border-radius: 3px;
+}
+
+/* Organization Block */
+.exp-org-group {
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.exp-org-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Organization Header Node */
+.exp-org-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.exp-org-node {
+  position: absolute;
+  left: calc(-3.5rem + 20px); /* Move left the padding distance, then back right by the line position */
+  top: 50%;
+  transform: translate(-50%, -50%); /* Center exactly on coordinates */
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--color-white, #fff);
+  border: 5px solid var(--color-1, #C73E1D);
+  z-index: 2;
+  box-shadow: 0 0 0 5px var(--color-gray-6, #f4f5f4); /* Cut out the line visually */
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+/* Organization Info */
+.exp-org-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-org-info h3 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-text-dark, #1a1a1a);
+  line-height: 1.2;
+}
+
+.exp-org-duration {
+  margin: 0.3rem 0 0;
+  font-size: 1.1rem;
+  color: var(--color-1, #C73E1D);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Roles List */
+.exp-roles-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Individual Role Item */
+.exp-role-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+  margin-left: 0.5rem; /* shifts internal content 0.5rem to the right */
+  transition: transform 0.3s ease;
+}
+
+.exp-role-item:last-child {
+  padding-bottom: 0;
+}
+
+.exp-role-item:hover {
+  transform: translateX(8px);
+}
+
+/* Role Node (Smaller dot) */
+.exp-role-node {
+  position: absolute;
+  left: calc(-4.0rem + 20px); /* -3.5rem (wrapper) - 0.5rem (margin-left) + 20px (line position) */
+  top: 8px;
+  transform: translateX(-50%); /* Center perfectly over the line horizontally */
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--color-gray-11, #d4d6d4);
+  border: 3px solid var(--color-gray-6, #f4f5f4);
+  z-index: 2;
+  transition: background-color 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.exp-role-item:hover .exp-role-node {
+  transform: translateX(-50%) scale(1.4);
+  background-color: var(--color-1-light, #e85d3f);
+  animation: pulseDot 1.5s infinite;
+}
+
+/* Role Content */
+.exp-role-title {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text-dark, #1a1a1a);
+  transition: color 0.3s ease;
+}
+
+.exp-role-item:hover .exp-role-title {
+  color: var(--color-1, #C73E1D);
+}
+
+.exp-role-meta {
+  font-size: 1.1rem;
+  color: var(--color-text-light, #767776);
+  margin-bottom: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 500;
+}
+
+.exp-role-meta span {
+  display: flex;
+  align-items: center;
+}
+
+.exp-role-meta .bullet {
+  margin: 0 0.4rem;
+  font-size: 0.75rem;
+  color: var(--color-1, #C73E1D);
+  opacity: 0.7;
+}
+
+.exp-role-desc {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--color-text, #474747);
+  margin-bottom: 1.2rem;
+}
+
+/* Skills */
+.exp-role-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.exp-skill-tag {
+  background: hsla(12, 75%, 45%, 0.08);
+  color: var(--color-1, #C73E1D);
+  padding: 0.4rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid hsla(12, 75%, 45%, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.exp-skill-tag:hover {
+  background: var(--color-1, #C73E1D);
+  color: var(--color-white, #fff);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 10px hsla(12, 75%, 45%, 0.3);
+}
+
+/* Animations */
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseDot {
+  0% {
+    box-shadow: 0 0 0 0 hsla(12, 75%, 45%, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px hsla(12, 75%, 45%, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 hsla(12, 75%, 45%, 0);
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+  .exp-master-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .exp-timeline-wrapper {
+    padding-left: 2.5rem;
+  }
+  
+  .exp-org-node {
+    left: calc(-2.5rem + 20px);
+    width: 18px;
+    height: 18px;
+    border-width: 4px;
+    box-shadow: 0 0 0 3px var(--color-gray-6, #f4f5f4);
+  }
+  
+  .exp-role-node {
+    left: calc(-3.0rem + 20px);
+    width: 13px;
+    height: 13px;
+  }
+  
+  .exp-role-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+  
+  .exp-role-meta .bullet {
+    display: none;
+  }
+  
+  .exp-role-item:hover {
+    transform: translateX(4px);
+  }
+}

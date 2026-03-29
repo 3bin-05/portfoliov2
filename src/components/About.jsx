@@ -1,6 +1,8 @@
 import resume from "../assets/images/resume/Resume.pdf";
 import CircularText from "./CircularText";
 import SpotlightCard from "./SpotlightCard";
+import SkillCard from "./SkillCard";
+
 function About() {
   return (
     <section id="about" className="s-about" style={{ position: "relative" }}>
@@ -32,7 +34,8 @@ function About() {
             className="custom-class"
           />
           <h3 className="s-about__content-title">
-            Hi there, I’m <span style={{ color: "orange" }}>Ebin Reji</span>{" "}
+            Hi there, I’m{" "}
+            <span style={{ color: "orange" }}>Ebin Reji</span>{" "}
           </h3>
           <p className="s-about__content-summary">
             An aspiring Computer Engineer and UI/UX enthusiast passionate about
@@ -57,102 +60,89 @@ function About() {
           <h3 className="s-about__content-title">Education & Qualifications</h3>
           <SpotlightCard
             className="custom-spotlight-card"
-            spotlightColor= "rgba(255, 255, 255, 0.5)"
+            spotlightColor="rgba(255, 255, 255, 0.5)"
           >
-             <p>
+            <p>
               <img
                 src="https://upload.wikimedia.org/wikipedia/en/thumb/9/95/CBSE_new_logo.svg/1280px-CBSE_new_logo.svg.png"
                 alt="CBSE Logo"
                 style={{ width: "50px", marginBottom: "-30px" }}
               />
             </p>
-          <p>
-            <strong>Central Board of Secondary Education</strong>
-            <br />
-            (2021-2023)
-            <br />I completed my 12th grade under the CBSE curriculum with a
-            focus on Computer Science, which helped me build a strong foundation
-            in programming and technology.
-          </p>
-          <p></p>
-          <p>
+            <p>
+              <strong>Central Board of Secondary Education</strong>
+              <br />
+              (2021-2023)
+              <br />I completed my 12th grade under the CBSE curriculum with a
+              focus on Computer Science, which helped me build a strong
+              foundation in programming and technology.
+            </p>
+            <p></p>
+            <p>
               <img
                 src="https://sbce.ac.in/assets/sbce_logo.png"
                 alt="SBCE Logo"
                 style={{ width: "50px", marginBottom: "-25px" }}
               />
             </p>
-           <p>
-            <strong>
-              Bachelor of Technology in Computer Science and Engineering{" "}
-            </strong>
-            <br />
-            (2023-2027)
-            <br />I am currently pursuing a B.Tech in Computer Science and
-            Engineering at Sree Buddha College of Engineering, Patoor. My
-            studies focus on preparing myself for a successful career in the
-            tech industry.
-          </p>
+            <p>
+              <strong>
+                Bachelor of Technology in Computer Science and Engineering{" "}
+              </strong>
+              <br />
+              (2023-2027)
+              <br />I am currently pursuing a B.Tech in Computer Science and
+              Engineering at Sree Buddha College of Engineering, Patoor. My
+              studies focus on preparing myself for a successful career in the
+              tech industry.
+            </p>
           </SpotlightCard>
         </div>
       </div>
 
       <div className="row s-about__content">
         <div className="column xl-12">
-          <div className="grid-list-items s-about__blocks">
-            <div className="grid-list-items__item s-about__block">
-              <h4 className="s-about__block-title">Experience</h4>
-              <ul className="s-about__list">
-                <li>
-                  The Purple Movement
-                  <span>UI/UX Developer</span>
-                </li>
-                <li>
-                  Tinkerhub
-                  <span>Tech Team UI Developer</span>
-                </li>
-              </ul>
+          {/* Technical Skills Grid */}
+          <div className="row" style={{ marginTop: "10rem" }}>
+            <div className="column xl-12">
+              <div className="section-header" data-num="02" style={{ marginBottom: "5rem" }}>
+                <h2 className="text-display-title">Technical Skills.</h2>
+              </div>
             </div>
-            <div className="grid-list-items__item s-about__block">
-              <h4 className="s-about__block-title">Current Jobs</h4>
-              <ul className="s-about__list">
-                <li>
-                  <a href="#0">
-                    The Purple Movement UI/UX Developer
-                    <span>2025 — Present</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#0">
-                    Mulearn SBC UI/UX Lead
-                    <span>2025 — Present</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#0">
-                    Tinkerhub SBCE Tech Team UI Developer
-                    <span>2025 — Present</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#0">
-                    IEEE SB SBCE Sub-Execom Program Co ordination Team
-                    <span>2025 — Present</span>
-                  </a>
-                </li>
-              </ul>
+          </div>
+          <div className="skills-grid">
+            <div className="skills-grid__item">
+              <SkillCard title="Python" percentage={100} />
             </div>
-            <div className="grid-list-items__item s-about__block">
-              <h4 className="s-about__block-title">Skills</h4>
-              <ul className="s-about__list">
-                <li>Figma Design</li>
-                <li>UI/UX Design</li>
-                <li>Prototyping</li>
-                <li>Frontend Development</li>
-                <li>React and JavaScript</li>
-                <li>Vibe Coder</li>
-                <li>Python</li>
-              </ul>
+            <div className="skills-grid__item">
+              <SkillCard title="React" percentage={85} color="bg-blue-500" />
+            </div>
+            <div className="skills-grid__item">
+              <SkillCard title="JavaScript" percentage={90} />
+            </div>
+            <div className="skills-grid__item">
+              <SkillCard title="CSS" percentage={85} />
+            </div>
+            <div className="skills-grid__item">
+              <SkillCard title="Tailwind" percentage={80} />
+            </div>
+            <div className="skills-grid__item">
+              <SkillCard title="Node.js" percentage={70} />
+            </div>
+            <div className="skills-grid__item">
+              <SkillCard title="Figma" percentage={75} />
+            </div>
+            <div className="skills-grid__item">
+              <SkillCard title="C" percentage={65} />
+            </div>
+            <div className="skills-grid__item">
+              <SkillCard title="Java" percentage={30} />
+            </div>
+            <div className="skills-grid__item">
+              <SkillCard title="Antigravity" percentage={95} />
+            </div>
+            <div className="skills-grid__item">
+              <SkillCard title="Notion" percentage={60} />
             </div>
           </div>
         </div>

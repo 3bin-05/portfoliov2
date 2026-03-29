@@ -4394,6 +4394,60 @@ td:last-child {
     transform-origin: left bottom;
 }
 
+/* Skills Grid for SkillCards - 3 per row */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--vspace-1_5);
+  margin-top: var(--vspace-2);
+  justify-content: center;
+}
+
+.s-about__content-title {
+  text-align: center !important;
+  margin-bottom: var(--vspace-1_5);
+}
+
+.skills-grid__item {
+  display: flex;
+}
+
+.skills-grid .card-container {
+  min-height: auto !important;
+  height: 100%;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  margin: 0;
+  flex: 1;
+}
+
+.skills-grid .skill-card {
+  width: 100% !important;
+  border-radius: 30px !important;
+  border: 2px solid #ffffff !important;
+}
+
+.skills-grid .title-underline {
+  display: none !important;
+}
+
+.skills-grid .card-header {
+  margin-bottom: 0 !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: var(--vspace-1);
+  }
+}
+
 .ss-go-top span {
     display       : block;
     width         : var(--width-label);
