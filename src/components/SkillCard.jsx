@@ -19,8 +19,8 @@ const SkillCard = ({ title, percentage }) => {
       "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg",
     Figma: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg",
     C: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/c.svg",
-    Java: "/src/assets/images/icons/java.png",
-    Antigravity: "/src/assets/images/icons/antigravity.png",
+    Java: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
+    Antigravity: "/antigravity.png",
     Notion: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/notion.svg",
   };
 
@@ -52,7 +52,7 @@ const SkillCard = ({ title, percentage }) => {
         {/* Header: Title and Percentage */}
         <div className="card-header">
           {iconPath && (
-            <img className="skill-icon" src={iconPath} alt={`${title} logo`} />
+            <img className={`skill-icon ${title === "Java" ? "bw-icon" : ""}`} src={iconPath} alt={`${title} logo`} />
           )}
           <div className="header-content">
             <h2 className="skill-title">

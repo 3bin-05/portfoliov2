@@ -51,6 +51,15 @@
   filter: drop-shadow(0 4px 15px rgba(199, 62, 29, 0.3)); /* Orange hint drop shadow */
 }
 
+/* Make specific colored icons black and white to match simple-icons */
+.skill-icon.bw-icon {
+  filter: grayscale(100%) brightness(0) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+}
+
+.skill-card:hover .skill-icon.bw-icon {
+  filter: grayscale(100%) brightness(0) drop-shadow(0 4px 15px rgba(199, 62, 29, 0.3));
+}
+
 .header-content {
   display: flex;
   justify-content: space-between;
