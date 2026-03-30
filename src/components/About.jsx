@@ -33,7 +33,10 @@ function About() {
             spinDuration={20}
             className="custom-class"
           />
-          <h3 className="s-about__content-title">
+          <h3
+            className="s-about__content-title"
+            style={{ textAlign: "left", marginBottom: "1rem" }}
+          >
             Hi there, I’m{" "}
             <span style={{ color: "orange" }}>Ebin Reji</span>{" "}
           </h3>
@@ -57,7 +60,12 @@ function About() {
         </div>
 
         <div className="column xl-6 md-12 s-about__content-secondary">
-          <h3 className="s-about__content-title">Education & Qualifications</h3>
+          <h3
+            className="s-about__content-title"
+            style={{ textAlign: "left", marginBottom: "1rem" }}
+          >
+            Education & Qualifications
+          </h3>
           <SpotlightCard
             className="custom-spotlight-card"
             spotlightColor="rgba(255, 255, 255, 0.5)"
@@ -105,7 +113,11 @@ function About() {
           {/* Technical Skills Grid */}
           <div className="row" style={{ marginTop: "10rem" }}>
             <div className="column xl-12">
-              <div className="section-header" data-num="02" style={{ marginBottom: "5rem" }}>
+              <div
+                className="section-header"
+                data-num="02"
+                style={{ marginBottom: "5rem" }}
+              >
                 <h2 className="text-display-title">Technical Skills.</h2>
               </div>
             </div>
