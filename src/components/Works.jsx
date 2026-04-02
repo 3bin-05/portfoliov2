@@ -8,7 +8,7 @@ import tinkerImage from "../assets/images/folio/tinker.jpg";
 import ckjImage from "../assets/images/folio/ckj.jpg";
 import chadImage from "../assets/images/folio/chad.jpg";
 import nptelImage from "../assets/images/folio/nptel.jpg";
-import moonImage from "../assets/images/folio/moon.jpg";
+import cryptoImage from "../assets/images/folio/CryptoChat.png";
 import notionImage from "../assets/images/folio/notion.jpg";
 import nptelpy from "../assets/images/certificate/nptelpy.pdf";
 import musbc from "../assets/images/icons/musbc.png";
@@ -147,20 +147,20 @@ function Works() {
         </div>
         <div className="column entry">
           <a
-            href="https://chadgpt-neon.vercel.app"
+            href="https://crypto-chat-omega.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="entry__link glightbox"
             data-glightbox="title: Grayscale; description: .entry__desc-04"
           >
             <div className="entry__thumb">
-              <img src={chadImage} srcSet={chadImage} alt="" />
+              <img src={cryptoImage} srcSet={cryptoImage} alt="" />
             </div>
             <div className="entry__info">
               <h4 className="entry__title">
-                An AI that runs on mood swings malayalam version
+                A Chating Platform using React and Firebase
               </h4>
-              <div className="entry__cat">Chad_gpt v2.0</div>
+              <div className="entry__cat">Crypto Chat</div>
             </div>
           </a>
           <div className="glightbox-desc entry__desc-04">
