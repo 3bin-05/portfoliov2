@@ -147,7 +147,7 @@ function Works() {
         </div>
         <div className="column entry">
           <a
-            href="https://crypto-chat-omega.vercel.app"
+            href="https://crypto-chat-org.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="entry__link glightbox"
