@@ -14,6 +14,8 @@ import nptelpy from "../assets/images/certificate/nptelpy.pdf";
 import musbc from "../assets/images/icons/musbc.png";
 import osq from "../assets/images/icons/osq.jpeg";
 import darkImage from "../assets/images/folio/dark.jpg";
+import seltosImage from "../assets/images/folio/Seltos.jpg";
+import atherImage from "../assets/images/folio/athermind.png";
 import darkdoc from "../assets/images/resume/darkdoc.pdf";
 
 function Works() {
@@ -236,6 +238,56 @@ function Works() {
             <div className="entry__info">
               <h4 className="entry__title">Dark Netra</h4>
               <div className="entry__cat">Developement</div>
+            </div>
+          </a>
+          <div className="glightbox-desc entry__desc-01">
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
+              facilis ab, tempora non! Nisi, tempora provident.
+              <a href="https://www.behance.net/">Project Link</a>.
+            </p>
+          </div>
+        </div>
+        <div className="column entry">
+          <a
+            href="https://kia-seltos.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="entry__link glightbox"
+            data-glightbox="title: White Knit Cap; description: .entry__desc-01"
+          >
+            <div className="entry__thumb">
+              <img src={seltosImage} srcSet={seltosImage} alt="" />
+            </div>
+            <div className="entry__info">
+              <h4 className="entry__title">3D-Web Developement</h4>
+              <div className="entry__cat">A dynamic animated website based on product KIA SELTOS</div>
+            </div>
+          </a>
+          <div className="glightbox-desc entry__desc-01">
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
+              facilis ab, tempora non! Nisi, tempora provident.
+              <a href="https://www.behance.net/">Project Link</a>.
+            </p>
+          </div>
+        </div>
+        <div className="column entry">
+          <a
+            href="https://ather-mind.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="entry__link glightbox"
+            data-glightbox="title: White Knit Cap; description: .entry__desc-01"
+          >
+            <div className="entry__thumb">
+              <img src={atherImage} srcSet={atherImage} alt="" />
+            </div>
+            <div className="entry__info">
+              <h4 className="entry__title">AtherMind</h4>
+              <div className="entry__cat">A UI for chatbot integrated with both local and AI API's With network search feature local only works when deployes locally</div>
             </div>
           </a>
           <div className="glightbox-desc entry__desc-01">
