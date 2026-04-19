@@ -1,14 +1,17 @@
-# Task: Replace strip images & make logos bigger - COMPLETED
+# Preloader Glowing Ring Implementation
 
-## Changes:
+## Plan Summary
 
-- [x] Replaced all strip images with 8 from src/assets/images/strip/ only.
-- [x] Increased logo container to 120px x 120px (from 80px), min-width 180px (from 120px), gap 3rem (from 6rem).
+Enhance existing orange glowing ring effects behind eb.svg logo in Preloader:
 
-Logos now significantly bigger. Check About section in browser (dev server HMR updated).
+- Boost outer ring drop-shadow glow
+- Increase halo opacity
+- Add inner logo glow
+- Strengthen CSS particles/animations
 
-## Steps:
+## Steps
 
-- [x] Step 1: Update LogoStrip.jsx images.
-- [x] Step 2: Enlarge logos via JSX/CSS.
-- [x] Step 3: Verify & complete.
+- [x] 1. Create TODO.md ✅
+- [x] 2. Edit src/components/Preloader.jsx (glow enhancements) ✅
+- [x] 3. Edit src/assets/css/Preloader.css (animation boosts) ✅
+- [x] 4. Verify changes and complete ✅
