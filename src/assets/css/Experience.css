@@ -15,7 +15,7 @@
 
 /* Single Master Card */
 .exp-master-card {
-  background: var(--color-gray-6, #f4f5f4); /* Very light grey */
+  background-color: var(--color-white, #fff); /* White background */
   border-radius: 20px;
   padding: 3rem;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05); /* Soft premium shadow */
@@ -25,8 +25,7 @@
 /* Continuous Timeline Wrapper */
 .exp-timeline-wrapper {
   position: relative;
-  /* Space for the vertical line and nodes */
-  padding-left: 3.5rem;
+  padding-left: 2.5rem; /* Standard gutter for the line */
 }
 
 /* The Vertical Continuous Line */
@@ -34,16 +33,28 @@
   position: absolute;
   top: 10px;
   bottom: 0px;
-  left: 20px; /* Fixed position */
-  transform: translateX(-50%); /* Centered exactly at 20px */
-  width: 3px;
+  left: 0; /* Anchor to the edge of padding-left gutter */
+  width: 2px;
   background: var(--color-gray-11, #d4d6d4);
-  border-radius: 3px;
+  border-radius: 2px;
+}
+
+/* The Animated Progress Line */
+.exp-timeline-progress {
+  position: absolute;
+  top: 10px;
+  bottom: 0px;
+  left: 0;
+  width: 2px;
+  background: var(--color-1, #C73E1D); /* Theme orange */
+  border-radius: 2px;
+  z-index: 1;
+  transform-origin: top;
 }
 
 /* Organization Block */
 .exp-org-group {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   position: relative;
 }
 
@@ -56,28 +67,57 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+  margin-bottom: 2.2rem;
+  padding-left: 0.5rem;
+  min-height: 50px;
+}
+
+.exp-org-logo-wrapper {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exp-org-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.exp-org-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  object-position: center;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .exp-org-node {
   position: absolute;
-  left: calc(-3.5rem + 20px); /* Move left the padding distance, then back right by the line position */
-  top: 50%;
-  transform: translate(-50%, -50%); /* Center exactly on coordinates */
-  width: 22px;
-  height: 22px;
+  left: -2.5rem;
+  top: 25px; /* Pin exactly to the center of the 50px logo wrapper */
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: var(--color-white, #fff);
-  border: 5px solid var(--color-1, #C73E1D);
-  z-index: 2;
-  box-shadow: 0 0 0 5px var(--color-gray-6, #f4f5f4); /* Cut out the line visually */
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  border: 4px solid var(--color-1, #C73E1D);
+  z-index: 3;
+  box-shadow: 0 0 0 5px var(--color-white, #fff);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Organization Info */
 .exp-org-info {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  flex: 1;
 }
 
 .exp-org-info h3 {
@@ -85,59 +125,52 @@
   font-size: 2.2rem;
   font-weight: 800;
   color: var(--color-text-dark, #1a1a1a);
-  line-height: 1.2;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
 }
 
 .exp-org-duration {
-  margin: 0.3rem 0 0;
+  margin: 0.2rem 0 0;
   font-size: 1.1rem;
   color: var(--color-1, #C73E1D);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Roles List */
-.exp-roles-list {
-  display: flex;
-  flex-direction: column;
+  letter-spacing: 1px;
 }
 
 /* Individual Role Item */
 .exp-role-item {
   position: relative;
-  padding-bottom: 2.5rem;
-  margin-left: 0.5rem; /* shifts internal content 0.5rem to the right */
+  padding-bottom: 3rem;
+}
+
+.exp-role-content {
   transition: transform 0.3s ease;
 }
 
-.exp-role-item:last-child {
-  padding-bottom: 0;
+.exp-role-item:hover .exp-role-content {
+  transform: translateX(12px);
 }
 
-.exp-role-item:hover {
-  transform: translateX(8px);
-}
-
-/* Role Node (Smaller dot) */
 .exp-role-node {
   position: absolute;
-  left: calc(-4.0rem + 20px); /* -3.5rem (wrapper) - 0.5rem (margin-left) + 20px (line position) */
-  top: 8px;
-  transform: translateX(-50%); /* Center perfectly over the line horizontally */
-  width: 15px;
-  height: 15px;
+  left: -2.5rem; /* Center exactly on the line */
+  top: 1rem;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background-color: var(--color-gray-11, #d4d6d4);
-  border: 3px solid var(--color-gray-6, #f4f5f4);
-  z-index: 2;
-  transition: background-color 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 3px solid var(--color-white, #fff);
+  z-index: 3; /* Above the progress line */
+  transition: all 0.3s ease;
 }
 
 .exp-role-item:hover .exp-role-node {
-  transform: translateX(-50%) scale(1.4);
-  background-color: var(--color-1-light, #e85d3f);
-  animation: pulseDot 1.5s infinite;
+  transform: translate(-50%, -50%) scale(1.4);
+  background-color: var(--color-1, #C73E1D);
+  border-color: var(--color-1-light, #e85d3f);
+  box-shadow: 0 0 10px rgba(199, 62, 29, 0.3);
 }
 
 /* Role Content */
@@ -244,12 +277,20 @@
     padding-left: 2.5rem;
   }
   
+  .exp-org-logo-wrapper {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .exp-org-logo {
+    width: 34px;
+    height: 34px;
+  }
+  
   .exp-org-node {
-    left: calc(-2.5rem + 20px);
-    width: 18px;
-    height: 18px;
-    border-width: 4px;
-    box-shadow: 0 0 0 3px var(--color-gray-6, #f4f5f4);
+    left: calc(-2.5rem + 18px);
+    width: 16px;
+    height: 16px;
   }
   
   .exp-role-node {

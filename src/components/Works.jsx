@@ -12,7 +12,6 @@ import cryptoImage from "../assets/images/folio/CryptoChat.png";
 import notionImage from "../assets/images/folio/notion.jpg";
 import nptelpy from "../assets/images/certificate/nptelpy.pdf";
 import musbc from "../assets/images/icons/musbc.png";
-import osq from "../assets/images/icons/osq.jpeg";
 import darkImage from "../assets/images/folio/dark.jpg";
 import seltosImage from "../assets/images/folio/Seltos.jpg";
 import atherImage from "../assets/images/folio/athermind.png";
@@ -38,7 +37,11 @@ function Works() {
       </div>
       <div className="row">
         <div className="column xl-12">
-          <div className="section-header" data-num="03" style={{ marginBottom: "10rem" }}>
+            <div
+            className="section-header"
+            data-num="03"
+            style={{ marginBottom: "18rem" }}
+          >
             <h2 className="text-display-title">My Projects.</h2>
           </div>
         </div>
@@ -224,7 +227,7 @@ function Works() {
             </p>
           </div>
         </div>
-         <div className="column entry">
+        <div className="column entry">
           <a
             href={darkdoc}
             target="_blank"
@@ -262,7 +265,9 @@ function Works() {
             </div>
             <div className="entry__info">
               <h4 className="entry__title">3D-Web Developement</h4>
-              <div className="entry__cat">A dynamic animated website based on product KIA SELTOS</div>
+              <div className="entry__cat">
+                A dynamic animated website based on product KIA SELTOS
+              </div>
             </div>
           </a>
           <div className="glightbox-desc entry__desc-01">
@@ -287,7 +292,10 @@ function Works() {
             </div>
             <div className="entry__info">
               <h4 className="entry__title">AtherMind</h4>
-              <div className="entry__cat">A UI for chatbot integrated with both local and AI API's With network search feature local only works when deployes locally</div>
+              <div className="entry__cat">
+                A UI for chatbot integrated with both local and AI API's With
+                network search feature local only works when deployes locally
+              </div>
             </div>
           </a>
           <div className="glightbox-desc entry__desc-01">
@@ -300,7 +308,6 @@ function Works() {
           </div>
         </div>
       </div>
-
     </section>
   );
 }

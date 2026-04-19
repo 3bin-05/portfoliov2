@@ -2,6 +2,7 @@ import resume from "../assets/images/resume/Resume.pdf";
 import CircularText from "./CircularText";
 import SpotlightCard from "./SpotlightCard";
 import SkillCard from "./SkillCard";
+import LogoStrip from "./LogoStrip";
 
 function About() {
   return (
@@ -37,14 +38,14 @@ function About() {
             className="s-about__content-title"
             style={{ textAlign: "left", marginBottom: "1rem" }}
           >
-            Hi there, I’m{" "}
+            Hi there, I'm{" "}
             <span style={{ color: "orange" }}>Ebin Reji</span>{" "}
           </h3>
           <p className="s-about__content-summary">
             An aspiring Computer Engineer and UI/UX enthusiast passionate about
-            crafting meaningful and user-focused digital experiences. I’m
+            crafting meaningful and user-focused digital experiences. I'm
             currently pursuing my BTech in Computer Science at Sree Buddha
-            College of Engineering, Patoor, where I’ve built a strong foundation
+            College of Engineering, Patoor, where I've built a strong foundation
             in Python, React, and web development.
           </p>
           <div className="s-about__content-btn">
@@ -107,11 +108,18 @@ function About() {
           </SpotlightCard>
         </div>
       </div>
+<h3
+            className="title"
+            style={{ textAlign: "center", margin: "5rem 0 2rem" }}
+          >
+            In Collaboration With Communities
+          </h3>
+      <LogoStrip />
 
       <div className="row s-about__content">
         <div className="column xl-12">
-          {/* Technical Skills Grid */}
-          <div className="row" style={{ marginTop: "10rem" }}>
+          {/* Technical Skills Sections */}
+          <div className="row" style={{ marginTop: "1rem" }}>
             <div className="column xl-12">
               <div
                 className="section-header"
@@ -122,39 +130,91 @@ function About() {
               </div>
             </div>
           </div>
-          <div className="skills-grid">
-            <div className="skills-grid__item">
-              <SkillCard title="Python" percentage={100} />
+
+          <div className="skill-category">
+            <h3 className="skill-category-title">Development</h3>
+            <div className="skills-grid">
+              <div className="skills-grid__item">
+                <SkillCard title="Python" percentage={75} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="JavaScript" percentage={65} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="React" percentage={75} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="Node.js" percentage={60} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="C" percentage={55} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="Java" percentage={45} />
+              </div>
             </div>
-            <div className="skills-grid__item">
-              <SkillCard title="React" percentage={85} color="bg-blue-500" />
+          </div>
+
+          <div className="skill-category" style={{ marginTop: "6rem" }}>
+            <h3 className="skill-category-title">Web & Styling</h3>
+            <div className="skills-grid">
+              <div className="skills-grid__item">
+                <SkillCard title="HTML" percentage={80} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="CSS" percentage={70} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="Tailwind CSS" percentage={75} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="Responsive Design" percentage={80} />
+              </div>
             </div>
-            <div className="skills-grid__item">
-              <SkillCard title="JavaScript" percentage={90} />
+          </div>
+
+          <div className="skill-category" style={{ marginTop: "6rem" }}>
+            <h3 className="skill-category-title">UI/UX</h3>
+            <div className="skills-grid">
+              <div className="skills-grid__item">
+                <SkillCard title="Figma" percentage={85} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="UI/UX Design" percentage={85} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="User Research" percentage={75} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="Wireframing & Prototyping" percentage={80} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="Design Thinking" percentage={80} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="Information Architecture" percentage={70} />
+              </div>
             </div>
-            <div className="skills-grid__item">
-              <SkillCard title="CSS" percentage={85} />
-            </div>
-            <div className="skills-grid__item">
-              <SkillCard title="Tailwind" percentage={80} />
-            </div>
-            <div className="skills-grid__item">
-              <SkillCard title="Node.js" percentage={70} />
-            </div>
-            <div className="skills-grid__item">
-              <SkillCard title="Figma" percentage={75} />
-            </div>
-            <div className="skills-grid__item">
-              <SkillCard title="C" percentage={65} />
-            </div>
-            <div className="skills-grid__item">
-              <SkillCard title="Java" percentage={30} />
-            </div>
-            <div className="skills-grid__item">
-              <SkillCard title="Antigravity" percentage={95} />
-            </div>
-            <div className="skills-grid__item">
-              <SkillCard title="Notion" percentage={60} />
+          </div>
+
+          <div className="skill-category" style={{ marginTop: "6rem" }}>
+            <h3 className="skill-category-title">Tools & Technologies</h3>
+            <div className="skills-grid">
+              <div className="skills-grid__item">
+                <SkillCard title="Git/GitHub" percentage={70} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="REST APIs" percentage={65} />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard
+                  title="GenAI Tools (Lovable, Bolt, etc.)"
+                  percentage={80}
+                />
+              </div>
+              <div className="skills-grid__item">
+                <SkillCard title="Antigravity" percentage={80} />
+              </div>
             </div>
           </div>
         </div>

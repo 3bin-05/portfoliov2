@@ -3991,7 +3991,7 @@ td:last-child {
  *
  * ------------------------------------------------------------------- */
 .s-works {
-    padding-top   : var(--vspace-6);
+    padding-top   : var(--vspace-3);
     padding-bottom: var(--vspace-1);
 }
 
@@ -4399,8 +4399,33 @@ td:last-child {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--vspace-1_5);
-  margin-top: var(--vspace-2);
+  margin-top: var(--vspace-1);
   justify-content: center;
+}
+
+.skill-category {
+  margin-bottom: var(--vspace-4);
+}
+
+.skill-category-title {
+  font-family: var(--font-1);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: var(--vspace-1);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.skill-category-title::before {
+  content: "";
+  height: 0.7em;
+  width: 4px;
+  background-color: var(--color-1);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .s-about__content-title {

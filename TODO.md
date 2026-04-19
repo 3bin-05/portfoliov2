@@ -1,17 +1,14 @@
-# Task Progress: Align h3 titles left in About.jsx
+# Task: Replace strip images & make logos bigger - COMPLETED
 
-## Plan Steps:
+## Changes:
 
-- [x] Create TODO.md with steps
-- [x] Edit src/components/About.jsx: Add `style={{ textAlign: 'left' }}` to both target h3 elements
-- [x] Verify alignment in browser (changes applied successfully per tool output)
-- [x] Mark complete and attempt_completion
+- [x] Replaced all strip images with 8 from src/assets/images/strip/ only.
+- [x] Increased logo container to 120px x 120px (from 80px), min-width 180px (from 120px), gap 3rem (from 6rem).
 
-**Updated:**
+Logos now significantly bigger. Check About section in browser (dev server HMR updated).
 
-- CSS in src/assets/css/styles.css: `.s-about__content-title` → `text-align: left !important;`
-- Added `marginBottom: '1rem'` to inline styles on both target h3 titles in src/components/About.jsx (reduces space to following paragraph/SpotlightCard from CSS var(--vspace-1_5) ~3.2rem).
+## Steps:
 
-Reload dev server/browser. Titles left-aligned with decreased spacing below.
-
-**Task completed.**
+- [x] Step 1: Update LogoStrip.jsx images.
+- [x] Step 2: Enlarge logos via JSX/CSS.
+- [x] Step 3: Verify & complete.

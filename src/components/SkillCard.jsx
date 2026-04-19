@@ -10,18 +10,24 @@ const SkillCard = ({ title, percentage }) => {
   const iconMap = {
     Python: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg",
     React: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg",
-    JavaScript:
-      "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg",
+    JavaScript: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg",
     CSS: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/css3.svg",
-    Tailwind:
-      "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg",
-    "Node.js":
-      "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg",
+    HTML: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/html5.svg",
+    "Tailwind CSS": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg",
+    "Node.js": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg",
     Figma: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg",
     C: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/c.svg",
     Java: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
     Antigravity: "/antigravity.png",
-    Notion: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/notion.svg",
+    "Git/GitHub": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg",
+    "REST APIs": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postman.svg",
+    "GenAI Tools (Lovable, Bolt, etc.)": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg",
+    "Responsive Design": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlechrome.svg",
+    "UI/UX Design": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/framer.svg",
+    "User Research": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/hotjar.svg",
+    "Wireframing & Prototyping": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobexd.svg",
+    "Design Thinking": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/canva.svg",
+    "Information Architecture": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/notion.svg",
   };
 
   const iconPath = iconMap[title] || "";
@@ -52,7 +58,11 @@ const SkillCard = ({ title, percentage }) => {
         {/* Header: Title and Percentage */}
         <div className="card-header">
           {iconPath && (
-            <img className={`skill-icon ${title === "Java" ? "bw-icon" : ""}`} src={iconPath} alt={`${title} logo`} />
+            <img
+              className={`skill-icon ${title === "Java" ? "bw-icon" : ""}`}
+              src={iconPath}
+              alt={`${title} logo`}
+            />
           )}
           <div className="header-content">
             <h2 className="skill-title">
@@ -88,5 +98,7 @@ const SkillCard = ({ title, percentage }) => {
     </div>
   );
 };
+
+
 
 export default SkillCard;

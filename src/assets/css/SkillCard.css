@@ -12,20 +12,29 @@
 /* The Main Card */
 .skill-card {
   width: 100%;
+  height: 100%;
   max-width: 350px;
   padding: 30px;
-  background-color: var(--color-gray-6, #f4f5f4); /* Ver light grey matching Experience */
+  background-color: var(--color-gray-6, #f4f5f4); /* Very light grey matching Experience */
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Soft, subtle shadow */
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  border: 2px solid var(--color-1, #C73E1D) !important; /* Solid theme orange border with important to override conflicts */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); /* Soft, subtle shadow */
+  transition: 
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+    box-shadow 0.4s ease, 
+    border-color 0.4s ease,
+    background-color 0.4s ease;
   position: relative;
   overflow: hidden;
 }
 
+
 /* The Glow Effect on Hover */
 .skill-card:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+  border-color: rgba(199, 62, 29, 0.5); /* Intensified orange border on hover */
+  box-shadow: 0 15px 45px rgba(199, 62, 29, 0.15); /* Orange "glow" shadow */
+  background-color: #ffffff; /* Slightly brighten on hover for depth */
   cursor: pointer;
 }
 
