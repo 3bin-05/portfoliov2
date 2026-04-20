@@ -1,6 +1,11 @@
 import React from 'react';
 import resume from '../assets/images/resume/Resume.pdf';
-function Footer() {
+function Footer({ onOpenStepper }) {
+    const handleMessageClick = (e) => {
+        e.preventDefault();
+        if (onOpenStepper) onOpenStepper();
+    };
+
     return (
         <footer id="footer" className="s-footer">
             <div className="row">
@@ -43,7 +48,7 @@ function Footer() {
 
             <div className="row s-footer__buttons">
                 <div className="column xl-6 tab-12">
-                    <a href="mailto:ebin05reji@gmail.com" className="btn btn--primary btn--large u-fullwidth">Message Me</a>
+                    <a href="#footer" onClick={handleMessageClick} className="btn btn--primary btn--large u-fullwidth">Message Me</a>
                 </div>
                 <div className="column xl-6 tab-12">
                     <a href={resume} target="_blank" rel="noopener noreferrer" className="btn btn--stroke btn--large u-fullwidth">Get My CV</a>

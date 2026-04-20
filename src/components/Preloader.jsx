@@ -45,8 +45,9 @@ const Preloader = ({ onComplete, duration = 2500 }) => {
       >
         {/* Layer 1: Ambient Fog Halo */}
         <motion.div
-          className="absolute aura-halo rounded-full"
+          className="aura-halo rounded-full"
           style={{
+            position: 'absolute',
             width: HALO_SIZE,
             height: HALO_SIZE,
             filter: "blur(50px)",
@@ -72,6 +73,7 @@ const Preloader = ({ onComplete, duration = 2500 }) => {
             key={i}
             className="absolute border-2 border-[#FF6B00] rounded-full"
             style={{
+              position: 'absolute',
               width: 120,
               height: 120,
               top: "50%",
@@ -96,8 +98,9 @@ const Preloader = ({ onComplete, duration = 2500 }) => {
 
         {/* Layer 2: Outer Rotation Ring */}
         <motion.div
-          className="absolute animate-rotate-linear"
+          className="animate-rotate-linear"
           style={{
+            position: 'absolute',
             width: OUTER_RING_SIZE,
             height: OUTER_RING_SIZE,
             top: "50%",
@@ -142,8 +145,9 @@ const Preloader = ({ onComplete, duration = 2500 }) => {
 
         {/* Layer 3: Counter-Rotating Inner Ring */}
         <motion.div
-          className="absolute animate-rotate-counter"
+          className="animate-rotate-counter"
           style={{
+            position: 'absolute',
             width: INNER_RING_SIZE,
             height: INNER_RING_SIZE,
             top: "50%",
@@ -171,14 +175,15 @@ const Preloader = ({ onComplete, duration = 2500 }) => {
 
         {/* Particle Embers (Orbiting the center) */}
         <div
-          className="absolute hidden md:block"
-          style={{ width: 1, height: 1, top: "50%", left: "50%" }}
+          className="hidden md:block"
+          style={{ position: 'absolute', width: 1, height: 1, top: "50%", left: "50%" }}
         >
           {particles.map((_, i) => (
             <div
               key={i}
               className="particle"
               style={{
+                position: 'absolute',
                 animation: `particle-orbit ${10 + i * 1.2}s linear infinite, shimmer ${2 + i * 0.4}s ease-in-out infinite`,
                 animationDelay: `-${i * 1.5}s`,
                 opacity: 0,
