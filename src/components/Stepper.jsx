@@ -6,6 +6,7 @@ import '../assets/css/Stepper.css';
 export default function Stepper({
   children,
   initialStep = 1,
+  currentStep: propStep,
   onStepChange = () => {},
   onFinalStepCompleted = () => {},
   onClose = () => {},
@@ -20,8 +21,19 @@ export default function Stepper({
   disableStepIndicators = true,
   ...rest
 }) {
-  const [currentStep, setCurrentStep] = useState(initialStep);
+  const [internalStep, setInternalStep] = useState(initialStep);
+  const currentStep = propStep !== undefined ? propStep : internalStep;
+  const [prevStep, setPrevStep] = useState(currentStep);
   const [direction, setDirection] = useState(0);
+
+  // Sync direction when currentStep changes
+  React.useEffect(() => {
+    if (currentStep !== prevStep) {
+      setDirection(currentStep > prevStep ? 1 : -1);
+      setPrevStep(currentStep);
+    }
+  }, [currentStep, prevStep]);
+
   const stepsArray = Children.toArray(children);
   const totalSteps = stepsArray.length;
   
@@ -29,20 +41,22 @@ export default function Stepper({
   const isLastStep = currentStep === totalSteps;
 
   const updateStep = newStep => {
-    setCurrentStep(newStep);
+    if (propStep === undefined) {
+      setInternalStep(newStep);
+    }
     onStepChange(newStep);
   };
 
   const handleBack = () => {
     if (currentStep > 1) {
-      setDirection(-1);
+      if (propStep === undefined) setDirection(-1);
       updateStep(currentStep - 1);
     }
   };
 
   const handleNext = () => {
     if (!isLastStep) {
-      setDirection(1);
+      if (propStep === undefined) setDirection(1);
       updateStep(currentStep + 1);
     } else {
       onFinalStepCompleted();

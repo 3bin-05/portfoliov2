@@ -69,12 +69,22 @@ export default function ContactStepper({ isOpen, onClose }) {
     }
   }, [activeStep, handleFinalSubmit]);
 
+  React.useEffect(() => {
+    if (!isOpen) {
+      setActiveStep(1);
+      setFormData({ name: '', email: '', message: '' });
+      setSendError(null);
+      hasSent.current = false;
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
     <div className="stepper-backdrop" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className="stepper-modal outer-container">
         <Stepper 
+          currentStep={activeStep}
           onFinalStepCompleted={handleFinalSubmit}
           onStepChange={setActiveStep}
           onClose={onClose}
@@ -159,15 +169,12 @@ export default function ContactStepper({ isOpen, onClose }) {
                   <motion.button 
                     className="next-button" 
                     style={{ width: '100%', marginTop: '2rem' }} 
-                    onClick={() => {
-                      hasSent.current = false;
-                      setActiveStep(3);
-                    }}
+                    onClick={onClose}
                     variants={premiumFadeIn}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    Go Back & Retry
+                    Close
                   </motion.button>
                 </>
               ) : (
