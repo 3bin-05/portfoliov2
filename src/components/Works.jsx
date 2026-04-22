@@ -14,7 +14,7 @@ import nptelpy from "../assets/images/certificate/nptelpy.pdf";
 import musbc from "../assets/images/icons/musbc.png";
 import darkImage from "../assets/images/folio/dark.jpg";
 import seltosImage from "../assets/images/folio/Seltos.jpg";
-import atherImage from "../assets/images/folio/athermind.png";
+import FZImage from "../assets/images/folio/flipzon.png";
 import darkdoc from "../assets/images/resume/darkdoc.pdf";
 
 function Works() {
@@ -281,20 +281,19 @@ function Works() {
         </div>
         <div className="column entry">
           <a
-            href="https://ather-mind.vercel.app"
+            href="https://flopzon.netlify.app"
             target="_blank"
             rel="noopener noreferrer"
             className="entry__link glightbox"
             data-glightbox="title: White Knit Cap; description: .entry__desc-01"
           >
             <div className="entry__thumb">
-              <img src={atherImage} srcSet={atherImage} alt="" />
+              <img src={FZImage} srcSet={FZImage} alt="" />
             </div>
             <div className="entry__info">
-              <h4 className="entry__title">AtherMind</h4>
+              <h4 className="entry__title">FlipZon</h4>
               <div className="entry__cat">
-                A UI for chatbot integrated with both local and AI API's With
-                network search feature local only works when deployes locally
+                An E-Commerce Websites that provides a platform for users to buy and sell products online.
               </div>
             </div>
           </a>
