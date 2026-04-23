@@ -2,28 +2,48 @@ import "../assets/css/SkillCard.css";
 import BlurText from "./BlurText";
 import { useEffect, useRef, useCallback } from "react";
 
+// Local icon imports
+import pythonIcon from "../assets/images/icons/python.svg";
+import reactIcon from "../assets/images/icons/react.svg";
+import jsIcon from "../assets/images/icons/javascript.svg";
+import cssIcon from "../assets/images/icons/css.svg";
+import htmlIcon from "../assets/images/icons/html.svg";
+import tailwindIcon from "../assets/images/icons/tailwind.svg";
+import nodeIcon from "../assets/images/icons/node.svg";
+import figmaIcon from "../assets/images/icons/figma.svg";
+import javaIcon from "../assets/images/icons/java.svg";
+import githubIcon from "../assets/images/icons/github.svg";
+import postmanIcon from "../assets/images/icons/postman.svg";
+import openaiIcon from "../assets/images/icons/openai.svg";
+import chromeIcon from "../assets/images/icons/googlechrome.svg";
+import framerIcon from "../assets/images/icons/framer.svg";
+import hotjarIcon from "../assets/images/icons/hotjar.svg";
+import adobeXdIcon from "../assets/images/icons/adobexd.svg";
+import canvaIcon from "../assets/images/icons/canva.svg";
+import notionIcon from "../assets/images/icons/notion.svg";
+import antigravityIcon from "../assets/images/icons/antigravity.png";
 
 const iconMap = {
-  Python: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg",
-  React: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg",
-  JavaScript: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg",
-  CSS: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/css3.svg",
-  HTML: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/html5.svg",
-  "Tailwind CSS": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg",
-  "Node.js": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg",
-  Figma: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg",
-  C: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/c.svg",
-  Java: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
-  Antigravity: "/antigravity.png",
-  "Git/GitHub": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg",
-  "REST APIs": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postman.svg",
-  "GenAI Tools (Lovable, Bolt, etc.)": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg",
-  "Responsive Design": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlechrome.svg",
-  "UI/UX Design": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/framer.svg",
-  "User Research": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/hotjar.svg",
-  "Wireframing & Prototyping": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobexd.svg",
-  "Design Thinking": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/canva.svg",
-  "Information Architecture": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/notion.svg",
+  Python: pythonIcon,
+  React: reactIcon,
+  JavaScript: jsIcon,
+  CSS: cssIcon,
+  HTML: htmlIcon,
+  "Tailwind CSS": tailwindIcon,
+  "Node.js": nodeIcon,
+  Figma: figmaIcon,
+  C: pythonIcon, // Defaulting to python or similar if C is missing
+  Java: javaIcon,
+  Antigravity: antigravityIcon,
+  "Git/GitHub": githubIcon,
+  "REST APIs": postmanIcon,
+  "GenAI Tools (Lovable, Bolt, etc.)": openaiIcon,
+  "Responsive Design": chromeIcon,
+  "UI/UX Design": framerIcon,
+  "User Research": hotjarIcon,
+  "Wireframing & Prototyping": adobeXdIcon,
+  "Design Thinking": canvaIcon,
+  "Information Architecture": notionIcon,
 };
 
 const SkillCard = ({ title, percentage }) => {
@@ -57,7 +77,7 @@ const SkillCard = ({ title, percentage }) => {
         <div className="card-header">
           {iconPath && (
             <img
-              className={`skill-icon ${title === "Java" ? "bw-icon" : ""}`}
+              className="skill-icon"
               src={iconPath}
               alt={`${title} logo`}
             />

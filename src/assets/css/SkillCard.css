@@ -50,23 +50,14 @@
 .skill-icon {
   width: 40px;
   height: 40px;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+  filter: grayscale(100%) brightness(0) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
   object-fit: contain;
 }
 
 .skill-card:hover .skill-icon {
   transform: scale(1.15) rotate(-5deg);
-  filter: drop-shadow(0 4px 15px rgba(199, 62, 29, 0.3)); /* Orange hint drop shadow */
-}
-
-/* Make specific colored icons black and white to match simple-icons */
-.skill-icon.bw-icon {
-  filter: grayscale(100%) brightness(0) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
-}
-
-.skill-card:hover .skill-icon.bw-icon {
-  filter: grayscale(100%) brightness(0) drop-shadow(0 4px 15px rgba(199, 62, 29, 0.3));
+  filter: grayscale(100%) brightness(0) drop-shadow(0 4px 15px rgba(199, 62, 29, 0.3)); /* Keep black, but increase drop shadow */
 }
 
 .header-content {
