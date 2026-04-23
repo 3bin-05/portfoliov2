@@ -4397,14 +4397,14 @@ td:last-child {
 /* Skills Grid for SkillCards - 3 per row */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--vspace-1_5);
   margin-top: var(--vspace-1);
   justify-content: center;
 }
 
 .skill-category {
-  margin-bottom: var(--vspace-4);
+  margin-bottom: var(--vspace-1_5);
 }
 
 .skill-category-title {
@@ -4457,10 +4457,16 @@ td:last-child {
 }
 
 .skills-grid .card-header {
-  margin-bottom: 0 !important;
+  margin-bottom: 8px !important;
 }
 
 @media screen and (max-width: 1200px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 900px) {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }

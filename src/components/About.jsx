@@ -3,6 +3,7 @@ import ebinreji from "../assets/images/gallery/ebinreji.jpg";
 import SpotlightCard from "./SpotlightCard";
 import SkillCard from "./SkillCard";
 import LogoStrip from "./LogoStrip";
+import GitHubHeatmap from "./GitHubHeatmap";
 import "../assets/css/AboutProfile.css";
 
 function About() {
@@ -124,7 +125,7 @@ function About() {
             </div>
           </div>
 
-          <div className="skill-category" style={{ marginTop: "6rem" }}>
+          <div className="skill-category">
             <h3 className="skill-category-title">Web & Styling</h3>
             <div className="skills-grid">
               <div className="skills-grid__item"><SkillCard title="HTML" percentage={80} /></div>
@@ -134,7 +135,7 @@ function About() {
             </div>
           </div>
 
-          <div className="skill-category" style={{ marginTop: "6rem" }}>
+          <div className="skill-category">
             <h3 className="skill-category-title">UI/UX</h3>
             <div className="skills-grid">
               <div className="skills-grid__item"><SkillCard title="Figma" percentage={85} /></div>
@@ -143,13 +144,17 @@ function About() {
             </div>
           </div>
 
-          <div className="skill-category" style={{ marginTop: "6rem" }}>
+          <div className="skill-category">
             <h3 className="skill-category-title">Tools & Technologies</h3>
             <div className="skills-grid">
               <div className="skills-grid__item"><SkillCard title="Git/GitHub" percentage={70} /></div>
               <div className="skills-grid__item"><SkillCard title="REST APIs" percentage={65} /></div>
               <div className="skills-grid__item"><SkillCard title="Antigravity" percentage={80} /></div>
             </div>
+          </div>
+          <div className="skill-category">
+            <h3 className="skill-category-title">GIT Analytics</h3>
+            <GitHubHeatmap />
           </div>
         </div>
       </div>
