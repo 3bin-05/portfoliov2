@@ -1,0 +1,65 @@
+.about-profile-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.about-profile-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: none;
+  transition: all 0.5s ease;
+  margin: 0 auto;
+  /* Mask to blend the bottom of the image */
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.about-profile-img:hover {
+  transform: translateY(-5px) scale(1.02);
+  filter: none;
+}
+
+/* Download CV Button */
+.about-cv-btn {
+  display: inline-block;
+  background-color: #EDEDED;
+  color: #111111;
+  padding: 1.8rem 4rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: none;
+}
+
+.about-cv-btn:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  color: #111111;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+  .about-profile-wrapper {
+    max-width: 350px;
+    margin: 4rem auto 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .about-profile-wrapper {
+    max-width: 280px;
+    margin: 4rem auto 0;
+  }
+}

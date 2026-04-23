@@ -21,14 +21,13 @@ import tinkerhubStripLogo from "../assets/images/strip/tinkerhub.png";
 import "../assets/css/LogoStrip.css";
 
 const LOGOS = [
-  { src: huddleLogo, name: "Huddle Global", color: "#FF6B35" },
+  { src: purpleMovementLogo, name: "Purple Movement", color: "#9B59B6" },
   { src: iedcLogo, name: "IEDC", color: "#1E90FF" },
+  { src: tinkerhubStripLogo, name: "Tinkerhub", color: "#00C853" },
+  { src: huddleLogo, name: "Huddle Global", color: "#FF6B35" },
+  { src: mulsbcLogo, name: "MulSBC", color: "#3498DB" },
   { src: ieeeLogoStrip, name: "IEEE", color: "#00629B" },
   { src: mulearnLogo, name: "MuLearn", color: "#8E44AD" },
-  { src: mulsbcLogo, name: "MulSBC", color: "#3498DB" },
-  { src: purpleMovementLogo, name: "Purple Movement", color: "#9B59B6" },
-  { src: tinkerLogo, name: "Tinker", color: "#E74C3C" },
-  { src: tinkerhubStripLogo, name: "Tinkerhub", color: "#00C853" },
 ];
 
 const LogoStrip = () => {
@@ -38,27 +37,25 @@ const LogoStrip = () => {
   // Physics-based speed control
   const speed = useSpring(1, { stiffness: 100, damping: 20 });
 
-  // Infinite scroll logic
-  // Duplicate logos multiple times to ensure seamless loop and smooth drag
-  const duplicatedLogos = useMemo(() => [...LOGOS, ...LOGOS, ...LOGOS], []);
+  // Duplicate logos multiple times to ensure seamless loop
+  const duplicatedLogos = useMemo(() => [...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS], []);
 
-  // Wrap the X position based on the width of one set of logos (1/3 of the track)
-  const x = useTransform(baseX, (v) => `${wrap(-33.33, 0, v)}%`);
+  // Wrap the X position based on the width of one set of logos (25% of the total track with 4 sets)
+  const x = useTransform(baseX, (v) => `${wrap(-25, 0, v)}%`);
 
   useAnimationFrame((t, delta) => {
     if (isHovered) {
-      speed.set(0.1); // Slow down significantly on hover
+      speed.set(0.1); 
     } else {
-      speed.set(1); // Normal speed
+      speed.set(1); 
     }
 
-    // Move left. Adjust the constant (0.008) to change base speed.
-    const moveBy = speed.get() * 0.008 * delta;
+    const moveBy = speed.get() * 0.005 * delta;
     baseX.set(baseX.get() - moveBy);
   });
 
   return (
-    <div className="logo-strip-container">
+    <div className="logo-strip-belt">
       <div
         className="logo-strip-wrapper"
         onMouseEnter={() => setIsHovered(true)}
@@ -67,15 +64,6 @@ const LogoStrip = () => {
         <motion.div
           className="logo-strip-track"
           style={{ x }}
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          onDragStart={() => setIsHovered(true)}
-          onDragEnd={() => setIsHovered(false)}
-          onDrag={(e, info) => {
-            // Allow manual drag to influence the position
-            // We divide by a factor to make the drag feel natural relative to the track width
-            baseX.set(baseX.get() + (info.delta.x / window.innerWidth) * 100);
-          }}
         >
           {duplicatedLogos.map((logo, index) => (
             <LogoItem key={`${logo.name}-${index}`} logo={logo} index={index} />
@@ -89,11 +77,6 @@ const LogoStrip = () => {
 const LogoItem = ({ logo, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Use index to create "random" but deterministic oscillation offsets
-  const floatDuration = 3 + (index % 3);
-  const floatDelay = (index % 4) * 0.5;
-  const rotateDuration = 4 + (index % 2);
-
   return (
     <motion.div
       className="logo-item"
@@ -103,38 +86,17 @@ const LogoItem = ({ logo, index }) => {
       animate={{
         opacity: isHovered ? 1 : 0.5,
         filter: isHovered ? "grayscale(0%)" : "grayscale(100%)",
-        scale: isHovered ? 1.1 : 0.9,
+        scale: isHovered ? 1.05 : 0.9,
       }}
       transition={{ duration: 0.4 }}
     >
-      <motion.div
-        animate={{
-          translateY: [-10, 10, -10],
-          rotate: [-3, 3, -3],
-        }}
-        transition={{
-          translateY: {
-            duration: floatDuration,
-            repeat: Infinity,
-            repeatType: "mirror",
-            ease: "easeInOut",
-            delay: floatDelay,
-          },
-          rotate: {
-            duration: rotateDuration,
-            repeat: Infinity,
-            repeatType: "mirror",
-            ease: "easeInOut",
-            delay: floatDelay,
-          },
-        }}
+      <div
         style={{
           width: "120px",
-          height: "120px",
+          height: "100px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          willChange: "transform",
         }}
       >
         <img
@@ -142,10 +104,10 @@ const LogoItem = ({ logo, index }) => {
           alt={logo.name}
           className="logo-img"
           style={{
-            filter: isHovered ? `drop-shadow(0 0 15px ${logo.color})` : "none",
+            filter: isHovered ? `drop-shadow(0 0 15px ${logo.color}44)` : "none",
           }}
         />
-      </motion.div>
+      </div>
       <span className="logo-name">{logo.name}</span>
     </motion.div>
   );
