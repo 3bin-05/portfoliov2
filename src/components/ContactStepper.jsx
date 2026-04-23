@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import emailjs from '@emailjs/browser';
+import { z } from 'zod';
 import Stepper, { Step } from './Stepper';
+
+const contactSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  email: z.string().email('Invalid email address'),
+  message: z.string().min(5, 'Message must be at least 5 characters'),
+});
 
 const premiumFadeIn = {
   initial: { opacity: 0, y: 15, filter: 'blur(10px)' },
@@ -22,9 +28,9 @@ export default function ContactStepper({ isOpen, onClose }) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const isStepValid = () => {
-    if (activeStep === 1) return formData.name.trim().length >= 2;
-    if (activeStep === 2) return emailRegex.test(formData.email);
-    if (activeStep === 3) return formData.message.trim().length >= 5;
+    if (activeStep === 1) return contactSchema.pick({ name: true }).safeParse({ name: formData.name }).success;
+    if (activeStep === 2) return contactSchema.pick({ email: true }).safeParse({ email: formData.email }).success;
+    if (activeStep === 3) return contactSchema.pick({ message: true }).safeParse({ message: formData.message }).success;
     return true; // Success step
   };
 
@@ -35,32 +41,36 @@ export default function ContactStepper({ isOpen, onClose }) {
 
   const hasSent = React.useRef(false);
 
-  const handleFinalSubmit = React.useCallback(() => {
+  const handleFinalSubmit = React.useCallback(async () => {
     if (hasSent.current) return;
     hasSent.current = true;
     setIsSending(true);
     setSendError(null);
 
-    const serviceId = 'service_r5yy1d7';
-    const templateId = 'template_v6ksm2i';
-    const publicKey = 'kFYH_oh7eseTb5uzI';
-
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      message: formData.message,
-      to_name: 'Ebin'
-    };
-
-    emailjs.send(serviceId, templateId, templateParams, publicKey)
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        setIsSending(false);
-      }, (err) => {
-        console.error('FAILED...', err);
-        setSendError('Failed to send message. Please try again later.');
-        setIsSending(false);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('SUCCESS!', data.message);
+        setIsSending(false);
+      } else {
+        console.error('FAILED...', data.error);
+        setSendError(data.error || 'Failed to send message. Please try again later.');
+        setIsSending(false);
+      }
+    } catch (err) {
+      console.error('FAILED...', err);
+      setSendError('Failed to send message. Please check your connection.');
+      setIsSending(false);
+    }
   }, [formData]);
 
   React.useEffect(() => {

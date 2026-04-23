@@ -15,7 +15,6 @@ import ieeeLogoStrip from "../assets/images/strip/ieeenobg.png";
 import mulearnLogo from "../assets/images/strip/mulearnf.png";
 import mulsbcLogo from "../assets/images/strip/mulsbc.png";
 import purpleMovementLogo from "../assets/images/strip/the_purple_movement_logo.jpg";
-import tinkerLogo from "../assets/images/strip/tinker.png";
 import tinkerhubStripLogo from "../assets/images/strip/tinkerhub.png";
 
 import "../assets/css/LogoStrip.css";

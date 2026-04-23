@@ -4,22 +4,13 @@ import SpotlightCard from "./SpotlightCard";
 import SkillCard from "./SkillCard";
 import LogoStrip from "./LogoStrip";
 import GitHubHeatmap from "./GitHubHeatmap";
+import Snow from "./Snow";
 import "../assets/css/AboutProfile.css";
 
 function About() {
   return (
     <section id="about" className="s-about" style={{ position: "relative" }}>
-      <div className="snow-container">
-        {Array.from({ length: 50 }, (_, i) => (
-          <span
-            key={i}
-            style={{
-              "--i": i,
-              "--j": Math.floor(Math.random() * 20),
-            }}
-          ></span>
-        ))}
-      </div>
+      <Snow count={50} />
       <div className="row">
         <div className="column lg-12">
           <div className="section-header" data-num="01">

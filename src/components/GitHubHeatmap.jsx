@@ -11,41 +11,51 @@ const GitHubHeatmap = () => {
 
   const username = "3bin-05";
 
+  const [error, setError] = useState(null);
+
   useEffect(() => {
+    let isMounted = true;
     const fetchData = async () => {
       try {
         const response = await fetch(`https://github-contributions-api.deno.dev/${username}.json`);
+        if (!response.ok) throw new Error("Could not fetch contributions data");
         const data = await response.json();
         
-        // Flatten the contributions array and map levels
-        const flattened = data.contributions.flat().map(day => {
-          let level = 0;
-          switch (day.contributionLevel) {
-            case 'FIRST_QUARTILE': level = 1; break;
-            case 'SECOND_QUARTILE': level = 2; break;
-            case 'THIRD_QUARTILE': level = 3; break;
-            case 'FOURTH_QUARTILE': level = 4; break;
-            default: level = 0;
-          }
+        if (isMounted) {
+          // Flatten the contributions array and map levels
+          const flattened = data.contributions.flat().map(day => {
+            let level = 0;
+            switch (day.contributionLevel) {
+              case 'FIRST_QUARTILE': level = 1; break;
+              case 'SECOND_QUARTILE': level = 2; break;
+              case 'THIRD_QUARTILE': level = 3; break;
+              case 'FOURTH_QUARTILE': level = 4; break;
+              default: level = 0;
+            }
 
-          return {
-            date: new Date(day.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-            count: day.contributionCount,
-            level,
-            month: new Date(day.date).getMonth()
-          };
-        });
+            return {
+              date: new Date(day.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+              count: day.contributionCount,
+              level,
+              month: new Date(day.date).getMonth()
+            };
+          });
 
-        setHeatmapData(flattened);
-        setTotalContributions(data.totalContributions);
-        setLoading(false);
+          setHeatmapData(flattened);
+          setTotalContributions(data.totalContributions);
+          setLoading(false);
+        }
       } catch (error) {
         console.error("Error fetching GitHub data:", error);
-        setLoading(false);
+        if (isMounted) {
+          setError(error.message);
+          setLoading(false);
+        }
       }
     };
 
     fetchData();
+    return () => { isMounted = false; };
   }, [username]);
 
   // Identify where months start to place labels
@@ -75,6 +85,14 @@ const GitHubHeatmap = () => {
     return (
       <div className="heatmap-section" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '150px' }}>
         <div style={{ color: 'var(--color-text-light)', fontSize: '1.4rem' }}>Loading contributions...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="heatmap-section" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '150px' }}>
+        <div style={{ color: '#ef4444', fontSize: '1.4rem' }}>{error}</div>
       </div>
     );
   }

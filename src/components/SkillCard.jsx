@@ -2,33 +2,31 @@ import "../assets/css/SkillCard.css";
 import BlurText from "./BlurText";
 import { useEffect, useRef, useCallback } from "react";
 
-const handleAnimationComplete = () => {
-  console.log("Animation completed!");
+
+const iconMap = {
+  Python: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg",
+  React: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg",
+  JavaScript: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg",
+  CSS: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/css3.svg",
+  HTML: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/html5.svg",
+  "Tailwind CSS": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg",
+  "Node.js": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg",
+  Figma: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg",
+  C: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/c.svg",
+  Java: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
+  Antigravity: "/antigravity.png",
+  "Git/GitHub": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg",
+  "REST APIs": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postman.svg",
+  "GenAI Tools (Lovable, Bolt, etc.)": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg",
+  "Responsive Design": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlechrome.svg",
+  "UI/UX Design": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/framer.svg",
+  "User Research": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/hotjar.svg",
+  "Wireframing & Prototyping": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobexd.svg",
+  "Design Thinking": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/canva.svg",
+  "Information Architecture": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/notion.svg",
 };
 
 const SkillCard = ({ title, percentage }) => {
-  const iconMap = {
-    Python: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg",
-    React: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg",
-    JavaScript: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg",
-    CSS: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/css3.svg",
-    HTML: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/html5.svg",
-    "Tailwind CSS": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg",
-    "Node.js": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg",
-    Figma: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg",
-    C: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/c.svg",
-    Java: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
-    Antigravity: "/antigravity.png",
-    "Git/GitHub": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg",
-    "REST APIs": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postman.svg",
-    "GenAI Tools (Lovable, Bolt, etc.)": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg",
-    "Responsive Design": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlechrome.svg",
-    "UI/UX Design": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/framer.svg",
-    "User Research": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/hotjar.svg",
-    "Wireframing & Prototyping": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobexd.svg",
-    "Design Thinking": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/canva.svg",
-    "Information Architecture": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/notion.svg",
-  };
 
   const iconPath = iconMap[title] || "";
   const progressTrackRef = useRef(null);
@@ -71,7 +69,6 @@ const SkillCard = ({ title, percentage }) => {
                 delay={200}
                 animateBy="words"
                 direction="top"
-                onAnimationComplete={handleAnimationComplete}
               />
               <span className="title-underline"></span>
             </h2>
@@ -81,7 +78,6 @@ const SkillCard = ({ title, percentage }) => {
                 delay={200}
                 animateBy="chars"
                 direction="top"
-                onAnimationComplete={handleAnimationComplete}
               />
             </span>
           </div>

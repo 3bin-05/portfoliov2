@@ -1,7 +1,6 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
+import Snow from "./Snow";
+
 import purpleImage from "../assets/images/folio/purple.jpg";
 import bsImage from "../assets/images/folio/BS.jpg";
 import tinkerImage from "../assets/images/folio/tinker.jpg";
@@ -11,11 +10,121 @@ import nptelImage from "../assets/images/folio/nptel.jpg";
 import cryptoImage from "../assets/images/folio/CryptoChat.png";
 import notionImage from "../assets/images/folio/notion.jpg";
 import nptelpy from "../assets/images/certificate/nptelpy.pdf";
-import musbc from "../assets/images/icons/musbc.png";
 import darkImage from "../assets/images/folio/dark.jpg";
 import seltosImage from "../assets/images/folio/Seltos.jpg";
 import FZImage from "../assets/images/folio/flipzon.png";
 import darkdoc from "../assets/images/resume/darkdoc.pdf";
+
+const PROJECTS = [
+  {
+    title: "The Purple Movement",
+    category: "UI/UX Design",
+    link: "https://purple-movement.com",
+    image: purpleImage,
+    descId: "01",
+    description: "A community-focused design project for a local initiative."
+  },
+  {
+    title: "Beyond syllabus",
+    category: "UI/UX design",
+    link: "https://beyondsyllabus.in",
+    image: bsImage,
+    descId: "02",
+    description: "Educational platform for students to learn beyond their curriculum."
+  },
+  {
+    title: "Tinkerhub SBCE",
+    category: "UI/UX Design",
+    link: "",
+    image: tinkerImage,
+    descId: "03",
+    description: "Official community website for Tinkerhub SBCE chapter."
+  },
+  {
+    title: "Clickjack testing on SBCE website",
+    category: "Cyber Security",
+    link: "https://github.com/3bin-05/clickjack",
+    image: ckjImage,
+    descId: "04",
+    description: "Vulnerability assessment and security testing."
+  },
+  {
+    title: "A Chating Platform",
+    category: "Crypto Chat",
+    link: "https://crypto-chat-org.vercel.app",
+    image: cryptoImage,
+    descId: "04",
+    description: "Real-time chat platform built with React and Firebase."
+  },
+  {
+    title: "Joy of computing with python",
+    category: "NPTEL certificate",
+    link: nptelpy,
+    image: nptelImage,
+    descId: "04",
+    description: "Certification for Python programming excellence."
+  },
+  {
+    title: "Project planner schedule",
+    category: "Refer all my endevours",
+    link: "https://cotton-light-6fe.notion.site/28ae88508ec48155b4b6dde03a96e1da?v=28ae88508ec481708570000cc2b1ec4c&source=copy_link",
+    image: notionImage,
+    descId: "04",
+    description: "Detailed roadmap and project management hub."
+  },
+  {
+    title: "Dark Netra",
+    category: "Developement",
+    link: darkdoc,
+    image: darkImage,
+    descId: "01",
+    description: "Software development project focusing on accessibility."
+  },
+  {
+    title: "3D-Web Developement",
+    category: "KIA SELTOS",
+    link: "https://kia-seltos.vercel.app",
+    image: seltosImage,
+    descId: "01",
+    description: "Dynamic animated website showcasing product details."
+  },
+  {
+    title: "FlipZon",
+    category: "E-Commerce",
+    link: "https://flopzon.netlify.app",
+    image: FZImage,
+    descId: "01",
+    description: "E-commerce platform for buying and selling products online."
+  }
+];
+
+function ProjectEntry({ project }) {
+  return (
+    <div className="column entry">
+      <a
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="entry__link glightbox"
+        data-glightbox={`title: ${project.title}; description: .entry__desc-${project.descId}`}
+      >
+        <div className="entry__thumb">
+          <img src={project.image} alt={project.title} loading="lazy" />
+        </div>
+        <div className="entry__info">
+          <h4 className="entry__title">{project.title}</h4>
+          <div className="entry__cat">{project.category}</div>
+        </div>
+      </a>
+      <div className={`glightbox-desc entry__desc-${project.descId}`}>
+        <p>
+          {project.description}
+          <a href={project.link || "#"}>Project Link</a>.
+        </p>
+      </div>
+    </div>
+  );
+}
 
 function Works() {
   return (
@@ -24,20 +133,11 @@ function Works() {
       className="s-works target-section"
       style={{ position: "relative", marginTop: "0rem" }}
     >
-      <div className="snow-container">
-        {Array.from({ length: 50 }, (_, i) => (
-          <span
-            key={i}
-            style={{
-              "--i": i,
-              "--j": Math.floor(Math.random() * 20),
-            }}
-          ></span>
-        ))}
-      </div>
+      <Snow count={50} />
+      
       <div className="row">
         <div className="column xl-12">
-            <div
+          <div
             className="section-header"
             data-num="03"
             style={{ marginBottom: "18rem" }}
@@ -48,264 +148,9 @@ function Works() {
       </div>
 
       <div className="row folio-entries">
-        <div className="column entry">
-          <a
-            href="https://purple-movement.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="entry__link glightbox"
-            data-glightbox="title: White Knit Cap; description: .entry__desc-01"
-          >
-            <div className="entry__thumb">
-              <img src={purpleImage} srcSet={purpleImage} alt="" />
-            </div>
-            <div className="entry__info">
-              <h4 className="entry__title">The Purple Movement</h4>
-              <div className="entry__cat">UI/UX Design</div>
-            </div>
-          </a>
-          <div className="glightbox-desc entry__desc-01">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
-              facilis ab, tempora non! Nisi, tempora provident.
-              <a href="https://www.behance.net/">Project Link</a>.
-            </p>
-          </div>
-        </div>
-        <div className="column entry">
-          <a
-            href="https://beyondsyllabus.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="entry__link glightbox"
-            data-glightbox="title: WoodCraft; description: .entry__desc-02"
-          >
-            <div className="entry__thumb">
-              <img src={bsImage} srcSet={bsImage} alt="" />
-            </div>
-            <div className="entry__info">
-              <h4 className="entry__title">Beyond syllabus</h4>
-              <div className="entry__cat">UI/UX design</div>
-            </div>
-          </a>
-          <div className="glightbox-desc entry__desc-02">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
-              facilis ab, tempora non! Nisi, tempora provident.
-              <a href="https://www.behance.net/">Project Link</a>.
-            </p>
-          </div>
-        </div>
-        <div className="column entry">
-          <a
-            href=""
-            target="_blank"
-            rel="noopener noreferrer"
-            className="entry__link glightbox"
-            data-glightbox="title: Caffeine & Tulips; description: .entry__desc-03"
-          >
-            <div className="entry__thumb">
-              <img src={tinkerImage} srcSet={tinkerImage} alt="" />
-            </div>
-            <div className="entry__info">
-              <h4 className="entry__title">Tinkerhub SBCE</h4>
-              <div className="entry__cat">UI/UX Design</div>
-            </div>
-          </a>
-          <div className="glightbox-desc entry__desc-03">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
-              facilis ab, tempora non! Nisi, tempora provident.
-              <a href="https://www.behance.net/">Project Link</a>.
-            </p>
-          </div>
-        </div>
-        <div className="column entry">
-          <a
-            href="https://github.com/3bin-05/clickjack"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="entry__link glightbox"
-            data-glightbox="title: Grayscale; description: .entry__desc-04"
-          >
-            <div className="entry__thumb">
-              <img src={ckjImage} srcSet={ckjImage} alt="" />
-            </div>
-            <div className="entry__info">
-              <h4 className="entry__title">
-                Clickjack testing on SBCE website
-              </h4>
-              <div className="entry__cat">Cyber Security</div>
-            </div>
-          </a>
-          <div className="glightbox-desc entry__desc-04">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
-              facilis ab, tempora non! Nisi, tempora provident.
-              <a href="https://www.behance.net/">Project Link</a>.
-            </p>
-          </div>
-        </div>
-        <div className="column entry">
-          <a
-            href="https://crypto-chat-org.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="entry__link glightbox"
-            data-glightbox="title: Grayscale; description: .entry__desc-04"
-          >
-            <div className="entry__thumb">
-              <img src={cryptoImage} srcSet={cryptoImage} alt="" />
-            </div>
-            <div className="entry__info">
-              <h4 className="entry__title">
-                A Chating Platform using React and Firebase
-              </h4>
-              <div className="entry__cat">Crypto Chat</div>
-            </div>
-          </a>
-          <div className="glightbox-desc entry__desc-04">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
-              facilis ab, tempora non! Nisi, tempora provident.
-              <a href="https://www.behance.net/">Project Link</a>.
-            </p>
-          </div>
-        </div>
-        <div className="column entry">
-          <a
-            href={nptelpy}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="entry__link glightbox"
-            data-glightbox="title: Grayscale; description: .entry__desc-04"
-          >
-            <div className="entry__thumb">
-              <img src={nptelImage} srcSet={nptelImage} alt="" />
-            </div>
-            <div className="entry__info">
-              <h4 className="entry__title">Joy of computing with python</h4>
-              <div className="entry__cat">NPTEL certificate</div>
-            </div>
-          </a>
-          <div className="glightbox-desc entry__desc-04">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
-              facilis ab, tempora non! Nisi, tempora provident.
-              <a href="https://www.behance.net/">Project Link</a>.
-            </p>
-          </div>
-        </div>
-        <div className="column entry">
-          <a
-            href="https://cotton-light-6fe.notion.site/28ae88508ec48155b4b6dde03a96e1da?v=28ae88508ec481708570000cc2b1ec4c&source=copy_link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="entry__link glightbox"
-            data-glightbox="title: Grayscale; description: .entry__desc-04"
-          >
-            <div className="entry__thumb">
-              <img src={notionImage} srcSet={notionImage} alt="" />
-            </div>
-            <div className="entry__info">
-              <h4 className="entry__title">Project planner schedule</h4>
-              <div className="entry__cat">Refer all my endevours</div>
-            </div>
-          </a>
-          <div className="glightbox-desc entry__desc-04">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
-              facilis ab, tempora non! Nisi, tempora provident.
-              <a href="https://www.behance.net/">Project Link</a>.
-            </p>
-          </div>
-        </div>
-        <div className="column entry">
-          <a
-            href={darkdoc}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="entry__link glightbox"
-            data-glightbox="title: White Knit Cap; description: .entry__desc-01"
-          >
-            <div className="entry__thumb">
-              <img src={darkImage} srcSet={darkImage} alt="" />
-            </div>
-            <div className="entry__info">
-              <h4 className="entry__title">Dark Netra</h4>
-              <div className="entry__cat">Developement</div>
-            </div>
-          </a>
-          <div className="glightbox-desc entry__desc-01">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
-              facilis ab, tempora non! Nisi, tempora provident.
-              <a href="https://www.behance.net/">Project Link</a>.
-            </p>
-          </div>
-        </div>
-        <div className="column entry">
-          <a
-            href="https://kia-seltos.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="entry__link glightbox"
-            data-glightbox="title: White Knit Cap; description: .entry__desc-01"
-          >
-            <div className="entry__thumb">
-              <img src={seltosImage} srcSet={seltosImage} alt="" />
-            </div>
-            <div className="entry__info">
-              <h4 className="entry__title">3D-Web Developement</h4>
-              <div className="entry__cat">
-                A dynamic animated website based on product KIA SELTOS
-              </div>
-            </div>
-          </a>
-          <div className="glightbox-desc entry__desc-01">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
-              facilis ab, tempora non! Nisi, tempora provident.
-              <a href="https://www.behance.net/">Project Link</a>.
-            </p>
-          </div>
-        </div>
-        <div className="column entry">
-          <a
-            href="https://flopzon.netlify.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="entry__link glightbox"
-            data-glightbox="title: White Knit Cap; description: .entry__desc-01"
-          >
-            <div className="entry__thumb">
-              <img src={FZImage} srcSet={FZImage} alt="" />
-            </div>
-            <div className="entry__info">
-              <h4 className="entry__title">FlipZon</h4>
-              <div className="entry__cat">
-                An E-Commerce Websites that provides a platform for users to buy and sell products online.
-              </div>
-            </div>
-          </a>
-          <div className="glightbox-desc entry__desc-01">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Inventore ipsum iste soluta fugiat, impedit illum ducimus deleniti
-              facilis ab, tempora non! Nisi, tempora provident.
-              <a href="https://www.behance.net/">Project Link</a>.
-            </p>
-          </div>
-        </div>
+        {PROJECTS.map((project, index) => (
+          <ProjectEntry key={index} project={project} />
+        ))}
       </div>
     </section>
   );

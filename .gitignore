@@ -7,10 +7,26 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+jspm_packages
+.pnp
+.pnp.js
+
+# Build outputs
 dist
 dist-ssr
-*.local
+build
+out
+.vercel
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +38,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# OS-specific garbage
+Thumbs.db
+Desktop.ini
+
+# Other
+.cache
+.npm
+.eslintcache

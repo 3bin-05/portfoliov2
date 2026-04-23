@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 
-import HomePage from './pages/HomePage';
-import StylesPage from './pages/StylesPage';
+const HomePage = React.lazy(() => import('./pages/HomePage'));
+const StylesPage = React.lazy(() => import('./pages/StylesPage'));
+
 import ClickSpark from './components/ClickSpark';
 import Preloader from './components/Preloader';
 
@@ -53,10 +54,12 @@ function App() {
             sparkCount={8}
             duration={400}
           >
-            <Routes>
-              <Route exact path="/" element={<HomePage />} />
-              <Route path="/styles" element={<StylesPage />} />
-            </Routes>
+            <React.Suspense fallback={<div className="preloader-overlay" />}>
+              <Routes>
+                <Route exact path="/" element={<HomePage />} />
+                <Route path="/styles" element={<StylesPage />} />
+              </Routes>
+            </React.Suspense>
           </ClickSpark>
         </motion.div>
       )}

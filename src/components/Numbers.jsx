@@ -9,33 +9,41 @@ function Numbers() {
     uiProjects: 20
   });
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
+    let isMounted = true;
     const fetchStats = async () => {
       try {
-        // Fetch public repos
-        const userRes = await fetch("https://api.github.com/users/3bin-05");
+        const [userRes, commitRes] = await Promise.all([
+          fetch("https://api.github.com/users/3bin-05"),
+          fetch("https://api.github.com/search/commits?q=author:3bin-05", {
+            headers: { "Accept": "application/vnd.github.cloak-preview" }
+          })
+        ]);
+
+        if (!userRes.ok || !commitRes.ok) throw new Error("GitHub API limit reached or error");
+
         const userData = await userRes.json();
-        
-        // Fetch total commits
-        const commitRes = await fetch("https://api.github.com/search/commits?q=author:3bin-05", {
-          headers: {
-            "Accept": "application/vnd.github.cloak-preview"
-          }
-        });
         const commitData = await commitRes.json();
 
-        setStats({
-          commits: commitData.total_count || 960,
-          repos: userData.public_repos || 35,
-          projects: userData.public_repos || 15, // Using repos as project count baseline
-          uiProjects: 22 // Refined "Professional UI" -> "UI Projects"
-        });
+        if (isMounted) {
+          setStats({
+            commits: commitData.total_count || 960,
+            repos: userData.public_repos || 35,
+            projects: userData.public_repos || 15,
+            uiProjects: 22
+          });
+          setIsLoading(false);
+        }
       } catch (error) {
         console.error("Error fetching GitHub stats:", error);
+        if (isMounted) setIsLoading(false);
       }
     };
 
     fetchStats();
+    return () => { isMounted = false; };
   }, []);
 
   return (
