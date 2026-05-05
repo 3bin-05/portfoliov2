@@ -10,8 +10,9 @@ function Intro() {
                     <div className="s-intro__content-text">
                         <div className="s-intro__content-pretitle text-pretitle">Hi there</div>
                         <h1 className="s-intro__content-title">
-                            I'm Ebin Reji <br />
-                            a Software Dev <br />
+                            I'm Ebin Reji, <br />
+                            a UI/UX Designer & <br />
+                            Frontend Developer <br />
                             <span className="s-intro__content-quote">“Logic meets creativity.”</span>
                         </h1>
                         <div className="s-intro__content-btns">
@@ -29,7 +30,7 @@ function Intro() {
 
             </ul>
             <div className="s-intro__content-media">
-                <img src={introBg} srcSet={`${introBg} 1x, ${introBg} 2x`} alt="" />
+                <img src={introBg} srcSet={`${introBg} 1x, ${introBg} 2x`} alt="Ebin Reji - UI/UX Designer and Frontend Developer Background" />
             </div>
             <div className="s-intro__btn-download">
                 <a className="btn btn--stroke" href={resume} target="_blank" rel="noopener noreferrer">Get My CV</a>

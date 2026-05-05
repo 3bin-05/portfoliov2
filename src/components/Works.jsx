@@ -1,12 +1,12 @@
 import React from "react";
 import Snow from "./Snow";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import purpleImage from "../assets/images/folio/purple.jpg";
 import bsImage from "../assets/images/folio/BS.jpg";
@@ -26,73 +26,74 @@ const PROJECTS = [
   {
     title: "The Purple Movement",
     category: "UI/UX Design",
-    link: "https://purple-movement.com",
+    link: "https://sturdy-snail-3ee.notion.site/Purple-Movement-Website-35779bf218cc8018b325e7cca767c62a?source=copy_link",
     image: purpleImage,
-    description: "A community-focused design project for a local initiative."
+    description: "A community-focused design project for a local initiative.",
   },
   {
     title: "Beyond syllabus",
     category: "UI/UX design",
     link: "https://beyondsyllabus.in",
     image: bsImage,
-    description: "Educational platform for students to learn beyond their curriculum."
+    description:
+      "Educational platform for students to learn beyond their curriculum.",
   },
   {
     title: "Tinkerhub SBCE",
     category: "UI/UX Design",
     link: "https://tinkerhub.org",
     image: tinkerImage,
-    description: "Official community website for Tinkerhub SBCE chapter."
+    description: "Official community website for Tinkerhub SBCE chapter.",
   },
   {
     title: "Clickjack testing on SBCE website",
     category: "Cyber Security",
     link: "https://github.com/3bin-05/clickjack",
     image: ckjImage,
-    description: "Vulnerability assessment and security testing."
+    description: "Vulnerability assessment and security testing.",
   },
   {
     title: "A Chating Platform",
     category: "Crypto Chat",
-    link: "https://crypto-chat-org.vercel.app",
+    link: "https://sturdy-snail-3ee.notion.site/CryptoChat-35579bf218cc80b2a36ced0b1022c281?source=copy_link",
     image: cryptoImage,
-    description: "Real-time chat platform built with React and Firebase."
+    description: "Real-time chat platform built with React and Firebase.",
   },
   {
     title: "Joy of computing with python",
     category: "NPTEL certificate",
     link: nptelpy,
     image: nptelImage,
-    description: "Certification for Python programming excellence."
+    description: "Certification for Python programming excellence.",
   },
   {
     title: "Project planner schedule",
     category: "Notion Hub",
     link: "https://cotton-light-6fe.notion.site/28ae88508ec48155b4b6dde03a96e1da?v=28ae88508ec481708570000cc2b1ec4c&source=copy_link",
     image: notionImage,
-    description: "Detailed roadmap and project management hub."
+    description: "Detailed roadmap and project management hub.",
   },
   {
     title: "Dark Netra",
     category: "Developement",
     link: darkdoc,
     image: darkImage,
-    description: "Software development project focusing on accessibility."
+    description: "Software development project focusing on accessibility.",
   },
   {
     title: "3D-Web Developement",
     category: "KIA SELTOS",
-    link: "https://kia-seltos.vercel.app",
+    link: "https://sturdy-snail-3ee.notion.site/KIA-Seltos-3D-Website-Interactive-Product-Experience-35779bf218cc8091a529c29f8921de63?source=copy_link",
     image: seltosImage,
-    description: "Dynamic animated website showcasing product details."
+    description: "Dynamic animated website showcasing product details.",
   },
   {
     title: "FlipZon",
     category: "E-Commerce",
-    link: "https://flopzon.netlify.app",
+    link: "https://sturdy-snail-3ee.notion.site/FlipZon-35579bf218cc80cca424fe9edb040a73",
     image: FZImage,
-    description: "E-commerce platform for buying and selling products online."
-  }
+    description: "E-commerce platform for buying and selling products online.",
+  },
 ];
 
 function Works() {
@@ -100,10 +101,15 @@ function Works() {
     <section
       id="works"
       className="s-works target-section"
-      style={{ position: "relative", marginTop: "0rem", paddingBottom: "10rem", backgroundColor: "white" }}
+      style={{
+        position: "relative",
+        marginTop: "0rem",
+        paddingBottom: "10rem",
+        backgroundColor: "white",
+      }}
     >
       <Snow count={50} />
-      
+
       {/* Header */}
       <div className="row">
         <div className="column xl-12">
@@ -127,16 +133,16 @@ function Works() {
             centeredSlides={true}
             loop={true}
             autoplay={{
-              delay: 4500,
+              delay: 5000,
               disableOnInteraction: false,
             }}
             navigation={{
-              prevEl: '.custom-nav-prev',
-              nextEl: '.custom-nav-next',
+              prevEl: ".custom-nav-prev",
+              nextEl: ".custom-nav-next",
             }}
             pagination={{
               clickable: true,
-              el: '.custom-pagination',
+              el: ".custom-pagination",
             }}
             breakpoints={{
               640: {
@@ -153,28 +159,45 @@ function Works() {
                 slidesPerView: 3.5,
                 centeredSlides: true,
                 spaceBetween: 80,
-              }
+              },
             }}
             className="projects-swiper"
           >
             {PROJECTS.map((project, index) => (
               <SwiperSlide key={index}>
                 <div className="slide-inner">
-                  <a 
-                    href={project.link || "#"} 
-                    target="_blank" 
+                  <a
+                    href={project.link || "#"}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="project-card-dunes"
                   >
                     <div className="card-image-wrapper">
-                      <img src={project.image} alt={project.title} className="card-bg-image" />
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="card-bg-image"
+                        loading="lazy"
+                      />
                     </div>
                     <div className="card-overlay">
                       <div className="overlay-content">
                         <h3 className="card-title-top">{project.title}</h3>
                         <div className="card-arrow-bottom">
-                          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          <svg
+                            width="28"
+                            height="28"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 17L17 7M17 7H7M17 7V17"
+                              stroke="white"
+                              strokeWidth="2.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
                           </svg>
                         </div>
                       </div>
@@ -191,13 +214,37 @@ function Works() {
 
           {/* Navigation Controls */}
           <button className="custom-nav-prev" aria-label="Previous">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 12H5M5 12L12 19M5 12L12 5"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
           <button className="custom-nav-next" aria-label="Next">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 12H19M19 12L12 5M19 12L12 19"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
         </div>
@@ -206,7 +253,9 @@ function Works() {
         <div className="custom-pagination"></div>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         .projects-carousel-container {
           position: relative;
           width: 100%;
@@ -232,7 +281,7 @@ function Works() {
           justify-content: center;
           align-items: center;
           height: 100%;
-          transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .swiper-slide-active .slide-inner {
@@ -412,7 +461,9 @@ function Works() {
           .projects-carousel-container { padding: 0 20px; }
           .project-card-dunes { border-radius: 30px; }
         }
-      `}} />
+      `,
+        }}
+      />
     </section>
   );
 }

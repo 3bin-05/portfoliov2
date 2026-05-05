@@ -5,10 +5,12 @@ import About from "../components/About";
 import Works from "../components/Works";
 import Experience from "../components/Experience";
 import Numbers from "../components/Numbers";
+import SEO from "../components/SEO";
 
 function HomePage() {
   return (
     <Layout>
+      <SEO />
       <Intro />
       <About />
       <Works />

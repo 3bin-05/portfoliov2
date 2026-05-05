@@ -1,17 +1,8 @@
-# Preloader Glowing Ring Implementation
+# Task: Increase speed of moving cards in works section
 
-## Plan Summary
+## Steps:
 
-Enhance existing orange glowing ring effects behind eb.svg logo in Preloader:
-
-- Boost outer ring drop-shadow glow
-- Increase halo opacity
-- Add inner logo glow
-- Strengthen CSS particles/animations
-
-## Steps
-
-- [x] 1. Create TODO.md ✅
-- [x] 2. Edit src/components/Preloader.jsx (glow enhancements) ✅
-- [x] 3. Edit src/assets/css/Preloader.css (animation boosts) ✅
-- [x] 4. Verify changes and complete ✅
+- [x] 1. Create this TODO.md
+- [x] 2. Edit src/components/Works.jsx to reduce autoplay delay and transition speed
+- [x] 3. Update TODO.md with completion status
+- [x] 4. Test and complete task

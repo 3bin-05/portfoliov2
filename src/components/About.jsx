@@ -46,7 +46,7 @@ function About() {
               textAlign: "justify"
             }}
           >
-            I’m a Computer Science student at Sree Buddha College of Engineering who enjoys building digital products that actually make sense to users. I work with Python, React, and modern web technologies to create responsive, functional applications. Alongside development, I’m deeply interested in UI/UX focusing on clean design, usability, and meaningful user experiences. I like working at the intersection of design and code, where ideas turn into real, interactive products. Constantly learning and experimenting, I aim to create solutions that are not just technically strong, but also intuitive and engaging to use.
+            I’m a UI/UX Designer and Frontend Developer currently studying Computer Science at Sree Buddha College of Engineering. I enjoy building digital products that actually make sense to users. I work with React, Python, and modern web technologies to create responsive, functional applications. Alongside development, I’m deeply interested in UI/UX focusing on clean design, usability, and meaningful user experiences. I like working at the intersection of design and code, where ideas turn into real, interactive products. Constantly learning and experimenting, I aim to create solutions that are not just technically strong, but also intuitive and engaging to use.
           </p>
           <div className="s-about__content-btn">
             <a
@@ -65,8 +65,9 @@ function About() {
           <div className="about-profile-wrapper">
             <img 
               src={ebinreji} 
-              alt="Ebin Reji" 
+              alt="Ebin Reji - UI/UX Designer and Frontend Developer" 
               className="about-profile-img"
+              loading="lazy"
             />
           </div>
         </div>

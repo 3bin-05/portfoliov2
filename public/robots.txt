@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://3bin-05.github.io/portfoliov2/sitemap.xml
