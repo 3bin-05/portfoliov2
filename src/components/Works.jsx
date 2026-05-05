@@ -182,24 +182,8 @@ function Works() {
                     </div>
                     <div className="card-overlay">
                       <div className="overlay-content">
-                        <h3 className="card-title-top">{project.title}</h3>
-                        <div className="card-arrow-bottom">
-                          <svg
-                            width="28"
-                            height="28"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M7 17L17 7M17 7H7M17 7V17"
-                              stroke="white"
-                              strokeWidth="2.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </div>
+                        <div className="title-pill">{project.title}</div>
+                        <div className="category-subtitle">{project.category}</div>
                       </div>
                     </div>
                   </a>
@@ -300,7 +284,13 @@ function Works() {
           text-decoration: none;
           background: #f5f5f5;
           box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-          transition: box-shadow 0.4s ease;
+          transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+          cursor: pointer;
+        }
+
+        .project-card-dunes:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 25px 60px rgba(0,0,0,0.2);
         }
 
         .swiper-slide-active .project-card-dunes {
@@ -317,22 +307,21 @@ function Works() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.6s ease;
+          transition: transform 0.3s ease-in-out;
         }
 
         .card-overlay {
           position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(0, 0, 0, 0.4);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
+          inset: 0;
+          background: rgba(0, 0, 0, 0.3);
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
           opacity: 0;
-          transition: opacity 0.4s ease;
+          transition: opacity 0.3s ease-in-out;
           z-index: 10;
-          padding: 2.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .project-card-dunes:hover .card-overlay {
@@ -344,32 +333,40 @@ function Works() {
         }
 
         .overlay-content {
-          height: 100%;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
-          pointer-events: none;
-        }
-
-        .card-title-top {
-          color: white;
-          font-family: var(--font-2, "Castoro", serif);
-          font-size: 1.75rem;
-          font-weight: 500;
-          margin: 0;
-          text-align: left;
-        }
-
-        .card-arrow-bottom {
-          align-self: flex-end;
-          background: rgba(255, 255, 255, 0.2);
-          border-radius: 50%;
-          width: 50px;
-          height: 50px;
-          display: flex;
           align-items: center;
           justify-content: center;
-          backdrop-filter: blur(4px);
+          pointer-events: none;
+          opacity: 0;
+          transform: translateY(10px);
+          transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .project-card-dunes:hover .overlay-content {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .title-pill {
+          background: #F2994A;
+          color: white;
+          padding: 10px 24px;
+          border-radius: 9999px;
+          font-weight: 700;
+          font-size: 1.25rem;
+          font-family: var(--font-1, sans-serif);
+          text-align: center;
+          margin: 0;
+        }
+
+        .category-subtitle {
+          color: rgba(255, 255, 255, 0.85);
+          font-weight: 500;
+          text-align: center;
+          margin-top: 12px;
+          font-size: 1.1rem;
+          font-family: var(--font-1, sans-serif);
         }
 
         /* Navigation Controls - Forced Circles */
@@ -417,12 +414,12 @@ function Works() {
 
         .fade-left {
           left: -100px;
-          background: linear-gradient(90deg, #ffffff 0%, #ffffff 30%, rgba(255, 255, 255, 0) 100%);
+          background: linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
         }
 
         .fade-right {
           right: -100px;
-          background: linear-gradient(-90deg, #ffffff 0%, #ffffff 30%, rgba(255, 255, 255, 0) 100%);
+          background: linear-gradient(-90deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
         }
 
         /* Pagination */
