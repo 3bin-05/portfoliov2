@@ -1,11 +1,11 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import React from "react";
+import { Helmet } from "react-helmet-async";
 
-const SEO = ({ 
-  title = "Ebin Reji | UI/UX Designer & Frontend Developer", 
-  description = "Portfolio of Ebin Reji, a UI/UX Designer and Frontend Developer building engaging digital experiences.", 
+const SEO = ({
+  title = "Ebin Reji |Coder|Designer|Developer",
+  description = "Portfolio of Ebin Reji, a Coder|Designer|Developer building engaging digital experiences.",
   url = "https://3bin-05.github.io/portfoliov2/",
-  image = "https://3bin-05.github.io/portfoliov2/antigravity.png"
+  image = "https://3bin-05.github.io/portfoliov2/antigravity.png",
 }) => {
   const structuredData = {
     "@context": "https://schema.org",
@@ -13,27 +13,27 @@ const SEO = ({
       {
         "@type": "Person",
         "@id": "https://3bin-05.github.io/portfoliov2/#person",
-        "name": "Ebin Reji",
-        "jobTitle": "UI/UX Designer & Frontend Developer",
-        "url": "https://3bin-05.github.io/portfoliov2/",
-        "image": "https://3bin-05.github.io/portfoliov2/antigravity.png",
-        "sameAs": [
+        name: "Ebin Reji",
+        jobTitle: "Coder|Designer|Developer",
+        url: "https://3bin-05.github.io/portfoliov2/",
+        image: "https://3bin-05.github.io/portfoliov2/antigravity.png",
+        sameAs: [
           "https://github.com/3bin-05",
           "https://www.linkedin.com/in/ebin-reji",
           "https://x.com/simply_ebin05",
-          "https://www.instagram.com/_simply._.ebin_"
-        ]
+          "https://www.instagram.com/_simply._.ebin_",
+        ],
       },
       {
         "@type": "WebSite",
         "@id": "https://3bin-05.github.io/portfoliov2/#website",
-        "url": "https://3bin-05.github.io/portfoliov2/",
-        "name": "Ebin Reji Portfolio",
-        "publisher": {
-          "@id": "https://3bin-05.github.io/portfoliov2/#person"
-        }
-      }
-    ]
+        url: "https://3bin-05.github.io/portfoliov2/",
+        name: "Ebin Reji Portfolio",
+        publisher: {
+          "@id": "https://3bin-05.github.io/portfoliov2/#person",
+        },
+      },
+    ],
   };
 
   return (
