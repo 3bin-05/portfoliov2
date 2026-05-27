@@ -1,0 +1,165 @@
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './SocialIcons';
+
+interface NavbarProps {
+  playClick: () => void;
+  playType: () => void;
+}
+
+export function Navbar({ playClick, playType }: NavbarProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { name: 'Projects', href: '#works' },
+    { name: 'About', href: '#about' },
+    { name: 'Experience', href: '#events' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    playClick();
+    setIsOpen(false);
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleToggle = () => {
+    playClick();
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <nav className="sticky top-0 w-full h-16 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/85 backdrop-blur-md z-50 transition-all duration-300">
+      <div className="max-w-7xl mx-auto h-full px-6 md:px-12 xl:px-16 flex items-center justify-between">
+        
+        {/* Brand / Logo */}
+        <a 
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            playClick();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          onMouseEnter={playType}
+          className="font-serif text-lg font-medium tracking-tight text-[var(--text-primary)] hover:text-[var(--text-hover)] transition-colors cursor-pointer"
+        >
+          Ebin Reji<span className="font-sans text-xs text-neutral-500 font-bold ml-1">.</span>
+        </a>
+
+        {/* Desktop Navigation Links */}
+        <div className="hidden md:flex items-center gap-8 font-mono text-xs tracking-wider">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={(e) => handleScroll(e, link.href)}
+              onMouseEnter={playType}
+              className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors relative py-1 group cursor-pointer"
+            >
+              {link.name}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--text-primary)] transition-all duration-300 group-hover:w-full" />
+            </a>
+          ))}
+        </div>
+
+        {/* Desktop Socials */}
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="https://github.com/3bin-05"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={playClick}
+            onMouseEnter={playType}
+            className="p-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all cursor-pointer"
+            title="GitHub"
+          >
+            <GithubIcon size={14} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/ebin-reji/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={playClick}
+            onMouseEnter={playType}
+            className="p-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all cursor-pointer"
+            title="LinkedIn"
+          >
+            <LinkedinIcon size={14} />
+          </a>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={handleToggle}
+          onMouseEnter={playType}
+          className="md:hidden p-2 rounded-md text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-all cursor-pointer"
+          aria-label="Toggle Menu"
+        >
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+
+      </div>
+
+      {/* Mobile Dropdown Panel */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="absolute top-16 left-0 w-full bg-[var(--bg-primary)] border-b border-[var(--border-color)] md:hidden overflow-hidden z-40"
+          >
+            <div className="px-6 py-8 flex flex-col gap-6">
+              {navLinks.map((link, index) => (
+                <motion.a
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleScroll(e, link.href)}
+                  onMouseEnter={playType}
+                  className="font-mono text-sm tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors py-1 flex items-center justify-between group border-b border-[var(--border-color)]/20 pb-2"
+                >
+                  <span>{link.name}</span>
+                  <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </motion.a>
+              ))}
+
+              {/* Mobile Social Links Expanded inside menu */}
+              <div className="flex items-center gap-4 mt-4 pt-4 border-t border-[var(--border-color)]/30">
+                <span className="font-mono text-[10px] uppercase text-zinc-500 mr-2">Connect:</span>
+                <a
+                  href="https://github.com/3bin-05"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={playClick}
+                  onMouseEnter={playType}
+                  className="p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all flex items-center justify-center"
+                >
+                  <GithubIcon size={16} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/ebin-reji/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={playClick}
+                  onMouseEnter={playType}
+                  className="p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all flex items-center justify-center"
+                >
+                  <LinkedinIcon size={16} />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+}
