@@ -9,7 +9,8 @@ export default defineConfig({
     react(),
     tailwindcss(),
     sitemap({
-      hostname: 'https://ebin-reji.vercel.app'
+      hostname: 'https://ebin-reji.vercel.app',
+      exclude: ['/googlee5d3d0ab480fb9c8']
     })
   ],
 })
