@@ -18,9 +18,9 @@ import { Footer } from './sections/Footer';
 
 function App() {
   const { toggleTheme, isDark } = useTheme();
-  const { isMuted, toggleMute, playClick, playType } = useSound();
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const { isMuted, toggleMute, playClick, playType } = useSound(isLoaded);
 
 
   // Initialize Lenis globally on window

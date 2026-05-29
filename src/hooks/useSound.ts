@@ -1,11 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import bgMusic from '../assets/Audio/audio.mp3';
 
-export function useSound() {
-  const [isMuted, setIsMuted] = useState<boolean>(() => {
-    const saved = localStorage.getItem('sound_muted');
-    return saved === 'true'; // default to muted to avoid auto-play issues
-  });
+export function useSound(canPlayMusic: boolean = true) {
+  const [isMuted, setIsMuted] = useState<boolean>(false); // Always start unmuted
   const [volume, setVolume] = useState<number>(() => {
     const saved = localStorage.getItem('sound_volume');
     return saved ? parseFloat(saved) : 0.4;
@@ -38,7 +35,7 @@ export function useSound() {
 
     audio.volume = volume * 0.3; // subtle background level
 
-    if (isMuted) {
+    if (isMuted || !canPlayMusic) {
       audio.pause();
     } else {
       const playPromise = audio.play();
@@ -61,7 +58,7 @@ export function useSound() {
         });
       }
     }
-  }, [isMuted, volume]);
+  }, [isMuted, volume, canPlayMusic]);
 
 
   // Initialize AudioContext lazily on first user interaction
