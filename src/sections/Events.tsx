@@ -1,222 +1,262 @@
-import { useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Calendar, MapPin } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-interface EventItem {
+interface ExperienceDetail {
   id: string;
-  title: string;
-  category: string;
+  tabLabel: string;
   role: string;
-  description: string;
-  location: string;
-  date: string;
+  organization: string;
+  duration: string;
+  metrics: {
+    label: string;
+    icon: string;
+  }[];
+  bullets: string[];
 }
 
-const eventsList: EventItem[] = [
+const experiencesList: ExperienceDetail[] = [
   {
-    id: 'huddle-2025',
-    title: 'Huddle Global 2025',
-    category: 'STARTUP SUMMIT',
+    id: 'mulearn',
+    tabLabel: 'MuLearn',
+    role: 'UI/UX Core Team & Technical Coordinator',
+    organization: 'MuLearn Foundation & SBC',
+    duration: '2024 - PRESENT',
+    metrics: [
+      { label: '200+ Peers Mentored', icon: '👥' },
+      { label: '15+ UX Platform Reviews', icon: '🔍' },
+      { label: '10+ Peer Tech Hackathons', icon: '💻' }
+    ],
+    bullets: [
+      'Conducted UI/UX office hours, mentoring peers on design principles and workflows.',
+      'Designed user interfaces and prototypes for community initiatives and collaborative projects.',
+      'Fostered networking and knowledge-sharing opportunities within the design community.'
+    ]
+  },
+  {
+    id: 'tinkerhub SBCE',
+    tabLabel: 'TinkerHub SBCE',
+    role: 'Tech Team & UI/UX Designer',
+    organization: 'TinkerHub SBCE',
+    duration: '2025',
+    metrics: [
+      { label: '150+ Community Members', icon: '👥' },
+      { label: '3+ UI Designs Delivered', icon: '🎨' },
+      { label: '5+ Coding Workshops Led', icon: '🚀' }
+    ],
+    bullets: [
+      'Designed user-friendly interfaces for community-driven digital products.',
+      'Built interactive prototypes to validate and refine user experiences.',
+      'Bridged design and development to deliver polished digital solutions.'
+    ]
+  },
+  {
+    id: 'ieee',
+    tabLabel: 'IEEE SB SBCE',
+    role: 'Membership Development & Program Coordinator',
+    organization: 'IEEE SB SBCE',
+    duration: '2025 - PRESENT',
+    metrics: [
+      { label: '40% Membership Increase', icon: '📈' },
+      { label: '8+ Expert Seminars', icon: '🎤' },
+      { label: '3+ Hackathons Coordinated', icon: '🔧' }
+    ],
+    bullets: [
+      'Planned and executed technical and community-focused events in both virtual and physical formats.',
+      'Drove member participation through engaging programs and collaborative initiatives.',
+      'Supported the growth of the IEEE student community by fostering connections and active involvement.'
+    ]
+  },
+  {
+    id: 'Purple Movement',
+    tabLabel: 'The Purple Movement',
+    role: 'Designer & Developer',
+    organization: 'The Purple Movement',
+    duration: '2024 - PRESENT',
+    metrics: [
+      { label: '5+ Clients Satisfied', icon: '🤝' },
+      { label: '3+ Branding Frameworks', icon: '🎨' },
+      { label: '100% On-time Delivery', icon: '⚡' }
+    ],
+    bullets: [
+      'Designed intuitive user interfaces and digital assets for community initiatives.',
+      'Supported the planning and execution of events, ensuring smooth participant experiences.',
+      'Combined design thinking and event coordination to improve participant engagement.'
+    ]
+  },
+  {
+    id: 'KSUM x IEDC',
+    tabLabel: 'KSUM x IEDC',
     role: 'Volunteer',
-    description: "Volunteered at one of Asia's largest startup festivals, exploring emerging hardware innovations and AI trends.",
-    location: 'Kovalam, India',
-    date: 'DEC 2025'
+    organization: 'Huddle Global 2025',
+    duration: 'DEC 2025',
+    metrics: [
+      { label: '5,000+ Tech Attendees', icon: '🌐' },
+      { label: '100+ Startup Booths Assisted', icon: '💡' },
+      { label: '20+ VC Networks Engaged', icon: '🤝' }
+    ],
+    bullets: [
+      'Volunteered at Huddle Global 2025, assisting with event coordination and execution.',
+      'Networked with startup founders, entrepreneurs, and technology leaders.',
+      'Gained insights into innovation, entrepreneurship, and community building through active participation.'
+    ]
   },
   {
-    id: 'Hackathon',
-    title: 'HACKBELLS 3.0',
-    category: 'Hackathon',
+    id: 'SBCE',
+    tabLabel: 'SBCE',
     role: 'Volunteer',
-    description: 'Hackbells is a 24-hour hackathon organized by Sree Buddha College of Engineering, attracting student teams from across the region. It fosters rapid prototyping, technical problem-solving, and cross-functional collaboration in a high-energy environment.',
-    location: 'Alappuzha, Kerala',
-    date: 'FEB 2026'
-  },
-  {
-    id: 'IEEE Sub Execom Program Coordination Team Member',
-    title: 'IEEE Student Branch SBCE',
-    category: 'Technical Organization',
-    role: 'Program Coordinator',
-    description: 'Coordinated technical events like hackathons and tech talks.',
-    location: 'SBCE',
-    date: '2025 - 2026'
-  },
-  {
-    id: 'UI/UX Core Team member',
-    title: 'µLearn Foundation',
-    category: 'UX Analysis',
-    role: 'Core Team Member',
-    description: 'Analyzing and improving the user interface and user experience of the µLearn platform, providing feedback and suggestions to the development team.',
-    location: 'Remote',
-    date: '2025 - On Going'
-  },
-  {
-    id: 'UI/UX IG Lead',
-    title: 'µLearn SBC',
-    category: 'Community Learning',
-    role: 'IG Lead',
-    description: 'Mentored junior developers, coordinated peer-to-peer coding challenges, and established interest circles around React, Git, and UI/UX design.',
-    location: 'SBCE',
-    date: '2024 - 2025'
-  },
-  {
-    id: 'Technical Cordinator',
-    title: 'µLearn SBC',
-    category: 'Technical Cordinator',
-    role: 'Technical Cordinator',
-    description: 'Leading the technical department of the µLearn Student Branch SBCE, organizing and coordinating technical events like hackathons and tech talks.',
-    location: 'SBCE',
-    date: '2025 - On Going'
-  },
-  {
-    id: 'MDC',
-    title: 'IEEE SB SBCE',
-    category: 'MDC',
-    role: 'Membership Developement Coordinator',
-    description: 'Leading the Membership Developement department of the IEEE Student Branch SBCE, organizing and coordinating events like hackathons and tech talks.',
-    location: 'SBCE',
-    date: '2025 - On Going'
-  },
-  {
-    id: 'Tech Team',
-    title: 'Tinkerhub SBCE',
-    category: 'Technical',
-    role: 'Tech Team',
-    description: 'Designing UI/UX for the website of the Tinkerhub Student Branch SBCE.',
-    location: 'SBCE',
-    date: '2025 - 2026'
+    organization: 'HACKBELLS 3.0 Hackathon',
+    duration: 'FEB 2026',
+    metrics: [
+      { label: '30+ Team Submissions', icon: '👥' },
+      { label: '24 Hour Active Support', icon: '⏰' },
+      { label: '120+ Hackers Guided', icon: '🚀' }
+    ],
+    bullets: [
+      'Volunteered to assist coordinate the 24-hour regional student hackathon at Sree Buddha College of Engineering.',
+      'Connected with developers, designers, and tech enthusiasts, building valuable professional relationships.',
+      'Gained practical exposure to event management, technical support, and community engagement within a high-energy environment.'
+    ]
   }
-  
 ];
 
-// Interactive 3D Tilt Card Component
-function TiltCard({ event, playClick, playType }: { event: EventItem; playClick: () => void; playType: () => void }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  
-  // Motion values for tracking mouse relative coordinates
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  // Smooth springs for rotation values
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [10, -10]), { stiffness: 120, damping: 18 });
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-10, 10]), { stiffness: 120, damping: 18 });
-
-  // Shine overlay coordinates
-  const shineX = useTransform(x, [-0.5, 0.5], ['0%', '100%']);
-  const shineY = useTransform(y, [-0.5, 0.5], ['0%', '100%']);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = cardRef.current;
-    if (!el) return;
-
-    const rect = el.getBoundingClientRect();
-    
-    // Relative coordinates between -0.5 and 0.5
-    const relativeX = (e.clientX - rect.left) / rect.width - 0.5;
-    const relativeY = (e.clientY - rect.top) / rect.height - 0.5;
-
-    x.set(relativeX);
-    y.set(relativeY);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      onMouseEnter={playType}
-      onClick={playClick}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: 'preserve-3d',
-      }}
-      whileHover={{ scale: 1.02 }}
-      transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-      className="relative flex flex-col justify-between h-[280px] p-6 rounded-[22px] bg-[var(--bg-card)] border border-[var(--border-color)] overflow-hidden cursor-pointer select-none"
-    >
-      {/* Dynamic Shine Layer */}
-      <motion.div
-        style={{
-          background: `radial-gradient(circle 120px at ${shineX} ${shineY}, rgba(255,255,255,0.06), transparent)`,
-        }}
-        className="absolute inset-0 pointer-events-none z-10"
-      />
-
-      {/* Card Header */}
-      <div style={{ transform: 'translateZ(20px)' }} className="space-y-2">
-        <div className="flex items-center justify-between">
-          <span className="px-2.5 py-0.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-color)] text-[10px] font-mono text-[var(--text-secondary)]">
-            {event.category}
-          </span>
-          <span className="text-[10px] font-mono text-[var(--text-secondary)] flex items-center gap-1">
-            <Calendar size={11} />
-            {event.date}
-          </span>
-        </div>
-        <h4 className="font-serif text-lg md:text-xl font-medium text-[var(--text-primary)] mt-1.5">
-          {event.title}
-        </h4>
-        <p className="text-xs font-mono text-indigo-400/80 tracking-tight">
-          Role: {event.role}
-        </p>
-      </div>
-
-      {/* Card Description */}
-      <div style={{ transform: 'translateZ(10px)' }} className="text-left">
-        <p className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed font-light font-sans line-clamp-4">
-          {event.description}
-        </p>
-      </div>
-
-      {/* Card Footer */}
-      <div style={{ transform: 'translateZ(15px)' }} className="flex items-center gap-1 text-[var(--text-secondary)] text-[11px] font-mono border-t border-[var(--border-color)] pt-3 mt-4">
-        <MapPin size={11} className="text-rose-400" />
-        <span>{event.location}</span>
-      </div>
-    </motion.div>
-  );
-}
-
 export function Events({ playClick, playType }: { playClick: () => void; playType: () => void }) {
+  const [selectedId, setSelectedId] = useState<string>(experiencesList[0]?.id || 'mulearn');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSelectedId((prevId) => {
+        const currentIndex = experiencesList.findIndex((exp) => exp.id === prevId);
+        const nextIndex = (currentIndex + 1) % experiencesList.length;
+        return experiencesList[nextIndex].id;
+      });
+    }, 60000); // 1 minute auto-cycle
+
+    return () => clearInterval(interval);
+  }, [selectedId]);
+
+  const selectedExp = experiencesList.find((e) => e.id === selectedId) || experiencesList[0];
+
   return (
     <section id="events" className="w-full py-24 px-6 md:px-12 xl:px-16 border-t border-[var(--border-color)] relative z-10 bg-[var(--bg-primary)]">
-      
-      {/* Header */}
-      <div className="max-w-7xl mx-auto mb-16 text-left">
-        <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] block mb-2">
-          Offline Log
-        </span>
-        <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-[var(--text-primary)] m-0">
-          Beyond the IDE
-        </h2>
-        <p className="font-sans text-sm md:text-base text-[var(--text-secondary)] mt-3 max-w-md">
-          Workshops organized, student communities enabled, and networking experiences in regional tech hubs.
-        </p>
-      </div>
-
-      {/* Grid of tilt cards */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {eventsList.map((event) => (
-          <TiltCard
-            key={event.id}
-            event={event}
-            playClick={playClick}
-            playType={playType}
-          />
-        ))}
-
-        {/* Closing decorative card */}
-        <div className="relative flex flex-col justify-center items-center h-[280px] p-6 rounded-[22px] border border-dashed border-[var(--border-color)] bg-[var(--bg-primary)] text-center text-[var(--text-secondary)]">
-          <span className="text-3xl font-serif text-zinc-500 animate-pulse mb-3 select-none">?</span>
-          <h4 className="font-sans font-medium text-sm text-[var(--text-primary)]">What's Next?</h4>
-          <p className="text-xs max-w-[200px] mt-1 font-light leading-relaxed">
-            Planning new developer circles and local prototyping workshops.
+      <div className="max-w-6xl mx-auto">
+        
+        {/* Header */}
+        <div className="mb-16 text-left">
+          <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] block mb-2">
+            Offline Log
+          </span>
+          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-[var(--text-primary)] m-0">
+            Beyond the IDE
+          </h2>
+          <p className="font-sans text-sm md:text-base text-[var(--text-secondary)] mt-3 max-w-md">
+            Workshops organized, student communities enabled, and networking experiences in regional tech hubs.
           </p>
+        </div>
+
+        {/* Layout Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          
+          {/* Left Navigation Column */}
+          <div className="lg:col-span-3 flex lg:flex-col overflow-x-auto lg:overflow-x-visible border-b lg:border-b-0 lg:border-l border-[var(--border-color)] scrollbar-none pb-px lg:pb-0 relative z-10">
+            <style>
+              {`
+                /* Hide scrollbar for Chrome, Safari and Opera */
+                .scrollbar-none::-webkit-scrollbar {
+                  display: none;
+                }
+                /* Hide scrollbar for IE, Edge and Firefox */
+                .scrollbar-none {
+                  -ms-overflow-style: none;  /* IE and Edge */
+                  scrollbar-width: none;  /* Firefox */
+                }
+              `}
+            </style>
+            
+            {experiencesList.map((exp) => {
+              const active = exp.id === selectedId;
+              return (
+                <button
+                  key={exp.id}
+                  onClick={() => {
+                    setSelectedId(exp.id);
+                    playClick();
+                  }}
+                  onMouseEnter={playType}
+                  className={`relative px-5 py-3.5 text-left text-xs font-mono tracking-wider uppercase transition-all duration-300 outline-none cursor-pointer whitespace-nowrap select-none flex-grow lg:flex-grow-0 ${
+                    active
+                      ? 'text-teal-600 dark:text-[#64FFDA] font-semibold scale-102 lg:translate-x-1.5'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)]/20'
+                  }`}
+                >
+                  {/* Sliding active bar */}
+                  {active && (
+                    <motion.div
+                      layoutId="activeTabIndicator"
+                      className="absolute left-0 right-0 bottom-0 top-auto h-[2.5px] w-full lg:left-0 lg:right-auto lg:top-0 lg:bottom-0 lg:w-[2.5px] lg:h-full bg-teal-500 dark:bg-[#64FFDA] shadow-[0_0_12px_rgba(20,184,166,0.4)] dark:shadow-[0_0_12px_rgba(100,255,218,0.4)]"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  {exp.tabLabel}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right Content Column */}
+          <div className="lg:col-span-9 pl-0 lg:pl-6 min-h-[300px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedId}
+                initial={{ opacity: 0, x: 15 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -15 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                className="text-left"
+              >
+                {/* Role and Organization */}
+                <h3 className="font-sans text-xl md:text-2xl font-medium tracking-tight text-[var(--text-primary)] m-0 leading-tight">
+                  {selectedExp.role}{' '}
+                  <span className="text-teal-600 dark:text-[#64FFDA] font-semibold">
+                    @ {selectedExp.organization}
+                  </span>
+                </h3>
+                
+                {/* Duration */}
+                <span className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-wider block mt-2 mb-6">
+                  {selectedExp.duration}
+                </span>
+
+                {/* Key Metrics Row */}
+                <div className="flex flex-wrap gap-2.5 mb-8">
+                  {selectedExp.metrics.map((metric, idx) => (
+                    <div 
+                      key={idx} 
+                      className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[var(--bg-elevated)]/40 border border-[var(--border-color)] text-[11px] font-mono text-[var(--text-secondary)] select-none hover:border-[var(--text-primary)]/10 transition-colors"
+                    >
+                      <span className="text-sm">{metric.icon}</span>
+                      <span>{metric.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Description Bullets */}
+                <ul className="space-y-4 p-0 m-0 list-none">
+                  {selectedExp.bullets.map((bullet, idx) => (
+                    <li 
+                      key={idx} 
+                      className="flex items-start gap-3 text-sm md:text-base text-[var(--text-secondary)] leading-relaxed font-light font-sans"
+                    >
+                      <span className="text-teal-500 dark:text-[#64FFDA] mt-1.5 shrink-0 select-none text-xs">
+                        ▹
+                      </span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
         </div>
       </div>
     </section>

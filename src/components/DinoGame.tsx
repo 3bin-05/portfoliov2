@@ -188,8 +188,9 @@ interface Cloud {
   x: number;
   y: number;
   speed: number;
-  scale: number;
 }
+
+
 
 export function DinoGame() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -214,6 +215,7 @@ export function DinoGame() {
     isDucking: false,
     obstacles: [] as Obstacle[],
     clouds: [] as Cloud[],
+
     gameSpeed: 6.5,
     frameCount: 0,
     lastObstacleSpawnFrame: 0,
@@ -303,6 +305,8 @@ export function DinoGame() {
     state.dinoVy = 0;
     state.isDucking = false;
     state.obstacles = [];
+    state.clouds = []; // Clear old clouds!
+
     state.gameSpeed = 6.5;
     state.frameCount = 0;
     state.lastObstacleSpawnFrame = 0;
@@ -431,39 +435,45 @@ export function DinoGame() {
       // Clear canvas
       ctx.clearRect(0, 0, 600, 200);
 
-      // Render Clouds
+      // Render Minimalist Vector Clouds
       state.clouds.forEach((cloud) => {
         if (state.gameState === 'playing') {
           cloud.x -= cloud.speed;
         }
+
+        ctx.save();
+        ctx.strokeStyle = secondaryColor;
+        ctx.fillStyle = secondaryColor + '03'; // ultra-faint fill
+        ctx.lineWidth = 1;
+        ctx.globalAlpha = 0.12; // super subtle opacity
         
-        // Draw cloud
-        ctx.fillStyle = secondaryColor + '20'; // semi-transparent
         ctx.beginPath();
         const cx = cloud.x;
         const cy = cloud.y;
-        const s = cloud.scale;
-        ctx.arc(cx, cy, 10 * s, Math.PI * 0.5, Math.PI * 1.5);
-        ctx.arc(cx + 10 * s, cy - 8 * s, 10 * s, Math.PI * 1.0, Math.PI * 1.85);
-        ctx.arc(cx + 22 * s, cy - 6 * s, 10 * s, Math.PI * 1.3, Math.PI * 2.0);
-        ctx.arc(cx + 30 * s, cy, 10 * s, Math.PI * 1.5, Math.PI * 0.5);
+        ctx.moveTo(cx + 6, cy + 15);
+        ctx.bezierCurveTo(cx - 1, cy + 11, cx - 1, cy + 3, cx + 6, cy + 3);
+        ctx.bezierCurveTo(cx + 10, cy - 7, cx + 22, cy - 7, cx + 26, cy + 3);
+        ctx.bezierCurveTo(cx + 33, cy + 3, cx + 33, cy + 11, cx + 26, cy + 15);
         ctx.closePath();
         ctx.fill();
+        ctx.stroke();
+        ctx.restore();
       });
 
       // Remove offscreen clouds
       state.clouds = state.clouds.filter((c) => c.x > -100);
-      
+
       // Spawn Clouds
-      if (state.frameCount % 240 === 0 && Math.random() < 0.6) {
+      if (state.gameState === 'playing' && state.frameCount % 240 === 0 && Math.random() < 0.6) {
         state.clouds.push({
           id: Math.random(),
           x: 650,
-          y: 30 + Math.random() * 60,
+          y: 30 + Math.random() * 50,
           speed: 0.3 + Math.random() * 0.4,
-          scale: 0.7 + Math.random() * 0.6,
         });
       }
+
+
 
       // Physics and state updates when playing
       if (state.gameState === 'playing') {

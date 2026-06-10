@@ -41,6 +41,13 @@
         "knowsAbout": ["React", "Frontend Development", "Web Design", "Computer Science"]
       }
     </script>
+    <script>
+      // Force scroll to top on reload to show preloader on intro section
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+    </script>
   </head>
   <body>
     <div id="root"></div>

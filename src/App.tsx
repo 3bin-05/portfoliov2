@@ -23,6 +23,14 @@ function App() {
   const { isMuted, toggleMute, playClick, playType } = useSound(isLoaded);
 
 
+  // Force scroll to top on mount to show preloader on intro section
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   // Initialize Lenis globally on window
   useEffect(() => {
     const lenis = new Lenis({
