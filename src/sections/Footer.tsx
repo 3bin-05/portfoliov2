@@ -1,5 +1,5 @@
 import { ArrowUp, Mail } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '../components/SocialIcons';
+import { GithubIcon, LinkedinIcon, InstagramIcon, XIcon } from '../components/SocialIcons';
 
 interface FooterProps {
   playClick: () => void;
@@ -21,13 +21,72 @@ export function Footer({ playClick, playType }: FooterProps) {
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           
           {/* Logo / Subtext */}
-          <div className="space-y-3">
-            <h3 className="font-serif text-2xl font-medium tracking-tight text-[var(--text-primary)]">
-              Ebin Reji
-            </h3>
-            <p className="font-mono text-sm text-[var(--text-secondary)] leading-relaxed max-w-xs">
-              Computer Science Student • UI/UX • Web Development
-            </p>
+          <div className="space-y-5">
+            <div className="space-y-2">
+              <h3 className="font-serif text-2xl font-medium tracking-tight text-[var(--text-primary)]">
+                Ebin Reji
+              </h3>
+              <p className="font-mono text-sm text-[var(--text-secondary)] leading-relaxed max-w-xs">
+                Computer Science Student • UI/UX • Web Development
+              </p>
+            </div>
+            
+            {/* Socials Section */}
+            <div className="space-y-2">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)] block">
+                Socials
+              </span>
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://github.com/3bin-05"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={playClick}
+                  onMouseEnter={playType}
+                  className="flex items-center justify-center p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  title="GitHub"
+                  aria-label="GitHub"
+                >
+                  <GithubIcon size={14} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/ebin-reji/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={playClick}
+                  onMouseEnter={playType}
+                  className="flex items-center justify-center p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  title="LinkedIn"
+                  aria-label="LinkedIn"
+                >
+                  <LinkedinIcon size={14} />
+                </a>
+                <a
+                  href="https://x.com/simply_ebin05"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={playClick}
+                  onMouseEnter={playType}
+                  className="flex items-center justify-center p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  title="X (Twitter)"
+                  aria-label="X (Twitter)"
+                >
+                  <XIcon size={14} />
+                </a>
+                <a
+                  href="https://www.instagram.com/_simply._.ebin_?igsh=MWZkOTdoZnJvOG1pdw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={playClick}
+                  onMouseEnter={playType}
+                  className="flex items-center justify-center p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  title="Instagram"
+                  aria-label="Instagram"
+                >
+                  <InstagramIcon size={14} />
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Nav / Social Links Columns */}

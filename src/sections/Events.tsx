@@ -9,7 +9,6 @@ interface ExperienceDetail {
   duration: string;
   metrics: {
     label: string;
-    icon: string;
   }[];
   bullets: string[];
 }
@@ -22,9 +21,9 @@ const experiencesList: ExperienceDetail[] = [
     organization: 'MuLearn Foundation & SBC',
     duration: '2024 - PRESENT',
     metrics: [
-      { label: '200+ Peers Mentored', icon: '👥' },
-      { label: '15+ UX Platform Reviews', icon: '🔍' },
-      { label: '10+ Peer Tech Hackathons', icon: '💻' }
+      { label: '100+ Networking' },
+      { label: 'UX Platform Reviews' },
+      { label: 'Team Work' }
     ],
     bullets: [
       'Conducted UI/UX office hours, mentoring peers on design principles and workflows.',
@@ -39,9 +38,9 @@ const experiencesList: ExperienceDetail[] = [
     organization: 'TinkerHub SBCE',
     duration: '2025',
     metrics: [
-      { label: '150+ Community Members', icon: '👥' },
-      { label: '3+ UI Designs Delivered', icon: '🎨' },
-      { label: '5+ Coding Workshops Led', icon: '🚀' }
+      { label: 'Leadership' },
+      { label: 'UI/UX Design' },
+      { label: 'Team Work' }
     ],
     bullets: [
       'Designed user-friendly interfaces for community-driven digital products.',
@@ -56,9 +55,9 @@ const experiencesList: ExperienceDetail[] = [
     organization: 'IEEE SB SBCE',
     duration: '2025 - PRESENT',
     metrics: [
-      { label: '40% Membership Increase', icon: '📈' },
-      { label: '8+ Expert Seminars', icon: '🎤' },
-      { label: '3+ Hackathons Coordinated', icon: '🔧' }
+      { label: '20% Membership Increase' },
+      { label: '10+ Events' },
+      { label: 'Event Coordination' }
     ],
     bullets: [
       'Planned and executed technical and community-focused events in both virtual and physical formats.',
@@ -73,9 +72,9 @@ const experiencesList: ExperienceDetail[] = [
     organization: 'The Purple Movement',
     duration: '2024 - PRESENT',
     metrics: [
-      { label: '5+ Clients Satisfied', icon: '🤝' },
-      { label: '3+ Branding Frameworks', icon: '🎨' },
-      { label: '100% On-time Delivery', icon: '⚡' }
+      { label: 'UI Design' },
+      { label: 'Networking' },
+      { label: 'Team Work' }
     ],
     bullets: [
       'Designed intuitive user interfaces and digital assets for community initiatives.',
@@ -90,9 +89,9 @@ const experiencesList: ExperienceDetail[] = [
     organization: 'Huddle Global 2025',
     duration: 'DEC 2025',
     metrics: [
-      { label: '5,000+ Tech Attendees', icon: '🌐' },
-      { label: '100+ Startup Booths Assisted', icon: '💡' },
-      { label: '20+ VC Networks Engaged', icon: '🤝' }
+      { label: 'Networking' },
+      { label: 'Managing' },
+      { label: 'Leadership' }
     ],
     bullets: [
       'Volunteered at Huddle Global 2025, assisting with event coordination and execution.',
@@ -107,9 +106,9 @@ const experiencesList: ExperienceDetail[] = [
     organization: 'HACKBELLS 3.0 Hackathon',
     duration: 'FEB 2026',
     metrics: [
-      { label: '30+ Team Submissions', icon: '👥' },
-      { label: '24 Hour Active Support', icon: '⏰' },
-      { label: '120+ Hackers Guided', icon: '🚀' }
+      { label: 'Event Coordination' },
+      { label: 'Leadership' },
+      { label: 'Team Work' }
     ],
     bullets: [
       'Volunteered to assist coordinate the 24-hour regional student hackathon at Sree Buddha College of Engineering.',
@@ -231,9 +230,8 @@ export function Events({ playClick, playType }: { playClick: () => void; playTyp
                   {selectedExp.metrics.map((metric, idx) => (
                     <div 
                       key={idx} 
-                      className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[var(--bg-elevated)]/40 border border-[var(--border-color)] text-[11px] font-mono text-[var(--text-secondary)] select-none hover:border-[var(--text-primary)]/10 transition-colors"
+                      className="flex items-center px-3.5 py-2 rounded-xl bg-[var(--bg-elevated)]/40 border border-[var(--border-color)] text-[11px] font-mono text-[var(--text-secondary)] select-none hover:border-[var(--text-primary)]/10 transition-colors"
                     >
-                      <span className="text-sm">{metric.icon}</span>
                       <span>{metric.label}</span>
                     </div>
                   ))}
