@@ -8,7 +8,6 @@ export function useSound(canPlayMusic: boolean = true) {
     return saved ? parseFloat(saved) : 0.4;
   });
 
-  const audioCtxRef = useRef<AudioContext | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const isMutedRef = useRef(isMuted);
 
@@ -61,16 +60,7 @@ export function useSound(canPlayMusic: boolean = true) {
   }, [isMuted, volume, canPlayMusic]);
 
 
-  // Initialize AudioContext lazily on first user interaction
-  const initAudio = () => {
-    if (!audioCtxRef.current) {
-      audioCtxRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
-    }
-    if (audioCtxRef.current.state === 'suspended') {
-      audioCtxRef.current.resume();
-    }
-    return audioCtxRef.current;
-  };
+
 
   useEffect(() => {
     localStorage.setItem('sound_muted', String(isMuted));
@@ -81,7 +71,7 @@ export function useSound(canPlayMusic: boolean = true) {
   }, [volume]);
 
   // Sound effects removed as per user request
-  const playType = (isKeystroke?: boolean) => {};
+  const playType = (_isKeystroke?: boolean) => {};
   const playClick = () => {};
 
   return {
