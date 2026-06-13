@@ -15,6 +15,16 @@ export default defineConfig({
     }),
     visualizer({ open: true, gzipSize: true })
   ],
+  server: {
+    headers: {
+      'Content-Security-Policy': "default-src 'self'; img-src 'self' data: https:; font-src 'self' https: data:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline'; connect-src 'self' https:; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self';",
+      'X-Content-Type-Options': 'nosniff',
+      'X-Frame-Options': 'DENY',
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
+      'Cross-Origin-Resource-Policy': 'same-origin',
+      'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+    }
+  },
   build: {
     rollupOptions: {
       output: {
