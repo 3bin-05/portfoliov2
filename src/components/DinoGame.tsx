@@ -348,21 +348,22 @@ export function DinoGame() {
   // Keyboard input handlers
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Only block keys and handle commands if browser focus is near or on the game
-      const isTargetingGame = isFocused || e.key === ' ' || e.key === 'ArrowUp' || e.key === 'ArrowDown';
-      if (!isTargetingGame) return;
+      const isGameKey = e.key === ' ' || e.key === 'ArrowUp' || e.key === 'ArrowDown';
+      if (!isGameKey) return;
 
-      if (e.key === ' ' || e.key === 'ArrowUp') {
+      // Only hijack scrolling if the user is actively focusing on the game frame
+      if (isFocused) {
         e.preventDefault();
-        jump();
-      } else if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        setDucking(true);
+        if (e.key === ' ' || e.key === 'ArrowUp') {
+          jump();
+        } else if (e.key === 'ArrowDown') {
+          setDucking(true);
+        }
       }
     };
 
     const handleKeyUp = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowDown') {
+      if (e.key === 'ArrowDown' && isFocused) {
         setDucking(false);
       }
     };
@@ -400,6 +401,7 @@ export function DinoGame() {
     if (!ctx) return;
 
     let animationId: number;
+    let lastTime = performance.now();
 
     // Helper to draw pixel art sprites
     const drawPixelArt = (
@@ -426,11 +428,18 @@ export function DinoGame() {
     };
 
     // Main update/render frame
-    const tick = () => {
+    const tick = (time: number) => {
       const state = stateRef.current;
       const themeColor = getComputedStyle(document.documentElement).getPropertyValue('--text-primary').trim() || '#FFFFFF';
       const secondaryColor = getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim() || '#8C8C8C';
       const borderThemeColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim() || 'rgba(255,255,255,0.08)';
+
+      const deltaTime = time - lastTime;
+      lastTime = time;
+
+      // Cap deltaTime to avoid massive jumps on resume/lag spikes
+      const clampedDelta = Math.min(100, deltaTime);
+      const timeScale = clampedDelta / 16.667;
 
       // Clear canvas
       ctx.clearRect(0, 0, 600, 200);
@@ -438,7 +447,7 @@ export function DinoGame() {
       // Render Minimalist Vector Clouds
       state.clouds.forEach((cloud) => {
         if (state.gameState === 'playing') {
-          cloud.x -= cloud.speed;
+          cloud.x -= cloud.speed * timeScale;
         }
 
         ctx.save();
@@ -464,7 +473,7 @@ export function DinoGame() {
       state.clouds = state.clouds.filter((c) => c.x > -100);
 
       // Spawn Clouds
-      if (state.gameState === 'playing' && state.frameCount % 240 === 0 && Math.random() < 0.6) {
+      if (state.gameState === 'playing' && state.frameCount >= 240 && Math.floor((state.frameCount - timeScale) / 240) !== Math.floor(state.frameCount / 240) && Math.random() < 0.6) {
         state.clouds.push({
           id: Math.random(),
           x: 650,
@@ -477,10 +486,10 @@ export function DinoGame() {
 
       // Physics and state updates when playing
       if (state.gameState === 'playing') {
-        state.frameCount++;
+        state.frameCount += timeScale;
 
         // Increase score
-        state.score += 0.15;
+        state.score += 0.15 * timeScale;
         const integerScore = Math.floor(state.score);
         setScore(integerScore);
 
@@ -497,11 +506,11 @@ export function DinoGame() {
         state.gameSpeed = Math.min(15, 6.5 + (state.score / 150));
 
         // Ground offset scroll animation
-        state.groundOffset = (state.groundOffset + state.gameSpeed) % 600;
+        state.groundOffset = (state.groundOffset + state.gameSpeed * timeScale) % 600;
 
         // Dino Physics (gravity)
-        state.dinoVy += 0.6; // Gravity constant
-        state.dinoY += state.dinoVy;
+        state.dinoVy += 0.6 * timeScale; // Gravity constant
+        state.dinoY += state.dinoVy * timeScale;
 
         const maxDinoY = state.isDucking ? 146 : 136; // standing height (34) vs ducking height (24)
         if (state.dinoY >= maxDinoY) {
@@ -511,7 +520,7 @@ export function DinoGame() {
 
         // Move Obstacles
         state.obstacles.forEach((obs) => {
-          obs.x -= state.gameSpeed;
+          obs.x -= state.gameSpeed * timeScale;
         });
 
         // Clean off-screen obstacles

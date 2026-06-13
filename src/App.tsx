@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense, lazy } from 'react';
+import { useEffect, useState, useRef, Suspense, lazy } from 'react';
 import { useScroll, useTransform, m, AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import { useTheme } from './hooks/useTheme';
@@ -23,6 +23,7 @@ function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const { isMuted, toggleMute, playClick, playType } = useSound(isLoaded);
+  const lenisRef = useRef<Lenis | null>(null);
 
 
   // Force scroll to top on mount to show preloader on intro section
@@ -33,7 +34,7 @@ function App() {
     window.scrollTo(0, 0);
   }, []);
 
-  // Initialize Lenis globally on window
+  // Initialize Lenis globally on window once
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -44,12 +45,7 @@ function App() {
       wheelMultiplier: 1,
       touchMultiplier: 1.5,
     });
-
-    if (!isLoaded) {
-      lenis.stop();
-    } else {
-      lenis.start();
-    }
+    lenisRef.current = lenis;
 
     let rafId: number;
     function raf(time: number) {
@@ -62,8 +58,20 @@ function App() {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      lenisRef.current = null;
     };
-  }, [playType, isLoaded]);
+  }, []);
+
+  // Toggle Lenis start/stop based on loading state
+  useEffect(() => {
+    const lenis = lenisRef.current;
+    if (!lenis) return;
+    if (!isLoaded) {
+      lenis.stop();
+    } else {
+      lenis.start();
+    }
+  }, [isLoaded]);
 
 
   // Framer motion scroll analytics relative to viewport scroll progress

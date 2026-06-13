@@ -128,7 +128,7 @@ export function Events({ playClick, playType }: { playClick: () => void; playTyp
         const nextIndex = (currentIndex + 1) % experiencesList.length;
         return experiencesList[nextIndex].id;
       });
-    }, 30000); // 1 minute auto-cycle
+    }, 30000); // 30 seconds auto-cycle
 
     return () => clearInterval(interval);
   }, [selectedId]);

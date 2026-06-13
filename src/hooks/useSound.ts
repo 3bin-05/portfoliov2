@@ -27,12 +27,19 @@ export function useSound(canPlayMusic: boolean = true) {
     };
   }, []);
 
+  const interactionCleanupRef = useRef<(() => void) | null>(null);
+
   // Sync playing state and volume
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
     audio.volume = volume * 0.3; // subtle background level
+
+    if (interactionCleanupRef.current) {
+      interactionCleanupRef.current();
+      interactionCleanupRef.current = null;
+    }
 
     if (isMuted || !canPlayMusic) {
       audio.pause();
@@ -46,10 +53,19 @@ export function useSound(canPlayMusic: boolean = true) {
             if (!isMutedRef.current && audioRef.current) {
               audioRef.current.play().catch(e => console.log("Failed to play on interaction:", e));
             }
+            cleanup();
+          };
+          
+          const cleanup = () => {
             window.removeEventListener('click', startPlayback);
             window.removeEventListener('keydown', startPlayback);
             window.removeEventListener('scroll', startPlayback);
+            if (interactionCleanupRef.current === cleanup) {
+              interactionCleanupRef.current = null;
+            }
           };
+
+          interactionCleanupRef.current = cleanup;
           
           window.addEventListener('click', startPlayback);
           window.addEventListener('keydown', startPlayback);
@@ -57,6 +73,13 @@ export function useSound(canPlayMusic: boolean = true) {
         });
       }
     }
+
+    return () => {
+      if (interactionCleanupRef.current) {
+        interactionCleanupRef.current();
+        interactionCleanupRef.current = null;
+      }
+    };
   }, [isMuted, volume, canPlayMusic]);
 
 
