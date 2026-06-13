@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 
@@ -108,16 +108,16 @@ export function Navbar({ playClick, playType }: NavbarProps) {
       {/* Mobile Dropdown Panel */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="absolute top-16 left-0 w-full bg-[var(--bg-primary)] border-b border-[var(--border-color)] md:hidden overflow-hidden z-40"
+            className="absolute top-16 left-0 w-full bg-[var(--bg-primary)] border-b border-[var(--border-color)] md:hidden overflow-hidden z-40 [will-change:transform]"
           >
             <div className="px-6 py-8 flex flex-col gap-6">
               {navLinks.map((link, index) => (
-                <motion.a
+                <m.a
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
@@ -125,11 +125,11 @@ export function Navbar({ playClick, playType }: NavbarProps) {
                   href={link.href}
                   onClick={(e) => handleScroll(e, link.href)}
                   onMouseEnter={playType}
-                  className="font-mono text-sm tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors py-1 flex items-center justify-between group border-b border-[var(--border-color)]/20 pb-2"
+                  className="font-mono text-sm tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors py-1 flex items-center justify-between group border-b border-[var(--border-color)]/20 pb-2 [will-change:transform]"
                 >
                   <span>{link.name}</span>
                   <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </motion.a>
+                </m.a>
               ))}
 
               {/* Mobile Social Links Expanded inside menu */}
@@ -157,7 +157,7 @@ export function Navbar({ playClick, playType }: NavbarProps) {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </nav>

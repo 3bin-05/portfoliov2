@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { m, useMotionValue, useSpring } from 'framer-motion';
 
 export function CustomCursor() {
   const cursorX = useMotionValue(-100);
@@ -60,8 +60,8 @@ export function CustomCursor() {
   return (
     <>
       {/* Inner precise dot */}
-      <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-white rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
+      <m.div
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-white rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference [will-change:transform]"
         style={{
           x: cursorX,
           y: cursorY,
@@ -72,8 +72,8 @@ export function CustomCursor() {
         transition={{ duration: 0.15 }}
       />
       {/* Outer trailing organic ring */}
-      <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-white pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
+      <m.div
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-white pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 mix-blend-difference [will-change:transform]"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,

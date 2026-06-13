@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ExternalLink, FileText, ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from '../components/SocialIcons';
 import { projects } from '../data/projects';
@@ -50,18 +50,18 @@ export function Works({ playClick, playType }: WorksProps) {
       </div>
 
       {/* Masonry Columns Layout */}
-      <motion.div
+      <m.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
+        viewport={{ once: true, amount: 0.15 }}
         className="max-w-7xl mx-auto columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6"
       >
         {projects.map((project) => (
-          <motion.div
+          <m.div
             key={project.id}
             variants={cardVariants}
-            className="break-inside-avoid relative overflow-hidden rounded-[22px] bg-[var(--bg-card)] border border-[var(--border-color)] group transition-colors duration-500 hover:border-[var(--text-secondary)]/30"
+            className="break-inside-avoid relative overflow-hidden rounded-[22px] bg-[var(--bg-card)] border border-[var(--border-color)] group transition-colors duration-500 hover:border-[var(--text-secondary)]/30 [will-change:transform]"
             style={{
               backfaceVisibility: 'hidden',
               WebkitBackfaceVisibility: 'hidden',
@@ -83,6 +83,23 @@ export function Works({ playClick, playType }: WorksProps) {
               <img
                 src={project.image}
                 alt={project.title}
+                width={
+                  project.id === 'flipzon' ? 400 :
+                  project.id === 'cryptochat' ? 300 :
+                  project.id === 'kia-3d' ? 480 :
+                  project.id === 'purple-movement' ? 300 :
+                  project.id === 'darknetra' ? 300 :
+                  400
+                }
+                height={
+                  project.id === 'flipzon' ? 300 :
+                  project.id === 'cryptochat' ? 400 :
+                  project.id === 'kia-3d' ? 400 :
+                  project.id === 'purple-movement' ? 450 :
+                  project.id === 'darknetra' ? 400 :
+                  300
+                }
+                loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-hover:blur-xs rounded-[inherit]"
                 style={{
                   backfaceVisibility: 'hidden',
@@ -188,9 +205,9 @@ export function Works({ playClick, playType }: WorksProps) {
 
             </div>
 
-          </motion.div>
+          </m.div>
         ))}
-      </motion.div>
+      </m.div>
     </section>
   );
 }

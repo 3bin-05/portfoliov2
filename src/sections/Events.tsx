@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
 interface ExperienceDetail {
   id: string;
@@ -189,9 +189,9 @@ export function Events({ playClick, playType }: { playClick: () => void; playTyp
                 >
                   {/* Sliding active bar */}
                   {active && (
-                    <motion.div
+                    <m.div
                       layoutId="activeTabIndicator"
-                      className="absolute left-0 right-0 bottom-0 top-auto h-[2.5px] w-full lg:left-0 lg:right-auto lg:top-0 lg:bottom-0 lg:w-[2.5px] lg:h-full bg-teal-500 dark:bg-[#64FFDA] shadow-[0_0_12px_rgba(20,184,166,0.4)] dark:shadow-[0_0_12px_rgba(100,255,218,0.4)]"
+                      className="absolute left-0 right-0 bottom-0 top-auto h-[2.5px] w-full lg:left-0 lg:right-auto lg:top-0 lg:bottom-0 lg:w-[2.5px] lg:h-full bg-teal-500 dark:bg-[#64FFDA] shadow-[0_0_12px_rgba(20,184,166,0.4)] dark:shadow-[0_0_12px_rgba(100,255,218,0.4)] [will-change:transform]"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -204,13 +204,13 @@ export function Events({ playClick, playType }: { playClick: () => void; playTyp
           {/* Right Content Column */}
           <div className="lg:col-span-9 pl-0 lg:pl-6 min-h-[300px]">
             <AnimatePresence mode="wait">
-              <motion.div
+              <m.div
                 key={selectedId}
                 initial={{ opacity: 0, x: 15 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -15 }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="text-left"
+                className="text-left [will-change:transform]"
               >
                 {/* Role and Organization */}
                 <h3 className="font-sans text-xl md:text-2xl font-medium tracking-tight text-[var(--text-primary)] m-0 leading-tight">
@@ -251,7 +251,7 @@ export function Events({ playClick, playType }: { playClick: () => void; playTyp
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </m.div>
             </AnimatePresence>
           </div>
 

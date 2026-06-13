@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Mail, FileText, Volume2, VolumeX, Sun, Moon, BadgeCheck } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../components/SocialIcons';
-import ebinAvatar from '../assets/ebinreji.jpg';
+
+const ebinAvatar = '/ebinreji.jpg';
 
 interface HeroProfileProps {
   isMuted: boolean;
@@ -68,7 +69,7 @@ export function HeroProfile({
     <div className="w-full h-full flex items-center justify-center px-4 py-16 relative z-10">
       
       {/* Decorative background grid and glow behind card */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
@@ -76,7 +77,7 @@ export function HeroProfile({
       />
 
       {/* Repeating Stroke Text Background (Ebin Reji UI/UX & Dev) */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, filter: "blur(10px)" }}
         animate={{ opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -85,7 +86,7 @@ export function HeroProfile({
         {Array.from({ length: 14 }).map((_, i) => {
           const direction = i % 2 === 0 ? 1 : -1;
           return (
-            <motion.div 
+            <m.div 
               key={i} 
               initial={{ x: direction === 1 ? '-15%' : '0%' }}
               animate={{ x: direction === 1 ? '0%' : '-15%' }}
@@ -95,26 +96,26 @@ export function HeroProfile({
                 duration: 28 + i * 2,
                 ease: 'linear'
               }}
-              className="whitespace-nowrap text-[8vw] md:text-[5vw] font-black font-sans uppercase tracking-widest leading-none opacity-15 dark:opacity-[0.08]"
+              className="whitespace-nowrap text-[8vw] md:text-[5vw] font-black font-sans uppercase tracking-widest leading-none opacity-15 dark:opacity-[0.08] [will-change:transform]"
               style={{
                 WebkitTextStroke: `1px ${isDark ? '#ffffff' : '#4a5568'}`,
                 color: 'transparent',
               }}
             >
               Ebin Reji UI/UX & Dev • Ebin Reji UI/UX & Dev • Ebin Reji UI/UX & Dev • Ebin Reji UI/UX & Dev • Ebin Reji UI/UX & Dev
-            </motion.div>
+            </m.div>
           );
         })}
-      </motion.div>
+      </m.div>
 
       {/* Floating Tweet Card Container */}
-      <motion.div
+      <m.div
         layoutId="tweet-card"
         initial={false}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: 'spring', stiffness: 70, damping: 15 }}
         whileHover={{ y: -4, boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}
-        className="w-full max-w-2xl min-h-[380px] md:min-h-[350px] flex flex-col justify-between bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[22px] p-6 md:p-8 relative backdrop-blur-md transition-all duration-300 select-none group -mt-20 md:-mt-40"
+        className="w-full max-w-2xl min-h-[380px] md:min-h-[350px] flex flex-col justify-between bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[22px] p-6 md:p-8 relative backdrop-blur-md transition-colors duration-300 select-none group -mt-20 md:-mt-40 [will-change:transform]"
       >
         
         {/* Tweet Top Section (Avatar + Bio Metadata + Controls) */}
@@ -145,7 +146,7 @@ export function HeroProfile({
                     <stop offset="100%" stopColor="#bc1888" />
                   </linearGradient>
                 </defs>
-                <motion.circle
+                <m.circle
                   cx="50"
                   cy="50"
                   r="46"
@@ -167,6 +168,8 @@ export function HeroProfile({
                 <img
                   src={ebinAvatar}
                   alt="Ebin Reji"
+                  width={1222}
+                  height={1251}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover/avatar:scale-110"
                 />
               </div>
@@ -329,7 +332,7 @@ export function HeroProfile({
           </div>
         </div>
 
-      </motion.div>
+      </m.div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Shield, Lock, RotateCw, ChevronLeft, ChevronRight, Share2, Plus, X, Mail, Copy, Check } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
 interface BrowserShellProps {
   children: React.ReactNode;
@@ -169,12 +169,12 @@ export function BrowserShell({ children, playClick, playType }: BrowserShellProp
               setIsShareOpen(false);
             }}
           >
-            <motion.div 
+            <m.div 
               initial={{ opacity: 0, scale: 0.96, y: 8 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 8 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
-              className="w-full max-w-md bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[22px] p-8 md:p-10 relative shadow-2xl flex flex-col gap-8"
+              className="w-full max-w-md bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[22px] p-8 md:p-10 relative shadow-2xl flex flex-col gap-8 [will-change:transform]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Close Icon */}
@@ -248,7 +248,7 @@ export function BrowserShell({ children, playClick, playType }: BrowserShellProp
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         )}
       </AnimatePresence>
@@ -256,12 +256,12 @@ export function BrowserShell({ children, playClick, playType }: BrowserShellProp
       {/* Bookmark Helper Toast */}
       <AnimatePresence>
         {showBookmarkToast && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.95 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-55 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl py-3 px-4 shadow-2xl backdrop-blur-md flex items-center gap-3.5 max-w-sm pointer-events-auto"
+            className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-55 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl py-3 px-4 shadow-2xl backdrop-blur-md flex items-center gap-3.5 max-w-sm pointer-events-auto [will-change:transform]"
           >
             <div className="w-1.5 h-1.5 rounded-full bg-[var(--text-primary)] animate-pulse shrink-0" />
             <div className="flex flex-col gap-0.5 min-w-0">
@@ -279,7 +279,7 @@ export function BrowserShell({ children, playClick, playType }: BrowserShellProp
             >
               <X size={12} />
             </button>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

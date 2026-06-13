@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { X } from 'lucide-react';
 
 
@@ -51,12 +51,12 @@ export function ContactModal({ playClick, playType, onClose }: ContactModalProps
         onClose();
       }}
     >
-      <motion.div 
+      <m.div 
         initial={{ opacity: 0, scale: 0.96, y: 8 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.96, y: 8 }}
         transition={{ duration: 0.2, ease: 'easeOut' }}
-        className="w-full max-w-md bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[22px] p-8 md:p-10 relative shadow-2xl flex flex-col gap-8"
+        className="w-full max-w-md bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[22px] p-8 md:p-10 relative shadow-2xl flex flex-col gap-8 [will-change:transform]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Close Icon */}
@@ -190,7 +190,7 @@ export function ContactModal({ playClick, playType, onClose }: ContactModalProps
             </form>
           </div>
         )}
-      </motion.div>
+      </m.div>
     </div>
   );
 }

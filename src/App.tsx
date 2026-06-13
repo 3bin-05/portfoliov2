@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useScroll, useTransform, motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState, Suspense, lazy } from 'react';
+import { useScroll, useTransform, m, AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import { useTheme } from './hooks/useTheme';
 import { useSound } from './hooks/useSound';
@@ -9,12 +9,14 @@ import { CustomCursor } from './components/CustomCursor';
 import { ContactModal } from './components/ContactModal';
 import { HeroProfile } from './sections/HeroProfile';
 import { Preloader } from './components/Preloader';
-import { Works } from './sections/Works';
-import { About } from './sections/About';
-import { StackBelt } from './sections/StackBelt';
-import { Events } from './sections/Events';
-import { Contact } from './sections/Contact';
-import { Footer } from './sections/Footer';
+
+const Works = lazy(() => import('./sections/Works').then(mod => ({ default: mod.Works })));
+const About = lazy(() => import('./sections/About').then(mod => ({ default: mod.About })));
+const StackBelt = lazy(() => import('./sections/StackBelt').then(mod => ({ default: mod.StackBelt })));
+const Events = lazy(() => import('./sections/Events').then(mod => ({ default: mod.Events })));
+const Contact = lazy(() => import('./sections/Contact').then(mod => ({ default: mod.Contact })));
+const Footer = lazy(() => import('./sections/Footer').then(mod => ({ default: mod.Footer })));
+
 
 function App() {
   const { toggleTheme, isDark } = useTheme();
@@ -97,7 +99,7 @@ function App() {
             
             {/* Sticky target container representing the active viewer */}
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-              <motion.div
+              <m.div
                 style={{
                   y,
                   scale,
@@ -108,7 +110,7 @@ function App() {
               >
                 <AnimatePresence mode="wait">
                   {!isLoaded ? (
-                    <motion.div
+                    <m.div
                       key="preloader"
                       initial={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
                       exit={{ opacity: 0, filter: "blur(12px)", scale: 0.96 }}
@@ -123,9 +125,9 @@ function App() {
                         isDark={isDark}
                         playType={playType}
                       />
-                    </motion.div>
+                    </m.div>
                   ) : (
-                    <motion.div
+                    <m.div
                       key="hero"
                       initial={{ opacity: 0, filter: "blur(12px)", scale: 1.04 }}
                       animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
@@ -141,22 +143,34 @@ function App() {
                         playType={playType}
                         onContactClick={() => setIsContactOpen(true)}
                       />
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
+              </m.div>
             </div>
 
           </div>
 
           {/* Portfolio Body Sections (Phase 4, 5, 6, 7) */}
           <div className="relative z-30 bg-[var(--bg-primary)] border-t border-[var(--border-color)]">
-            <About playClick={playClick} playType={playType} />
-            <StackBelt playType={playType} />
-            <Works playClick={playClick} playType={playType} />
-            <Events playClick={playClick} playType={playType} />
-            <Contact playClick={playClick} playType={playType} />
-            <Footer playClick={playClick} playType={playType} />
+            <Suspense fallback={null}>
+              <About playClick={playClick} playType={playType} />
+            </Suspense>
+            <Suspense fallback={null}>
+              <StackBelt playType={playType} />
+            </Suspense>
+            <Suspense fallback={null}>
+              <Works playClick={playClick} playType={playType} />
+            </Suspense>
+            <Suspense fallback={null}>
+              <Events playClick={playClick} playType={playType} />
+            </Suspense>
+            <Suspense fallback={null}>
+              <Contact playClick={playClick} playType={playType} />
+            </Suspense>
+            <Suspense fallback={null}>
+              <Footer playClick={playClick} playType={playType} />
+            </Suspense>
           </div>
 
         </BrowserShell>

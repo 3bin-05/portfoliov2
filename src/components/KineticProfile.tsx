@@ -1,4 +1,4 @@
-import ebImage from '../assets/eb.png';
+const ebImage = '/eb.png';
 
 interface KineticProfileProps {
   playClick?: () => void;
@@ -65,6 +65,9 @@ export function KineticProfile({ playClick, playType }: KineticProfileProps) {
           <img
             src={ebImage}
             alt="Ebin Reji"
+            width={1588}
+            height={2225}
+            loading="lazy"
             className="w-full h-auto object-cover relative z-10"
           />
         </div>

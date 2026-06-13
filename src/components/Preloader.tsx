@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { BadgeCheck, Image, Film, BarChart2, Smile, Calendar, MapPin } from 'lucide-react';
-import ebinAvatar from '../assets/ebinreji.jpg';
+
+const ebinAvatar = '/ebinreji.jpg';
 
 interface PreloaderProps {
   onComplete: () => void;
@@ -83,7 +84,7 @@ export function Preloader({ onComplete, isDark, playType }: PreloaderProps) {
         {Array.from({ length: 24 }).map((_, i) => {
           const direction = i % 2 === 0 ? 1 : -1;
           return (
-            <motion.div 
+            <m.div 
               key={i} 
               initial={{ x: direction === 1 ? '-15%' : '0%' }}
               animate={{ x: direction === 1 ? '0%' : '-15%' }}
@@ -93,24 +94,24 @@ export function Preloader({ onComplete, isDark, playType }: PreloaderProps) {
                 duration: 28 + i * 2,
                 ease: 'linear'
               }}
-              className="whitespace-nowrap text-[8vw] md:text-[5vw] font-black font-sans uppercase tracking-widest leading-none opacity-15 dark:opacity-[0.08]"
+              className="whitespace-nowrap text-[8vw] md:text-[5vw] font-black font-sans uppercase tracking-widest leading-none opacity-15 dark:opacity-[0.08] [will-change:transform]"
               style={{
                 WebkitTextStroke: `1px ${isDark ? '#ffffff' : '#4a5568'}`,
                 color: 'transparent',
               }}
             >
               Loading Portfolio • Loading Portfolio • Loading Portfolio • Loading Portfolio • Loading Portfolio
-            </motion.div>
+            </m.div>
           );
         })}
       </div>
 
       {/* Floating Tweet Composer Card */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full max-w-2xl min-h-[380px] md:min-h-[350px] flex flex-col justify-between bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[22px] p-6 md:p-8 relative backdrop-blur-md select-none -mt-20 md:-mt-40 overflow-hidden"
+        className="w-full max-w-2xl min-h-[380px] md:min-h-[350px] flex flex-col justify-between bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[22px] p-6 md:p-8 relative backdrop-blur-md select-none -mt-20 md:-mt-40 overflow-hidden [will-change:transform]"
       >
         <div>
           {/* Header Section */}
@@ -122,6 +123,8 @@ export function Preloader({ onComplete, isDark, playType }: PreloaderProps) {
                 <img
                   src={ebinAvatar}
                   alt="Ebin Reji"
+                  width={1222}
+                  height={1251}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -151,10 +154,10 @@ export function Preloader({ onComplete, isDark, playType }: PreloaderProps) {
           <div className="space-y-4 text-left pr-2 mb-6">
             <div className="text-base md:text-lg leading-relaxed text-[var(--text-primary)] font-mono min-h-[50px] flex items-center">
               <span>{currentText}</span>
-              <motion.span
+              <m.span
                 animate={{ opacity: [1, 0, 1] }}
                 transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
-                className="inline-block w-1.5 h-5 ml-1 bg-sky-500"
+                className="inline-block w-1.5 h-5 ml-1 bg-sky-500 [will-change:transform]"
               />
             </div>
           </div>
@@ -174,22 +177,22 @@ export function Preloader({ onComplete, isDark, playType }: PreloaderProps) {
             </div>
 
             {/* Simulated Post/Publish Button */}
-            <motion.button
+            <m.button
               disabled
               animate={{
                 opacity: isDoneTyping ? 1 : 0.4,
                 scale: isDoneTyping ? [1, 1.03, 1] : 1
               }}
               transition={{ duration: 0.3 }}
-              className="px-5 py-2 rounded-full bg-sky-500 text-white font-sans font-medium text-xs md:text-sm cursor-not-allowed shadow-md"
+              className="px-5 py-2 rounded-full bg-sky-500 text-white font-sans font-medium text-xs md:text-sm cursor-not-allowed shadow-md [will-change:transform]"
             >
               Post
-            </motion.button>
+            </m.button>
           </div>
 
           {/* Premium Loading Progress Bar (Absolute Bottom Inside Card) */}
           <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[var(--border-color)] overflow-hidden rounded-b-[22px]">
-            <motion.div
+            <m.div
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
               transition={{ duration: progressDuration, ease: "easeInOut" }}
@@ -202,7 +205,7 @@ export function Preloader({ onComplete, isDark, playType }: PreloaderProps) {
           </div>
         </div>
 
-      </motion.div>
+      </m.div>
     </div>
   );
 }
