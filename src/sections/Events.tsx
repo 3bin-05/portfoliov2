@@ -141,7 +141,7 @@ export function Events({ playClick, playType }: { playClick: () => void; playTyp
         
         {/* Header */}
         <div className="mb-16 text-left">
-          <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] block mb-2">
+          <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] block mb-2">
             Offline Log
           </span>
           <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-[var(--text-primary)] m-0">
@@ -183,7 +183,7 @@ export function Events({ playClick, playType }: { playClick: () => void; playTyp
                   onMouseEnter={playType}
                   className={`relative px-5 py-3.5 text-left text-xs font-mono tracking-wider uppercase transition-all duration-300 outline-none cursor-pointer whitespace-nowrap select-none flex-grow lg:flex-grow-0 ${
                     active
-                      ? 'text-teal-600 dark:text-[#64FFDA] font-semibold scale-102 lg:translate-x-1.5'
+                      ? 'text-[var(--color-accent)] font-semibold scale-102 lg:translate-x-1.5'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)]/20'
                   }`}
                 >
@@ -191,7 +191,8 @@ export function Events({ playClick, playType }: { playClick: () => void; playTyp
                   {active && (
                     <m.div
                       layoutId="activeTabIndicator"
-                      className="absolute left-0 right-0 bottom-0 top-auto h-[2.5px] w-full lg:left-0 lg:right-auto lg:top-0 lg:bottom-0 lg:w-[2.5px] lg:h-full bg-teal-500 dark:bg-[#64FFDA] shadow-[0_0_12px_rgba(20,184,166,0.4)] dark:shadow-[0_0_12px_rgba(100,255,218,0.4)] [will-change:transform]"
+                      className="absolute left-0 right-0 bottom-0 top-auto h-[2.5px] w-full lg:left-0 lg:right-auto lg:top-0 lg:bottom-0 lg:w-[2.5px] lg:h-full bg-[var(--color-accent)] [will-change:transform]"
+                      style={{ boxShadow: '0 0 12px var(--color-accent)' }}
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -215,7 +216,7 @@ export function Events({ playClick, playType }: { playClick: () => void; playTyp
                 {/* Role and Organization */}
                 <h3 className="font-sans text-xl md:text-2xl font-medium tracking-tight text-[var(--text-primary)] m-0 leading-tight">
                   {selectedExp.role}{' '}
-                  <span className="text-teal-600 dark:text-[#64FFDA] font-semibold">
+                  <span className="text-[var(--color-accent)] font-semibold">
                     @ {selectedExp.organization}
                   </span>
                 </h3>
@@ -244,7 +245,7 @@ export function Events({ playClick, playType }: { playClick: () => void; playTyp
                       key={idx} 
                       className="flex items-start gap-3 text-sm md:text-base text-[var(--text-secondary)] leading-relaxed font-light font-sans"
                     >
-                      <span className="text-teal-500 dark:text-[#64FFDA] mt-1.5 shrink-0 select-none text-xs">
+                      <span className="text-[var(--color-accent)] mt-1.5 shrink-0 select-none text-xs">
                         ▹
                       </span>
                       <span>{bullet}</span>

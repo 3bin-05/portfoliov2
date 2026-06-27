@@ -29,6 +29,7 @@
   --text-primary: #F7F7F7;
   --text-secondary: #8C8C8C;
   --text-hover: #FFFFFF;
+  --color-accent: #DCCFB3;
 }
 
 :root.light {
@@ -39,6 +40,7 @@
   --text-primary: #121212;
   --text-secondary: #6B6B6B;
   --text-hover: #000000;
+  --color-accent: #2C2C2C;
 }
 
 html, body {

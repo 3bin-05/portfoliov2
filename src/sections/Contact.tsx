@@ -17,7 +17,7 @@ export function Contact({ playClick, playType }: ContactProps) {
           <div className="lg:col-span-5 space-y-12">
             {/* Editorial Title Header */}
             <div className="text-left">
-              <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] block mb-2">
                 Get in Touch
               </span>
               <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-[var(--text-primary)] m-0">
@@ -80,9 +80,9 @@ export function Contact({ playClick, playType }: ContactProps) {
                     rel="noopener noreferrer"
                     onClick={playClick}
                     onMouseEnter={playType}
-                    className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:border-[var(--text-secondary)] text-xs font-mono tracking-wider uppercase font-semibold transition-all active:scale-95 cursor-pointer w-full sm:w-auto"
+                    className="group flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] text-xs font-mono tracking-wider uppercase font-semibold transition-all active:scale-95 cursor-pointer w-full sm:w-auto"
                   >
-                    <LinkedinIcon size={13} className="text-sky-400" />
+                    <LinkedinIcon size={13} className="text-sky-400 group-hover:text-[var(--color-accent)] transition-colors" />
                     <span>LinkedIn</span>
                   </a>
                   
@@ -92,9 +92,9 @@ export function Contact({ playClick, playType }: ContactProps) {
                     rel="noopener noreferrer"
                     onClick={playClick}
                     onMouseEnter={playType}
-                    className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:border-[var(--text-secondary)] text-xs font-mono tracking-wider uppercase font-semibold transition-all active:scale-95 cursor-pointer w-full sm:w-auto"
+                    className="group flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] text-xs font-mono tracking-wider uppercase font-semibold transition-all active:scale-95 cursor-pointer w-full sm:w-auto"
                   >
-                    <GithubIcon size={13} className="text-zinc-400" />
+                    <GithubIcon size={13} className="text-zinc-400 group-hover:text-[var(--color-accent)] transition-colors" />
                     <span>GitHub</span>
                   </a>
                 </div>
@@ -109,7 +109,7 @@ export function Contact({ playClick, playType }: ContactProps) {
                 Local Status Check
               </span>
               <h3 className="font-serif text-xl font-light text-[var(--text-primary)]">
-                Connection Status: offline_mode
+                Connection Status: <span className="text-[var(--color-accent)] font-mono font-medium">offline_mode</span>
               </h3>
             </div>
             <DinoGame />

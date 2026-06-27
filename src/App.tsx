@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, Suspense, lazy } from 'react';
-import { useScroll, useTransform, m, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import { useTheme } from './hooks/useTheme';
 import { useSound } from './hooks/useSound';
@@ -8,7 +8,7 @@ import { Navbar } from './components/Navbar';
 import { CustomCursor } from './components/CustomCursor';
 import { ContactModal } from './components/ContactModal';
 import { HeroProfile } from './sections/HeroProfile';
-import { Preloader } from './components/Preloader';
+import { MinimalLoader } from './components/MinimalLoader';
 
 const Works = lazy(() => import('./sections/Works').then(mod => ({ default: mod.Works })));
 const About = lazy(() => import('./sections/About').then(mod => ({ default: mod.About })));
@@ -25,17 +25,9 @@ function App() {
   const { isMuted, toggleMute, playClick, playType } = useSound(isLoaded);
   const lenisRef = useRef<Lenis | null>(null);
 
-
-  // Force scroll to top on mount to show preloader on intro section
-  useEffect(() => {
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
-    window.scrollTo(0, 0);
-  }, []);
-
   // Initialize Lenis globally on window once
   useEffect(() => {
+    if (!isLoaded) return;
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -60,30 +52,14 @@ function App() {
       lenis.destroy();
       lenisRef.current = null;
     };
-  }, []);
+  }, [isLoaded]);
 
-  // Toggle Lenis start/stop based on loading state
+  // Start Lenis immediately once ref is set
   useEffect(() => {
     const lenis = lenisRef.current;
     if (!lenis) return;
-    if (!isLoaded) {
-      lenis.stop();
-    } else {
-      lenis.start();
-    }
-  }, [isLoaded]);
-
-
-  // Framer motion scroll analytics relative to viewport scroll progress
-  const { scrollYProgress } = useScroll();
-
-  // Dynamic Scroll Exit values mapping (Phase 3: exit tweet)
-  // 0% -> 15% constant, 15% -> 40% exit transition, 40%+ fully exited
-  const y = useTransform(scrollYProgress, [0.0, 0.25], [0, -120]);
-  const scale = useTransform(scrollYProgress, [0.0, 0.25], [1, 0.94]);
-  const opacity = useTransform(scrollYProgress, [0.0, 0.2, 0.3], [1, 0.35, 0]);
-  const blurVal = useTransform(scrollYProgress, [0.0, 0.3], [0, 16]);
-  const filter = useTransform(blurVal, (v) => `blur(${v}px)`);
+    lenis.start();
+  }, [lenisRef.current]);
 
   return (
     <div className="relative min-h-screen select-none overflow-x-hidden">
@@ -96,67 +72,36 @@ function App() {
       {/* Aesthetic Custom Cursor */}
       <CustomCursor />
 
+      {/* Minimal Loader Overlay */}
+      <AnimatePresence mode="wait">
+        {!isLoaded && (
+          <MinimalLoader onComplete={() => setIsLoaded(true)} />
+        )}
+      </AnimatePresence>
 
       {/* Mock Operating System Desktop Container */}
       <div className="w-full h-full">
         <BrowserShell playClick={playClick} playType={playType}>
-          <Navbar playClick={playClick} playType={playType} />
+          <Navbar 
+            playClick={playClick} 
+            playType={playType} 
+            isDark={isDark}
+            toggleTheme={toggleTheme}
+            isMuted={isMuted}
+            toggleMute={toggleMute}
+          />
           
-          {/* Hero Section Scroll Wrapper (Phase 2 & Phase 3) */}
-          <div className="relative h-[130vh] w-full shrink-0">
-            
-            {/* Sticky target container representing the active viewer */}
-            <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-              <m.div
-                style={{
-                  y,
-                  scale,
-                  opacity,
-                  filter,
-                }}
-                className="w-full h-full flex items-center justify-center"
-              >
-                <AnimatePresence mode="wait">
-                  {!isLoaded ? (
-                    <m.div
-                      key="preloader"
-                      initial={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-                      exit={{ opacity: 0, filter: "blur(12px)", scale: 0.96 }}
-                      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                      className="w-full h-full flex items-center justify-center"
-                    >
-                      <Preloader
-                        onComplete={() => {
-                          setIsLoaded(true);
-                          localStorage.setItem('portfolio_preloader_played', 'true');
-                        }}
-                        isDark={isDark}
-                        playType={playType}
-                      />
-                    </m.div>
-                  ) : (
-                    <m.div
-                      key="hero"
-                      initial={{ opacity: 0, filter: "blur(12px)", scale: 1.04 }}
-                      animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-                      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                      className="w-full h-full flex items-center justify-center"
-                    >
-                      <HeroProfile
-                        isMuted={isMuted}
-                        toggleMute={toggleMute}
-                        isDark={isDark}
-                        toggleTheme={toggleTheme}
-                        playClick={playClick}
-                        playType={playType}
-                        onContactClick={() => setIsContactOpen(true)}
-                      />
-                    </m.div>
-                  )}
-                </AnimatePresence>
-              </m.div>
-            </div>
-
+          {/* New Hero Section */}
+          <div className="relative w-full overflow-hidden">
+            <HeroProfile
+              isMuted={isMuted}
+              toggleMute={toggleMute}
+              isDark={isDark}
+              toggleTheme={toggleTheme}
+              playClick={playClick}
+              playType={playType}
+              onContactClick={() => setIsContactOpen(true)}
+            />
           </div>
 
           {/* Portfolio Body Sections (Phase 4, 5, 6, 7) */}

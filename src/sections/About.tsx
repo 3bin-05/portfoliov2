@@ -16,7 +16,7 @@ export function About({ playClick, playType }: AboutProps) {
           <div className="lg:col-span-7 text-left">
             {/* Editorial Title Header */}
             <div className="mb-12">
-              <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] block mb-2">
                 Identity
               </span>
               <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-[var(--text-primary)] m-0">

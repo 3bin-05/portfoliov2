@@ -23,7 +23,7 @@ export function Footer({ playClick, playType }: FooterProps) {
           {/* Logo / Subtext */}
           <div className="space-y-5">
             <div className="space-y-2">
-              <h3 className="font-serif text-2xl font-medium tracking-tight text-[var(--text-primary)]">
+              <h3 className="font-serif text-2xl font-medium tracking-tight text-[var(--color-accent)]">
                 Ebin Reji
               </h3>
               <p className="font-mono text-sm text-[var(--text-secondary)] leading-relaxed max-w-xs">
@@ -43,7 +43,7 @@ export function Footer({ playClick, playType }: FooterProps) {
                   rel="noopener noreferrer"
                   onClick={playClick}
                   onMouseEnter={playType}
-                  className="flex items-center justify-center p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  className="flex items-center justify-center p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
                   title="GitHub"
                   aria-label="GitHub"
                 >
@@ -55,7 +55,7 @@ export function Footer({ playClick, playType }: FooterProps) {
                   rel="noopener noreferrer"
                   onClick={playClick}
                   onMouseEnter={playType}
-                  className="flex items-center justify-center p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  className="flex items-center justify-center p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
                   title="LinkedIn"
                   aria-label="LinkedIn"
                 >
@@ -67,7 +67,7 @@ export function Footer({ playClick, playType }: FooterProps) {
                   rel="noopener noreferrer"
                   onClick={playClick}
                   onMouseEnter={playType}
-                  className="flex items-center justify-center p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  className="flex items-center justify-center p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
                   title="X (Twitter)"
                   aria-label="X (Twitter)"
                 >
@@ -79,7 +79,7 @@ export function Footer({ playClick, playType }: FooterProps) {
                   rel="noopener noreferrer"
                   onClick={playClick}
                   onMouseEnter={playType}
-                  className="flex items-center justify-center p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  className="flex items-center justify-center p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
                   title="Instagram"
                   aria-label="Instagram"
                 >
@@ -99,27 +99,27 @@ export function Footer({ playClick, playType }: FooterProps) {
               </span>
               <ul className="space-y-2 text-sm font-mono">
                 <li>
-                  <a href="#" onClick={(e) => { e.preventDefault(); scrollToTop(); }} className="hover:text-[var(--text-primary)] transition-colors">
+                  <a href="#" onClick={(e) => { e.preventDefault(); scrollToTop(); }} className="hover:text-[var(--color-accent)] transition-colors">
                     Top
                   </a>
                 </li>
                 <li>
-                  <a href="#works" onMouseEnter={playType} className="hover:text-[var(--text-primary)] transition-colors">
+                  <a href="#works" onMouseEnter={playType} className="hover:text-[var(--color-accent)] transition-colors">
                     Projects
                   </a>
                 </li>
                 <li>
-                  <a href="#about" onMouseEnter={playType} className="hover:text-[var(--text-primary)] transition-colors">
+                  <a href="#about" onMouseEnter={playType} className="hover:text-[var(--color-accent)] transition-colors">
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="#events" onMouseEnter={playType} className="hover:text-[var(--text-primary)] transition-colors">
+                  <a href="#events" onMouseEnter={playType} className="hover:text-[var(--color-accent)] transition-colors">
                     Experience
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" onMouseEnter={playType} className="hover:text-[var(--text-primary)] transition-colors">
+                  <a href="#contact" onMouseEnter={playType} className="hover:text-[var(--color-accent)] transition-colors">
                     Contact
                   </a>
                 </li>
@@ -137,7 +137,7 @@ export function Footer({ playClick, playType }: FooterProps) {
                     href="mailto:ebin05reji@gmail.com"
                     onClick={playClick}
                     onMouseEnter={playType}
-                    className="hover:text-[var(--text-primary)] transition-colors flex items-center gap-1.5"
+                    className="hover:text-[var(--color-accent)] transition-colors flex items-center gap-1.5"
                   >
                     <Mail size={14} />
                     <span>Email</span>
@@ -150,7 +150,7 @@ export function Footer({ playClick, playType }: FooterProps) {
                     rel="noopener noreferrer"
                     onClick={playClick}
                     onMouseEnter={playType}
-                    className="hover:text-[var(--text-primary)] transition-colors flex items-center gap-1.5"
+                    className="hover:text-[var(--color-accent)] transition-colors flex items-center gap-1.5"
                   >
                     <GithubIcon size={14} />
                     <span>GitHub</span>
@@ -163,7 +163,7 @@ export function Footer({ playClick, playType }: FooterProps) {
                     rel="noopener noreferrer"
                     onClick={playClick}
                     onMouseEnter={playType}
-                    className="hover:text-[var(--text-primary)] transition-colors flex items-center gap-1.5"
+                    className="hover:text-[var(--color-accent)] transition-colors flex items-center gap-1.5"
                   >
                     <LinkedinIcon size={14} />
                     <span>LinkedIn</span>
@@ -231,7 +231,7 @@ export function Footer({ playClick, playType }: FooterProps) {
           <button
             onClick={scrollToTop}
             onMouseEnter={playType}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] transition-all cursor-pointer group"
+            className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] hover:bg-[var(--bg-primary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all cursor-pointer group"
           >
             <span>Back to Top</span>
             <ArrowUp size={13} className="group-hover:-translate-y-0.5 transition-transform" />

@@ -38,7 +38,7 @@ export function Works({ playClick, playType }: WorksProps) {
       
       {/* Editorial Title Header */}
       <div className="max-w-7xl mx-auto mb-16 text-left">
-        <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] block mb-2">
+        <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] block mb-2">
           Portfolio
         </span>
         <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-[var(--text-primary)] m-0">

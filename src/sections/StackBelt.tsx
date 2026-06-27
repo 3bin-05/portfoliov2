@@ -38,7 +38,7 @@ export function StackBelt({ playType }: StackBeltProps) {
       
       {/* Small Section Header */}
       <div className="max-w-7xl mx-auto mb-10 text-left">
-        <h2 className="font-mono text-xs uppercase tracking-widest text-[var(--text-secondary)] m-0">
+        <h2 className="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] m-0">
           Tools & Ecosystem
         </h2>
         <h3 className="font-serif text-2xl md:text-3xl font-light text-[var(--text-primary)] mt-1">
