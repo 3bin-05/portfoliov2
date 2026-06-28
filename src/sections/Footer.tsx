@@ -4,9 +4,10 @@ import { GithubIcon, LinkedinIcon, InstagramIcon, XIcon } from '../components/So
 interface FooterProps {
   playClick: () => void;
   playType: () => void;
+  onContactClick?: () => void;
 }
 
-export function Footer({ playClick, playType }: FooterProps) {
+export function Footer({ playClick, playType, onContactClick }: FooterProps) {
   
   const scrollToTop = () => {
     playClick();
@@ -133,15 +134,17 @@ export function Footer({ playClick, playType }: FooterProps) {
               </span>
               <ul className="space-y-2 text-sm font-mono">
                 <li>
-                  <a
-                    href="mailto:ebin05reji@gmail.com"
-                    onClick={playClick}
+                  <button
+                    onClick={() => {
+                      playClick();
+                      onContactClick?.();
+                    }}
                     onMouseEnter={playType}
-                    className="hover:text-[var(--color-accent)] transition-colors flex items-center gap-1.5"
+                    className="hover:text-[var(--color-accent)] transition-colors flex items-center gap-1.5 cursor-pointer bg-transparent border-0 p-0 text-[inherit]"
                   >
                     <Mail size={14} />
                     <span>Email</span>
-                  </a>
+                  </button>
                 </li>
                 <li>
                   <a

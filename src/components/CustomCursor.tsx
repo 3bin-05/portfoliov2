@@ -29,17 +29,20 @@ export function CustomCursor() {
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (
+      if (!target) return;
+
+      const isInteractive =
         target.tagName === 'A' ||
         target.tagName === 'BUTTON' ||
+        target.tagName === 'SELECT' ||
+        (target.tagName === 'INPUT' && ['submit', 'button', 'checkbox', 'radio'].includes((target as HTMLInputElement).type)) ||
+        target.getAttribute('role') === 'button' ||
+        target.classList?.contains('cursor-pointer') ||
         target.closest('a') ||
         target.closest('button') ||
-        window.getComputedStyle(target).cursor === 'pointer'
-      ) {
-        setIsHovered(true);
-      } else {
-        setIsHovered(false);
-      }
+        target.closest('.cursor-pointer');
+
+      setIsHovered(!!isInteractive);
     };
 
     window.addEventListener('mousemove', moveCursor);
@@ -61,10 +64,12 @@ export function CustomCursor() {
     <>
       {/* Inner precise dot */}
       <m.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-white rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference [will-change:transform]"
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference [will-change:transform]"
         style={{
           x: cursorX,
           y: cursorY,
+          translateX: '-50%',
+          translateY: '-50%',
         }}
         animate={{
           scale: isHovered ? 0 : 1,
@@ -73,10 +78,12 @@ export function CustomCursor() {
       />
       {/* Outer trailing organic ring */}
       <m.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-white pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 mix-blend-difference [will-change:transform]"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-white pointer-events-none z-[9998] mix-blend-difference [will-change:transform]"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
+          translateX: '-50%',
+          translateY: '-50%',
         }}
         animate={{
           scale: isHovered ? 1.6 : 1,

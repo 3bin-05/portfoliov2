@@ -46,9 +46,9 @@ export function About({ playClick, playType }: AboutProps) {
                   rel="noopener noreferrer"
                   onClick={playClick}
                   onMouseEnter={playType}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:border-[var(--text-secondary)] font-sans font-medium text-xs md:text-sm active:scale-95 transition-all cursor-pointer shadow-xs"
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-primary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/50 font-sans font-medium text-xs md:text-sm active:scale-95 transition-all cursor-pointer shadow-xs"
                 >
-                  <FileText size={14} className="text-[var(--text-secondary)]" />
+                  <FileText size={14} className="text-[var(--text-secondary)] group-hover:text-[var(--color-accent)] transition-colors" />
                   <span>View Resume</span>
                 </a>
               </div>

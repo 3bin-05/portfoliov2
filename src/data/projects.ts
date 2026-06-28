@@ -4,7 +4,8 @@ import kia3dImg from '../assets/kia3d_mockup.png';
 import purpleMovementImg from '../assets/purple_movement_mockup.png';
 import beyondSyllabusImg from '../assets/beyondsyllabus_mockup.png';
 import darknetraImg from '../assets/darknetra_mockup.png';
-
+import dinodashImg from '../assets/dino.png';
+import mileageUndoImg from '../assets/mileageundo.png';
 
 export interface Project {
   id: string;
@@ -16,6 +17,7 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   caseStudyUrl?: string;
+  isComingSoon?: boolean;
 }
 
 export const projects: Project[] = [
@@ -76,6 +78,34 @@ export const projects: Project[] = [
     tags: ['Cybersecurity', 'Machine Learning', 'React', 'FastAPI', 'Threat Detection', 'ML Classification', 'Web App'],
     githubUrl: 'https://github.com/3bin-05/Dark-netra-frontend',
     caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/DarkNetra-URL-Malicious-Detection-System-35579bf218cc805789f3ef686bc4c85c?source=copy_link'
+  },
+  {
+    id: 'dino-dash',
+    title: 'Dino Dash',
+    category: 'Game Dev / React',
+    description: 'A modern 2D endless runner game featuring progressive difficulty, responsive controls, and a custom achievement & daily tasks system.',
+    image: dinodashImg,
+    tags: ['React.js', 'Tailwind CSS', 'Framer Motion', 'Game Logic'],
+    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/Dino-Dash-38d79bf218cc807fb7cccf69fd6ab1f0?source=copy_link',
+    liveUrl: 'https://d-inodash.vercel.app'
+  },
+  {
+    id: 'mileage-undo',
+    title: 'Mileage UNDO',
+    category: 'Web App / Intelligence',
+    description: 'A community-driven mileage intelligence platform helping vehicle owners track, compare, and optimize fuel efficiency with real-world driving data.',
+    image: mileageUndoImg,
+    tags: ['React', 'Tailwind CSS', 'Interactive DB', 'Community Benchmarks'],
+    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/Mileage-UNDO-37c79bf218cc805e83c3ce69880c380d?source=copy_link'
+  },
+  {
+    id: 'coming-soon',
+    title: 'Coming Soon',
+    category: 'Upcoming',
+    description: 'Currently developing new tools, web platforms, and interactive experiences. Stay tuned for what\'s next!',
+    image: '',
+    tags: ['React Native', 'Next.js', 'AI Integration', 'Creative Coding'],
+    isComingSoon: true
   }
 ];
 

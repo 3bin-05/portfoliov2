@@ -119,10 +119,10 @@ function App() {
               <Events playClick={playClick} playType={playType} />
             </Suspense>
             <Suspense fallback={null}>
-              <Contact playClick={playClick} playType={playType} />
+              <Contact playClick={playClick} playType={playType} onContactClick={() => setIsContactOpen(true)} />
             </Suspense>
             <Suspense fallback={null}>
-              <Footer playClick={playClick} playType={playType} />
+              <Footer playClick={playClick} playType={playType} onContactClick={() => setIsContactOpen(true)} />
             </Suspense>
           </div>
 

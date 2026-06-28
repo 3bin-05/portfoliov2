@@ -5,9 +5,10 @@ import { DinoGame } from '../components/DinoGame';
 interface ContactProps {
   playClick: () => void;
   playType: () => void;
+  onContactClick?: () => void;
 }
 
-export function Contact({ playClick, playType }: ContactProps) {
+export function Contact({ playClick, playType, onContactClick }: ContactProps) {
   return (
     <section id="contact" className="w-full py-24 px-6 md:px-12 xl:px-16 border-t border-[var(--border-color)] relative z-10 bg-[var(--bg-primary)]">
       <div className="max-w-7xl mx-auto">
@@ -44,10 +45,14 @@ export function Contact({ playClick, playType }: ContactProps) {
                   Primary Channel
                 </span>
                 <a
-                  href="mailto:ebin05reji@gmail.com"
-                  onClick={playClick}
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    playClick();
+                    onContactClick?.();
+                  }}
                   onMouseEnter={playType}
-                  className="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-[var(--text-primary)] hover:text-indigo-400 transition-colors block break-all"
+                  className="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-[var(--text-primary)] hover:text-[var(--color-accent)] transition-colors block break-all cursor-pointer"
                 >
                   ebin05reji@gmail.com
                   <span 
@@ -64,15 +69,17 @@ export function Contact({ playClick, playType }: ContactProps) {
                 </span>
                 
                 <div className="flex flex-wrap gap-3">
-                  <a
-                    href="mailto:ebin05reji@gmail.com"
-                    onClick={playClick}
+                  <button
+                    onClick={() => {
+                      playClick();
+                      onContactClick?.();
+                    }}
                     onMouseEnter={playType}
                     className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[var(--text-primary)] text-[var(--bg-primary)] text-xs font-mono tracking-wider uppercase font-semibold transition-all hover:opacity-90 active:scale-95 cursor-pointer shadow-md w-full sm:w-auto"
                   >
                     <Mail size={13} />
                     <span>Send Email</span>
-                  </a>
+                  </button>
                   
                   <a
                     href="https://www.linkedin.com/in/ebin-reji/"
