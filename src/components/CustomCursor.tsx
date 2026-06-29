@@ -5,34 +5,14 @@ export function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Smooth lagging trailing spring physics for the outer ring
   const springConfig = { damping: 25, stiffness: 220, mass: 0.6 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [isFinePointer, setIsFinePointer] = useState(false);
 
   useEffect(() => {
-    // Check prefers-reduced-motion
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(motionQuery.matches);
-    const handleMotionChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-    motionQuery.addEventListener('change', handleMotionChange);
-
-    // Only enable custom cursor on fine pointer devices (desktops/mice)
-    const pointerQuery = window.matchMedia('(pointer: fine)');
-    if (!pointerQuery.matches) {
-      motionQuery.removeEventListener('change', handleMotionChange);
-      return;
-    }
-
-    setIsFinePointer(true);
-
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
@@ -69,16 +49,12 @@ export function CustomCursor() {
     window.addEventListener('mouseover', handleMouseOver);
 
     return () => {
-      motionQuery.removeEventListener('change', handleMotionChange);
       window.removeEventListener('mousemove', moveCursor);
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
       window.removeEventListener('mouseover', handleMouseOver);
     };
   }, [cursorX, cursorY]);
-
-  // Don't render anything on touch/non-fine-pointer devices or reduced-motion
-  if (prefersReducedMotion || !isFinePointer) return null;
 
   return (
     <>
@@ -90,12 +66,9 @@ export function CustomCursor() {
           y: cursorY,
           translateX: '-50%',
           translateY: '-50%',
-          // Fade in as soon as mouse moves into the window
           opacity: isVisible ? 1 : 0,
         }}
-        animate={{
-          scale: isHovered ? 0 : 1,
-        }}
+        animate={{ scale: isHovered ? 0 : 1 }}
         transition={{ duration: 0.15 }}
       />
       {/* Outer trailing organic ring */}
