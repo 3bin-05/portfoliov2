@@ -15,19 +15,28 @@ export function Footer({ playClick, playType, onContactClick }: FooterProps) {
   };
 
   return (
-    <footer className="w-full py-16 px-6 md:px-12 xl:px-16 border-t border-[var(--border-color)] bg-[var(--bg-card)] relative z-10 text-[var(--text-secondary)]">
-      <div className="max-w-7xl mx-auto flex flex-col gap-12">
+    <footer className="w-full pt-12 pb-6 px-6 md:px-12 xl:px-16 border-t border-[var(--border-color)] bg-[var(--bg-card)] relative z-10 text-[var(--text-secondary)]">
+      <div className="max-w-7xl mx-auto flex flex-col gap-8">
         
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           
           {/* Logo / Subtext */}
           <div className="space-y-5">
-            <div className="space-y-2">
-              <h3 className="font-serif text-2xl font-medium tracking-tight text-[var(--color-accent)]">
-                Ebin Reji
+            <div>
+              <h3 
+                className="font-semibold text-[54px] md:text-[64px] lg:text-[72px] leading-none text-[var(--color-accent)] tracking-[-0.03em] m-0"
+                style={{ fontFamily: '"Noto Serif JP", var(--font-serif), serif' }}
+              >
+                エビン・レジ
               </h3>
-              <p className="font-mono text-sm text-[var(--text-secondary)] leading-relaxed max-w-xs">
+              <div 
+                className="font-mono text-[16px] uppercase mt-2.5"
+                style={{ color: '#D7D7D7', letterSpacing: '0.35em' }}
+              >
+                EBIN REJI
+              </div>
+              <p className="font-mono text-sm text-[var(--text-secondary)] leading-relaxed max-w-xs mt-[22px] mb-0">
                 Computer Science Student • UI/UX • Web Development
               </p>
             </div>
@@ -172,6 +181,19 @@ export function Footer({ playClick, playType, onContactClick }: FooterProps) {
                     <span>LinkedIn</span>
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/_simply._.ebin_?igsh=MWZkOTdoZnJvOG1pdw=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={playClick}
+                    onMouseEnter={playType}
+                    className="hover:text-[var(--color-accent)] transition-colors flex items-center gap-1.5"
+                  >
+                    <InstagramIcon size={14} />
+                    <span>Instagram</span>
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -180,7 +202,7 @@ export function Footer({ playClick, playType, onContactClick }: FooterProps) {
         </div>
 
         {/* Bottom Section (Credits + Top Button) */}
-        <div className="border-t border-[var(--border-color)] pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono tracking-tight text-center sm:text-left">
+        <div className="border-t border-[var(--border-color)] pt-5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono tracking-tight text-center sm:text-left">
           
           {/* Main Copyright & Tech Stack Credits */}
           <div className="space-y-1 sm:space-y-0 sm:flex sm:flex-wrap sm:gap-x-2 sm:gap-y-1 text-[var(--text-secondary)]">

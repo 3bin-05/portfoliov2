@@ -11,6 +11,7 @@ import { HeroProfile } from './sections/HeroProfile';
 import { MinimalLoader } from './components/MinimalLoader';
 
 const Works = lazy(() => import('./sections/Works').then(mod => ({ default: mod.Works })));
+const LearningArchive = lazy(() => import('./sections/LearningArchive').then(mod => ({ default: mod.LearningArchive })));
 const About = lazy(() => import('./sections/About').then(mod => ({ default: mod.About })));
 const StackBelt = lazy(() => import('./sections/StackBelt').then(mod => ({ default: mod.StackBelt })));
 const Events = lazy(() => import('./sections/Events').then(mod => ({ default: mod.Events })));
@@ -114,6 +115,9 @@ function App() {
             </Suspense>
             <Suspense fallback={null}>
               <Works playClick={playClick} playType={playType} />
+            </Suspense>
+            <Suspense fallback={null}>
+              <LearningArchive playClick={playClick} playType={playType} />
             </Suspense>
             <Suspense fallback={null}>
               <Events playClick={playClick} playType={playType} />

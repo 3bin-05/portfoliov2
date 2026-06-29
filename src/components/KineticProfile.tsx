@@ -37,7 +37,7 @@ export function KineticProfile({ playClick, playType }: KineticProfileProps) {
             return (
               <div
                 key={index}
-                className="flex whitespace-nowrap overflow-hidden opacity-[0.09] dark:opacity-[0.05] font-sans font-black text-[1.6rem] md:text-[2.4rem] lg:text-[2.8rem] leading-[1.0] uppercase text-[var(--text-primary)] my-0.5 tracking-tighter"
+                className="flex whitespace-nowrap overflow-hidden opacity-[0.05] dark:opacity-[0.10] font-sans font-black text-[1.6rem] md:text-[2.4rem] lg:text-[2.8rem] leading-[1.0] uppercase text-[var(--color-accent)] my-0.5 tracking-tighter"
               >
                 <div
                   className="flex will-change-transform"
