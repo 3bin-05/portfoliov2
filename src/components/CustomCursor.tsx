@@ -13,6 +13,7 @@ export function CustomCursor() {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isFinePointer, setIsFinePointer] = useState(false);
 
   useEffect(() => {
     // Check prefers-reduced-motion
@@ -24,11 +25,13 @@ export function CustomCursor() {
     motionQuery.addEventListener('change', handleMotionChange);
 
     // Only enable custom cursor on fine pointer devices (desktops/mice)
-    const mediaQuery = window.matchMedia('(pointer: fine)');
-    if (!mediaQuery.matches) {
+    const pointerQuery = window.matchMedia('(pointer: fine)');
+    if (!pointerQuery.matches) {
       motionQuery.removeEventListener('change', handleMotionChange);
       return;
     }
+
+    setIsFinePointer(true);
 
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
@@ -74,8 +77,8 @@ export function CustomCursor() {
     };
   }, [cursorX, cursorY]);
 
-  if (prefersReducedMotion || !isVisible) return null;
-
+  // Don't render anything on touch/non-fine-pointer devices or reduced-motion
+  if (prefersReducedMotion || !isFinePointer) return null;
 
   return (
     <>
@@ -87,6 +90,8 @@ export function CustomCursor() {
           y: cursorY,
           translateX: '-50%',
           translateY: '-50%',
+          // Fade in as soon as mouse moves into the window
+          opacity: isVisible ? 1 : 0,
         }}
         animate={{
           scale: isHovered ? 0 : 1,
@@ -101,6 +106,7 @@ export function CustomCursor() {
           y: cursorYSpring,
           translateX: '-50%',
           translateY: '-50%',
+          opacity: isVisible ? 1 : 0,
         }}
         animate={{
           scale: isHovered ? 1.6 : 1,
