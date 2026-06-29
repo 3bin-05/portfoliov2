@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../components/SocialIcons';
 import { DinoGame } from '../components/DinoGame';
@@ -8,7 +9,7 @@ interface ContactProps {
   onContactClick?: () => void;
 }
 
-export function Contact({ playClick, playType, onContactClick }: ContactProps) {
+function ContactComponent({ playClick, playType, onContactClick }: ContactProps) {
   return (
     <section id="contact" className="w-full py-24 px-6 md:px-12 xl:px-16 border-t border-[var(--border-color)] relative z-10 bg-[var(--bg-primary)]">
       <div className="max-w-7xl mx-auto">
@@ -127,3 +128,5 @@ export function Contact({ playClick, playType, onContactClick }: ContactProps) {
     </section>
   );
 }
+
+export const Contact = memo(ContactComponent);

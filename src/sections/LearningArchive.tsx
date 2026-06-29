@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { m } from 'framer-motion';
 import { Lock } from 'lucide-react';
 import courseraLogo from '../assets/coursera.png';
@@ -180,7 +181,7 @@ function RenderFolds({ folds }: { folds: string[] }) {
   );
 }
 
-export function LearningArchive({ playClick, playType }: LearningArchiveProps) {
+function LearningArchiveComponent({ playClick, playType }: LearningArchiveProps) {
   const containerVariants = {
     hidden: {},
     visible: {
@@ -430,3 +431,5 @@ export function LearningArchive({ playClick, playType }: LearningArchiveProps) {
     </section>
   );
 }
+
+export const LearningArchive = memo(LearningArchiveComponent);

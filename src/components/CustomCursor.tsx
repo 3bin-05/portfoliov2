@@ -12,11 +12,23 @@ export function CustomCursor() {
 
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
+    // Check prefers-reduced-motion
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(motionQuery.matches);
+    const handleMotionChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+    motionQuery.addEventListener('change', handleMotionChange);
+
     // Only enable custom cursor on fine pointer devices (desktops/mice)
     const mediaQuery = window.matchMedia('(pointer: fine)');
-    if (!mediaQuery.matches) return;
+    if (!mediaQuery.matches) {
+      motionQuery.removeEventListener('change', handleMotionChange);
+      return;
+    }
 
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
@@ -42,7 +54,10 @@ export function CustomCursor() {
         target.closest('button') ||
         target.closest('.cursor-pointer');
 
-      setIsHovered(!!isInteractive);
+      setIsHovered((prev) => {
+        const next = !!isInteractive;
+        return prev === next ? prev : next;
+      });
     };
 
     window.addEventListener('mousemove', moveCursor);
@@ -51,6 +66,7 @@ export function CustomCursor() {
     window.addEventListener('mouseover', handleMouseOver);
 
     return () => {
+      motionQuery.removeEventListener('change', handleMotionChange);
       window.removeEventListener('mousemove', moveCursor);
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
@@ -58,7 +74,8 @@ export function CustomCursor() {
     };
   }, [cursorX, cursorY]);
 
-  if (!isVisible) return null;
+  if (prefersReducedMotion || !isVisible) return null;
+
 
   return (
     <>

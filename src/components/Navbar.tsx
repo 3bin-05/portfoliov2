@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo, useCallback, memo } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight, Sun, Moon, Volume2, VolumeX } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
@@ -12,7 +12,7 @@ interface NavbarProps {
   toggleMute: () => void;
 }
 
-export function Navbar({ 
+function NavbarComponent({ 
   playClick, 
   playType,
   isDark,
@@ -22,15 +22,15 @@ export function Navbar({
 }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
+  const navLinks = useMemo(() => [
     { name: 'Projects', href: '#works' },
     { name: 'About', href: '#about' },
     { name: 'Learning', href: '#learning' },
     { name: 'Experience', href: '#events' },
     { name: 'Contact', href: '#contact' },
-  ];
+  ], []);
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     playClick();
     setIsOpen(false);
@@ -38,12 +38,12 @@ export function Navbar({
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, [playClick]);
 
-  const handleToggle = () => {
+  const handleToggle = useCallback(() => {
     playClick();
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(prev => !prev);
+  }, [playClick]);
 
   return (
     <nav className="sticky top-0 w-full h-16 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/85 backdrop-blur-md z-50 transition-all duration-300">
@@ -232,3 +232,5 @@ export function Navbar({
     </nav>
   );
 }
+
+export const Navbar = memo(NavbarComponent);

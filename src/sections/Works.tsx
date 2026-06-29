@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { m } from 'framer-motion';
 import { ExternalLink, FileText, ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from '../components/SocialIcons';
@@ -8,7 +9,7 @@ interface WorksProps {
   playType: () => void;
 }
 
-export function Works({ playClick, playType }: WorksProps) {
+function WorksComponent({ playClick, playType }: WorksProps) {
   
   const cardVariants = {
     hidden: { opacity: 0, y: 40, scale: 0.95 },
@@ -160,6 +161,7 @@ export function Works({ playClick, playType }: WorksProps) {
                     300
                   }
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-hover:blur-xs rounded-[inherit]"
                   style={{
                     backfaceVisibility: 'hidden',
@@ -272,3 +274,5 @@ export function Works({ playClick, playType }: WorksProps) {
     </section>
   );
 }
+
+export const Works = memo(WorksComponent);

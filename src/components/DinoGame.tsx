@@ -205,6 +205,7 @@ export function DinoGame() {
   });
   const [isAudioMuted, setIsAudioMuted] = useState<boolean>(false);
   const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [isGameVisible, setIsGameVisible] = useState<boolean>(false);
 
   // Game Loop References (to avoid closure stale state in requestAnimationFrame)
   const stateRef = useRef({
@@ -390,6 +391,27 @@ export function DinoGame() {
     window.addEventListener('mousedown', handleClickOutside);
     return () => {
       window.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Intersection Observer to track visibility
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsGameVisible(entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+    const container = containerRef.current;
+    if (container) {
+      observer.observe(container);
+    }
+    return () => {
+      if (container) {
+        observer.unobserve(container);
+      }
+      observer.disconnect();
     };
   }, []);
 
@@ -705,8 +727,10 @@ export function DinoGame() {
         }
       }
 
-      // Loop frame
-      animationId = requestAnimationFrame(tick);
+      // Loop frame - only animate continuously if playing and visible
+      if (state.gameState === 'playing' && isGameVisible) {
+        animationId = requestAnimationFrame(tick);
+      }
     };
 
     animationId = requestAnimationFrame(tick);
@@ -714,7 +738,7 @@ export function DinoGame() {
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, [isAudioMuted]);
+  }, [isAudioMuted, gameState, isGameVisible]);
 
   return (
     <div
