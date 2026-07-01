@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ebin-reji.netlify.app/sitemap.xml
+Sitemap: https://ebin-reji.vercel.app/sitemap.xml
