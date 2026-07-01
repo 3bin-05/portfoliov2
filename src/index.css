@@ -85,8 +85,7 @@ html, body {
   opacity: 0.035;
   pointer-events: none;
   z-index: 9999;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAADAyBAMAAADt2C7JAAAAElBMVEUAAAD8/Pz09PT4+Pj29vb///854v2kAAAABnRSTlMA8PDw8PCwsE7OAAAAQElEQVQ4y2NgwAMYGBgYGBkYGBgZGBgYmBgYGBgYGJgZGBgYGRgYmBgYGBgYGJkZGBgYGRmYGJgYGBgYGJkZGBgYmAE+cQG+c4QzcwAAAABJRU5ErkJggg==");
-  background-repeat: repeat;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* Soft spotlight gradient */
@@ -158,41 +157,4 @@ html.lenis, html.lenis body {
   transition: none !important;
 }
 
-/* Standard accessibility support for reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-delay: 0s !important;
-    animation-duration: 0s !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0s !important;
-    transition-delay: 0s !important;
-    scroll-behavior: auto !important;
-  }
-  
-  .noise-overlay {
-    display: none !important;
-  }
-}
 
-/* GPU compositing hint for animated elements */
-@media (prefers-reduced-motion: no-preference) {
-  .motion-safe * {
-    -webkit-font-smoothing: antialiased;
-  }
-}
-
-/* Prevent Cumulative Layout Shift (CLS) for media */
-img, video {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* Smooth scroll only unlocked after preloader exits.
-   App.tsx adds class="loaded" to <html> on preloader complete. */
-html {
-  scroll-behavior: auto;
-}
-html.loaded {
-  scroll-behavior: smooth;
-}

@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, Suspense, lazy, useCallback, memo } from 'react';
+import { useEffect, useState, useRef, Suspense, lazy } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import { useTheme } from './hooks/useTheme';
@@ -10,8 +10,6 @@ import { ContactModal } from './components/ContactModal';
 import { HeroProfile } from './sections/HeroProfile';
 import { MinimalLoader } from './components/MinimalLoader';
 
-// All below-the-fold sections are lazy — the preloader acts as the loading
-// shield while these chunks resolve on first visit
 const Works = lazy(() => import('./sections/Works').then(mod => ({ default: mod.Works })));
 const LearningArchive = lazy(() => import('./sections/LearningArchive').then(mod => ({ default: mod.LearningArchive })));
 const About = lazy(() => import('./sections/About').then(mod => ({ default: mod.About })));
@@ -20,23 +18,13 @@ const Events = lazy(() => import('./sections/Events').then(mod => ({ default: mo
 const Contact = lazy(() => import('./sections/Contact').then(mod => ({ default: mod.Contact })));
 const Footer = lazy(() => import('./sections/Footer').then(mod => ({ default: mod.Footer })));
 
+
 function App() {
   const { toggleTheme, isDark } = useTheme();
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const { isMuted, toggleMute, playClick, playType } = useSound(isLoaded);
   const lenisRef = useRef<Lenis | null>(null);
-
-  // Memoised callbacks — stable references across re-renders so child props
-  // don't cause unnecessary reconciliation
-  const openContact = useCallback(() => setIsContactOpen(true), []);
-  const closeContact = useCallback(() => setIsContactOpen(false), []);
-
-  const handleLoaderComplete = useCallback(() => {
-    setIsLoaded(true);
-    // Unlock scroll-based CSS animations and smooth-scroll after preloader exits
-    document.documentElement.classList.add('loaded');
-  }, []);
 
   // Initialize Lenis globally on window once
   useEffect(() => {
@@ -85,10 +73,10 @@ function App() {
       {/* Aesthetic Custom Cursor */}
       <CustomCursor />
 
-      {/* Minimal Loader Overlay — stays visible while lazy chunks load */}
+      {/* Minimal Loader Overlay */}
       <AnimatePresence mode="wait">
         {!isLoaded && (
-          <MinimalLoader onComplete={handleLoaderComplete} />
+          <MinimalLoader onComplete={() => setIsLoaded(true)} />
         )}
       </AnimatePresence>
 
@@ -104,7 +92,7 @@ function App() {
             toggleMute={toggleMute}
           />
           
-          {/* Hero Section — eagerly imported, above the fold */}
+          {/* New Hero Section */}
           <div className="relative w-full overflow-hidden">
             <HeroProfile
               isMuted={isMuted}
@@ -113,21 +101,32 @@ function App() {
               toggleTheme={toggleTheme}
               playClick={playClick}
               playType={playType}
-              onContactClick={openContact}
+              onContactClick={() => setIsContactOpen(true)}
             />
           </div>
 
-          {/* Portfolio Body Sections — single Suspense boundary so the
-              preloader stays until all section chunks are ready */}
+          {/* Portfolio Body Sections (Phase 4, 5, 6, 7) */}
           <div className="relative z-30 bg-[var(--bg-primary)] border-t border-[var(--border-color)]">
             <Suspense fallback={null}>
               <About playClick={playClick} playType={playType} />
+            </Suspense>
+            <Suspense fallback={null}>
               <StackBelt playType={playType} />
+            </Suspense>
+            <Suspense fallback={null}>
               <Works playClick={playClick} playType={playType} />
+            </Suspense>
+            <Suspense fallback={null}>
               <LearningArchive playClick={playClick} playType={playType} />
+            </Suspense>
+            <Suspense fallback={null}>
               <Events playClick={playClick} playType={playType} />
-              <Contact playClick={playClick} playType={playType} onContactClick={openContact} />
-              <Footer playClick={playClick} playType={playType} onContactClick={openContact} />
+            </Suspense>
+            <Suspense fallback={null}>
+              <Contact playClick={playClick} playType={playType} onContactClick={() => setIsContactOpen(true)} />
+            </Suspense>
+            <Suspense fallback={null}>
+              <Footer playClick={playClick} playType={playType} onContactClick={() => setIsContactOpen(true)} />
             </Suspense>
           </div>
 
@@ -140,7 +139,7 @@ function App() {
           <ContactModal
             playClick={playClick}
             playType={playType}
-            onClose={closeContact}
+            onClose={() => setIsContactOpen(false)}
           />
         )}
       </AnimatePresence>
@@ -148,4 +147,4 @@ function App() {
   );
 }
 
-export default memo(App);
+export default App;

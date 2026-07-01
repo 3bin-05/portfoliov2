@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { m } from 'framer-motion';
 
 interface HeroProfileProps {
@@ -11,7 +10,7 @@ interface HeroProfileProps {
   onContactClick: () => void;
 }
 
-function HeroProfileComponent({
+export function HeroProfile({
   playClick,
   playType,
   isDark,
@@ -197,5 +196,3 @@ function HeroProfileComponent({
     </div>
   );
 }
-
-export const HeroProfile = memo(HeroProfileComponent);

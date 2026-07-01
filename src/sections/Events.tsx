@@ -1,4 +1,4 @@
-import { useState, useEffect, memo } from 'react';
+import { useState, useEffect } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
 
 interface ExperienceDetail {
@@ -118,7 +118,7 @@ const experiencesList: ExperienceDetail[] = [
   }
 ];
 
-function EventsComponent({ playClick, playType }: { playClick: () => void; playType: () => void }) {
+export function Events({ playClick, playType }: { playClick: () => void; playType: () => void }) {
   const [selectedId, setSelectedId] = useState<string>(experiencesList[0]?.id || 'mulearn');
 
   useEffect(() => {
@@ -261,5 +261,3 @@ function EventsComponent({ playClick, playType }: { playClick: () => void; playT
     </section>
   );
 }
-
-export const Events = memo(EventsComponent);

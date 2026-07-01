@@ -1,4 +1,3 @@
-import { memo, useCallback } from 'react';
 import { ArrowUp, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, InstagramIcon, XIcon } from '../components/SocialIcons';
 
@@ -8,12 +7,12 @@ interface FooterProps {
   onContactClick?: () => void;
 }
 
-function FooterComponent({ playClick, playType, onContactClick }: FooterProps) {
+export function Footer({ playClick, playType, onContactClick }: FooterProps) {
   
-  const scrollToTop = useCallback(() => {
+  const scrollToTop = () => {
     playClick();
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [playClick]);
+  };
 
   return (
     <footer className="w-full pt-12 pb-6 px-6 md:px-12 xl:px-16 border-t border-[var(--border-color)] bg-[var(--bg-card)] relative z-10 text-[var(--text-secondary)]">
@@ -269,5 +268,3 @@ function FooterComponent({ playClick, playType, onContactClick }: FooterProps) {
     </footer>
   );
 }
-
-export const Footer = memo(FooterComponent);

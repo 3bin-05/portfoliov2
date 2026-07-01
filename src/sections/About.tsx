@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { FileText } from 'lucide-react';
 import { KineticProfile } from '../components/KineticProfile';
 
@@ -7,7 +6,7 @@ interface AboutProps {
   playType: () => void;
 }
 
-function AboutComponent({ playClick, playType }: AboutProps) {
+export function About({ playClick, playType }: AboutProps) {
   return (
     <section id="about" className="w-full py-24 px-6 md:px-12 xl:px-16 border-t border-[var(--border-color)] relative z-10 bg-[var(--bg-primary)]">
       <div className="max-w-7xl mx-auto">
@@ -66,5 +65,3 @@ function AboutComponent({ playClick, playType }: AboutProps) {
     </section>
   );
 }
-
-export const About = memo(AboutComponent);

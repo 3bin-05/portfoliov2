@@ -1,11 +1,9 @@
-import { memo, useMemo } from 'react';
-
 interface StackBeltProps {
   playType: () => void;
 }
 
-function StackBeltComponent({ playType }: StackBeltProps) {
-  const row1 = useMemo(() => [
+export function StackBelt({ playType }: StackBeltProps) {
+  const row1 = [
     'React',
     'JavaScript',
     'TypeScript',
@@ -22,9 +20,9 @@ function StackBeltComponent({ playType }: StackBeltProps) {
     'Framer Motion',
     'Postman',
     'REST API',
-  ], []);
+  ];
 
-  const row2 = useMemo(() => [
+  const row2 = [
     'Python',
     'Python Flask',
     'C',
@@ -41,7 +39,7 @@ function StackBeltComponent({ playType }: StackBeltProps) {
     'Notion',
     'Antigravity',
     'Google Stitch',
-  ], []);
+  ];
 
   return (
     <section className="w-full py-20 px-6 md:px-12 border-t border-[var(--border-color)] relative z-10 bg-[var(--bg-primary)] overflow-hidden">
@@ -65,7 +63,7 @@ function StackBeltComponent({ playType }: StackBeltProps) {
           <div className="absolute top-0 bottom-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
           <div className="absolute top-0 bottom-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
 
-          <div className="flex gap-4 shrink-0 animate-[marquee_25s_linear_infinite] hover:[animation-play-state:paused] cursor-pointer [will-change:transform]">
+          <div className="flex gap-4 shrink-0 animate-[marquee_25s_linear_infinite] hover:[animation-play-state:paused] cursor-pointer">
             {row1.map((item, idx) => (
               <span
                 key={`r1-${item}-${idx}`}
@@ -84,7 +82,7 @@ function StackBeltComponent({ playType }: StackBeltProps) {
           <div className="absolute top-0 bottom-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
           <div className="absolute top-0 bottom-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
 
-          <div className="flex gap-4 shrink-0 animate-[marquee-reverse_30s_linear_infinite] hover:[animation-play-state:paused] cursor-pointer [will-change:transform]">
+          <div className="flex gap-4 shrink-0 animate-[marquee-reverse_30s_linear_infinite] hover:[animation-play-state:paused] cursor-pointer">
             {row2.map((item, idx) => (
               <span
                 key={`r2-${item}-${idx}`}
@@ -101,5 +99,3 @@ function StackBeltComponent({ playType }: StackBeltProps) {
     </section>
   );
 }
-
-export const StackBelt = memo(StackBeltComponent);

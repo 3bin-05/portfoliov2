@@ -5,6 +5,7 @@ export function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
+  // Smooth lagging trailing spring physics for the outer ring
   const springConfig = { damping: 25, stiffness: 220, mass: 0.6 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
@@ -13,6 +14,10 @@ export function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Only enable custom cursor on fine pointer devices (desktops/mice)
+    const mediaQuery = window.matchMedia('(pointer: fine)');
+    if (!mediaQuery.matches) return;
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
@@ -37,10 +42,7 @@ export function CustomCursor() {
         target.closest('button') ||
         target.closest('.cursor-pointer');
 
-      setIsHovered((prev) => {
-        const next = !!isInteractive;
-        return prev === next ? prev : next;
-      });
+      setIsHovered(!!isInteractive);
     };
 
     window.addEventListener('mousemove', moveCursor);
@@ -56,6 +58,8 @@ export function CustomCursor() {
     };
   }, [cursorX, cursorY]);
 
+  if (!isVisible) return null;
+
   return (
     <>
       {/* Inner precise dot */}
@@ -66,9 +70,10 @@ export function CustomCursor() {
           y: cursorY,
           translateX: '-50%',
           translateY: '-50%',
-          opacity: isVisible ? 1 : 0,
         }}
-        animate={{ scale: isHovered ? 0 : 1 }}
+        animate={{
+          scale: isHovered ? 0 : 1,
+        }}
         transition={{ duration: 0.15 }}
       />
       {/* Outer trailing organic ring */}
@@ -79,7 +84,6 @@ export function CustomCursor() {
           y: cursorYSpring,
           translateX: '-50%',
           translateY: '-50%',
-          opacity: isVisible ? 1 : 0,
         }}
         animate={{
           scale: isHovered ? 1.6 : 1,
