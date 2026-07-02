@@ -1,8 +1,6 @@
 import { m } from 'framer-motion';
 
 interface HeroProfileProps {
-  isMuted: boolean;
-  toggleMute: () => void;
   isDark: boolean;
   toggleTheme: () => void;
   playClick: () => void;
@@ -90,7 +88,7 @@ export function HeroProfile({
       {/* 3. Middle Layer: Center Portrait (z-index 10) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center pointer-events-none select-none">
         <m.img
-          src="/ebineb.png"
+          src="/ebineb.webp"
           alt="Ebin Reji Portrait"
           variants={portraitVariants}
           initial="initial"

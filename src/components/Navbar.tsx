@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Sun, Moon, Volume2, VolumeX } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 
 interface NavbarProps {
@@ -8,8 +8,6 @@ interface NavbarProps {
   playType: () => void;
   isDark: boolean;
   toggleTheme: () => void;
-  isMuted: boolean;
-  toggleMute: () => void;
 }
 
 export function Navbar({ 
@@ -17,8 +15,6 @@ export function Navbar({
   playType,
   isDark,
   toggleTheme,
-  isMuted,
-  toggleMute
 }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -81,19 +77,6 @@ export function Navbar({
 
         {/* Desktop Socials & Controls */}
         <div className="hidden md:flex items-center gap-3">
-          {/* Sound Mute/Unmute */}
-          <button
-            onClick={() => {
-              playClick();
-              toggleMute();
-            }}
-            onMouseEnter={playType}
-            className="p-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all cursor-pointer flex items-center justify-center"
-            title={isMuted ? "Unmute custom sounds" : "Mute sounds"}
-            aria-label="Toggle Sound"
-          >
-            {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
-          </button>
 
           {/* Light/Dark Toggle */}
           <button
@@ -177,17 +160,6 @@ export function Navbar({
               {/* Mobile Controls Section */}
               <div className="flex items-center gap-4 mt-2 pt-4 border-t border-[var(--border-color)]/30">
                 <span className="font-mono text-[10px] uppercase text-zinc-500 mr-2">Controls:</span>
-                <button
-                  onClick={() => {
-                    playClick();
-                    toggleMute();
-                  }}
-                  onMouseEnter={playType}
-                  className="p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all flex items-center justify-center cursor-pointer"
-                  aria-label="Toggle Sound"
-                >
-                  {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
-                </button>
                 <button
                   onClick={() => {
                     playClick();

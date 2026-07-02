@@ -1,11 +1,11 @@
-import flipzonImg from '../assets/flipzon_mockup.png';
-import cryptochatImg from '../assets/cryptochat_mockup.png';
-import kia3dImg from '../assets/kia3d_mockup.png';
-import purpleMovementImg from '../assets/purple_movement_mockup.png';
-import beyondSyllabusImg from '../assets/beyondsyllabus_mockup.png';
-import darknetraImg from '../assets/darknetra_mockup.png';
-import dinodashImg from '../assets/dino.png';
-import mileageUndoImg from '../assets/mileageundo.png';
+import flipzonImg from '../assets/flipzon_mockup.webp';
+import cryptochatImg from '../assets/cryptochat_mockup.webp';
+import kia3dImg from '../assets/kia3d_mockup.webp';
+import purpleMovementImg from '../assets/purple_movement_mockup.webp';
+import beyondSyllabusImg from '../assets/beyondsyllabus_mockup.webp';
+import darknetraImg from '../assets/darknetra_mockup.webp';
+import dinodashImg from '../assets/dino.webp';
+import mileageUndoImg from '../assets/mileageundo.webp';
 
 export interface Project {
   id: string;

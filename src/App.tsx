@@ -23,7 +23,7 @@ function App() {
   const { toggleTheme, isDark } = useTheme();
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const { isMuted, toggleMute, playClick, playType } = useSound(isLoaded);
+  const { playClick, playType } = useSound(isLoaded);
   const lenisRef = useRef<Lenis | null>(null);
 
   // Initialize Lenis globally on window once
@@ -88,15 +88,11 @@ function App() {
             playType={playType} 
             isDark={isDark}
             toggleTheme={toggleTheme}
-            isMuted={isMuted}
-            toggleMute={toggleMute}
           />
           
           {/* New Hero Section */}
           <div className="relative w-full overflow-hidden">
             <HeroProfile
-              isMuted={isMuted}
-              toggleMute={toggleMute}
               isDark={isDark}
               toggleTheme={toggleTheme}
               playClick={playClick}

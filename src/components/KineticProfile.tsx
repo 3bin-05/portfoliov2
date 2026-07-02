@@ -1,4 +1,4 @@
-const ebImage = '/eb.png';
+const ebImage = '/eb.webp';
 
 interface KineticProfileProps {
   playClick?: () => void;

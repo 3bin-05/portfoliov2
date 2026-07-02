@@ -1,7 +1,7 @@
 import { m } from 'framer-motion';
 import { Lock } from 'lucide-react';
-import courseraLogo from '../assets/coursera.png';
-import nptelLogo from '../assets/nptel.png';
+import courseraLogo from '../assets/coursera.webp';
+import nptelLogo from '../assets/nptel.webp';
 
 interface LearningCardData {
   id: string;
