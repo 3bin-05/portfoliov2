@@ -99,3 +99,4 @@ export function StackBelt({ playType }: StackBeltProps) {
     </section>
   );
 }
+

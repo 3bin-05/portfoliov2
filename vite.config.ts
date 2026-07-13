@@ -3,9 +3,15 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import sitemap from 'vite-plugin-sitemap'
 import { visualizer } from 'rollup-plugin-visualizer'
+import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(process.cwd(), './src'),
+    },
+  },
   plugins: [
     react(),
     tailwindcss(),

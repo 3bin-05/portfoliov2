@@ -15,6 +15,7 @@ const Works = lazy(() => import('./sections/Works').then(mod => ({ default: mod.
 const LearningArchive = lazy(() => import('./sections/LearningArchive').then(mod => ({ default: mod.LearningArchive })));
 const About = lazy(() => import('./sections/About').then(mod => ({ default: mod.About })));
 const StackBelt = lazy(() => import('./sections/StackBelt').then(mod => ({ default: mod.StackBelt })));
+const Stats = lazy(() => import('./sections/Stats').then(mod => ({ default: mod.Stats })));
 const Events = lazy(() => import('./sections/Events').then(mod => ({ default: mod.Events })));
 const Contact = lazy(() => import('./sections/Contact').then(mod => ({ default: mod.Contact })));
 const Footer = lazy(() => import('./sections/Footer').then(mod => ({ default: mod.Footer })));
@@ -148,6 +149,9 @@ function App() {
             </Suspense>
             <Suspense fallback={null}>
               <StackBelt playType={playType} />
+            </Suspense>
+            <Suspense fallback={null}>
+              <Stats playClick={playClick} playType={playType} />
             </Suspense>
             <Suspense fallback={null}>
               <Works playClick={playClick} playType={playType} />

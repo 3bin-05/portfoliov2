@@ -9,6 +9,8 @@
   
   --animate-marquee: marquee 30s linear infinite;
   --animate-marquee-reverse: marquee-reverse 30s linear infinite;
+  --animate-highlight: highlight 0.6s ease forwards;
+  --animate-flash: flash 0.6s ease forwards;
 
   @keyframes marquee {
     0% { transform: translateX(0%); }
@@ -17,6 +19,15 @@
   @keyframes marquee-reverse {
     0% { transform: translateX(-50%); }
     100% { transform: translateX(0%); }
+  }
+  @keyframes highlight {
+    0% { background-color: transparent; }
+    100% { background-color: var(--highlight); }
+  }
+  @keyframes flash {
+    0% { background-color: var(--bg-primary); }
+    50% { background-color: var(--highlight); }
+    100% { background-color: var(--bg-primary); }
   }
 }
 
@@ -30,6 +41,12 @@
   --text-secondary: #8C8C8C;
   --text-hover: #FFFFFF;
   --color-accent: #DCCFB3;
+
+  /* Commits grid theme colors (Gold in dark mode) */
+  --commit-level-1: #2c2518;
+  --commit-level-2: #584a32;
+  --commit-level-3: #907954;
+  --commit-level-4: #DCCFB3;
 }
 
 :root.light {
@@ -41,6 +58,12 @@
   --text-secondary: #6B6B6B;
   --text-hover: #000000;
   --color-accent: #2C2C2C;
+
+  /* Commits grid theme colors (Grays in light mode) */
+  --commit-level-1: #e2e8f0;
+  --commit-level-2: #cbd5e1;
+  --commit-level-3: #94a3b8;
+  --commit-level-4: #475569;
 }
 
 html, body {
