@@ -95,12 +95,12 @@ export function BrowserShell({ children, playClick, playType }: BrowserShellProp
   ];
 
   return (
-    <div className="relative min-h-screen w-full flex flex-col p-4 md:p-8 xl:p-12 z-10 box-border">
+    <div className="relative min-h-screen w-full flex flex-col p-0 md:p-8 xl:p-12 z-10 box-border">
       {/* Outer Window Border Container */}
-      <div className="w-full max-w-7xl mx-auto flex flex-col bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[22px] shadow-2xl transition-all duration-500">
+      <div className="w-full max-w-7xl mx-auto flex flex-col flex-1 md:flex-none bg-transparent md:bg-[var(--bg-card)] border-none md:border md:border-[var(--border-color)] rounded-none md:rounded-[22px] shadow-none md:shadow-2xl transition-all duration-500">
         
         {/* Browser Top Header Bar */}
-        <div className="h-14 w-full flex items-center justify-between px-6 border-b border-[var(--border-color)] bg-[var(--bg-card)] select-none shrink-0 rounded-t-[22px]">
+        <div className="hidden md:flex h-14 w-full items-center justify-between px-6 border-b border-[var(--border-color)] bg-[var(--bg-card)] select-none shrink-0 rounded-t-[22px]">
           
           {/* OS Window Controls (Red, Yellow, Green circles) */}
           <div className="flex items-center gap-2 w-1/4">
@@ -154,7 +154,7 @@ export function BrowserShell({ children, playClick, playType }: BrowserShellProp
         </div>
 
         {/* Scrollable Browser Body */}
-        <div className="w-full flex flex-col bg-[var(--bg-primary)] relative rounded-b-[22px] overflow-hidden">
+        <div className="w-full flex-1 md:flex-none flex flex-col bg-[var(--bg-primary)] relative rounded-none md:rounded-b-[22px] overflow-hidden">
           {children}
         </div>
       </div>

@@ -42,7 +42,7 @@ export function Navbar({
   };
 
   return (
-    <nav className="sticky top-0 w-full h-16 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/85 backdrop-blur-md z-50 transition-all duration-300">
+    <nav className="hidden md:block sticky top-0 w-full h-16 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/85 backdrop-blur-md z-50 transition-all duration-300">
       <div className="max-w-7xl mx-auto h-full px-6 md:px-12 xl:px-16 flex items-center justify-between">
         
         {/* Brand / Logo */}

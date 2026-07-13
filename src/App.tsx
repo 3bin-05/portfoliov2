@@ -5,6 +5,7 @@ import { useTheme } from './hooks/useTheme';
 import { useSound } from './hooks/useSound';
 import { BrowserShell } from './components/BrowserShell';
 import { Navbar } from './components/Navbar';
+import { StaggeredMenu } from './components/StaggeredMenu';
 import { CustomCursor } from './components/CustomCursor';
 import { ContactModal } from './components/ContactModal';
 import { HeroProfile } from './sections/HeroProfile';
@@ -25,6 +26,28 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const { playClick, playType } = useSound(isLoaded);
   const lenisRef = useRef<Lenis | null>(null);
+
+  const handleMobileScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    playClick();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const menuItems = [
+    { label: 'Projects', link: '#works', onClick: (e: any) => handleMobileScroll(e, '#works') },
+    { label: 'About', link: '#about', onClick: (e: any) => handleMobileScroll(e, '#about') },
+    { label: 'Learning', link: '#learning', onClick: (e: any) => handleMobileScroll(e, '#learning') },
+    { label: 'Experience', link: '#events', onClick: (e: any) => handleMobileScroll(e, '#events') },
+    { label: 'Contact', link: '#contact', onClick: (e: any) => handleMobileScroll(e, '#contact') },
+  ];
+
+  const socialItems = [
+    { label: 'GitHub', link: 'https://github.com/3bin-05' },
+    { label: 'LinkedIn', link: 'https://www.linkedin.com/in/ebin-reji/' }
+  ];
 
   // Initialize Lenis globally on window once
   useEffect(() => {
@@ -88,6 +111,23 @@ function App() {
             playType={playType} 
             isDark={isDark}
             toggleTheme={toggleTheme}
+          />
+          
+          <StaggeredMenu
+            className="md:hidden"
+            isFixed={true}
+            position="right"
+            items={menuItems}
+            socialItems={socialItems}
+            displaySocials={true}
+            displayItemNumbering={true}
+            menuButtonColor="var(--text-primary)"
+            openMenuButtonColor="var(--text-primary)"
+            changeMenuColorOnOpen={false}
+            colors={['var(--bg-elevated)', 'var(--color-accent)']}
+            accentColor="var(--color-accent)"
+            isDark={isDark}
+            onThemeToggle={toggleTheme}
           />
           
           {/* New Hero Section */}
