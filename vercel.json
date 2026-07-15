@@ -1,10 +1,4 @@
 {
-  "rewrites": [
-    {
-      "source": "/((?!sitemap\\.xml|robots\\.txt|humans\\.txt|googlee5d3d0ab480fb9c8\\.html|icons\\.svg|ebineb\\.webp|eb\\.webp|Resume|Certificates|assets).*)",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/sitemap.xml",
@@ -16,10 +10,6 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=86400, stale-while-revalidate=3600"
-        },
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex"
         },
         {
           "key": "Access-Control-Allow-Origin",
@@ -107,6 +97,12 @@
           "value": "default-src 'self'; img-src 'self' data: https:; font-src 'self' https: data:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline'; connect-src 'self' https:; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self';"
         }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
