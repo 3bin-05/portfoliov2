@@ -63,6 +63,18 @@ export function HeroProfile({
       className="relative w-full h-[calc(100vh-120px)] md:h-[calc(100vh-145px)] lg:h-[calc(100vh-175px)] min-h-[520px] overflow-hidden flex items-center justify-center select-none font-sans transition-colors duration-500"
       style={{ backgroundColor: heroBg }}
     >
+      {/* ===== SEO: Visually-hidden semantic heading for Google & AI crawlers ===== */}
+      <h1
+        className="sr-only"
+        aria-label="Ebin Reji — Software Developer and UI/UX Designer"
+        itemScope
+        itemType="https://schema.org/Person"
+      >
+        <span itemProp="name">Ebin Reji</span>{' '}
+        — <span itemProp="jobTitle">Software Developer &amp; UI/UX Designer</span>{' '}
+        based in <span itemProp="addressLocality">Kerala, India</span>.{' '}
+        Computer Science student building modern web experiences with React and TypeScript.
+      </h1>
       
       {/* 1. Subtle Vignette Overlay */}
       <div 
@@ -74,7 +86,8 @@ export function HeroProfile({
 
       {/* 2. Background Layer 1: Solid Typography (z-index 1) */}
       <div className="absolute inset-0 flex items-center justify-center z-1 pointer-events-none select-none overflow-hidden px-4">
-        <m.h1 
+        <m.div
+          aria-hidden="true"
           variants={typoVariants}
           initial="initial"
           animate="animate"
@@ -82,7 +95,7 @@ export function HeroProfile({
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           PORTFOLIO
-        </m.h1>
+        </m.div>
       </div>
 
       {/* 3. Middle Layer: Center Portrait (z-index 10) */}
@@ -102,7 +115,8 @@ export function HeroProfile({
 
       {/* 4. Foreground Layer 3: Outline Typography (z-index 20) */}
       <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none select-none overflow-hidden px-4">
-        <m.h1 
+        <m.div
+          aria-hidden="true"
           variants={typoVariants}
           initial="initial"
           animate="animate"
@@ -115,7 +129,7 @@ export function HeroProfile({
           }}
         >
           PORTFOLIO
-        </m.h1>
+        </m.div>
       </div>
 
       {/* 5. Staggered Labels Container (z-index 25) */}

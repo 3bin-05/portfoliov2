@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+>
   <url>
     <loc>https://ebin-reji.vercel.app/</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ebin-reji.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ebin-reji.vercel.app/" />
+    <image:image>
+      <image:loc>https://ebin-reji.vercel.app/ebineb.webp</image:loc>
+      <image:title>Ebin Reji — Software Developer &amp; UI/UX Designer</image:title>
+      <image:caption>Portrait of Ebin Reji, a Software Developer and UI/UX Designer based in Kerala, India</image:caption>
+      <image:geo_location>Kerala, India</image:geo_location>
+      <image:license>https://ebin-reji.vercel.app/</image:license>
+    </image:image>
   </url>
 </urlset>

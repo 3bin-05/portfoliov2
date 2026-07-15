@@ -1,4 +1,26 @@
+# Ebin Reji Portfolio — robots.txt
+# https://ebin-reji.vercel.app
+
 User-agent: *
 Allow: /
+Disallow: /src/
+
+# Google Web Crawler
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
+
+# Google Image Crawler
+User-agent: Googlebot-Image
+Allow: /
+Allow: /*.webp
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.svg
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
 
 Sitemap: https://ebin-reji.vercel.app/sitemap.xml

@@ -1,77 +1,297 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/icons.svg" />
+    <link rel="icon" href="/icons.svg" type="image/svg+xml" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet">
-    <link rel="canonical" href="https://ebin-reji.vercel.app/" />
 
-    
-    <!-- SEO Primary Tags -->
-    <title>Ebin Reji | Portfolio - Software Developer & UI/UX Designer</title>
-    <meta name="title" content="Ebin Reji | Portfolio - Software Developer & UI/UX Designer" />
-    <meta name="description" content="Portfolio of Ebin Reji, a Computer Science student creating immersive UI/UX and modern web experiences. View my projects and skills." />
-    <meta name="keywords" content="Ebin Reji, Ebin, Reji, Ebin Reji Portfolio, Software Developer, UI UX, React, Portfolio, Frontend, Web Design, Computer Science" />
+    <!-- ====================================================
+         CANONICAL & LANGUAGE
+    ===================================================== -->
+    <link rel="canonical" href="https://ebin-reji.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://ebin-reji.vercel.app/" />
+    <link rel="alternate" hreflang="x-default" href="https://ebin-reji.vercel.app/" />
+
+    <!-- ====================================================
+         PRIMARY SEO META TAGS
+    ===================================================== -->
+    <title>Ebin Reji | Software Developer &amp; UI/UX Designer — Portfolio</title>
+    <meta name="title" content="Ebin Reji | Software Developer &amp; UI/UX Designer — Portfolio" />
+    <meta name="description" content="Ebin Reji is a Software Developer and UI/UX Designer based in Kerala, India. Computer Science student building immersive web experiences with React, TypeScript, and Next.js. View projects, skills, and resume." />
+    <meta name="keywords" content="Ebin Reji, Ebin Reji portfolio, Ebin Reji developer, Ebin Reji Kerala, ebin reji vercel, ebin-reji.vercel.app, Ebin Reji software engineer, Ebin Reji UI UX, Ebin Reji React developer, Ebin Reji computer science, Ebin Reji web designer, Ebin Reji frontend developer, ebin reji github, ebin reji linkedin, 3bin-05 github, Ebin Reji India" />
     <meta name="author" content="Ebin Reji" />
-    <meta name="theme-color" content="#0a0a0a" />
-    <meta name="robots" content="index, follow" />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta name="creator" content="Ebin Reji" />
+    <meta name="publisher" content="Ebin Reji" />
+    <meta name="copyright" content="Ebin Reji" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F4F4F4" media="(prefers-color-scheme: light)" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="category" content="technology, portfolio, software development" />
+    <meta name="classification" content="Software Developer Portfolio" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="language" content="English" />
+    <meta name="geo.region" content="IN-KL" />
+    <meta name="geo.placename" content="Kerala, India" />
+    <meta name="rating" content="general" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- ====================================================
+         OPEN GRAPH / FACEBOOK
+    ===================================================== -->
+    <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://ebin-reji.vercel.app/" />
-    <meta property="og:title" content="Ebin Reji | Portfolio - Software Developer & UI/UX Designer" />
-    <meta property="og:description" content="Portfolio of Ebin Reji, a Computer Science student creating immersive UI/UX and modern web experiences. View my projects and skills." />
+    <meta property="og:title" content="Ebin Reji | Software Developer &amp; UI/UX Designer" />
+    <meta property="og:description" content="Ebin Reji is a Software Developer and UI/UX Designer based in Kerala, India. Computer Science student building immersive web experiences with React, TypeScript, and Next.js." />
     <meta property="og:image" content="https://ebin-reji.vercel.app/ebineb.webp" />
-    <meta property="og:image:alt" content="Ebin Reji - Software Developer & UI/UX Designer" />
+    <meta property="og:image:secure_url" content="https://ebin-reji.vercel.app/ebineb.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:alt" content="Ebin Reji — Software Developer &amp; UI/UX Designer from Kerala, India" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Ebin Reji Portfolio" />
     <meta property="og:locale" content="en_US" />
+    <meta property="profile:first_name" content="Ebin" />
+    <meta property="profile:last_name" content="Reji" />
+    <meta property="profile:username" content="ebin-reji" />
     <meta property="og:see_also" content="https://www.linkedin.com/in/ebin-reji/" />
     <meta property="og:see_also" content="https://github.com/3bin-05" />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://ebin-reji.vercel.app/" />
-    <meta property="twitter:title" content="Ebin Reji | Portfolio - Software Developer & UI/UX Designer" />
-    <meta property="twitter:description" content="Portfolio of Ebin Reji, a Computer Science student creating immersive UI/UX and modern web experiences. View my projects and skills." />
-    <meta property="twitter:image" content="https://ebin-reji.vercel.app/ebineb.webp" />
-    <meta property="twitter:image:alt" content="Ebin Reji - Software Developer & UI/UX Designer" />
 
-    <!-- JSON-LD Structured Data -->
+    <!-- ====================================================
+         TWITTER / X CARD
+    ===================================================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://ebin-reji.vercel.app/" />
+    <meta name="twitter:title" content="Ebin Reji | Software Developer &amp; UI/UX Designer" />
+    <meta name="twitter:description" content="Ebin Reji is a Software Developer and UI/UX Designer based in Kerala, India. Building immersive web experiences with React, TypeScript, and Next.js." />
+    <meta name="twitter:image" content="https://ebin-reji.vercel.app/ebineb.webp" />
+    <meta name="twitter:image:alt" content="Ebin Reji — Software Developer &amp; UI/UX Designer" />
+    <meta name="twitter:label1" content="Role" />
+    <meta name="twitter:data1" content="Software Developer &amp; UI/UX Designer" />
+    <meta name="twitter:label2" content="Location" />
+    <meta name="twitter:data2" content="Kerala, India" />
+
+    <!-- ====================================================
+         JSON-LD STRUCTURED DATA — Person (Primary Entity)
+    ===================================================== -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org/",
-        "@type": "Person",
-        "name": "Ebin Reji",
-        "url": "https://ebin-reji.vercel.app/",
-        "image": "https://ebin-reji.vercel.app/ebineb.webp",
-        "description": "Computer Science student and Software Developer specializing in UI/UX design and modern web experiences.",
-        "sameAs": [
-          "https://www.linkedin.com/in/ebin-reji/",
-          "https://github.com/3bin-05"
-        ],
-        "jobTitle": "Software Developer & UI/UX Designer",
-        "knowsAbout": ["React", "TypeScript", "Frontend Development", "Web Design", "UI/UX Design", "Computer Science"],
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "Computer Science"
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://ebin-reji.vercel.app/#person",
+      "name": "Ebin Reji",
+      "givenName": "Ebin",
+      "familyName": "Reji",
+      "alternateName": ["Ebin", "ebin reji", "ebin-reji", "3bin-05"],
+      "url": "https://ebin-reji.vercel.app/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://ebin-reji.vercel.app/ebineb.webp",
+        "width": 800,
+        "height": 1000,
+        "caption": "Ebin Reji — Software Developer & UI/UX Designer"
+      },
+      "description": "Ebin Reji is a Computer Science student and Software Developer based in Kerala, India, specializing in UI/UX design and modern web development. He builds immersive digital experiences using React, TypeScript, Next.js, and design systems.",
+      "birthPlace": {
+        "@type": "Place",
+        "name": "Kerala, India",
+        "addressCountry": "IN",
+        "addressRegion": "Kerala"
+      },
+      "nationality": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "gender": "Male",
+      "jobTitle": "Software Developer & UI/UX Designer",
+      "occupation": {
+        "@type": "Occupation",
+        "name": "Software Developer",
+        "occupationLocation": {
+          "@type": "Country",
+          "name": "India"
         },
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "https://ebin-reji.vercel.app/"
+        "skills": "React, TypeScript, Next.js, UI/UX Design, Frontend Development, Web Design"
+      },
+      "knowsAbout": [
+        "React",
+        "TypeScript",
+        "Next.js",
+        "Frontend Development",
+        "UI/UX Design",
+        "Web Design",
+        "Computer Science",
+        "JavaScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Software Engineering",
+        "Figma",
+        "Design Systems",
+        "Node.js",
+        "Python"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "degree",
+          "educationalLevel": "Bachelor",
+          "about": "Computer Science"
         }
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "College of Engineering",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Kerala",
+          "addressCountry": "IN"
+        }
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/ebin-reji/",
+        "https://github.com/3bin-05",
+        "https://ebin-reji.vercel.app/"
+      ],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ebin-reji.vercel.app/"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "professional",
+        "url": "https://ebin-reji.vercel.app/#contact",
+        "availableLanguage": ["English", "Malayalam"]
       }
+    }
     </script>
-    <link rel="preload" href="/ebineb.webp" as="image" />
+
+    <!-- ====================================================
+         JSON-LD STRUCTURED DATA — WebSite
+    ===================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://ebin-reji.vercel.app/#website",
+      "name": "Ebin Reji Portfolio",
+      "alternateName": "Ebin Reji",
+      "url": "https://ebin-reji.vercel.app/",
+      "description": "Official portfolio website of Ebin Reji — Software Developer & UI/UX Designer from Kerala, India.",
+      "author": {
+        "@type": "Person",
+        "@id": "https://ebin-reji.vercel.app/#person"
+      },
+      "publisher": {
+        "@type": "Person",
+        "@id": "https://ebin-reji.vercel.app/#person"
+      },
+      "inLanguage": "en-US",
+      "copyrightYear": "2024"
+    }
+    </script>
+
+    <!-- ====================================================
+         JSON-LD STRUCTURED DATA — ProfilePage / WebPage
+    ===================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "@id": "https://ebin-reji.vercel.app/#webpage",
+      "name": "Ebin Reji | Software Developer & UI/UX Designer — Portfolio",
+      "url": "https://ebin-reji.vercel.app/",
+      "description": "Official portfolio of Ebin Reji, a Software Developer and UI/UX Designer based in Kerala, India. Features projects, skills, experience, and contact information.",
+      "isPartOf": {
+        "@id": "https://ebin-reji.vercel.app/#website"
+      },
+      "about": {
+        "@id": "https://ebin-reji.vercel.app/#person"
+      },
+      "mainEntity": {
+        "@id": "https://ebin-reji.vercel.app/#person"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Ebin Reji — Home",
+            "item": "https://ebin-reji.vercel.app/"
+          }
+        ]
+      },
+      "inLanguage": "en-US",
+      "datePublished": "2024-01-01",
+      "dateModified": "2026-07-15",
+      "author": {
+        "@id": "https://ebin-reji.vercel.app/#person"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", "h2", ".bio-text", ".about-description"]
+      }
+    }
+    </script>
+
+    <!-- ====================================================
+         JSON-LD STRUCTURED DATA — Projects (ItemList)
+    ===================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Ebin Reji's Software Development Projects",
+      "description": "A curated showcase of software development and UI/UX design projects by Ebin Reji, a developer based in Kerala, India.",
+      "author": {
+        "@id": "https://ebin-reji.vercel.app/#person"
+      },
+      "url": "https://ebin-reji.vercel.app/#works",
+      "itemListOrder": "https://schema.org/ItemListOrderDescending"
+    }
+    </script>
+
+    <!-- ====================================================
+         FONTS — Preconnect & Load
+    ===================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet" />
+
+    <!-- ====================================================
+         PERFORMANCE — Preload critical assets
+    ===================================================== -->
+    <link rel="preload" href="/ebineb.webp" as="image" type="image/webp" />
+    <link rel="preload" href="/icons.svg" as="image" type="image/svg+xml" />
+
+    <!-- ====================================================
+         SITEMAP
+    ===================================================== -->
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <link rel="author" href="/humans.txt" />
   </head>
   <body>
+    <!-- SEO Fallback for crawlers: Visible only without JavaScript -->
+    <noscript>
+      <article itemscope itemtype="https://schema.org/Person" style="position:absolute;left:-9999px;">
+        <h1 itemprop="name">Ebin Reji</h1>
+        <p itemprop="jobTitle">Software Developer &amp; UI/UX Designer</p>
+        <p itemprop="description">Ebin Reji is a Computer Science student and Software Developer based in Kerala, India. He specializes in UI/UX design and modern web development using React, TypeScript, and Next.js.</p>
+        <a itemprop="url" href="https://ebin-reji.vercel.app/">ebin-reji.vercel.app</a>
+        <a itemprop="sameAs" href="https://www.linkedin.com/in/ebin-reji/">LinkedIn</a>
+        <a itemprop="sameAs" href="https://github.com/3bin-05">GitHub</a>
+        <span itemprop="addressLocality">Kerala</span>, <span itemprop="addressCountry">India</span>
+      </article>
+    </noscript>
+    <!--
+      Ebin Reji — Software Developer & UI/UX Designer
+      Portfolio: https://ebin-reji.vercel.app
+      GitHub:    https://github.com/3bin-05
+      LinkedIn:  https://www.linkedin.com/in/ebin-reji/
+      Location:  Kerala, India
+    -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

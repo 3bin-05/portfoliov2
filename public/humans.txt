@@ -1,0 +1,14 @@
+/* TEAM */
+Name: Ebin Reji
+Role: Software Developer & UI/UX Designer
+Location: Kerala, India
+LinkedIn: https://www.linkedin.com/in/ebin-reji/
+GitHub: https://github.com/3bin-05
+Portfolio: https://ebin-reji.vercel.app/
+
+/* SITE */
+Last update: 2026-07-15
+Language: English
+Doctype: HTML5
+IDE: VS Code
+Technologies: React, TypeScript, Vite, Framer Motion, Tailwind CSS
