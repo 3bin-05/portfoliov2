@@ -6,6 +6,7 @@ import beyondSyllabusImg from '../assets/beyondsyllabus_mockup.webp';
 import darknetraImg from '../assets/darknetra_mockup.webp';
 import dinodashImg from '../assets/dino.webp';
 import mileageUndoImg from '../assets/mileageundo.webp';
+import mulearnsbcImg from '../assets/mulearnsbc.webp';
 
 export interface Project {
   id: string;
@@ -97,6 +98,15 @@ export const projects: Project[] = [
     image: mileageUndoImg,
     tags: ['React', 'Tailwind CSS', 'Interactive DB', 'Community Benchmarks'],
     caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/Mileage-UNDO-37c79bf218cc805e83c3ce69880c380d?source=copy_link'
+  },
+  {
+    id: 'mulearn-sbc',
+    title: 'µLearn SBC',
+    category: 'Web Platform / Community',
+    description: 'An interactive campus community platform designed to foster peer learning, skill-tracking pathways, and student event collaboration.',
+    image: mulearnsbcImg,
+    tags: ['React', 'Tailwind CSS', 'Vite', 'Community Platform'],
+    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/Learn-SBC-Campus-Community-39579bf218cc80768331ff578e5466f7'
   },
   {
     id: 'coming-soon',

@@ -134,6 +134,7 @@ export function Works({ playClick, playType }: WorksProps) {
                 project.id === 'darknetra' ? 'aspect-[3/4]' :
                 project.id === 'dino-dash' ? 'aspect-[4/3]' :
                 project.id === 'mileage-undo' ? 'aspect-[3/4]' :
+                project.id === 'mulearn-sbc' ? 'aspect-[2/3]' :
                 'aspect-[4/3]'
               }`}>
                 <img
@@ -147,6 +148,7 @@ export function Works({ playClick, playType }: WorksProps) {
                     project.id === 'darknetra' ? 300 :
                     project.id === 'dino-dash' ? 400 :
                     project.id === 'mileage-undo' ? 300 :
+                    project.id === 'mulearn-sbc' ? 300 :
                     400
                   }
                   height={
@@ -157,6 +159,7 @@ export function Works({ playClick, playType }: WorksProps) {
                     project.id === 'darknetra' ? 400 :
                     project.id === 'dino-dash' ? 300 :
                     project.id === 'mileage-undo' ? 400 :
+                    project.id === 'mulearn-sbc' ? 450 :
                     300
                   }
                   loading="lazy"
