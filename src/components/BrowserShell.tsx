@@ -127,7 +127,7 @@ export function BrowserShell({ children, playClick, playType }: BrowserShellProp
             <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--bg-primary)] border border-[var(--border-color)] text-xs text-[var(--text-secondary)] w-64 md:w-80 justify-between select-none">
               <div className="flex items-center gap-1.5 truncate">
                 <Lock size={12} className="text-emerald-500 shrink-0" />
-                <span className="font-mono truncate tracking-tight text-[var(--text-primary)]">ebin-reji.vercel.app</span>
+                <span className="font-mono truncate tracking-tight text-[var(--text-primary)]">www.ebinreji.online</span>
               </div>
               <Shield size={12} className="text-[var(--text-secondary)] shrink-0" />
             </div>
