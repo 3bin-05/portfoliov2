@@ -201,7 +201,7 @@ export function HeroProfile({
           <span 
             className="text-sm md:text-base lg:text-[18px] font-medium text-[var(--color-accent)] tracking-wide transition-colors duration-500"
           >
-            ebin-reji.vercel.app
+            ebinreji.online
           </span>
         </m.div>
       </m.div>

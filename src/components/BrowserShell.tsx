@@ -53,7 +53,7 @@ export function BrowserShell({ children, playClick, playType }: BrowserShellProp
     setShowBookmarkToast(true);
   };
 
-  const portfolioUrl = "https://ebin-reji.vercel.app";
+  const portfolioUrl = "https://ebinreji.online";
 
   const handleCopy = async () => {
     if (playClick) playClick();
