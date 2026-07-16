@@ -13,17 +13,17 @@ export function About({ playClick, playType }: AboutProps) {
       className="w-full py-24 px-6 md:px-12 xl:px-16 border-t border-[var(--border-color)] relative z-10 bg-[var(--bg-primary)]"
       itemScope
       itemType="https://schema.org/Person"
-      itemID="https://ebin-reji.vercel.app/#person"
+      itemID="https://www.ebinreji.online/#person"
     >
       {/* Hidden machine-readable identity anchors */}
       <meta itemProp="name" content="Ebin Reji" />
       <meta itemProp="givenName" content="Ebin" />
       <meta itemProp="familyName" content="Reji" />
       <meta itemProp="jobTitle" content="Software Developer & UI/UX Designer" />
-      <meta itemProp="url" content="https://ebin-reji.vercel.app/" />
+      <meta itemProp="url" content="https://www.ebinreji.online/" />
       <meta itemProp="sameAs" content="https://www.linkedin.com/in/ebin-reji/" />
       <meta itemProp="sameAs" content="https://github.com/3bin-05" />
-      <link itemProp="image" href="https://ebin-reji.vercel.app/ebineb.webp" />
+      <link itemProp="image" href="https://www.ebinreji.online/ebineb.webp" />
 
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">

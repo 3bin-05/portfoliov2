@@ -1,0 +1,137 @@
+# Ebin Reji — Software Developer & UI/UX Designer
+# Portfolio: https://www.ebinreji.online
+# Last Updated: 2026-07-16
+
+## About
+
+Ebin Reji is a Software Developer and UI/UX Designer based in Kerala, India. He is a Computer Science student who specializes in building immersive, high-performance web experiences. He bridges technical engineering and human-centered aesthetic design using React, TypeScript, Next.js, Framer Motion, and Tailwind CSS.
+
+He believes software shouldn't just be functional — it should feel alive. He achieves this through micro-interactions, animated design systems, and meticulous typographic hierarchies.
+
+Beyond code, Ebin organizes student workshops, hosts community design marathons, and collaborates with developers to build meaningful products from scratch.
+
+---
+
+## Identity
+
+- Full Name: Ebin Reji
+- GitHub Username: 3bin-05
+- Role: Software Developer & UI/UX Designer
+- Location: Kerala, India
+- Email: ebin05reji@gmail.com
+- Portfolio: https://www.ebinreji.online
+- LinkedIn: https://www.linkedin.com/in/ebin-reji/
+- GitHub: https://github.com/3bin-05
+- Education: Bachelor's degree in Computer Science, College of Engineering, Kerala
+
+---
+
+## Technical Skills
+
+**Frontend:** React, TypeScript, Next.js, JavaScript (ES2022+), Tailwind CSS, Framer Motion, HTML5, CSS3
+**Backend:** Node.js, Express.js, FastAPI, Python
+**Database:** MongoDB
+**3D / Graphics:** Three.js, React Three Fiber, WebGL
+**Real-time:** Socket.io, Web Crypto API
+**Design:** Figma, UI/UX Design, Design Systems, Wireframing, Prototyping, User Research
+**DevOps / Tools:** Git, Vite, Vercel, VS Code
+**Other:** Machine Learning (classification models), Cybersecurity, Community Platform Development
+
+---
+
+## Selected Projects
+
+### FlipZon — Full-Stack E-Commerce Platform
+- Category: Full-stack / E-Commerce
+- Tech: React, Node.js, Express, MongoDB, Tailwind CSS
+- Description: Modern e-commerce web platform with catalog indexing, shopping cart state management, simulated secure checkout, and dashboard analytics.
+- GitHub: https://github.com/3bin-05/FlopZon
+- Case Study: https://sturdy-snail-3ee.notion.site/FlipZon-35579bf218cc80cca424fe9edb040a73
+
+### CryptoChat — End-to-End Encrypted Messaging App
+- Category: Web Security / Messaging
+- Tech: React, Socket.io, Node.js, Web Crypto API, Tailwind CSS
+- Description: Real-time encrypted messaging application with secure user key exchanges and customizable dark-theme chat interface.
+- GitHub: https://github.com/3bin-05/CryptoChat
+- Case Study: https://sturdy-snail-3ee.notion.site/CryptoChat-35579bf218cc80b2a36ced0b1022c281
+
+### KIA 3D — Interactive WebGL Automotive Visualizer
+- Category: Interactive WebGL / 3D
+- Tech: Three.js, React Three Fiber, WebGL, Framer Motion
+- Description: Immersive 3D automotive visualizer enabling real-time paint customization, camera sweeps, and material detailing for the KIA Seltos.
+- GitHub: https://github.com/3bin-05/Kia-seltos
+- Case Study: https://sturdy-snail-3ee.notion.site/KIA-Seltos-3D-Website-Interactive-Product-Experience-35779bf218cc8091a529c29f8921de63
+
+### DarkNetra — Cybersecurity ML Platform
+- Category: Cybersecurity / Machine Learning
+- Tech: React, FastAPI, Python, Machine Learning
+- Description: Intelligent security platform for malicious URL classification using ML. Detects and blocks phishing threats in real-time with threat telemetry dashboards.
+- GitHub: https://github.com/3bin-05/Dark-netra-frontend
+- Case Study: https://sturdy-snail-3ee.notion.site/DarkNetra-URL-Malicious-Detection-System-35579bf218cc805789f3ef686bc4c85c
+
+### Purple Movement — UI/UX Case Study
+- Category: UI/UX Design / Social Good
+- Tech: Figma, UX Research, Design Systems, User Testing
+- Description: Full product design case study with user journey mapping, wireframes, high-fidelity prototypes, and design system for a community activism initiative.
+- Case Study: https://sturdy-snail-3ee.notion.site/Purple-Movement-Website-35779bf218cc8018b325e7cca767c62a
+
+### BeyondSyllabus — Educational Portal
+- Category: Web Platform / Community
+- Tech: Next.js, React, Tailwind CSS, Firebase
+- Description: Modern educational portal for peer resource sharing, study pathways, and campus student event aggregation.
+- Live: https://beyondsyllabus.in
+
+### Dino Dash — Browser Game
+- Category: Game Dev / React
+- Tech: React.js, Tailwind CSS, Framer Motion, Game Logic
+- Description: Modern 2D endless runner browser game with progressive difficulty, responsive controls, and a custom achievement and daily tasks system.
+- Live: https://d-inodash.vercel.app
+- Case Study: https://sturdy-snail-3ee.notion.site/Dino-Dash-38d79bf218cc807fb7cccf69fd6ab1f0
+
+### Mileage UNDO — Fuel Intelligence Platform
+- Category: Web App / Intelligence
+- Tech: React, Tailwind CSS, Community DB
+- Description: Community-driven mileage intelligence platform helping vehicle owners track, compare, and optimize fuel efficiency with real-world data.
+- Case Study: https://sturdy-snail-3ee.notion.site/Mileage-UNDO-37c79bf218cc805e83c3ce69880c380d
+
+### µLearn SBC — Campus Community Platform
+- Category: Web Platform / Community
+- Tech: React, Vite, Tailwind CSS
+- Description: Interactive campus community platform for peer learning, skill-tracking pathways, and student event collaboration for µLearn Student Business Community.
+- Case Study: https://sturdy-snail-3ee.notion.site/Learn-SBC-Campus-Community-39579bf218cc80768331ff578e5466f7
+
+---
+
+## Frequently Asked Questions
+
+**Who is Ebin Reji?**
+Ebin Reji is a Software Developer and UI/UX Designer from Kerala, India. He is a Computer Science student who builds immersive web experiences with React, TypeScript, Next.js, and Framer Motion.
+
+**What does Ebin Reji specialize in?**
+Ebin specializes in frontend web development, UI/UX design, and full-stack application development. He excels at creating animated, interactive user interfaces and has experience with WebGL 3D, cybersecurity ML, and real-time encrypted communication.
+
+**Where can I see Ebin Reji's work?**
+His full portfolio with projects, skills, and case studies is at https://www.ebinreji.online. Case studies are also available on Notion.
+
+**How can I contact Ebin Reji?**
+Email: ebin05reji@gmail.com
+LinkedIn: https://www.linkedin.com/in/ebin-reji/
+GitHub: https://github.com/3bin-05
+Portfolio Contact: https://www.ebinreji.online/#contact
+
+**Is Ebin Reji open to work?**
+Yes, Ebin Reji is open to freelance projects, internship opportunities, and collaboration on meaningful web and design projects. Reach him at ebin05reji@gmail.com.
+
+**What is Ebin Reji's portfolio website built with?**
+His portfolio at ebinreji.online is built using React, TypeScript, Vite, Framer Motion, and Tailwind CSS. It features a custom browser shell UI, dark/light mode, sound effects, and a playable Dino game in the contact section.
+
+---
+
+## Links
+
+- Portfolio: https://www.ebinreji.online
+- GitHub: https://github.com/3bin-05
+- LinkedIn: https://www.linkedin.com/in/ebin-reji/
+- Email: ebin05reji@gmail.com
+- Resume: https://www.ebinreji.online/Resume/Resume.pdf
+- Sitemap: https://www.ebinreji.online/sitemap.xml
