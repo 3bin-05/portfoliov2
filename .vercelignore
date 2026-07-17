@@ -1,0 +1,5 @@
+# Vercel deployment ignore file
+# Prevents these files from being deployed to production.
+
+# Rollup bundle visualizer output — development tool only, must not be publicly served
+stats.html

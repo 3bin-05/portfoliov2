@@ -8,6 +8,7 @@ import { Navbar } from './components/Navbar';
 import { StaggeredMenu } from './components/StaggeredMenu';
 import { CustomCursor } from './components/CustomCursor';
 import { ContactModal } from './components/ContactModal';
+import { CopyrightModal } from './components/CopyrightModal';
 import { HeroProfile } from './sections/HeroProfile';
 import { MinimalLoader } from './components/MinimalLoader';
 
@@ -24,6 +25,7 @@ const Footer = lazy(() => import('./sections/Footer').then(mod => ({ default: mo
 function App() {
   const { toggleTheme, isDark } = useTheme();
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isCopyrightOpen, setIsCopyrightOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const { playClick, playType } = useSound(isLoaded);
   const lenisRef = useRef<Lenis | null>(null);
@@ -166,7 +168,7 @@ function App() {
               <Contact playClick={playClick} playType={playType} onContactClick={() => setIsContactOpen(true)} />
             </Suspense>
             <Suspense fallback={null}>
-              <Footer playClick={playClick} playType={playType} onContactClick={() => setIsContactOpen(true)} />
+              <Footer playClick={playClick} playType={playType} onContactClick={() => setIsContactOpen(true)} onCopyrightClick={() => setIsCopyrightOpen(true)} />
             </Suspense>
           </div>
 
@@ -183,6 +185,14 @@ function App() {
           />
         )}
       </AnimatePresence>
+
+      {/* Copyright & Usage Policy Modal */}
+      <CopyrightModal
+        isOpen={isCopyrightOpen}
+        onClose={() => setIsCopyrightOpen(false)}
+        playClick={playClick}
+        playType={playType}
+      />
     </div>
   );
 }

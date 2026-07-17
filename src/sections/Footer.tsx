@@ -1,13 +1,17 @@
-import { ArrowUp, Mail } from 'lucide-react';
+import { ArrowUp, Mail, Scale } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, InstagramIcon, XIcon } from '../components/SocialIcons';
+
+// Auto-updates each calendar year without a build change
+const CURRENT_YEAR = new Date().getFullYear();
 
 interface FooterProps {
   playClick: () => void;
   playType: () => void;
   onContactClick?: () => void;
+  onCopyrightClick?: () => void;
 }
 
-export function Footer({ playClick, playType, onContactClick }: FooterProps) {
+export function Footer({ playClick, playType, onContactClick, onCopyrightClick }: FooterProps) {
   
   const scrollToTop = () => {
     playClick();
@@ -194,6 +198,19 @@ export function Footer({ playClick, playType, onContactClick }: FooterProps) {
                     <span>Instagram</span>
                   </a>
                 </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      playClick();
+                      onCopyrightClick?.();
+                    }}
+                    onMouseEnter={playType}
+                    className="hover:text-[var(--color-accent)] transition-colors flex items-center gap-1.5 cursor-pointer bg-transparent border-0 p-0 text-[inherit]"
+                  >
+                    <Scale size={14} />
+                    <span>Copyright & Usage</span>
+                  </button>
+                </li>
               </ul>
             </div>
 
@@ -207,7 +224,7 @@ export function Footer({ playClick, playType, onContactClick }: FooterProps) {
           {/* Main Copyright & Tech Stack Credits */}
           <div className="space-y-1 sm:space-y-0 sm:flex sm:flex-wrap sm:gap-x-2 sm:gap-y-1 text-[var(--text-secondary)]">
             <span className="flex items-center flex-wrap gap-1 justify-center sm:justify-start">
-              <span>© 2026 Ebin Reji — Designed with </span>
+              <span>© {CURRENT_YEAR} Ebin Reji — Designed with </span>
               <span className="inline-flex items-center text-[var(--text-primary)] font-semibold gap-1">
                 <svg viewBox="13 18 85 78" width="15" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
                   <path d="M89.6992 93.695C94.3659 97.195 101.366 94.8617 94.9492 88.445C75.6992 69.7783 79.7825 18.445 55.8659 18.445C31.9492 18.445 36.0325 69.7783 16.7825 88.445C9.78251 95.445 17.3658 97.195 22.0325 93.695C40.1159 81.445 38.9492 59.8617 55.8659 59.8617C72.7825 59.8617 71.6159 81.445 89.6992 93.695Z" fill="#3186FF" />

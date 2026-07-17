@@ -1,0 +1,152 @@
+EBIN REJI — PORTFOLIO — USAGE NOTICE
+=====================================
+
+Website:  https://www.ebinreji.online
+Author:   Ebin Reji
+Email:    ebin05reji@gmail.com
+GitHub:   https://github.com/3bin-05
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. ORIGINAL PORTFOLIO CONTENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The following materials in this repository are the original
+work of Ebin Reji and are NOT licensed for unrestricted use,
+copying, redistribution, or commercial reuse:
+
+  - Original written content, portfolio descriptions, and
+    case-study presentations
+  - Original graphics, visual assets, and custom illustrations
+    created by Ebin Reji
+  - Custom branding elements and personal identity materials
+  - Original UI/UX design compositions and visual layouts
+    created specifically for this portfolio
+
+You may view, share a link to, and reference this portfolio
+for personal evaluation, professional discussion, or legitimate
+educational purposes with appropriate attribution.
+
+You may not, without prior written permission from Ebin Reji:
+
+  - Copy, reproduce, or republish substantial original portfolio
+    content as your own work
+  - Clone or replicate this website and present it as your own
+    personal portfolio
+  - Remove or falsely claim ownership of copyright notices
+  - Reuse original case studies, written content, or custom
+    graphics for commercial purposes
+  - Impersonate Ebin Reji or create misleading copies of the
+    personal brand presented here
+
+To request permission, contact: ebin05reji@gmail.com
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2. ORIGINAL SOURCE CODE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The original source code in this repository (React components,
+TypeScript files, configuration, and build scripts) is the
+original work of Ebin Reji.
+
+This source code is NOT published under an open-source license.
+It may not be copied, redistributed, or reused as the basis
+for another personal portfolio without permission.
+
+If you are interested in open-source collaboration or learning
+from specific implementation patterns, please reach out via the
+contact details above.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3. OPEN-SOURCE LIBRARIES AND DEPENDENCIES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This project is built with open-source libraries that carry
+their own licenses. These libraries are the property of their
+respective authors and are NOT covered by the restrictions
+described above. They remain subject to their own license terms.
+
+Notable open-source dependencies include:
+
+  - React & React DOM           (MIT License)
+  - Vite                        (MIT License)
+  - Framer Motion               (MIT License)
+  - GSAP (GreenSock)            (Standard GreenSock License — see gsap.com/licensing)
+  - Lenis (Scroll)              (MIT License)
+  - Tailwind CSS                (MIT License)
+  - TypeScript                  (Apache 2.0 License)
+  - Lucide React                (ISC License)
+  - ESLint                      (MIT License)
+  - clsx / tailwind-merge       (MIT License)
+  - vite-plugin-sitemap         (MIT License)
+  - rollup-plugin-visualizer    (MIT License)
+
+License files for each library can be found inside the
+node_modules/<package-name>/LICENSE directory.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4. THIRD-PARTY ASSETS, FONTS, AND SERVICES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The following third-party assets and services are used in this
+portfolio under their respective terms and are NOT owned by
+Ebin Reji:
+
+  - Google Fonts (Playfair Display, Inter, IBM Plex Mono,
+    Bebas Neue, Noto Serif JP) — served via Google Fonts API
+    under the SIL Open Font License (OFL) or Apache 2.0.
+    See fonts.google.com/attribution
+
+  - Lucide React icons — ISC License, lucide.dev
+
+  - Antigravity (AI coding assistant) — logomark in the footer
+    is the property of Google DeepMind / Antigravity.
+
+  - Vercel — hosting platform and Vercel wordmark/logo are
+    trademarks of Vercel, Inc.
+
+  - LinkedIn, GitHub, Instagram, X (Twitter) — platform logos
+    and trademarks are the property of their respective owners.
+    Use of these logos constitutes linking to official profiles
+    and does not imply endorsement.
+
+  - Formspree — contact form service, subject to Formspree's
+    own Terms of Service (formspree.io/legal).
+
+  - BingSiteAuth.xml, Google Search Console verification file —
+    belong to Microsoft/Google and are used solely for domain
+    verification.
+
+No claim of ownership is made over any third-party trademark,
+logo, service name, or asset referenced above.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5. PERSONAL BRAND NOTICE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Ebin Reji" is the personal name and professional identity
+represented by this portfolio.
+
+The visual identity and original branding materials of this
+portfolio should not be reused in a way that falsely implies
+endorsement, affiliation, or identity with Ebin Reji.
+
+"Ebin Reji" is not a registered trademark.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+6. DISCLAIMER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This notice communicates the owner's intended usage terms and
+is not a substitute for professional legal advice. Applicable
+law may permit certain uses not explicitly authorised here.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Designed and developed by Ebin Reji — ebinreji.online
+
