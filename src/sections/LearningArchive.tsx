@@ -47,12 +47,12 @@ const learningCards: LearningCardData[] = [
   {
     id: 'ieee-embs',
     title: 'IEEE EMBS',
-    subtitle: 'Research Project',
-    description: 'Engineering in Medicine and Biology research initiative for healthcare technology.',
-    status: 'In Progress',
+    subtitle: 'Pune Section',
+    description: 'Smart Pharmacy: Inventory management models using predictive analytics to prevent stock-outs of life-saving medicines.',
+    status: 'Completed',
     rotation: 'hover:rotate-0 -rotate-1',
     tapeRotation: 'rotate-3',
-    isResearch: true,
+    link: '/Certificates/EMBS.pdf',
     folds: ['bottom-left'],
     illustration: (
       <svg className="w-full h-full text-[var(--color-accent)] opacity-20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
