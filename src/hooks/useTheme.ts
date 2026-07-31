@@ -22,7 +22,7 @@ export function useTheme() {
   }, [theme]);
 
   const toggleTheme = () => {
-    const doc = document as any;
+    const doc = document as Document & { startViewTransition?: (cb: () => void) => void };
     if (!doc.startViewTransition) {
       setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
       return;

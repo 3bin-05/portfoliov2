@@ -3,6 +3,25 @@
 import { cn } from "@/lib/utils";
 import type { CSSProperties } from "react";
 
+const pseudoRandom = (index: number) => {
+  const x = Math.sin(index + 4567.89) * 10000;
+  return x - Math.floor(x);
+};
+
+const getRandomColor = (index: number) => {
+  const commitColors = [
+    "var(--commit-level-1)",
+    "var(--commit-level-2)",
+    "var(--commit-level-3)",
+    "var(--commit-level-4)"
+  ];
+  const randomIndex = Math.floor(pseudoRandom(index) * commitColors.length);
+  return commitColors[randomIndex];
+};
+
+const getRandomDelay = (index: number) => `${(pseudoRandom(index + 1) * 0.6).toFixed(1)}s`;
+const getRandomFlash = (index: number) => pseudoRandom(index + 2) < 0.3;
+
 export const CommitsGrid = ({ text }: { text: string }) => {
   const cleanString = (str: string): string => {
     const upperStr = str.toUpperCase();
@@ -54,20 +73,6 @@ export const CommitsGrid = ({ text }: { text: string }) => {
     height: gridHeight,
   } = generateHighlightedCells(text);
 
-  const getRandomColor = () => {
-    const commitColors = [
-      "var(--commit-level-1)",
-      "var(--commit-level-2)",
-      "var(--commit-level-3)",
-      "var(--commit-level-4)"
-    ];
-    const randomIndex = Math.floor(Math.random() * commitColors.length);
-    return commitColors[randomIndex];
-  };
-
-  const getRandomDelay = () => `${(Math.random() * 0.6).toFixed(1)}s`;
-  const getRandomFlash = () => +(Math.random() < 0.3);
-
   return (
     <section
       className="w-full max-w-xl bg-transparent grid p-1.5 sm:p-3 gap-0.5 sm:gap-1"
@@ -78,7 +83,7 @@ export const CommitsGrid = ({ text }: { text: string }) => {
     >
       {Array.from({ length: gridWidth * gridHeight }).map((_, index) => {
         const isHighlighted = highlightedCells.includes(index);
-        const shouldFlash = !isHighlighted && getRandomFlash();
+        const shouldFlash = !isHighlighted && getRandomFlash(index);
 
         return (
           <div
@@ -91,8 +96,8 @@ export const CommitsGrid = ({ text }: { text: string }) => {
             )}
             style={
               {
-                animationDelay: getRandomDelay(),
-                "--highlight": getRandomColor(),
+                animationDelay: getRandomDelay(index),
+                "--highlight": getRandomColor(index),
               } as CSSProperties
             }
           />

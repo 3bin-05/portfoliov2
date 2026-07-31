@@ -154,7 +154,7 @@ export function BrowserShell({ children, playClick, playType }: BrowserShellProp
         </div>
 
         {/* Scrollable Browser Body */}
-        <div className="w-full flex-1 md:flex-none flex flex-col bg-[var(--bg-primary)] relative rounded-none md:rounded-b-[22px] overflow-hidden">
+        <div className="w-full flex-1 md:flex-none flex flex-col bg-[var(--bg-primary)] relative rounded-none md:rounded-b-[22px] overflow-x-clip">
           {children}
         </div>
       </div>

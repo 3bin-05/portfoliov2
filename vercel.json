@@ -1,6 +1,29 @@
 {
   "headers": [
     {
+      "source": "/.git/:path*",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/.env:path*",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/Resume/Resume.pdf",
+      "headers": [
+        { "key": "Content-Type", "value": "application/pdf" },
+        { "key": "Content-Disposition", "value": "inline; filename=\"Resume.pdf\"" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
       "source": "/sitemap.xml",
       "headers": [
         {
@@ -113,6 +136,23 @@
           "value": "on"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/Resume",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/Certificates",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/Certificates/:path*",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [

@@ -40,11 +40,11 @@ function App() {
   };
 
   const menuItems = [
-    { label: 'Projects', link: '#works', onClick: (e: any) => handleMobileScroll(e, '#works') },
-    { label: 'About', link: '#about', onClick: (e: any) => handleMobileScroll(e, '#about') },
-    { label: 'Learning', link: '#learning', onClick: (e: any) => handleMobileScroll(e, '#learning') },
-    { label: 'Experience', link: '#events', onClick: (e: any) => handleMobileScroll(e, '#events') },
-    { label: 'Contact', link: '#contact', onClick: (e: any) => handleMobileScroll(e, '#contact') },
+    { label: 'Projects', link: '#works', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#works') },
+    { label: 'About', link: '#about', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#about') },
+    { label: 'Learning', link: '#learning', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#learning') },
+    { label: 'Experience', link: '#events', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#events') },
+    { label: 'Contact', link: '#contact', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#contact') },
   ];
 
   const socialItems = [
@@ -65,6 +65,7 @@ function App() {
       touchMultiplier: 1.5,
     });
     lenisRef.current = lenis;
+    lenis.start();
 
     let rafId: number;
     function raf(time: number) {
@@ -81,15 +82,8 @@ function App() {
     };
   }, [isLoaded]);
 
-  // Start Lenis immediately once ref is set
-  useEffect(() => {
-    const lenis = lenisRef.current;
-    if (!lenis) return;
-    lenis.start();
-  }, [lenisRef.current]);
-
   return (
-    <div className="relative min-h-screen select-none overflow-x-hidden">
+    <div className="relative min-h-screen select-none overflow-x-clip">
       {/* High-fidelity Noise Overlay */}
       <div className="noise-overlay" />
       
@@ -133,7 +127,7 @@ function App() {
             onThemeToggle={toggleTheme}
           />
           
-          {/* New Hero Section */}
+          {/* Hero Section */}
           <div className="relative w-full overflow-hidden">
             <HeroProfile
               isDark={isDark}
@@ -144,8 +138,8 @@ function App() {
             />
           </div>
 
-          {/* Portfolio Body Sections (Phase 4, 5, 6, 7) */}
-          <div className="relative z-30 bg-[var(--bg-primary)] border-t border-[var(--border-color)]">
+          {/* Portfolio Body Sections */}
+          <div className="relative z-10 bg-[var(--bg-primary)] border-t border-[var(--border-color)]">
             <Suspense fallback={null}>
               <About playClick={playClick} playType={playType} />
             </Suspense>

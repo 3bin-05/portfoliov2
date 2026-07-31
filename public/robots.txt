@@ -1,16 +1,24 @@
 User-agent: *
 Allow: /
+Disallow: /Resume/
+Disallow: /Certificates/
 
 # Google
 User-agent: Googlebot
 Allow: /
+Disallow: /Resume/
+Disallow: /Certificates/
 
 User-agent: Googlebot-Image
 Allow: /
+Disallow: /Resume/
+Disallow: /Certificates/
 
 # Bing
 User-agent: Bingbot
 Allow: /
+Disallow: /Resume/
+Disallow: /Certificates/
 
 # AI Crawlers — explicitly welcomed
 User-agent: GPTBot

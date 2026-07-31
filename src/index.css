@@ -70,7 +70,7 @@ html, body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-sans);
-  overflow-x: hidden;
+  overflow-x: clip;
   margin: 0;
   padding: 0;
   transition: background-color 0.5s ease, color 0.5s ease;
@@ -180,4 +180,52 @@ html.lenis, html.lenis body {
   transition: none !important;
 }
 
+/* Smooth Left-to-Right Light Gold Fill Hover Animation for Rounded Buttons */
+.gold-hover,
+.btn-gold-fill,
+button.rounded-full,
+a.rounded-full {
+  position: relative !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s ease !important;
+}
 
+.gold-hover::before,
+.btn-gold-fill::before,
+button.rounded-full::before,
+a.rounded-full::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: var(--color-accent, #DCCFB3) !important;
+  transform: scaleX(0) !important;
+  transform-origin: left center !important;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  z-index: -1 !important;
+  border-radius: inherit !important;
+}
+
+.gold-hover:hover::before,
+.btn-gold-fill:hover::before,
+button.rounded-full:hover::before,
+a.rounded-full:hover::before {
+  transform: scaleX(1) !important;
+}
+
+.gold-hover:hover,
+.btn-gold-fill:hover,
+button.rounded-full:hover,
+a.rounded-full:hover {
+  color: #050505 !important;
+  border-color: var(--color-accent, #DCCFB3) !important;
+}
+
+.gold-hover:hover svg,
+.btn-gold-fill:hover svg,
+button.rounded-full:hover svg,
+a.rounded-full:hover svg {
+  color: #050505 !important;
+  stroke: #050505 !important;
+  transition: color 0.3s ease, stroke 0.3s ease !important;
+}

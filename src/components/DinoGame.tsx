@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { Play, RotateCcw, Volume2, VolumeX } from 'lucide-react';
 
 // Retro Pixel Art Sprites
@@ -229,10 +229,10 @@ export function DinoGame() {
   }, [gameState]);
 
   // Audio synthesis helper
-  const triggerSound = (type: 'jump' | 'milestone' | 'crash') => {
+  const triggerSound = useCallback((type: 'jump' | 'milestone' | 'crash') => {
     if (isAudioMuted) return;
     try {
-      const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+      const AudioContextClass = window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
       if (!AudioContextClass) return;
       const ctx = new AudioContextClass();
       const time = ctx.currentTime;
@@ -291,13 +291,13 @@ export function DinoGame() {
         osc.start(time);
         osc.stop(time + 0.45);
       }
-    } catch (e) {
+    } catch {
       // Audio blocked or unsupported
     }
-  };
+  }, [isAudioMuted]);
 
   // Start / Restart Game Core
-  const startGame = () => {
+  const startGame = useCallback(() => {
     const state = stateRef.current;
     state.gameState = 'playing';
     state.score = 0;
@@ -314,10 +314,10 @@ export function DinoGame() {
     setScore(0);
     setGameState('playing');
     triggerSound('jump');
-  };
+  }, [triggerSound]);
 
   // Ducking state controllers
-  const setDucking = (duck: boolean) => {
+  const setDucking = useCallback((duck: boolean) => {
     const state = stateRef.current;
     if (state.gameState !== 'playing') return;
     
@@ -330,9 +330,9 @@ export function DinoGame() {
     } else {
       state.isDucking = false;
     }
-  };
+  }, []);
 
-  const jump = () => {
+  const jump = useCallback(() => {
     const state = stateRef.current;
     if (state.gameState === 'idle' || state.gameState === 'crashed') {
       startGame();
@@ -343,7 +343,7 @@ export function DinoGame() {
       state.dinoVy = -11.5;
       triggerSound('jump');
     }
-  };
+  }, [triggerSound, startGame]);
 
   // Keyboard input handlers
   useEffect(() => {
@@ -375,7 +375,7 @@ export function DinoGame() {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, [isFocused]);
+  }, [isFocused, jump, setDucking]);
 
   // Click / touch to focus
   useEffect(() => {
@@ -714,7 +714,7 @@ export function DinoGame() {
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, [isAudioMuted]);
+  }, [isAudioMuted, triggerSound]);
 
   return (
     <div

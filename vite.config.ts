@@ -52,7 +52,7 @@ export default defineConfig({
             return 'react-vendor';
           }
         }
-      } as any
+      }
     },
     chunkSizeWarningLimit: 500,
   }

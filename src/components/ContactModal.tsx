@@ -38,7 +38,7 @@ export function ContactModal({ playClick, playType, onClose }: ContactModalProps
       } else {
         setFormStatus('error');
       }
-    } catch (err) {
+    } catch {
       setFormStatus('error');
     }
   };

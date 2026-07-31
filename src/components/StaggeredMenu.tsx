@@ -131,7 +131,7 @@ export const StaggeredMenu = ({
       gsap.set(itemEls, { yPercent: 140, rotate: 10 });
     }
     if (numberEls.length) {
-      gsap.set(numberEls, { '--sm-num-opacity': 0 } as any);
+      gsap.set(numberEls, { '--sm-num-opacity': 0 } as unknown as gsap.TweenVars);
     }
     if (socialTitle) {
       gsap.set(socialTitle, { opacity: 0 });
@@ -177,7 +177,7 @@ export const StaggeredMenu = ({
             ease: 'power2.out',
             '--sm-num-opacity': 1,
             stagger: { each: 0.08, from: 'start' }
-          } as any,
+          } as unknown as gsap.TweenVars,
           itemsStart + 0.1
         );
       }
@@ -256,7 +256,7 @@ export const StaggeredMenu = ({
         }
         const numberEls = Array.from(panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item')) as HTMLElement[];
         if (numberEls.length) {
-          gsap.set(numberEls, { '--sm-num-opacity': 0 } as any);
+          gsap.set(numberEls, { '--sm-num-opacity': 0 } as unknown as gsap.TweenVars);
         }
         const socialTitle = panel.querySelector('.sm-socials-title') as HTMLElement;
         const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link')) as HTMLElement[];
@@ -388,14 +388,14 @@ export const StaggeredMenu = ({
   return (
     <div
       className={(className ? className + ' ' : '') + 'staggered-menu-wrapper' + (isFixed ? ' fixed-wrapper' : '')}
-      style={accentColor ? { ['--sm-accent']: accentColor } as any : undefined}
+      style={accentColor ? { ['--sm-accent']: accentColor } as React.CSSProperties : undefined}
       data-position={position}
       data-open={open || undefined}
     >
       <div ref={preLayersRef} className="sm-prelayers" aria-hidden="true">
         {(() => {
           const raw = colors && colors.length ? colors.slice(0, 4) : ['#1e1e22', '#35353c'];
-          let arr = [...raw];
+          const arr = [...raw];
           if (arr.length >= 3) {
             const mid = Math.floor(arr.length / 2);
             arr.splice(mid, 1);
@@ -457,7 +457,7 @@ export const StaggeredMenu = ({
         </div>
       </header>
 
-      <aside id="staggered-menu-panel" ref={panelRef as any} className="staggered-menu-panel" aria-hidden={!open}>
+      <aside id="staggered-menu-panel" ref={panelRef} className="staggered-menu-panel" aria-hidden={!open}>
         <div className="sm-panel-inner">
           <ul className="sm-panel-list" role="list" data-numbering={displayItemNumbering || undefined}>
             {items && items.length ? (
