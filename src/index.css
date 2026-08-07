@@ -41,6 +41,7 @@
   --text-secondary: #8C8C8C;
   --text-hover: #FFFFFF;
   --color-accent: #DCCFB3;
+  --bg-hero: #0A0A0A;
 
   /* Commits grid theme colors (Gold in dark mode) */
   --commit-level-1: #2c2518;
@@ -58,6 +59,7 @@
   --text-secondary: #6B6B6B;
   --text-hover: #000000;
   --color-accent: #2C2C2C;
+  --bg-hero: #F4F4F4;
 
   /* Commits grid theme colors (Grays in light mode) */
   --commit-level-1: #e2e8f0;

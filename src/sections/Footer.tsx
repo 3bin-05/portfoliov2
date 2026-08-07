@@ -19,15 +19,8 @@ export function Footer({ playClick, playType, onContactClick, onCopyrightClick }
   };
 
   return (
-    <footer className="w-full pt-20 pb-6 px-6 md:px-12 xl:px-16 bg-[var(--bg-card)] relative z-10 text-[var(--text-secondary)] rounded-b-none md:rounded-b-[22px] overflow-hidden">
-      {/* Smooth Top Background Blend Layer (from Contact bg-primary to Footer bg-card) */}
-      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[var(--bg-primary)] via-[var(--bg-primary)]/40 to-[var(--bg-card)] pointer-events-none z-0" />
+    <footer className="w-full pt-10 pb-16 px-6 md:px-12 xl:px-16 bg-[var(--bg-hero)] relative z-10 text-[var(--text-secondary)] overflow-hidden">
       
-      {/* Soft Faded Border Line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4/5 max-w-6xl h-[1px] bg-gradient-to-r from-transparent via-[var(--border-color)] to-transparent pointer-events-none z-10" />
-
-
-
       <div className="max-w-7xl mx-auto flex flex-col gap-8">
         
         {/* Top Section */}

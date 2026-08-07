@@ -10,7 +10,7 @@ interface ContactProps {
 
 export function Contact({ playClick, playType, onContactClick }: ContactProps) {
   return (
-    <section id="contact" className="w-full py-24 px-6 md:px-12 xl:px-16 border-t border-[var(--border-color)] relative z-10 bg-[var(--bg-primary)]">
+    <section id="contact" className="w-full pt-24 pb-12 px-6 md:px-12 xl:px-16 border-t border-[var(--border-color)] relative z-10 bg-[var(--bg-primary)] rounded-b-none md:rounded-b-[22px]">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           

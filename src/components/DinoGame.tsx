@@ -205,6 +205,23 @@ export function DinoGame() {
   });
   const [isAudioMuted, setIsAudioMuted] = useState<boolean>(false);
   const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  // Track if game is in viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   // Game Loop References (to avoid closure stale state in requestAnimationFrame)
   const stateRef = useRef({
@@ -427,29 +444,17 @@ export function DinoGame() {
       }
     };
 
-    // Main update/render frame
-    const tick = (time: number) => {
+    const drawFrame = () => {
       const state = stateRef.current;
       const themeColor = getComputedStyle(document.documentElement).getPropertyValue('--text-primary').trim() || '#FFFFFF';
       const secondaryColor = getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim() || '#8C8C8C';
       const borderThemeColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim() || 'rgba(255,255,255,0.08)';
-
-      const deltaTime = time - lastTime;
-      lastTime = time;
-
-      // Cap deltaTime to avoid massive jumps on resume/lag spikes
-      const clampedDelta = Math.min(100, deltaTime);
-      const timeScale = clampedDelta / 16.667;
 
       // Clear canvas
       ctx.clearRect(0, 0, 600, 200);
 
       // Render Minimalist Vector Clouds
       state.clouds.forEach((cloud) => {
-        if (state.gameState === 'playing') {
-          cloud.x -= cloud.speed * timeScale;
-        }
-
         ctx.save();
         ctx.strokeStyle = secondaryColor;
         ctx.fillStyle = secondaryColor + '03'; // ultra-faint fill
@@ -469,180 +474,6 @@ export function DinoGame() {
         ctx.restore();
       });
 
-      // Remove offscreen clouds
-      state.clouds = state.clouds.filter((c) => c.x > -100);
-
-      // Spawn Clouds
-      if (state.gameState === 'playing' && state.frameCount >= 240 && Math.floor((state.frameCount - timeScale) / 240) !== Math.floor(state.frameCount / 240) && Math.random() < 0.6) {
-        state.clouds.push({
-          id: Math.random(),
-          x: 650,
-          y: 30 + Math.random() * 50,
-          speed: 0.3 + Math.random() * 0.4,
-        });
-      }
-
-
-
-      // Physics and state updates when playing
-      if (state.gameState === 'playing') {
-        state.frameCount += timeScale;
-
-        // Increase score
-        state.score += 0.15 * timeScale;
-        const integerScore = Math.floor(state.score);
-        setScore(integerScore);
-
-        // Milestone score flash & sound
-        if (integerScore > 0 && integerScore % 100 === 0) {
-          const milestoneIdx = integerScore / 100;
-          if (state.milestoneCount === milestoneIdx) {
-            triggerSound('milestone');
-            state.milestoneCount++;
-          }
-        }
-
-        // Increase game speed slightly
-        state.gameSpeed = Math.min(15, 6.5 + (state.score / 150));
-
-        // Ground offset scroll animation
-        state.groundOffset = (state.groundOffset + state.gameSpeed * timeScale) % 600;
-
-        // Dino Physics (gravity)
-        state.dinoVy += 0.6 * timeScale; // Gravity constant
-        state.dinoY += state.dinoVy * timeScale;
-
-        const maxDinoY = state.isDucking ? 146 : 136; // standing height (34) vs ducking height (24)
-        if (state.dinoY >= maxDinoY) {
-          state.dinoY = maxDinoY;
-          state.dinoVy = 0;
-        }
-
-        // Move Obstacles
-        state.obstacles.forEach((obs) => {
-          obs.x -= state.gameSpeed * timeScale;
-        });
-
-        // Clean off-screen obstacles
-        state.obstacles = state.obstacles.filter((obs) => obs.x > -obs.width);
-
-        // Spawn Obstacles
-        const framesSinceLastSpawn = state.frameCount - state.lastObstacleSpawnFrame;
-        const minDistanceBetweenObstacles = 150 + (state.gameSpeed * 12);
-        
-        if (framesSinceLastSpawn > 55 && Math.random() < 0.02 && (state.obstacles.length === 0 || 600 - state.obstacles[state.obstacles.length - 1].x > minDistanceBetweenObstacles)) {
-          // Select obstacle type
-          const obstacleTypes: Obstacle['type'][] = ['cactus_small', 'cactus_large', 'cactus_double_small', 'cactus_double_large'];
-          // Only spawn birds if score > 150
-          if (state.score > 150) {
-            obstacleTypes.push('bird');
-          }
-
-          const chosenType = obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)];
-          let newObs: Obstacle;
-
-          if (chosenType === 'bird') {
-            // Birds fly at different altitudes
-            const altitudes = [80, 115, 140]; // high, medium, low
-            const chosenAlt = altitudes[Math.floor(Math.random() * altitudes.length)];
-            newObs = {
-              id: Math.random(),
-              type: 'bird',
-              x: 620,
-              y: chosenAlt,
-              width: 34,
-              height: 18,
-              speed: state.gameSpeed,
-            };
-          } else if (chosenType === 'cactus_small') {
-            newObs = {
-              id: Math.random(),
-              type: 'cactus_small',
-              x: 620,
-              y: 144, // 170 - 26 (cactus small height)
-              width: 18,
-              height: 26,
-              speed: state.gameSpeed,
-            };
-          } else if (chosenType === 'cactus_double_small') {
-            newObs = {
-              id: Math.random(),
-              type: 'cactus_double_small',
-              x: 620,
-              y: 144,
-              width: 32,
-              height: 26,
-              speed: state.gameSpeed,
-            };
-          } else if (chosenType === 'cactus_large') {
-            newObs = {
-              id: Math.random(),
-              type: 'cactus_large',
-              x: 620,
-              y: 140, // 170 - 30 (cactus large height)
-              width: 24,
-              height: 30,
-              speed: state.gameSpeed,
-            };
-          } else { // cactus_double_large
-            newObs = {
-              id: Math.random(),
-              type: 'cactus_double_large',
-              x: 620,
-              y: 140,
-              width: 44,
-              height: 30,
-              speed: state.gameSpeed,
-            };
-          }
-
-          state.obstacles.push(newObs);
-          state.lastObstacleSpawnFrame = state.frameCount;
-        }
-
-        // Collision Check
-        const dinoW = state.isDucking ? 58 : 40;
-        const dinoH = state.isDucking ? 24 : 34;
-        const dinoBox = {
-          x: 40 + 4, // insets for fair gameplay feel
-          y: state.dinoY + 2,
-          w: dinoW - 8,
-          h: dinoH - 4,
-        };
-
-        state.obstacles.forEach((obs) => {
-          // Adjust obstacle hitbox for fairness
-          const obsBox = {
-            x: obs.x + 2,
-            y: obs.y + 2,
-            w: obs.width - 4,
-            h: obs.height - 4,
-          };
-
-          // Box overlap check
-          if (
-            dinoBox.x < obsBox.x + obsBox.w &&
-            dinoBox.x + dinoBox.w > obsBox.x &&
-            dinoBox.y < obsBox.y + obsBox.h &&
-            dinoBox.y + dinoBox.h > obsBox.y
-          ) {
-            // Collision detected! Game Over.
-            state.gameState = 'crashed';
-            setGameState('crashed');
-            triggerSound('crash');
-
-            // High Score update
-            const finalScore = Math.floor(state.score);
-            const savedHighScore = localStorage.getItem('dino_highscore');
-            const parsedHighScore = savedHighScore ? parseInt(savedHighScore, 10) : 0;
-            if (finalScore > parsedHighScore) {
-              setHighScore(finalScore);
-              localStorage.setItem('dino_highscore', String(finalScore));
-            }
-          }
-        });
-      }
-
       // DRAW GROUND
       ctx.strokeStyle = borderThemeColor;
       ctx.lineWidth = 1;
@@ -655,7 +486,6 @@ export function DinoGame() {
       ctx.fillStyle = secondaryColor + '40';
       const numLines = 15;
       for (let i = 0; i < numLines; i++) {
-        // Draw little ground pixel dots moving along
         const lineX = (i * 80 - state.groundOffset + 600) % 650 - 50;
         ctx.fillRect(lineX, 173, 5, 1);
         ctx.fillRect(lineX + 30, 176, 2, 1);
@@ -675,7 +505,6 @@ export function DinoGame() {
           drawPixelArt(SPRITES.cactus.large, obs.x, obs.y, 2, themeColor);
           drawPixelArt(SPRITES.cactus.large, obs.x + 20, obs.y + 1, 2, themeColor);
         } else if (obs.type === 'bird') {
-          // flap wings
           const isWingUp = Math.floor(state.frameCount / 12) % 2 === 0;
           const birdSprite = isWingUp ? SPRITES.bird.up : SPRITES.bird.down;
           drawPixelArt(birdSprite, obs.x, obs.y, 2, themeColor);
@@ -688,13 +517,11 @@ export function DinoGame() {
       } else if (state.gameState === 'idle') {
         drawPixelArt(SPRITES.dino.stand, 40, state.dinoY, 2, themeColor);
       } else {
-        // Walking/ducking animations
         if (state.isDucking) {
           const isDuckFrame1 = Math.floor(state.frameCount / 6) % 2 === 0;
           const duckSprite = isDuckFrame1 ? SPRITES.dino.duck1 : SPRITES.dino.duck2;
           drawPixelArt(duckSprite, 40, state.dinoY, 2, themeColor);
         } else {
-          // If in air, show standing sprite (no walk anim)
           if (state.dinoY < 136) {
             drawPixelArt(SPRITES.dino.stand, 40, state.dinoY, 2, themeColor);
           } else {
@@ -704,17 +531,190 @@ export function DinoGame() {
           }
         }
       }
-
-      // Loop frame
-      animationId = requestAnimationFrame(tick);
     };
 
-    animationId = requestAnimationFrame(tick);
+    // Main update/render frame
+    const tick = (time: number) => {
+      const state = stateRef.current;
+      const deltaTime = time - lastTime;
+      lastTime = time;
+
+      const clampedDelta = Math.min(100, deltaTime);
+      const timeScale = clampedDelta / 16.667;
+
+      // Update clouds positions
+      state.clouds.forEach((cloud) => {
+        cloud.x -= cloud.speed * timeScale;
+      });
+      state.clouds = state.clouds.filter((c) => c.x > -100);
+
+      // Spawn Clouds
+      if (state.frameCount >= 240 && Math.floor((state.frameCount - timeScale) / 240) !== Math.floor(state.frameCount / 240) && Math.random() < 0.6) {
+        state.clouds.push({
+          id: Math.random(),
+          x: 650,
+          y: 30 + Math.random() * 50,
+          speed: 0.3 + Math.random() * 0.4,
+        });
+      }
+
+      if (state.gameState === 'playing') {
+        state.frameCount += timeScale;
+        state.score += 0.15 * timeScale;
+        const integerScore = Math.floor(state.score);
+        setScore(integerScore);
+
+        if (integerScore > 0 && integerScore % 100 === 0) {
+          const milestoneIdx = integerScore / 100;
+          if (state.milestoneCount === milestoneIdx) {
+            triggerSound('milestone');
+            state.milestoneCount++;
+          }
+        }
+
+        state.gameSpeed = Math.min(15, 6.5 + (state.score / 150));
+        state.groundOffset = (state.groundOffset + state.gameSpeed * timeScale) % 600;
+
+        state.dinoVy += 0.6 * timeScale;
+        state.dinoY += state.dinoVy * timeScale;
+
+        const maxDinoY = state.isDucking ? 146 : 136;
+        if (state.dinoY >= maxDinoY) {
+          state.dinoY = maxDinoY;
+          state.dinoVy = 0;
+        }
+
+        state.obstacles.forEach((obs) => {
+          obs.x -= state.gameSpeed * timeScale;
+        });
+        state.obstacles = state.obstacles.filter((obs) => obs.x > -obs.width);
+
+        const framesSinceLastSpawn = state.frameCount - state.lastObstacleSpawnFrame;
+        const minDistanceBetweenObstacles = 150 + (state.gameSpeed * 12);
+        
+        if (framesSinceLastSpawn > 55 && Math.random() < 0.02 && (state.obstacles.length === 0 || 600 - state.obstacles[state.obstacles.length - 1].x > minDistanceBetweenObstacles)) {
+          const obstacleTypes: Obstacle['type'][] = ['cactus_small', 'cactus_large', 'cactus_double_small', 'cactus_double_large'];
+          if (state.score > 150) {
+            obstacleTypes.push('bird');
+          }
+          const chosenType = obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)];
+          let newObs: Obstacle;
+          if (chosenType === 'bird') {
+            const altitudes = [80, 115, 140];
+            const chosenAlt = altitudes[Math.floor(Math.random() * altitudes.length)];
+            newObs = {
+              id: Math.random(),
+              type: 'bird',
+              x: 620,
+              y: chosenAlt,
+              width: 34,
+              height: 18,
+              speed: state.gameSpeed,
+            };
+          } else if (chosenType === 'cactus_small') {
+            newObs = {
+              id: Math.random(),
+              type: 'cactus_small',
+              x: 620,
+              y: 144,
+              width: 18,
+              height: 26,
+              speed: state.gameSpeed,
+            };
+          } else if (chosenType === 'cactus_double_small') {
+            newObs = {
+              id: Math.random(),
+              type: 'cactus_double_small',
+              x: 620,
+              y: 144,
+              width: 32,
+              height: 26,
+              speed: state.gameSpeed,
+            };
+          } else if (chosenType === 'cactus_large') {
+            newObs = {
+              id: Math.random(),
+              type: 'cactus_large',
+              x: 620,
+              y: 140,
+              width: 24,
+              height: 30,
+              speed: state.gameSpeed,
+            };
+          } else {
+            newObs = {
+              id: Math.random(),
+              type: 'cactus_double_large',
+              x: 620,
+              y: 140,
+              width: 44,
+              height: 30,
+              speed: state.gameSpeed,
+            };
+          }
+          state.obstacles.push(newObs);
+          state.lastObstacleSpawnFrame = state.frameCount;
+        }
+
+        const dinoW = state.isDucking ? 58 : 40;
+        const dinoH = state.isDucking ? 24 : 34;
+        const dinoBox = {
+          x: 40 + 4,
+          y: state.dinoY + 2,
+          w: dinoW - 8,
+          h: dinoH - 4,
+        };
+
+        state.obstacles.forEach((obs) => {
+          const obsBox = {
+            x: obs.x + 2,
+            y: obs.y + 2,
+            w: obs.width - 4,
+            h: obs.height - 4,
+          };
+          if (
+            dinoBox.x < obsBox.x + obsBox.w &&
+            dinoBox.x + dinoBox.w > obsBox.x &&
+            dinoBox.y < obsBox.y + obsBox.h &&
+            dinoBox.y + dinoBox.h > obsBox.y
+          ) {
+            state.gameState = 'crashed';
+            setGameState('crashed');
+            triggerSound('crash');
+            const finalScore = Math.floor(state.score);
+            const savedHighScore = localStorage.getItem('dino_highscore');
+            const parsedHighScore = savedHighScore ? parseInt(savedHighScore, 10) : 0;
+            if (finalScore > parsedHighScore) {
+              setHighScore(finalScore);
+              localStorage.setItem('dino_highscore', String(finalScore));
+            }
+          }
+        });
+      }
+
+      drawFrame();
+
+      // Only schedule next frame if playing and visible
+      if (stateRef.current.gameState === 'playing' && isIntersecting) {
+        animationId = requestAnimationFrame(tick);
+      }
+    };
+
+    // Draw the initial frame once
+    drawFrame();
+
+    // Start loop if playing and visible
+    if (gameState === 'playing' && isIntersecting) {
+      lastTime = performance.now();
+      animationId = requestAnimationFrame(tick);
+    }
 
     return () => {
-      cancelAnimationFrame(animationId);
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
     };
-  }, [isAudioMuted, triggerSound]);
+  }, [gameState, isIntersecting, isAudioMuted, triggerSound]);
 
   return (
     <div

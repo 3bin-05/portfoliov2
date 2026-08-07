@@ -5,12 +5,14 @@ import { useTheme } from './hooks/useTheme';
 import { useSound } from './hooks/useSound';
 import { BrowserShell } from './components/BrowserShell';
 import { Navbar } from './components/Navbar';
-import { StaggeredMenu } from './components/StaggeredMenu';
 import { CustomCursor } from './components/CustomCursor';
-import { ContactModal } from './components/ContactModal';
-import { CopyrightModal } from './components/CopyrightModal';
 import { HeroProfile } from './sections/HeroProfile';
 import { MinimalLoader } from './components/MinimalLoader';
+import { SocialLinks } from './components/ui/social-links';
+
+const StaggeredMenu = lazy(() => import('./components/StaggeredMenu').then(mod => ({ default: mod.StaggeredMenu })));
+const ContactModal = lazy(() => import('./components/ContactModal').then(mod => ({ default: mod.ContactModal })));
+const CopyrightModal = lazy(() => import('./components/CopyrightModal').then(mod => ({ default: mod.CopyrightModal })));
 
 const Works = lazy(() => import('./sections/Works').then(mod => ({ default: mod.Works })));
 const LearningArchive = lazy(() => import('./sections/LearningArchive').then(mod => ({ default: mod.LearningArchive })));
@@ -93,6 +95,16 @@ function App() {
       {/* Aesthetic Custom Cursor */}
       <CustomCursor />
 
+      {/* Social Links widget on the right */}
+      <SocialLinks
+        links={[
+          { platform: "linkedin", href: "https://www.linkedin.com/in/ebin-reji/" },
+          { platform: "github", href: "https://github.com/3bin-05" },
+          { platform: "instagram", href: "https://www.instagram.com/_simply._.ebin_?igsh=MWZkOTdoZnJvOG1pdw==" },
+          { platform: "mail", href: "mailto:ebin05reji@gmail.com" },
+        ]}
+      />
+
       {/* Minimal Loader Overlay */}
       <AnimatePresence mode="wait">
         {!isLoaded && (
@@ -101,92 +113,103 @@ function App() {
       </AnimatePresence>
 
       {/* Mock Operating System Desktop Container */}
-      <div className="w-full h-full">
-        <BrowserShell playClick={playClick} playType={playType}>
-          <Navbar 
-            playClick={playClick} 
-            playType={playType} 
+      <div className="w-full h-full flex flex-col">
+        {/* Sticky Hero Section */}
+        <div className="sticky top-0 w-full h-screen z-0 overflow-hidden">
+          <HeroProfile
             isDark={isDark}
             toggleTheme={toggleTheme}
+            playClick={playClick}
+            playType={playType}
+            onContactClick={() => setIsContactOpen(true)}
           />
-          
-          <StaggeredMenu
-            className="md:hidden"
-            isFixed={true}
-            position="right"
-            items={menuItems}
-            socialItems={socialItems}
-            displaySocials={true}
-            displayItemNumbering={true}
-            menuButtonColor="var(--text-primary)"
-            openMenuButtonColor="var(--text-primary)"
-            changeMenuColorOnOpen={false}
-            colors={['var(--bg-elevated)', 'var(--color-accent)']}
-            accentColor="var(--color-accent)"
-            isDark={isDark}
-            onThemeToggle={toggleTheme}
-          />
-          
-          {/* Hero Section */}
-          <div className="relative w-full overflow-hidden">
-            <HeroProfile
+        </div>
+
+        {/* Portfolio Body and Browser Shell (scrolls over hero) */}
+        <div className="relative z-10 w-full">
+          <BrowserShell playClick={playClick} playType={playType}>
+            <Navbar 
+              playClick={playClick} 
+              playType={playType} 
               isDark={isDark}
               toggleTheme={toggleTheme}
-              playClick={playClick}
-              playType={playType}
-              onContactClick={() => setIsContactOpen(true)}
             />
-          </div>
+            
+            <Suspense fallback={null}>
+              <StaggeredMenu
+                className="md:hidden"
+                isFixed={true}
+                position="right"
+                items={menuItems}
+                socialItems={socialItems}
+                displaySocials={true}
+                displayItemNumbering={true}
+                menuButtonColor="var(--text-primary)"
+                openMenuButtonColor="var(--text-primary)"
+                changeMenuColorOnOpen={false}
+                colors={['var(--bg-elevated)', 'var(--color-accent)']}
+                accentColor="var(--color-accent)"
+                isDark={isDark}
+                onThemeToggle={toggleTheme}
+              />
+            </Suspense>
 
-          {/* Portfolio Body Sections */}
-          <div className="relative z-10 bg-[var(--bg-primary)] border-t border-[var(--border-color)]">
-            <Suspense fallback={null}>
-              <About playClick={playClick} playType={playType} />
-            </Suspense>
-            <Suspense fallback={null}>
-              <StackBelt playType={playType} />
-            </Suspense>
-            <Suspense fallback={null}>
-              <Stats playClick={playClick} playType={playType} />
-            </Suspense>
-            <Suspense fallback={null}>
-              <Works playClick={playClick} playType={playType} />
-            </Suspense>
-            <Suspense fallback={null}>
-              <LearningArchive playClick={playClick} playType={playType} />
-            </Suspense>
-            <Suspense fallback={null}>
-              <Events playClick={playClick} playType={playType} />
-            </Suspense>
-            <Suspense fallback={null}>
-              <Contact playClick={playClick} playType={playType} onContactClick={() => setIsContactOpen(true)} />
-            </Suspense>
-            <Suspense fallback={null}>
-              <Footer playClick={playClick} playType={playType} onContactClick={() => setIsContactOpen(true)} onCopyrightClick={() => setIsCopyrightOpen(true)} />
-            </Suspense>
-          </div>
+            {/* Portfolio Body Sections */}
+            <div className="relative z-10 bg-[var(--bg-primary)] border-t border-[var(--border-color)]">
+              <Suspense fallback={null}>
+                <About playClick={playClick} playType={playType} />
+              </Suspense>
+              <Suspense fallback={null}>
+                <StackBelt playType={playType} />
+              </Suspense>
+              <Suspense fallback={null}>
+                <Stats playClick={playClick} playType={playType} />
+              </Suspense>
+              <Suspense fallback={null}>
+                <Works playClick={playClick} playType={playType} />
+              </Suspense>
+              <Suspense fallback={null}>
+                <LearningArchive playClick={playClick} playType={playType} />
+              </Suspense>
+              <Suspense fallback={null}>
+                <Events playClick={playClick} playType={playType} />
+              </Suspense>
+              <Suspense fallback={null}>
+                <Contact playClick={playClick} playType={playType} onContactClick={() => setIsContactOpen(true)} />
+              </Suspense>
+            </div>
 
-        </BrowserShell>
+          </BrowserShell>
+
+          {/* Footer outside BrowserShell */}
+          <Suspense fallback={null}>
+            <Footer playClick={playClick} playType={playType} onContactClick={() => setIsContactOpen(true)} onCopyrightClick={() => setIsCopyrightOpen(true)} />
+          </Suspense>
+        </div>
       </div>
 
       {/* Global Contact Form Modal Overlay */}
       <AnimatePresence>
         {isContactOpen && (
-          <ContactModal
-            playClick={playClick}
-            playType={playType}
-            onClose={() => setIsContactOpen(false)}
-          />
+          <Suspense fallback={null}>
+            <ContactModal
+              playClick={playClick}
+              playType={playType}
+              onClose={() => setIsContactOpen(false)}
+            />
+          </Suspense>
         )}
       </AnimatePresence>
 
       {/* Copyright & Usage Policy Modal */}
-      <CopyrightModal
-        isOpen={isCopyrightOpen}
-        onClose={() => setIsCopyrightOpen(false)}
-        playClick={playClick}
-        playType={playType}
-      />
+      <Suspense fallback={null}>
+        <CopyrightModal
+          isOpen={isCopyrightOpen}
+          onClose={() => setIsCopyrightOpen(false)}
+          playClick={playClick}
+          playType={playType}
+        />
+      </Suspense>
     </div>
   );
 }
