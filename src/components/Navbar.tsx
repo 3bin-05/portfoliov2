@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from './SocialIcons';
+
 
 interface NavbarProps {
   playClick: () => void;
@@ -19,8 +19,8 @@ export function Navbar({
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Projects', href: '#works' },
     { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#works' },
     { name: 'Learning', href: '#learning' },
     { name: 'Experience', href: '#events' },
     { name: 'Contact', href: '#contact' },
@@ -92,30 +92,7 @@ export function Navbar({
             {isDark ? <Sun size={14} /> : <Moon size={14} />}
           </button>
 
-          <span className="w-px h-4 bg-[var(--border-color)] mx-1" />
 
-          <a
-            href="https://github.com/3bin-05"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={playClick}
-            onMouseEnter={playType}
-            className="p-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all cursor-pointer"
-            title="GitHub"
-          >
-            <GithubIcon size={14} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/ebin-reji/"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={playClick}
-            onMouseEnter={playType}
-            className="p-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all cursor-pointer"
-            title="LinkedIn"
-          >
-            <LinkedinIcon size={14} />
-          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -173,30 +150,7 @@ export function Navbar({
                 </button>
               </div>
 
-              {/* Mobile Social Links Expanded inside menu */}
-              <div className="flex items-center gap-4 pt-2">
-                <span className="font-mono text-[10px] uppercase text-zinc-500 mr-2">Connect:</span>
-                <a
-                  href="https://github.com/3bin-05"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={playClick}
-                  onMouseEnter={playType}
-                  className="p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all flex items-center justify-center"
-                >
-                  <GithubIcon size={16} />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/ebin-reji/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={playClick}
-                  onMouseEnter={playType}
-                  className="p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all flex items-center justify-center"
-                >
-                  <LinkedinIcon size={16} />
-                </a>
-              </div>
+
             </div>
           </m.div>
         )}

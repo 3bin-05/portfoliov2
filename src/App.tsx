@@ -42,8 +42,8 @@ function App() {
   };
 
   const menuItems = [
-    { label: 'Projects', link: '#works', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#works') },
     { label: 'About', link: '#about', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#about') },
+    { label: 'Projects', link: '#works', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#works') },
     { label: 'Learning', link: '#learning', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#learning') },
     { label: 'Experience', link: '#events', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#events') },
     { label: 'Contact', link: '#contact', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#contact') },
@@ -142,7 +142,7 @@ function App() {
                 position="right"
                 items={menuItems}
                 socialItems={socialItems}
-                displaySocials={true}
+                displaySocials={false}
                 displayItemNumbering={true}
                 menuButtonColor="var(--text-primary)"
                 openMenuButtonColor="var(--text-primary)"
