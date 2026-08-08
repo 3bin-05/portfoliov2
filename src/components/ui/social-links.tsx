@@ -231,7 +231,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
               onClick={() => setMobileDockOpen(!mobileDockOpen)}
               className={`relative flex items-center justify-center w-16 h-16 rounded-full shadow-2xl active:scale-95
                          transition-all duration-300 border border-[var(--border-color)] overflow-hidden ${floatingButtonColor}
-                         hover:border-[var(--color-accent)] text-[var(--text-primary)] hover:text-[var(--color-accent)]`}
+                         hover:border-[var(--color-accent)] text-[var(--text-primary)] hover:text-[var(--color-accent)] no-gold-hover`}
               aria-label="Toggle social links"
             >
               <div className="relative z-10">

@@ -67,7 +67,7 @@ export function CopyrightModal({ isOpen, onClose, playClick, playType }: Copyrig
               <button
                 onClick={() => { playClick(); onClose(); }}
                 onMouseEnter={playType}
-                className="p-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all cursor-pointer shrink-0 ml-4"
+                className="p-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all cursor-pointer shrink-0 ml-4 no-gold-hover"
                 aria-label="Close modal"
               >
                 <X size={13} />

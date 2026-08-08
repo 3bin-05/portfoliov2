@@ -66,7 +66,7 @@ export function ContactModal({ playClick, playType, onClose }: ContactModalProps
             onClose();
           }}
           onMouseEnter={playType}
-          className="absolute top-6 right-6 p-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all cursor-pointer z-10"
+          className="absolute top-6 right-6 p-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-all cursor-pointer z-10 no-gold-hover"
           aria-label="Close modal"
         >
           <X size={13} />

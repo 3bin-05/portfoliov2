@@ -85,7 +85,7 @@ export function Navbar({
               toggleTheme();
             }}
             onMouseEnter={playType}
-            className="p-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all cursor-pointer flex items-center justify-center"
+            className="p-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all cursor-pointer flex items-center justify-center no-gold-hover"
             title="Toggle design mode"
             aria-label="Toggle Theme"
           >
@@ -143,7 +143,7 @@ export function Navbar({
                     toggleTheme();
                   }}
                   onMouseEnter={playType}
-                  className="p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all flex items-center justify-center cursor-pointer"
+                  className="p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all flex items-center justify-center cursor-pointer no-gold-hover"
                   aria-label="Toggle Theme"
                 >
                   {isDark ? <Sun size={16} /> : <Moon size={16} />}

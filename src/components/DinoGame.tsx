@@ -746,7 +746,7 @@ export function DinoGame() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setIsAudioMuted(!isAudioMuted)}
-            className="p-1 rounded-full hover:bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
+            className="p-1 rounded-full hover:bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all cursor-pointer no-gold-hover"
             title={isAudioMuted ? "Unmute sound" : "Mute sound"}
           >
             {isAudioMuted ? <VolumeX size={13} /> : <Volume2 size={13} />}

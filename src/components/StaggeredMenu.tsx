@@ -423,7 +423,7 @@ export const StaggeredMenu = ({
               e.stopPropagation();
               onThemeToggle?.();
             }}
-            className="p-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] transition-all cursor-pointer flex items-center justify-center z-10"
+            className="p-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--color-accent)] transition-all cursor-pointer flex items-center justify-center z-10 no-gold-hover"
             title="Toggle theme"
             type="button"
             aria-label="Toggle Theme"

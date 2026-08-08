@@ -2,6 +2,7 @@ import { m } from 'framer-motion';
 import { Lock } from 'lucide-react';
 import courseraLogo from '../assets/coursera.webp';
 import nptelLogo from '../assets/nptel.webp';
+import ieeEmbsLogo from '../assets/ieeeembs.webp';
 
 interface LearningCardData {
   id: string;
@@ -54,12 +55,7 @@ const learningCards: LearningCardData[] = [
     tapeRotation: 'rotate-3',
     link: '/Certificates/EMBS.pdf',
     folds: ['bottom-left'],
-    illustration: (
-      <svg className="w-full h-full text-[var(--color-accent)] opacity-20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M15 50 H30 L38 30 L46 70 L54 45 L60 55 L65 50 H85" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        <rect x="35" y="25" width="30" height="50" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-      </svg>
-    ),
+    logoUrl: ieeEmbsLogo,
   },
   {
     id: 'coming-soon',
