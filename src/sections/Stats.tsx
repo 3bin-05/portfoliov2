@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { CommitsGrid } from '@/components/ui/commits-grid';
-import { Code, Compass, Zap, Users, Calendar, Heart } from 'lucide-react';
+import { Compass, Zap, Users, Calendar, Heart } from 'lucide-react';
 
 interface StatsProps {
   playClick: () => void;
@@ -57,6 +57,7 @@ export function CountUp({ end, duration = 2000, suffix = '' }: CountUpProps) {
 
 export function Stats({ playClick, playType }: StatsProps) {
   const [repoCount, setRepoCount] = useState<number | null>(null);
+  const [commitCount, setCommitCount] = useState<number | null>(null);
 
   useEffect(() => {
     fetch('https://api.github.com/users/3bin-05')
@@ -71,6 +72,24 @@ export function Stats({ playClick, playType }: StatsProps) {
       })
       .catch((err) => {
         console.error('Error fetching repo count from GitHub:', err);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch('https://api.github.com/search/commits?q=author:3bin-05', {
+      headers: { Accept: 'application/vnd.github.cloak-preview+json' },
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch commit count');
+        return res.json();
+      })
+      .then((data) => {
+        if (data && typeof data.total_count === 'number') {
+          setCommitCount(data.total_count);
+        }
+      })
+      .catch((err) => {
+        console.error('Error fetching commit count from GitHub:', err);
       });
   }, []);
 
@@ -102,23 +121,23 @@ export function Stats({ playClick, playType }: StatsProps) {
 
               {/* Dynamic stats row */}
               <div className="grid grid-cols-2 gap-8 pt-8 border-t border-[var(--border-color)] mt-8">
-                {/* Public Repos */}
+                {/* Total Commits */}
                 <div onMouseEnter={playType} onClick={playClick} className="flex flex-col text-left group cursor-pointer">
                   <div className="text-[var(--color-accent)] mb-3">
-                    <Code size={20} strokeWidth={1.5} />
+                    <Compass size={20} strokeWidth={1.5} />
                   </div>
                   <span className="block font-serif text-4xl text-[var(--text-primary)] font-light leading-none mb-2">
-                    <CountUp end={repoCount ?? 81} />
+                    <CountUp end={commitCount ?? 300} suffix="+" />
                   </span>
                   <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--color-accent)] transition-colors">
-                    Public Repos
+                    Total Commits
                   </span>
                 </div>
-                
+
                 {/* Open Source */}
                 <div onMouseEnter={playType} onClick={playClick} className="flex flex-col text-left group cursor-pointer border-l border-[var(--border-color)] pl-8">
                   <div className="text-[var(--color-accent)] mb-3">
-                    <Compass size={20} strokeWidth={1.5} />
+                    <Zap size={20} strokeWidth={1.5} />
                   </div>
                   <span className="block font-serif text-4xl text-[var(--text-primary)] font-light leading-none mb-2">
                     <CountUp end={100} suffix="%" />
