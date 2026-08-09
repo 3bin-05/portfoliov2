@@ -1,4 +1,5 @@
 import { SocialLinks } from "@/components/ui/social-links";
+import Component from '@/components/ui/sticky-scroll';
 
 export default function SocialLinksDemo() {
   return (
@@ -16,3 +17,11 @@ export default function SocialLinksDemo() {
     </div>
   );
 }
+
+function ComponentDemo() {
+  return (
+    <Component />
+  );
+}
+
+export { ComponentDemo as DemoOne };

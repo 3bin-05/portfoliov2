@@ -21,6 +21,7 @@ const StackBelt = lazy(() => import('./sections/StackBelt').then(mod => ({ defau
 const Stats = lazy(() => import('./sections/Stats').then(mod => ({ default: mod.Stats })));
 const Events = lazy(() => import('./sections/Events').then(mod => ({ default: mod.Events })));
 const Contact = lazy(() => import('./sections/Contact').then(mod => ({ default: mod.Contact })));
+const MomentsAndMakes = lazy(() => import('./sections/MomentsAndMakes').then(mod => ({ default: mod.MomentsAndMakes })));
 const Footer = lazy(() => import('./sections/Footer').then(mod => ({ default: mod.Footer })));
 
 
@@ -46,6 +47,7 @@ function App() {
     { label: 'Projects', link: '#works', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#works') },
     { label: 'Learning', link: '#learning', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#learning') },
     { label: 'Experience', link: '#events', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#events') },
+    { label: 'Moments', link: '#moments', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#moments') },
     { label: 'Contact', link: '#contact', onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleMobileScroll(e, '#contact') },
   ];
 
@@ -173,6 +175,9 @@ function App() {
               </Suspense>
               <Suspense fallback={null}>
                 <Events playClick={playClick} playType={playType} />
+              </Suspense>
+              <Suspense fallback={null}>
+                <MomentsAndMakes playClick={playClick} playType={playType} />
               </Suspense>
               <Suspense fallback={null}>
                 <Contact playClick={playClick} playType={playType} onContactClick={() => setIsContactOpen(true)} />

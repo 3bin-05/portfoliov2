@@ -26,7 +26,7 @@ export default defineConfig({
         "script-src 'self' 'unsafe-inline'",              // 'unsafe-inline' needed for Vite HMR only
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
         "font-src 'self' https://fonts.gstatic.com",
-        "img-src 'self' data: https://www.ebinreji.online",
+        "img-src 'self' data: https://www.ebinreji.online https://images.unsplash.com",
         "connect-src 'self' https://formspree.io ws://localhost:* wss://localhost:*", // ws for HMR
         "frame-ancestors 'none'",
         "object-src 'none'",

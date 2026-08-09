@@ -54,7 +54,9 @@ export function About({ playClick, playType }: AboutProps) {
                 I believe software shouldn't just be functional; it should feel <span className="italic font-serif text-[var(--text-primary)]">alive</span>. By combining modern front-end frameworks like React and Next.js with fine-tuned design systems, subtle micro-interactions, and detailed typographic hierarchies, I build interfaces that leave a lasting impression.
               </p>
               <p>
-                When I'm not writing code, I spend my time organizing student workshops, hosting community design marathons, and collaborating with developers to build meaningful products from scratch.
+                Beyond building, I compete. I secured{' '}
+                <strong className="font-semibold text-[var(--text-primary)]">3rd place at BrainHack'26</strong>,{' '}
+                a hackathon held by the <span className="italic text-[var(--text-primary)]">College of Engineering Adoor</span>, applying rapid product thinking and full-stack execution under pressure.
               </p>
 
               <div className="pt-4">
