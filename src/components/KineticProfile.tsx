@@ -62,14 +62,18 @@ export function KineticProfile({ playClick, playType }: KineticProfileProps) {
           className="relative transition-all duration-700 ease-out hover:scale-[1.03] cursor-pointer"
         >
           {/* Actual image */}
-          <img
-            src={ebImage}
-            alt="Ebin Reji"
-            width={1588}
-            height={2225}
-            loading="lazy"
-            className="w-full h-auto object-cover relative z-10"
-          />
+          <picture>
+            <source srcSet="/eb.avif" type="image/avif" />
+            <img
+              src={ebImage}
+              alt="Ebin Reji"
+              width={580}
+              height={812}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto object-cover relative z-10"
+            />
+          </picture>
         </div>
       </div>
     </div>

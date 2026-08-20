@@ -137,38 +137,42 @@ export function Works({ playClick, playType }: WorksProps) {
                 project.id === 'mulearn-sbc' ? 'aspect-[2/3]' :
                 'aspect-[4/3]'
               }`}>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  width={
-                    project.id === 'flipzon' ? 400 :
-                    project.id === 'cryptochat' ? 300 :
-                    project.id === 'kia-3d' ? 480 :
-                    project.id === 'purple-movement' ? 300 :
-                    project.id === 'darknetra' ? 300 :
-                    project.id === 'dino-dash' ? 400 :
-                    project.id === 'mileage-undo' ? 300 :
-                    project.id === 'mulearn-sbc' ? 300 :
-                    400
-                  }
-                  height={
-                    project.id === 'flipzon' ? 300 :
-                    project.id === 'cryptochat' ? 400 :
-                    project.id === 'kia-3d' ? 400 :
-                    project.id === 'purple-movement' ? 450 :
-                    project.id === 'darknetra' ? 400 :
-                    project.id === 'dino-dash' ? 300 :
-                    project.id === 'mileage-undo' ? 400 :
-                    project.id === 'mulearn-sbc' ? 450 :
-                    300
-                  }
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-hover:blur-xs rounded-[inherit]"
-                  style={{
-                    backfaceVisibility: 'hidden',
-                    WebkitBackfaceVisibility: 'hidden'
-                  }}
-                />
+                <picture>
+                  {project.imageAvif && <source srcSet={project.imageAvif} type="image/avif" />}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    width={
+                      project.id === 'flipzon' ? 400 :
+                      project.id === 'cryptochat' ? 300 :
+                      project.id === 'kia-3d' ? 480 :
+                      project.id === 'purple-movement' ? 300 :
+                      project.id === 'darknetra' ? 300 :
+                      project.id === 'dino-dash' ? 400 :
+                      project.id === 'mileage-undo' ? 300 :
+                      project.id === 'mulearn-sbc' ? 300 :
+                      400
+                    }
+                    height={
+                      project.id === 'flipzon' ? 300 :
+                      project.id === 'cryptochat' ? 400 :
+                      project.id === 'kia-3d' ? 400 :
+                      project.id === 'purple-movement' ? 450 :
+                      project.id === 'darknetra' ? 400 :
+                      project.id === 'dino-dash' ? 300 :
+                      project.id === 'mileage-undo' ? 400 :
+                      project.id === 'mulearn-sbc' ? 450 :
+                      300
+                    }
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-hover:blur-xs rounded-[inherit]"
+                    style={{
+                      backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden'
+                    }}
+                  />
+                </picture>
                 
                 {/* Default Subtle Vignette overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-60 group-hover:opacity-0 transition-opacity duration-500" />

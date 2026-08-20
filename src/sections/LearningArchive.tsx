@@ -1,8 +1,11 @@
 import { m } from 'framer-motion';
 import { Lock } from 'lucide-react';
-import courseraLogo from '../assets/coursera.webp';
-import nptelLogo from '../assets/nptel.webp';
-import ieeEmbsLogo from '../assets/ieeeembs.webp';
+import courseraLogoWebp from '../assets/coursera.webp';
+import courseraLogoAvif from '../assets/coursera.avif';
+import nptelLogoWebp from '../assets/nptel.webp';
+import nptelLogoAvif from '../assets/nptel.avif';
+import ieeEmbsLogoWebp from '../assets/ieeeembs.webp';
+import ieeEmbsLogoAvif from '../assets/ieeeembs.avif';
 
 interface LearningCardData {
   id: string;
@@ -14,6 +17,7 @@ interface LearningCardData {
   tapeRotation: string;
   folds: string[];
   logoUrl?: string;
+  logoUrlAvif?: string;
   illustration?: React.ReactNode;
   isResearch?: boolean;
   isComingSoon?: boolean;
@@ -29,7 +33,8 @@ const learningCards: LearningCardData[] = [
     status: 'Completed',
     rotation: 'hover:rotate-0 -rotate-1.5',
     tapeRotation: 'rotate-1',
-    logoUrl: nptelLogo,
+    logoUrl: nptelLogoWebp,
+    logoUrlAvif: nptelLogoAvif,
     folds: ['bottom-right'],
     link: '/Certificates/The Joy of Computing using Python.pdf',
   },
@@ -41,7 +46,8 @@ const learningCards: LearningCardData[] = [
     status: 'Completed',
     rotation: 'hover:rotate-0 rotate-1',
     tapeRotation: '-rotate-2',
-    logoUrl: courseraLogo,
+    logoUrl: courseraLogoWebp,
+    logoUrlAvif: courseraLogoAvif,
     folds: ['bottom-right', 'top-left'],
     link: '/Certificates/Coursera.pdf',
   },
@@ -55,7 +61,8 @@ const learningCards: LearningCardData[] = [
     tapeRotation: 'rotate-3',
     link: '/Certificates/EMBS.pdf',
     folds: ['bottom-left'],
-    logoUrl: ieeEmbsLogo,
+    logoUrl: ieeEmbsLogoWebp,
+    logoUrlAvif: ieeEmbsLogoAvif,
   },
   {
     id: 'coming-soon',
@@ -389,11 +396,16 @@ export function LearningArchive({ playClick, playType }: LearningArchiveProps) {
                   {/* Larger Logo Image */}
                   <div className="w-full h-24 mx-auto my-3 flex items-center justify-center relative">
                     {card.logoUrl ? (
-                      <img 
-                        src={card.logoUrl} 
-                        alt={card.title} 
-                        className="max-w-[85%] max-h-[85%] object-contain select-none pointer-events-none opacity-85 group-hover:opacity-100 transition-opacity duration-300 dark:brightness-105"
-                      />
+                      <picture className="flex items-center justify-center max-w-[85%] max-h-[85%] w-full h-full">
+                        {card.logoUrlAvif && <source srcSet={card.logoUrlAvif} type="image/avif" />}
+                        <img 
+                          src={card.logoUrl} 
+                          alt={card.title} 
+                          loading="lazy"
+                          decoding="async"
+                          className="max-w-full max-h-full object-contain select-none pointer-events-none opacity-85 group-hover:opacity-100 transition-opacity duration-300 dark:brightness-105"
+                        />
+                      </picture>
                     ) : (
                       card.illustration
                     )}
