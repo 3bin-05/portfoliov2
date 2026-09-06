@@ -23,6 +23,8 @@ export function About({ playClick, playType }: AboutProps) {
       <meta itemProp="url" content="https://www.ebinreji.online/" />
       <meta itemProp="sameAs" content="https://www.linkedin.com/in/ebin-reji/" />
       <meta itemProp="sameAs" content="https://github.com/3bin-05" />
+      <meta itemProp="award" content="2nd Prize — Astra '26 Hackathon, Carmel Polytechnic College (2026)" />
+      <meta itemProp="award" content="3rd Place — BrainHack'26, College of Engineering Adoor (2026)" />
       <link itemProp="image" href="https://www.ebinreji.online/ebineb.webp" />
 
       <div className="max-w-7xl mx-auto">
@@ -54,9 +56,11 @@ export function About({ playClick, playType }: AboutProps) {
                 I believe software shouldn't just be functional; it should feel <span className="italic font-serif text-[var(--text-primary)]">alive</span>. By combining modern front-end frameworks like React and Next.js with fine-tuned design systems, subtle micro-interactions, and detailed typographic hierarchies, I build interfaces that leave a lasting impression.
               </p>
               <p>
-                Beyond building, I compete. I secured{' '}
-                <strong className="font-semibold text-[var(--text-primary)]">3rd place at BrainHack'26</strong>,{' '}
-                a hackathon held by the <span className="italic text-[var(--text-primary)]">College of Engineering Adoor</span>, applying rapid product thinking and full-stack execution under pressure.
+                Beyond building, I compete. I won{' '}
+                <strong className="font-semibold text-[var(--text-primary)]">2nd prize in Astra '26</strong>,{' '}
+                a hackathon organized by <span className="italic text-[var(--text-primary)]">Carmel Polytechnic College</span>, and secured{' '}
+                <strong className="font-semibold text-[var(--text-primary)]">3rd place at BrainHack'26</strong>{' '}
+                held by the <span className="italic text-[var(--text-primary)]">College of Engineering Adoor</span>, applying rapid product thinking and full-stack execution under pressure.
               </p>
 
               <div className="pt-4">

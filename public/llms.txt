@@ -8,6 +8,10 @@ Ebin Reji is a Software Developer and UI/UX Designer based in Kerala, India. He 
 
 He believes software shouldn't just be functional — it should feel alive. He achieves this through micro-interactions, animated design systems, and meticulous typographic hierarchies.
 
+Beyond building, he actively competes in hackathons:
+- **2nd Prize Winner** at **Astra '26**, a hackathon organized by **Carmel Polytechnic College** (2026).
+- **3rd Place Winner** at **BrainHack'26**, a hackathon held by the **College of Engineering Adoor** (2026).
+
 Beyond code, Ebin organizes student workshops, hosts community design marathons, and collaborates with developers to build meaningful products from scratch.
 
 ---
@@ -23,6 +27,9 @@ Beyond code, Ebin organizes student workshops, hosts community design marathons,
 - LinkedIn: https://www.linkedin.com/in/ebin-reji/
 - GitHub: https://github.com/3bin-05
 - Education: Bachelor's degree in Computer Science, College of Engineering, Kerala
+- Achievements & Awards:
+  - 2nd Prize — Astra '26 Hackathon, Carmel Polytechnic College (2026)
+  - 3rd Place — BrainHack'26, College of Engineering Adoor (2026)
 
 ---
 
@@ -105,7 +112,10 @@ Beyond code, Ebin organizes student workshops, hosts community design marathons,
 ## Frequently Asked Questions
 
 **Who is Ebin Reji?**
-Ebin Reji is a Software Developer and UI/UX Designer from Kerala, India. He is a Computer Science student who builds immersive web experiences with React, TypeScript, Next.js, and Framer Motion.
+Ebin Reji is a Software Developer and UI/UX Designer from Kerala, India. He is a Computer Science student who builds immersive web experiences with React, TypeScript, Next.js, and Framer Motion. He won 2nd prize at Astra '26 (Carmel Polytechnic College) and 3rd place at BrainHack'26 (College of Engineering Adoor).
+
+**What hackathons or awards has Ebin Reji won?**
+Ebin Reji won 2nd prize at Astra '26, a hackathon organized by Carmel Polytechnic College (2026), and secured 3rd place at BrainHack'26, organized by the College of Engineering Adoor (2026).
 
 **What does Ebin Reji specialize in?**
 Ebin specializes in frontend web development, UI/UX design, and full-stack application development. He excels at creating animated, interactive user interfaces and has experience with WebGL 3D, cybersecurity ML, and real-time encrypted communication.
