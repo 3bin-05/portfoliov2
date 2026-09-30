@@ -220,7 +220,33 @@ export function Stats({ playClick, playType }: StatsProps) {
                       Hackathon Winner
                     </span>
                     <span className="font-sans text-[10px] text-[var(--text-secondary)] font-light italic mt-0.5 truncate">
-                      Prism '26, Astra '26, BrainHack'26
+                      <span className="text-[var(--color-accent)] font-medium not-italic">Prism '26</span>,{' '}
+                      <a
+                        href="/Hackathons/Astra26.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          playClick();
+                        }}
+                        className="text-[var(--color-accent)] hover:underline font-medium not-italic cursor-pointer"
+                        title="View Astra '26 Certificate"
+                      >
+                        Astra '26
+                      </a>,{' '}
+                      <a
+                        href="/Hackathons/Brainhack26.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          playClick();
+                        }}
+                        className="text-[var(--color-accent)] hover:underline font-medium not-italic cursor-pointer"
+                        title="View BrainHack'26 Certificate"
+                      >
+                        BrainHack'26
+                      </a>
                     </span>
                   </div>
                 </div>

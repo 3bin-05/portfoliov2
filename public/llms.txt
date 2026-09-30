@@ -9,7 +9,7 @@ Ebin Reji is a Software Developer and UI/UX Designer based in Kerala, India. He 
 He believes software shouldn't just be functional — it should feel alive. He achieves this through micro-interactions, animated design systems, and meticulous typographic hierarchies.
 
 Beyond building, he actively competes in hackathons as a **three-time hackathon winner**:
-- **2nd Place Winner** at **Prism '26**, a hackathon hosted by the **College of Engineering** (2026).
+- **2nd Place Winner** at **Prism '26**, a hackathon hosted by the **College of Engineering Aranmula** (2026).
 - **2nd Prize Winner** at **Astra '26**, a hackathon organized by **Carmel Polytechnic College** (2026).
 - **3rd Place Winner** at **BrainHack'26**, a hackathon held by the **College of Engineering Adoor** (2026).
 
@@ -29,7 +29,7 @@ Beyond code, Ebin organizes student workshops, hosts community design marathons,
 - GitHub: https://github.com/3bin-05
 - Education: Bachelor's degree in Computer Science, College of Engineering, Kerala
 - Achievements & Awards:
-  - 2nd Place — Prism '26 Hackathon, College of Engineering (2026)
+  - 2nd Place — Prism '26 Hackathon, College of Engineering Aranmula (2026)
   - 2nd Prize — Astra '26 Hackathon, Carmel Polytechnic College (2026)
   - 3rd Place — BrainHack'26, College of Engineering Adoor (2026)
 
@@ -118,7 +118,7 @@ Ebin Reji is a Software Developer and UI/UX Designer from Kerala, India. He is a
 
 **What hackathons or awards has Ebin Reji won?**
 Ebin Reji is a three-time hackathon winner:
-- 2nd Place at Prism '26 (College of Engineering, 2026)
+- 2nd Place at Prism '26 (College of Engineering Aranmula, 2026)
 - 2nd Prize at Astra '26 (Carmel Polytechnic College, 2026)
 - 3rd Place at BrainHack'26 (College of Engineering Adoor, 2026)
 

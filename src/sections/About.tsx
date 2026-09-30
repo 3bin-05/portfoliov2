@@ -23,7 +23,7 @@ export function About({ playClick, playType }: AboutProps) {
       <meta itemProp="url" content="https://www.ebinreji.online/" />
       <meta itemProp="sameAs" content="https://www.linkedin.com/in/ebin-reji/" />
       <meta itemProp="sameAs" content="https://github.com/3bin-05" />
-      <meta itemProp="award" content="2nd Place — Prism '26 Hackathon, College of Engineering (2026)" />
+      <meta itemProp="award" content="2nd Place — Prism '26 Hackathon, College of Engineering Aranmula (2026)" />
       <meta itemProp="award" content="2nd Prize — Astra '26 Hackathon, Carmel Polytechnic College (2026)" />
       <meta itemProp="award" content="3rd Place — BrainHack'26, College of Engineering Adoor (2026)" />
       <link itemProp="image" href="https://www.ebinreji.online/ebineb.webp" />
@@ -59,11 +59,31 @@ export function About({ playClick, playType }: AboutProps) {
               <p>
                 Beyond building, I actively compete — establishing myself as a{' '}
                 <strong className="font-semibold text-[var(--text-primary)]">three-time hackathon winner</strong>. I secured{' '}
-                <strong className="font-semibold text-[var(--text-primary)]">2nd place in Prism '26</strong>{' '}
-                hosted by the <span className="italic text-[var(--text-primary)]">College of Engineering</span>, won{' '}
-                <strong className="font-semibold text-[var(--text-primary)]">2nd prize in Astra '26</strong>{' '}
+                <strong className="font-semibold text-[var(--color-accent)]">2nd place in Prism '26</strong>{' '}
+                hosted by the <span className="italic text-[var(--text-primary)]">College of Engineering Aranmula</span>, won{' '}
+                <a
+                  href="/Hackathons/Astra26.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={playClick}
+                  onMouseEnter={playType}
+                  className="text-[var(--color-accent)] font-semibold underline decoration-[var(--color-accent)]/40 hover:decoration-[var(--color-accent)] transition-all cursor-pointer inline-flex items-center gap-0.5"
+                  title="View Astra '26 Hackathon Certificate (PDF)"
+                >
+                  2nd prize in Astra '26
+                </a>{' '}
                 organized by <span className="italic text-[var(--text-primary)]">Carmel Polytechnic College</span>, and achieved{' '}
-                <strong className="font-semibold text-[var(--text-primary)]">3rd place at BrainHack'26</strong>{' '}
+                <a
+                  href="/Hackathons/Brainhack26.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={playClick}
+                  onMouseEnter={playType}
+                  className="text-[var(--color-accent)] font-semibold underline decoration-[var(--color-accent)]/40 hover:decoration-[var(--color-accent)] transition-all cursor-pointer inline-flex items-center gap-0.5"
+                  title="View BrainHack'26 Hackathon Certificate (PDF)"
+                >
+                  3rd place at BrainHack'26
+                </a>{' '}
                 held by the <span className="italic text-[var(--text-primary)]">College of Engineering Adoor</span>, applying rapid product thinking and full-stack execution under pressure.
               </p>
 
