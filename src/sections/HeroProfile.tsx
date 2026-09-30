@@ -17,9 +17,8 @@ export function HeroProfile({
 }: HeroProfileProps) {
   const { scrollY } = useScroll();
 
-  // Parallax Scroll Transitions
+  // Parallax Scroll Transitions (smooth translation & fade without scale distortion)
   const y = useTransform(scrollY, [0, 600], [0, 150]);
-  const scale = useTransform(scrollY, [0, 600], [1, 0.92]);
   const opacity = useTransform(scrollY, [0, 600], [1, 0]);
   
   // Light Mode Adaptability Colors
@@ -49,7 +48,7 @@ export function HeroProfile({
   };
 
   const typoVariants = {
-    initial: { scale: 0.95, opacity: 0 },
+    initial: { scale: 0.98, opacity: 0 },
     animate: { 
       scale: 1, 
       opacity: 1,
@@ -104,7 +103,7 @@ export function HeroProfile({
 
       {/* Animated Parallax Content Wrapper */}
       <m.div
-        style={{ y, scale, opacity }}
+        style={{ y, opacity, transform: 'translateZ(0)', willChange: 'transform, opacity' }}
         className="absolute inset-0 w-full h-full pointer-events-none z-10"
       >
         {/* 2. Background Layer 1: Solid Typography (z-index 1) */}
@@ -115,7 +114,11 @@ export function HeroProfile({
             initial="initial"
             animate="animate"
             className="font-black leading-[0.85] text-[var(--color-accent)] text-[90px] sm:text-[140px] md:text-[clamp(180px,18vw,360px)] tracking-[0.04em] sm:tracking-[0.06em] md:tracking-[0.08em] lg:tracking-[0.1em] text-center w-full uppercase transition-colors duration-500"
-            style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+            style={{ 
+              fontFamily: "'Bebas Neue', sans-serif",
+              transform: 'translateZ(0)',
+              backfaceVisibility: 'hidden'
+            }}
           >
             PORTFOLIO
           </m.div>
@@ -131,7 +134,9 @@ export function HeroProfile({
             animate="animate"
             className="w-[310px] sm:w-[360px] md:w-[440px] lg:w-[600px] h-auto object-contain"
             style={{
-              filter: 'drop-shadow(0 20px 80px rgba(0,0,0,0.7))'
+              filter: 'drop-shadow(0 20px 80px rgba(0,0,0,0.7))',
+              transform: 'translateZ(0)',
+              backfaceVisibility: 'hidden'
             }}
           />
         </div>
@@ -146,9 +151,12 @@ export function HeroProfile({
             className="font-black leading-[0.85] text-[90px] sm:text-[140px] md:text-[clamp(180px,18vw,360px)] tracking-[0.04em] sm:tracking-[0.06em] md:tracking-[0.08em] lg:tracking-[0.1em] text-center w-full uppercase transition-colors duration-500"
             style={{ 
               fontFamily: "'Bebas Neue', sans-serif",
-              WebkitTextStroke: "0.3px var(--color-accent)",
+              WebkitTextStroke: "0.5px var(--color-accent)",
+              WebkitTextFillColor: "transparent",
               color: "transparent",
-              opacity: 0.8
+              opacity: 0.7,
+              transform: 'translateZ(0)',
+              backfaceVisibility: 'hidden'
             }}
           >
             PORTFOLIO

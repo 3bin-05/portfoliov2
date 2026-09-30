@@ -204,69 +204,65 @@ export function Stats({ playClick, playType }: StatsProps) {
 
               </div>
 
-              {/* Row 2: 2 balanced cards (Hackathons & Volunteer) */}
+              {/* Row 2: 2 vertical cards (Hackathons & Volunteer) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
                 
                 {/* Hackathon Wins */}
-                <div onMouseEnter={playType} onClick={playClick} className="w-full flex items-center gap-4 p-5 sm:p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl group cursor-pointer transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:scale-[1.01]">
+                <div onMouseEnter={playType} onClick={playClick} className="flex flex-col text-left p-5 sm:p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl group cursor-pointer transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:scale-[1.01]">
                   <div className="w-10 h-10 rounded-lg border border-[var(--border-color)] bg-transparent flex items-center justify-center text-[var(--color-accent)] shrink-0">
                     <Trophy size={18} strokeWidth={1.5} />
                   </div>
-                  <span className="font-serif text-3xl font-light text-[var(--text-primary)] leading-none select-all shrink-0">
+                  <div className="font-serif text-3xl font-light text-[var(--text-primary)] mt-5 mb-1 leading-none tabular-nums">
                     <CountUp end={3} suffix="x" />
-                  </span>
-                  <div className="flex flex-col text-left ml-1 min-w-0">
-                    <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] group-hover:text-[var(--color-accent)] transition-colors truncate">
-                      Hackathon Winner
-                    </span>
-                    <span className="font-sans text-[10px] text-[var(--text-secondary)] font-light italic mt-0.5 truncate">
-                      <span className="text-[var(--color-accent)] font-medium not-italic">Prism '26</span>,{' '}
-                      <a
-                        href="/Hackathons/Astra26.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          playClick();
-                        }}
-                        className="text-[var(--color-accent)] hover:underline font-medium not-italic cursor-pointer"
-                        title="View Astra '26 Certificate"
-                      >
-                        Astra '26
-                      </a>,{' '}
-                      <a
-                        href="/Hackathons/Brainhack26.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          playClick();
-                        }}
-                        className="text-[var(--color-accent)] hover:underline font-medium not-italic cursor-pointer"
-                        title="View BrainHack'26 Certificate"
-                      >
-                        BrainHack'26
-                      </a>
-                    </span>
                   </div>
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] group-hover:text-[var(--color-accent)] transition-colors">
+                    Hackathon Winner
+                  </span>
+                  <span className="font-sans text-[11px] text-[var(--text-secondary)] font-light mt-1.5 leading-snug">
+                    <span className="text-[var(--color-accent)] font-medium">Prism '26</span>,{' '}
+                    <a
+                      href="/Hackathons/Astra26.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        playClick();
+                      }}
+                      className="text-[var(--color-accent)] hover:underline font-medium cursor-pointer"
+                      title="View Astra '26 Certificate"
+                    >
+                      Astra '26
+                    </a>,{' '}
+                    <a
+                      href="/Hackathons/Brainhack26.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        playClick();
+                      }}
+                      className="text-[var(--color-accent)] hover:underline font-medium cursor-pointer"
+                      title="View BrainHack'26 Certificate"
+                    >
+                      BrainHack'26
+                    </a>
+                  </span>
                 </div>
 
                 {/* Volunteer Contributions */}
-                <div onMouseEnter={playType} onClick={playClick} className="w-full flex items-center gap-4 p-5 sm:p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl group cursor-pointer transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:scale-[1.01]">
+                <div onMouseEnter={playType} onClick={playClick} className="flex flex-col text-left p-5 sm:p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl group cursor-pointer transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:scale-[1.01]">
                   <div className="w-10 h-10 rounded-lg border border-[var(--border-color)] bg-transparent flex items-center justify-center text-[var(--color-accent)] shrink-0">
                     <Heart size={18} strokeWidth={1.5} />
                   </div>
-                  <span className="font-serif text-3xl font-light text-[var(--text-primary)] leading-none select-all shrink-0">
+                  <div className="font-serif text-3xl font-light text-[var(--text-primary)] mt-5 mb-1 leading-none tabular-nums">
                     <CountUp end={10} suffix="+" />
-                  </span>
-                  <div className="flex flex-col text-left ml-1 min-w-0">
-                    <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] group-hover:text-[var(--color-accent)] transition-colors truncate">
-                      Volunteer Work
-                    </span>
-                    <span className="font-sans text-[10px] text-[var(--text-secondary)] font-light italic mt-0.5 truncate">
-                      Huddle Global, Hackbells, etc.
-                    </span>
                   </div>
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] group-hover:text-[var(--color-accent)] transition-colors">
+                    Volunteer Contributions
+                  </span>
+                  <span className="font-sans text-[11px] text-[var(--text-secondary)] font-light mt-1.5 leading-snug">
+                    Huddle Global, Hackbells, etc.
+                  </span>
                 </div>
 
               </div>

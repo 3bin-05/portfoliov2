@@ -54,10 +54,10 @@ export function About({ playClick, playType }: AboutProps) {
                 based in <span itemProp="addressLocality">Kerala, India</span>, focusing on building interactive frontends, clean digital products, and robust logic flows. My journey thrives at the intersection of UI/UX design principles and software engineering.
               </p>
               <p>
-                I believe software shouldn't just be functional; it should feel <span className="italic font-serif text-[var(--text-primary)]">alive</span>. By combining modern front-end frameworks like React and Next.js with fine-tuned design systems, subtle micro-interactions, and detailed typographic hierarchies, I build interfaces that leave a lasting impression.
+                I believe software shouldn't just be functional; it should feel <span className="italic font-serif text-[var(--text-primary)]">alive</span>. By combining modern front-end frameworks like React and Next.js with fine-tuned design systems, subtle micro interactions, and detailed typographic hierarchies, I build interfaces that leave a lasting impression.
               </p>
               <p>
-                Beyond building, I actively compete — establishing myself as a{' '}
+                Beyond building, I actively compete establishing myself as a{' '}
                 <strong className="font-semibold text-[var(--text-primary)]">three-time hackathon winner</strong>. I secured{' '}
                 <strong className="font-semibold text-[var(--color-accent)]">2nd place in Prism '26</strong>{' '}
                 hosted by the <span className="italic text-[var(--text-primary)]">College of Engineering Aranmula</span>, won{' '}
