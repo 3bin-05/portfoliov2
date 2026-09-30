@@ -36,7 +36,7 @@ const learningCards: LearningCardData[] = [
     logoUrl: nptelLogoWebp,
     logoUrlAvif: nptelLogoAvif,
     folds: ['bottom-right'],
-    link: '/Certificates/The Joy of Computing using Python.pdf',
+    link: '/Certificates/The%20Joy%20of%20Computing%20using%20Python.pdf',
   },
   {
     id: 'coursera',
@@ -355,17 +355,18 @@ export function LearningArchive({ playClick, playType }: LearningArchiveProps) {
 
             // Normal Completed Card (Tactile Sticky Note)
             return (
-              <m.div
+              <m.a
                 key={card.id}
+                href={card.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 variants={cardVariants}
-                className={`w-full min-h-[340px] relative cursor-pointer group transition-all duration-500 ease-out ${card.rotation}`}
+                className={`w-full min-h-[340px] relative cursor-pointer group transition-all duration-500 ease-out no-underline block text-inherit ${card.rotation}`}
                 onClick={() => {
                   playClick();
-                  if (card.link) {
-                    window.open(card.link, '_blank', 'noopener,noreferrer');
-                  }
                 }}
                 onMouseEnter={playType}
+                aria-label={`View ${card.title} certificate PDF`}
               >
                 <Tape className={card.tapeRotation} />
                 
@@ -429,7 +430,7 @@ export function LearningArchive({ playClick, playType }: LearningArchiveProps) {
                     VERIFY ↗
                   </div>
                 </div>
-              </m.div>
+              </m.a>
             );
           })}
         </m.div>

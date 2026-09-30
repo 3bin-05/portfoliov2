@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { CommitsGrid } from '@/components/ui/commits-grid';
-import { Compass, Zap, Users, Calendar, Heart } from 'lucide-react';
+import { Compass, Zap, Users, Calendar, Heart, Trophy } from 'lucide-react';
 
 interface StatsProps {
   playClick: () => void;
@@ -204,22 +204,45 @@ export function Stats({ playClick, playType }: StatsProps) {
 
               </div>
 
-              {/* Row 2: Wide card */}
-              <div onMouseEnter={playType} onClick={playClick} className="w-full flex items-center gap-5 p-5 sm:p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl group cursor-pointer transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:scale-[1.01]">
-                <div className="w-10 h-10 rounded-lg border border-[var(--border-color)] bg-transparent flex items-center justify-center text-[var(--color-accent)] shrink-0">
-                  <Heart size={18} strokeWidth={1.5} />
-                </div>
-                <span className="font-serif text-3xl font-light text-[var(--text-primary)] leading-none select-all shrink-0">
-                  <CountUp end={10} suffix="+" />
-                </span>
-                <div className="flex flex-col text-left ml-2">
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] group-hover:text-[var(--color-accent)] transition-colors">
-                    Volunteer Contributions
+              {/* Row 2: 2 balanced cards (Hackathons & Volunteer) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                
+                {/* Hackathon Wins */}
+                <div onMouseEnter={playType} onClick={playClick} className="w-full flex items-center gap-4 p-5 sm:p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl group cursor-pointer transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:scale-[1.01]">
+                  <div className="w-10 h-10 rounded-lg border border-[var(--border-color)] bg-transparent flex items-center justify-center text-[var(--color-accent)] shrink-0">
+                    <Trophy size={18} strokeWidth={1.5} />
+                  </div>
+                  <span className="font-serif text-3xl font-light text-[var(--text-primary)] leading-none select-all shrink-0">
+                    <CountUp end={3} suffix="x" />
                   </span>
-                  <span className="font-sans text-[10px] text-[var(--text-secondary)] font-light italic mt-0.5">
-                    Huddle Global, Hackbells, etc.
-                  </span>
+                  <div className="flex flex-col text-left ml-1 min-w-0">
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] group-hover:text-[var(--color-accent)] transition-colors truncate">
+                      Hackathon Winner
+                    </span>
+                    <span className="font-sans text-[10px] text-[var(--text-secondary)] font-light italic mt-0.5 truncate">
+                      Prism '26, Astra '26, BrainHack'26
+                    </span>
+                  </div>
                 </div>
+
+                {/* Volunteer Contributions */}
+                <div onMouseEnter={playType} onClick={playClick} className="w-full flex items-center gap-4 p-5 sm:p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl group cursor-pointer transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:scale-[1.01]">
+                  <div className="w-10 h-10 rounded-lg border border-[var(--border-color)] bg-transparent flex items-center justify-center text-[var(--color-accent)] shrink-0">
+                    <Heart size={18} strokeWidth={1.5} />
+                  </div>
+                  <span className="font-serif text-3xl font-light text-[var(--text-primary)] leading-none select-all shrink-0">
+                    <CountUp end={10} suffix="+" />
+                  </span>
+                  <div className="flex flex-col text-left ml-1 min-w-0">
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] group-hover:text-[var(--color-accent)] transition-colors truncate">
+                      Volunteer Work
+                    </span>
+                    <span className="font-sans text-[10px] text-[var(--text-secondary)] font-light italic mt-0.5 truncate">
+                      Huddle Global, Hackbells, etc.
+                    </span>
+                  </div>
+                </div>
+
               </div>
 
             </div>
