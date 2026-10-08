@@ -127,6 +127,7 @@ export function Works({ playClick, playType }: WorksProps) {
             >
               {/* Project Image */}
               <div className={`relative overflow-hidden w-full rounded-[inherit] ${
+                project.id === 'talentpilot' ? 'aspect-[4/3]' :
                 project.id === 'flipzon' ? 'aspect-[4/3]' :
                 project.id === 'cryptochat' ? 'aspect-[3/4]' :
                 project.id === 'kia-3d' ? 'aspect-[1.2]' :
@@ -143,6 +144,7 @@ export function Works({ playClick, playType }: WorksProps) {
                     src={project.image}
                     alt={project.title}
                     width={
+                      project.id === 'talentpilot' ? 400 :
                       project.id === 'flipzon' ? 400 :
                       project.id === 'cryptochat' ? 300 :
                       project.id === 'kia-3d' ? 480 :
@@ -154,6 +156,7 @@ export function Works({ playClick, playType }: WorksProps) {
                       400
                     }
                     height={
+                      project.id === 'talentpilot' ? 300 :
                       project.id === 'flipzon' ? 300 :
                       project.id === 'cryptochat' ? 400 :
                       project.id === 'kia-3d' ? 400 :
@@ -194,14 +197,16 @@ export function Works({ playClick, playType }: WorksProps) {
               </div>
 
               {/* Hover Content Panel - Glassmorphism Overlay */}
-              <div className="absolute inset-0 bg-[var(--bg-card)]/90 backdrop-blur-md flex flex-col justify-between p-5 md:p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 ease-in-out z-20 rounded-[inherit]"
+              <div className="absolute inset-0 bg-[var(--bg-card)]/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-5 md:p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 ease-in-out z-20 rounded-[inherit] overflow-y-auto"
                    style={{
                      backfaceVisibility: 'hidden',
-                     WebkitBackfaceVisibility: 'hidden'
+                     WebkitBackfaceVisibility: 'hidden',
+                     scrollbarWidth: 'none',
+                     msOverflowStyle: 'none'
                    }}>
                 
                 {/* Top Text Details */}
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-2.5">
                   <span className="font-mono text-[10px] uppercase text-[var(--text-secondary)] tracking-widest block">
                     {project.category}
                   </span>
@@ -214,7 +219,7 @@ export function Works({ playClick, playType }: WorksProps) {
                 </div>
 
                 {/* Bottom Tags and Links */}
-                <div className="space-y-4 pt-4 border-t border-[var(--border-color)]">
+                <div className="space-y-3 pt-3 border-t border-[var(--border-color)] shrink-0 mt-3 sm:mt-auto">
                   {/* Tech Tags */}
                   <div className="flex flex-wrap gap-1.5">
                     {project.tags.map((tag) => (
@@ -228,7 +233,7 @@ export function Works({ playClick, playType }: WorksProps) {
                   </div>
 
                   {/* External Action Links */}
-                  <div className="flex flex-wrap items-center gap-2.5">
+                  <div className="flex flex-wrap items-center gap-2 pt-1 shrink-0">
                     {/* Primary Action: Case Study or Website */}
                     {project.caseStudyUrl ? (
                       <a
@@ -236,7 +241,7 @@ export function Works({ playClick, playType }: WorksProps) {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={playClick}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--text-primary)] text-[var(--bg-primary)] text-[10px] md:text-xs font-sans font-medium transition-all hover:opacity-90 active:scale-95 cursor-pointer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--text-primary)] text-[var(--bg-primary)] text-[10px] md:text-xs font-sans font-medium transition-all hover:opacity-90 active:scale-95 cursor-pointer shrink-0"
                       >
                         <FileText size={11} />
                         <span>View Case Study</span>
@@ -247,7 +252,7 @@ export function Works({ playClick, playType }: WorksProps) {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={playClick}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--text-primary)] text-[var(--bg-primary)] text-[10px] md:text-xs font-sans font-medium transition-all hover:opacity-90 active:scale-95 cursor-pointer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--text-primary)] text-[var(--bg-primary)] text-[10px] md:text-xs font-sans font-medium transition-all hover:opacity-90 active:scale-95 cursor-pointer shrink-0"
                       >
                         <ExternalLink size={11} />
                         <span>View Website</span>
@@ -261,7 +266,7 @@ export function Works({ playClick, playType }: WorksProps) {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={playClick}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] text-[10px] md:text-xs font-sans font-medium transition-all active:scale-95 cursor-pointer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] text-[10px] md:text-xs font-sans font-medium transition-all active:scale-95 cursor-pointer shrink-0"
                       >
                         <GithubIcon size={11} />
                         <span>GitHub</span>

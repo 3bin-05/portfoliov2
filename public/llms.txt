@@ -50,12 +50,12 @@ Beyond code, Ebin organizes student workshops, hosts community design marathons,
 
 ## Selected Projects
 
-### FlipZon — Full-Stack E-Commerce Platform
-- Category: Full-stack / E-Commerce
-- Tech: React, Node.js, Express, MongoDB, Tailwind CSS
-- Description: Modern e-commerce web platform with catalog indexing, shopping cart state management, simulated secure checkout, and dashboard analytics.
-- GitHub: https://github.com/3bin-05/FlopZon
-- Case Study: https://sturdy-snail-3ee.notion.site/FlipZon-35579bf218cc80cca424fe9edb040a73
+### TalentPilot AI — AI Recruitment Operating System
+- Category: AI Copilot / Desktop App
+- Tech: Tauri v2, React, FastAPI, Python, LangGraph, Ollama, FAISS, Tailwind CSS
+- Description: Production-grade AI recruitment operating system featuring semantic resume parsing, FAISS vector embeddings, and multi-node LangGraph workflows for automated candidate verification and screening.
+- GitHub: https://github.com/3bin-05/TalentPilot
+- Case Study: https://sturdy-snail-3ee.notion.site/TalentPilot-AI-3f379bf218cc808ebe78c74a54318e8d?source=copy_link
 
 ### CryptoChat — End-to-End Encrypted Messaging App
 - Category: Web Security / Messaging
@@ -108,6 +108,13 @@ Beyond code, Ebin organizes student workshops, hosts community design marathons,
 - Tech: React, Vite, Tailwind CSS
 - Description: Interactive campus community platform for peer learning, skill-tracking pathways, and student event collaboration for µLearn Student Business Community.
 - Case Study: https://sturdy-snail-3ee.notion.site/Learn-SBC-Campus-Community-39579bf218cc80768331ff578e5466f7
+
+### FlipZon — Full-Stack E-Commerce Platform
+- Category: Full-stack / E-Commerce
+- Tech: React, Node.js, Express, MongoDB, Tailwind CSS
+- Description: Modern e-commerce web platform with catalog indexing, shopping cart state management, simulated secure checkout, and dashboard analytics.
+- GitHub: https://github.com/3bin-05/FlopZon
+- Case Study: https://sturdy-snail-3ee.notion.site/FlipZon-35579bf218cc80cca424fe9edb040a73
 
 ---
 

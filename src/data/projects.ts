@@ -1,3 +1,5 @@
+import talentpilotImg from '../assets/talentpilot.webp';
+import talentpilotAvif from '../assets/talentpilot.avif';
 import flipzonImg from '../assets/flipzon_mockup.webp';
 import flipzonAvif from '../assets/flipzon_mockup.avif';
 import cryptochatImg from '../assets/cryptochat_mockup.webp';
@@ -33,15 +35,15 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'flipzon',
-    title: 'FlipZon',
-    category: 'Full-stack / E-Commerce',
-    description: 'A modern e-commerce web platform featuring full catalog indexing, shopping cart state management, simulated secure checkout, and intuitive dashboard analytics.',
-    image: flipzonImg,
-    imageAvif: flipzonAvif,
-    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/3bin-05/FlopZon',
-    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/FlipZon-35579bf218cc80cca424fe9edb040a73?pvs=74'
+    id: 'talentpilot',
+    title: 'TalentPilot AI',
+    category: 'AI Copilot / Desktop App',
+    description: 'An AI recruitment operating system leveraging local LLMs, FAISS vector search, and multi-node LangGraph agents for automated screening.',
+    image: talentpilotImg,
+    imageAvif: talentpilotAvif,
+    tags: ['Tauri v2', 'React', 'FastAPI', 'LangGraph', 'Ollama'],
+    githubUrl: 'https://github.com/3bin-05/TalentPilot',
+    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/TalentPilot-AI-3f379bf218cc808ebe78c74a54318e8d?source=copy_link'
   },
   {
     id: 'cryptochat',
@@ -126,6 +128,17 @@ export const projects: Project[] = [
     imageAvif: mulearnsbcAvif,
     tags: ['React', 'Tailwind CSS', 'Vite', 'Community Platform'],
     caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/Learn-SBC-Campus-Community-39579bf218cc80768331ff578e5466f7'
+  },
+  {
+    id: 'flipzon',
+    title: 'FlipZon',
+    category: 'Full-stack / E-Commerce',
+    description: 'A modern e-commerce web platform featuring full catalog indexing, shopping cart state management, simulated secure checkout, and intuitive dashboard analytics.',
+    image: flipzonImg,
+    imageAvif: flipzonAvif,
+    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/3bin-05/FlopZon',
+    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/FlipZon-35579bf218cc80cca424fe9edb040a73?pvs=74'
   },
   {
     id: 'coming-soon',
