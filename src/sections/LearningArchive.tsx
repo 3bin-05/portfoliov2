@@ -402,6 +402,8 @@ export function LearningArchive({ playClick, playType }: LearningArchiveProps) {
                         <img 
                           src={card.logoUrl} 
                           alt={card.title} 
+                          width={200}
+                          height={80}
                           loading="lazy"
                           decoding="async"
                           className="max-w-full max-h-full object-contain select-none pointer-events-none opacity-85 group-hover:opacity-100 transition-opacity duration-300 dark:brightness-105"

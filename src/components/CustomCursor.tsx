@@ -21,7 +21,7 @@ export function CustomCursor() {
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
-      setIsVisible(true);
+      setIsVisible((prev) => (prev ? prev : true));
     };
 
     const handleMouseLeave = () => setIsVisible(false);
@@ -42,7 +42,8 @@ export function CustomCursor() {
         target.closest('button') ||
         target.closest('.cursor-pointer');
 
-      setIsHovered(!!isInteractive);
+      const nextHover = !!isInteractive;
+      setIsHovered((prev) => (prev !== nextHover ? nextHover : prev));
     };
 
     window.addEventListener('mousemove', moveCursor);

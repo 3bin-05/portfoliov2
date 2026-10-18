@@ -1,7 +1,7 @@
 "use client" 
 
 import { cn } from "@/lib/utils";
-import type { CSSProperties } from "react";
+import { useMemo, type CSSProperties } from "react";
 
 const pseudoRandom = (index: number) => {
   const x = Math.sin(index + 4567.89) * 10000;
@@ -71,7 +71,7 @@ export const CommitsGrid = ({ text }: { text: string }) => {
     cells: highlightedCells,
     width: gridWidth,
     height: gridHeight,
-  } = generateHighlightedCells(text);
+  } = useMemo(() => generateHighlightedCells(text), [text]);
 
   return (
     <section

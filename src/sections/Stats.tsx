@@ -40,16 +40,18 @@ export function CountUp({ end, duration = 2000, suffix = '' }: CountUpProps) {
     if (!hasStarted) return;
 
     let startTimestamp: number | null = null;
+    let rafId: number;
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       const easedProgress = progress * (2 - progress); // Ease out quad
       setCount(Math.floor(easedProgress * end));
       if (progress < 1) {
-        window.requestAnimationFrame(step);
+        rafId = window.requestAnimationFrame(step);
       }
     };
-    window.requestAnimationFrame(step);
+    rafId = window.requestAnimationFrame(step);
+    return () => window.cancelAnimationFrame(rafId);
   }, [hasStarted, end, duration]);
 
   return <span ref={ref}>{count}{suffix}</span>;

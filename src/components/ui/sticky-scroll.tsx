@@ -48,6 +48,8 @@ const StickyScroll = forwardRef<HTMLElement, StickyScrollProps>(({ className = '
                     <img
                       src={img1Webp}
                       alt='Visual Moment 1'
+                      width={600}
+                      height={400}
                       className='transition-[transform,filter] duration-700 ease-out will-change-transform w-full h-48 sm:h-72 md:h-full align-bottom object-cover group-hover:scale-105 group-hover:filter contrast-105'
                       loading='lazy'
                       decoding='async'
@@ -60,6 +62,8 @@ const StickyScroll = forwardRef<HTMLElement, StickyScrollProps>(({ className = '
                     <img
                       src={img2Webp}
                       alt='Visual Moment 2'
+                      width={600}
+                      height={338}
                       className='transition-[transform,filter] duration-700 ease-out will-change-transform w-full h-48 sm:h-72 md:h-full align-bottom object-cover group-hover:scale-105 group-hover:filter contrast-105'
                       loading='lazy'
                       decoding='async'
@@ -72,6 +76,8 @@ const StickyScroll = forwardRef<HTMLElement, StickyScrollProps>(({ className = '
                     <img
                       src={img5Webp}
                       alt='Visual Moment 5'
+                      width={600}
+                      height={370}
                       className='transition-[transform,filter] duration-700 ease-out will-change-transform w-full h-48 sm:h-72 md:h-full align-bottom object-cover group-hover:scale-105 group-hover:filter contrast-105'
                       loading='lazy'
                       decoding='async'
@@ -88,6 +94,8 @@ const StickyScroll = forwardRef<HTMLElement, StickyScrollProps>(({ className = '
                     <img
                       src={img6Webp}
                       alt='Visual Moment 6'
+                      width={600}
+                      height={400}
                       className='transition-[transform,filter] duration-700 ease-out will-change-transform w-full h-64 sm:h-72 md:h-96 align-bottom object-cover group-hover:scale-105 group-hover:filter contrast-105'
                       loading='lazy'
                       decoding='async'
@@ -100,6 +108,8 @@ const StickyScroll = forwardRef<HTMLElement, StickyScrollProps>(({ className = '
                     <img
                       src={img3Webp}
                       alt='Visual Moment 3'
+                      width={450}
+                      height={660}
                       className='transition-[transform,filter] duration-700 ease-out will-change-transform w-full h-80 sm:h-96 md:h-[450px] align-bottom object-cover group-hover:scale-105 group-hover:filter contrast-105'
                       loading='lazy'
                       decoding='async'
@@ -112,6 +122,8 @@ const StickyScroll = forwardRef<HTMLElement, StickyScrollProps>(({ className = '
                     <img
                       src={img7Webp}
                       alt='Visual Moment 7'
+                      width={600}
+                      height={400}
                       className='transition-[transform,filter] duration-700 ease-out will-change-transform w-full h-64 sm:h-72 md:h-96 align-bottom object-cover group-hover:scale-105 group-hover:filter contrast-105'
                       loading='lazy'
                       decoding='async'
@@ -124,6 +136,8 @@ const StickyScroll = forwardRef<HTMLElement, StickyScrollProps>(({ className = '
                     <img
                       src={img4Webp}
                       alt='Visual Moment 4'
+                      width={450}
+                      height={610}
                       className='transition-[transform,filter] duration-700 ease-out will-change-transform w-full h-80 sm:h-96 md:h-[450px] align-bottom object-cover group-hover:scale-105 group-hover:filter contrast-105'
                       loading='lazy'
                       decoding='async'
@@ -136,6 +150,8 @@ const StickyScroll = forwardRef<HTMLElement, StickyScrollProps>(({ className = '
                     <img
                       src={img8Webp}
                       alt='Visual Moment 8'
+                      width={600}
+                      height={505}
                       className='transition-[transform,filter] duration-700 ease-out will-change-transform w-full h-64 sm:h-72 md:h-96 align-bottom object-cover group-hover:scale-105 group-hover:filter contrast-105'
                       loading='lazy'
                       decoding='async'
@@ -148,6 +164,8 @@ const StickyScroll = forwardRef<HTMLElement, StickyScrollProps>(({ className = '
                     <img
                       src={img9Webp}
                       alt='Visual Moment 9'
+                      width={600}
+                      height={400}
                       className='transition-[transform,filter] duration-700 ease-out will-change-transform w-full h-64 sm:h-72 md:h-96 align-bottom object-cover group-hover:scale-105 group-hover:filter contrast-105'
                       loading='lazy'
                       decoding='async'
@@ -164,6 +182,8 @@ const StickyScroll = forwardRef<HTMLElement, StickyScrollProps>(({ className = '
                     <img
                       src={img10Webp}
                       alt='Visual Moment 10'
+                      width={600}
+                      height={400}
                       className='transition-[transform,filter] duration-700 ease-out will-change-transform w-full h-48 sm:h-72 md:h-full align-bottom object-cover group-hover:scale-105 group-hover:filter contrast-105'
                       loading='lazy'
                       decoding='async'
@@ -176,6 +196,8 @@ const StickyScroll = forwardRef<HTMLElement, StickyScrollProps>(({ className = '
                     <img
                       src={img11Webp}
                       alt='Visual Moment 11'
+                      width={600}
+                      height={338}
                       className='transition-[transform,filter] duration-700 ease-out will-change-transform w-full h-48 sm:h-72 md:h-full align-bottom object-cover group-hover:scale-105 group-hover:filter contrast-105'
                       loading='lazy'
                       decoding='async'
@@ -188,6 +210,8 @@ const StickyScroll = forwardRef<HTMLElement, StickyScrollProps>(({ className = '
                     <img
                       src={img12Webp}
                       alt='Visual Moment 12'
+                      width={600}
+                      height={338}
                       className='transition-[transform,filter] duration-700 ease-out will-change-transform w-full h-48 sm:h-72 md:h-full align-bottom object-cover group-hover:scale-105 group-hover:filter contrast-105'
                       loading='lazy'
                       decoding='async'

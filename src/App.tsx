@@ -174,7 +174,7 @@ function App() {
                 <LearningArchive playClick={playClick} playType={playType} />
               </Suspense>
               <Suspense fallback={null}>
-                <Events playClick={playClick} playType={playType} />
+                <Events playClick={playClick} playType={playType} isDark={isDark} />
               </Suspense>
               <Suspense fallback={null}>
                 <MomentsAndMakes playClick={playClick} playType={playType} />

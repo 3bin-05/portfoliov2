@@ -17,6 +17,9 @@ export default defineConfig({
     visualizer({ open: true, gzipSize: true })
   ],
   server: {
+    watch: {
+      ignored: ['**/public/**'],
+    },
     headers: {
       // Dev CSP mirrors production — catches violations locally before deployment.
       // NOTE: 'unsafe-inline' is still needed for style-src in dev because Vite HMR
@@ -47,6 +50,9 @@ export default defineConfig({
         manualChunks(id: string) {
           if (id.includes('framer-motion')) {
             return 'framer';
+          }
+          if (id.includes('node_modules/three')) {
+            return 'three-vendor';
           }
           if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
             return 'react-vendor';
