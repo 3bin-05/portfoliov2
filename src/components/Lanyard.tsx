@@ -60,6 +60,24 @@ const BAND_COLUMNS = [0, 0.07, 0.93, 1];
 const BAND_BEND = [-0.95, -0.28, 0.28, 0.95];
 const FLIP_SPIN = 9;
 
+// Cubic bezier evaluator for (0.5, 0, 0.1, 1) - identical to theme toggle @keyframes reveal-theme
+function createCubicBezier(x1: number, y1: number, x2: number, y2: number) {
+  return function bezier(t: number) {
+    if (t <= 0) return 0;
+    if (t >= 1) return 1;
+    let u = t;
+    for (let i = 0; i < 6; i++) {
+      const currentX = 3 * (1 - u) * (1 - u) * u * x1 + 3 * (1 - u) * u * u * x2 + u * u * u;
+      const currentSlope = 3 * (1 - u) * (1 - u) * x1 + 6 * (1 - u) * u * (x2 - x1) + 3 * u * u * (1 - x2);
+      if (Math.abs(currentSlope) < 1e-6) break;
+      u -= (currentX - t) / currentSlope;
+      u = Math.max(0, Math.min(1, u));
+    }
+    return 3 * (1 - u) * (1 - u) * u * y1 + 3 * (1 - u) * u * u * y2 + u * u * u;
+  };
+}
+const easeThemeReveal = createCubicBezier(0.5, 0, 0.1, 1);
+
 const FOIL_VERTEX_HEAD = `
 varying vec2 vFoilUv;
 varying vec3 vFoilX;
@@ -164,6 +182,37 @@ if (foilStrength > 0.0) {
   outgoingLight = outgoingLight * (1.0 - foil * (0.3 + 0.32 * tint)) + (rainbow * 0.62 * (0.4 + 0.6 * facing) + sparkle * 1.6) * foil;
 }
 `;
+
+const CARD_FRAGMENT_HEAD = `
+${FOIL_FRAGMENT_HEAD}
+uniform sampler2D cardPrevMap;
+uniform float cardTransitionProgress;
+uniform float cardTransitionActive;
+uniform vec2 cardTransitionOrigin;
+uniform float cardTransitionAspect;
+`;
+
+const CARD_TRANSITION_MAP_FRAGMENT = `
+#ifdef USE_MAP
+if (cardTransitionActive > 0.5) {
+  vec2 cardDelta = vFoilUv - cardTransitionOrigin;
+  cardDelta.y *= cardTransitionAspect;
+  float cardDist = length(cardDelta);
+  float cardMaxDist = length(vec2(1.0, cardTransitionAspect)) * 1.05;
+  float cardRadius = cardTransitionProgress * cardMaxDist;
+  
+  float cardMask = smoothstep(cardRadius - 0.008, cardRadius + 0.008, cardDist);
+  vec4 cardOldDiffuse = texture2D(cardPrevMap, vFoilUv);
+  diffuseColor = mix(diffuseColor, cardOldDiffuse, cardMask);
+  
+  float cardWaveRing = smoothstep(0.018, 0.0, abs(cardDist - cardRadius));
+  vec3 cardGoldWave = vec3(0.86, 0.81, 0.70);
+  float cardWaveAlpha = sin(cardTransitionProgress * 3.14159265) * 0.45;
+  diffuseColor.rgb += cardGoldWave * cardWaveRing * cardWaveAlpha;
+}
+#endif
+`;
+
 
 const METALS = {
   silver: { color: '#d9dce2', roughness: 0.16 },
@@ -957,8 +1006,16 @@ export function Lanyard({
     const strapCanvas = document.createElement('canvas');
     strapCanvas.width = 384;
     strapCanvas.height = 1344;
-    const frontTexture = makeCanvasTexture(frontCanvas, anisotropy);
-    const backTexture = makeCanvasTexture(backCanvas, anisotropy);
+    let frontTexture = makeCanvasTexture(frontCanvas, anisotropy);
+    let backTexture = makeCanvasTexture(backCanvas, anisotropy);
+    const prevFrontCanvas = document.createElement('canvas');
+    prevFrontCanvas.width = FACE_WIDTH;
+    prevFrontCanvas.height = Math.round((FACE_WIDTH * 2.25) / 1.6);
+    const prevBackCanvas = document.createElement('canvas');
+    prevBackCanvas.width = FACE_WIDTH;
+    prevBackCanvas.height = Math.round((FACE_WIDTH * 2.25) / 1.6);
+    let prevFrontTexture = makeCanvasTexture(prevFrontCanvas, anisotropy);
+    let prevBackTexture = makeCanvasTexture(prevBackCanvas, anisotropy);
     let strapTexture = makeCanvasTexture(strapCanvas, anisotropy);
     strapTexture.wrapS = THREE.ClampToEdgeWrapping;
     strapTexture.wrapT = THREE.RepeatWrapping;
@@ -971,14 +1028,19 @@ export function Lanyard({
       foilFill: { value: new THREE.Vector3() },
       foilTop: { value: new THREE.Vector3() }
     };
-    const injectFoil = (shader: { uniforms: Record<string, unknown>; vertexShader: string; fragmentShader: string }) => {
-      Object.assign(shader.uniforms, foilUniforms);
-      shader.vertexShader = shader.vertexShader
-        .replace('#include <common>', `#include <common>\n${FOIL_VERTEX_HEAD}`)
-        .replace('#include <project_vertex>', `#include <project_vertex>\n${FOIL_VERTEX_BODY}`);
-      shader.fragmentShader = shader.fragmentShader
-        .replace('#include <common>', `#include <common>\n${FOIL_FRAGMENT_HEAD}`)
-        .replace('#include <opaque_fragment>', `${FOIL_FRAGMENT_BODY}\n#include <opaque_fragment>`);
+    const frontTransitionUniforms = {
+      cardPrevMap: { value: prevFrontTexture },
+      cardTransitionProgress: { value: 0 },
+      cardTransitionActive: { value: 0 },
+      cardTransitionOrigin: { value: new THREE.Vector2(1.0, 1.0) },
+      cardTransitionAspect: { value: 1.4 }
+    };
+    const backTransitionUniforms = {
+      cardPrevMap: { value: prevBackTexture },
+      cardTransitionProgress: { value: 0 },
+      cardTransitionActive: { value: 0 },
+      cardTransitionOrigin: { value: new THREE.Vector2(0.0, 1.0) },
+      cardTransitionAspect: { value: 1.4 }
     };
 
     const frontMaterial = new THREE.MeshPhysicalMaterial({
@@ -991,8 +1053,31 @@ export function Lanyard({
       normalMap: grain,
       normalScale: new THREE.Vector2(0.06, 0.06)
     });
-    frontMaterial.onBeforeCompile = injectFoil;
-    backMaterial.onBeforeCompile = injectFoil;
+
+    frontMaterial.customProgramCacheKey = () => 'front_card_foil_transition';
+    backMaterial.customProgramCacheKey = () => 'back_card_foil_transition';
+
+    frontMaterial.onBeforeCompile = (shader) => {
+      Object.assign(shader.uniforms, foilUniforms, frontTransitionUniforms);
+      shader.vertexShader = shader.vertexShader
+        .replace('#include <common>', `#include <common>\n${FOIL_VERTEX_HEAD}`)
+        .replace('#include <project_vertex>', `#include <project_vertex>\n${FOIL_VERTEX_BODY}`);
+      shader.fragmentShader = shader.fragmentShader
+        .replace('#include <common>', `#include <common>\n${CARD_FRAGMENT_HEAD}`)
+        .replace('#include <map_fragment>', `#include <map_fragment>\n${CARD_TRANSITION_MAP_FRAGMENT}`)
+        .replace('#include <opaque_fragment>', `${FOIL_FRAGMENT_BODY}\n#include <opaque_fragment>`);
+    };
+
+    backMaterial.onBeforeCompile = (shader) => {
+      Object.assign(shader.uniforms, foilUniforms, backTransitionUniforms);
+      shader.vertexShader = shader.vertexShader
+        .replace('#include <common>', `#include <common>\n${FOIL_VERTEX_HEAD}`)
+        .replace('#include <project_vertex>', `#include <project_vertex>\n${FOIL_VERTEX_BODY}`);
+      shader.fragmentShader = shader.fragmentShader
+        .replace('#include <common>', `#include <common>\n${CARD_FRAGMENT_HEAD}`)
+        .replace('#include <map_fragment>', `#include <map_fragment>\n${CARD_TRANSITION_MAP_FRAGMENT}`)
+        .replace('#include <opaque_fragment>', `${FOIL_FRAGMENT_BODY}\n#include <opaque_fragment>`);
+    };
     const edgeMaterial = new THREE.MeshPhysicalMaterial();
     const metalMaterial = new THREE.MeshStandardMaterial({ metalness: 1 });
     const bandMaterial = new THREE.MeshPhysicalMaterial({
@@ -1048,7 +1133,20 @@ export function Lanyard({
     let imageToken = 0;
     const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
 
-    const paintFaces = () => {
+    // Transition state for corner circular reveal via zero-copy GPU fragment shader
+    let faceTransitionActive = false;
+    let faceTransitionStartTime = 0;
+    const faceTransitionDuration = 700; // ms, matching theme toggle reveal
+    let hasPaintedCard = false;
+    let currentFrontSrc: string | undefined = undefined;
+
+    const cancelFaceTransition = () => {
+      faceTransitionActive = false;
+      frontTransitionUniforms.cardTransitionActive.value = 0;
+      backTransitionUniforms.cardTransitionActive.value = 0;
+    };
+
+    const paintFaces = (animate = false) => {
       const s = settingsRef.current;
       const color = parseColor(s.cardColor, [1, 1, 1]);
       const width = FACE_WIDTH;
@@ -1058,13 +1156,72 @@ export function Lanyard({
         frontCanvas.height = height;
         backCanvas.width = width;
         backCanvas.height = height;
+        prevFrontCanvas.width = width;
+        prevFrontCanvas.height = height;
+        prevBackCanvas.width = width;
+        prevBackCanvas.height = height;
         frontTexture.dispose();
         backTexture.dispose();
+        prevFrontTexture.dispose();
+        prevBackTexture.dispose();
+        frontTexture = makeCanvasTexture(frontCanvas, anisotropy);
+        backTexture = makeCanvasTexture(backCanvas, anisotropy);
+        prevFrontTexture = makeCanvasTexture(prevFrontCanvas, anisotropy);
+        prevBackTexture = makeCanvasTexture(prevBackCanvas, anisotropy);
+        frontMaterial.map = frontTexture;
+        backMaterial.map = backTexture;
+        frontTransitionUniforms.cardPrevMap.value = prevFrontTexture;
+        backTransitionUniforms.cardPrevMap.value = prevBackTexture;
       }
+
+      const aspect = layout.height / layout.width;
+      frontTransitionUniforms.cardTransitionAspect.value = aspect;
+      backTransitionUniforms.cardTransitionAspect.value = aspect;
+
+      // If initial render or reduced motion or not transitioning cards:
+      if (!animate || !hasPaintedCard || reducedMotion) {
+        cancelFaceTransition();
+        paintFace(frontCanvas, images.front, color, s.imageFit);
+        paintFace(backCanvas, images.back || images.front, color, s.imageFit);
+        paintFace(prevFrontCanvas, images.front, color, s.imageFit);
+        paintFace(prevBackCanvas, images.back || images.front, color, s.imageFit);
+        frontTexture.needsUpdate = true;
+        backTexture.needsUpdate = true;
+        prevFrontTexture.needsUpdate = true;
+        prevBackTexture.needsUpdate = true;
+        hasPaintedCard = true;
+        currentFrontSrc = s.frontImage;
+        start();
+        return;
+      }
+
+      // Card-to-card circular reveal from top-right corner via GPU fragment shader (zero lag, 120fps hardware antialiased):
+      cancelFaceTransition();
+
+      // Snapshot current front and back face states into prev textures (1-time copy):
+      prevFrontCanvas.getContext('2d')?.drawImage(frontCanvas, 0, 0);
+      prevFrontTexture.needsUpdate = true;
+
+      prevBackCanvas.getContext('2d')?.drawImage(backCanvas, 0, 0);
+      prevBackTexture.needsUpdate = true;
+
+      // Render incoming card into current face textures (1-time paint):
       paintFace(frontCanvas, images.front, color, s.imageFit);
-      paintFace(backCanvas, images.back || images.front, color, s.imageFit);
       frontTexture.needsUpdate = true;
+
+      paintFace(backCanvas, images.back || images.front, color, s.imageFit);
       backTexture.needsUpdate = true;
+
+      currentFrontSrc = s.frontImage;
+      faceTransitionStartTime = performance.now();
+      faceTransitionActive = true;
+      frontTransitionUniforms.cardTransitionActive.value = 1.0;
+      backTransitionUniforms.cardTransitionActive.value = 1.0;
+      frontTransitionUniforms.cardTransitionProgress.value = 0.0;
+      backTransitionUniforms.cardTransitionProgress.value = 0.0;
+
+      // Keep 3D physics alive during transition
+      sim.calm = 0;
       start();
     };
 
@@ -1144,6 +1301,7 @@ export function Lanyard({
 
       const imageKey = `${s.frontImage}|${s.backImage}|${s.strapImage}`;
       if (imageKey !== applied.imageKey) {
+        applied.imageKey = imageKey;
         const token = ++imageToken;
         Promise.all([
           loadImage(imageCache, s.frontImage),
@@ -1151,16 +1309,23 @@ export function Lanyard({
           loadImage(imageCache, s.strapImage)
         ]).then(([front, back, strap]) => {
           if (!alive || token !== imageToken) return;
+          const isCardSwitch = hasPaintedCard && !!images.front && s.frontImage !== currentFrontSrc;
           images.front = front;
           images.back = back;
           images.strap = strap;
-          paintFaces();
+          paintFaces(isCardSwitch);
           repaintStrap();
         });
       }
       const faceKey = `${layoutKey}|${s.cardColor}|${s.imageFit}`;
-      if (faceKey !== applied.faceKey) paintFaces();
-      if (s.strapColor !== applied.strapColor) repaintStrap();
+      if (faceKey !== applied.faceKey) {
+        applied.faceKey = faceKey;
+        paintFaces(false);
+      }
+      if (s.strapColor !== applied.strapColor) {
+        applied.strapColor = s.strapColor;
+        repaintStrap();
+      }
 
       const finishLook = FINISHES[s.finish as keyof typeof FINISHES] || FINISHES.glossy;
       const card = parseColor(s.cardColor, [1, 1, 1]);
@@ -1327,6 +1492,20 @@ export function Lanyard({
       const dt = Math.min(1 / 30, Math.max(1 / 240, (now - last) / 1000));
       last = now;
       time += dt;
+
+      if (faceTransitionActive) {
+        const elapsed = now - faceTransitionStartTime;
+        const t = Math.min(1, Math.max(0, elapsed / faceTransitionDuration));
+        const p = easeThemeReveal(t);
+        frontTransitionUniforms.cardTransitionProgress.value = p;
+        backTransitionUniforms.cardTransitionProgress.value = p;
+        if (t >= 1) {
+          faceTransitionActive = false;
+          frontTransitionUniforms.cardTransitionActive.value = 0.0;
+          backTransitionUniforms.cardTransitionActive.value = 0.0;
+        }
+      }
+
       const current = physics();
       stepSimulation(sim, dt, current, time);
       const body = sim.body;
@@ -1335,7 +1514,7 @@ export function Lanyard({
         placeHanging(sim, layout, false);
       }
       render();
-      const resting = sim.calm > 1.2 && !sim.grab && current.breeze === 0;
+      const resting = sim.calm > 1.2 && !sim.grab && current.breeze === 0 && !faceTransitionActive;
       if (visible && !resting) raf = requestAnimationFrame(tick);
     };
 
@@ -1505,6 +1684,7 @@ export function Lanyard({
 
     return () => {
       alive = false;
+      cancelFaceTransition();
       cancelAnimationFrame(raf);
       applyRef.current = null;
       resizeObserver.disconnect();
@@ -1521,7 +1701,7 @@ export function Lanyard({
       canvas.removeEventListener('touchstart', onTouchStart);
       [bodyMesh, frontMesh, backMesh, ring, clampMesh, eyelet, band].forEach(mesh => mesh.geometry?.dispose());
       [frontMaterial, backMaterial, edgeMaterial, metalMaterial, bandMaterial].forEach(material => material.dispose());
-      [frontTexture, backTexture, strapTexture, grain, weave].forEach(texture => texture.dispose());
+      [frontTexture, backTexture, prevFrontTexture, prevBackTexture, strapTexture, grain, weave].forEach(texture => texture.dispose());
       environment.dispose();
       renderer.dispose();
       if (canvas.parentNode) canvas.parentNode.removeChild(canvas);

@@ -225,6 +225,38 @@ export function Events({ playClick, playType, isDark }: EventsProps) {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    // Preload all badge cards and lanyard straps so card-to-card transitions are instant
+    experiencesList.forEach((exp) => {
+      if (exp.badgeFront) {
+        const img = new Image();
+        img.src = exp.badgeFront;
+      }
+      if (exp.badgeBack) {
+        const img = new Image();
+        img.src = exp.badgeBack;
+      }
+      if (exp.strapImageDark) {
+        const img = new Image();
+        img.src = exp.strapImageDark;
+      }
+      if (exp.strapImageOffwhite) {
+        const img = new Image();
+        img.src = exp.strapImageOffwhite;
+      }
+    });
+  }, []);
+
+  const [isDesktop, setIsDesktop] = useState(() => 
+    typeof window !== 'undefined' ? window.innerWidth >= 1024 : true
+  );
+
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener('resize', check, { passive: true });
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
   const selectedExp = experiencesList.find((e) => e.id === selectedId) || experiencesList[1];
 
   return (
@@ -301,10 +333,10 @@ export function Events({ playClick, playType, isDark }: EventsProps) {
                 <AnimatePresence mode="wait">
                   <m.div
                     key={selectedId}
-                    initial={{ opacity: 0, y: 8 }}
+                    initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     className="text-left"
                   >
                     {/* Role / Position */}
@@ -356,37 +388,66 @@ export function Events({ playClick, playType, isDark }: EventsProps) {
             </div>
           </div>
 
-          {/* Right Area (Cols 8-12): Single Hanging Realistic ID Card on Fabric Lanyard */}
-          <div className="lg:col-span-5 xl:col-span-4 flex items-center justify-center relative w-full">
-            <div className="w-full h-[580px] sm:h-[640px] lg:h-[700px] xl:h-[720px] -mt-16 relative flex items-center justify-center select-none overflow-visible pointer-events-auto">
-              <Lanyard
-                frontImage={selectedExp.badgeFront}
-                backImage={selectedExp.badgeBack || '/badges/badge-back.webp'}
-                strapImage={
-                  isDarkMode
-                    ? (selectedExp.strapImageOffwhite || '/badges/lanyard-strap-offwhite.webp?v=7')
-                    : (selectedExp.strapImageDark || '/badges/lanyard-strap.webp?v=7')
-                }
-                strapColor={isDarkMode ? '#f3f1ec' : '#111215'}
-                cardColor="#fdfdfe"
-                finish="matte"
-                orientation="portrait"
-                cornerRadius={0.28}
-                size={0.55}
-                anchor="center"
-                strapLength={0.65}
-                strapWidth={0.65}
-                metal={isDarkMode ? 'gold' : 'silver'}
-                gravity={0.9}
-                damping={0.55}
-                elasticity={0.45}
-                breeze={0.22}
-                interactive={true}
-                intro={true}
-                className="w-full h-full overflow-visible"
-              />
+          {/* Desktop View (>= 1024px): 3D Hanging Realistic ID Card on Fabric Lanyard with Physics */}
+          <div className="hidden lg:flex lg:col-span-5 xl:col-span-4 items-center justify-center relative w-full">
+            <div className="w-full h-[700px] xl:h-[720px] -mt-16 relative flex items-center justify-center select-none overflow-visible pointer-events-auto">
+              {isDesktop && (
+                <Lanyard
+                  frontImage={selectedExp.badgeFront}
+                  backImage={selectedExp.badgeBack || '/badges/badge-back.webp'}
+                  strapImage={
+                    isDarkMode
+                      ? (selectedExp.strapImageOffwhite || '/badges/lanyard-strap-offwhite.webp?v=10')
+                      : (selectedExp.strapImageDark || '/badges/lanyard-strap.webp?v=10')
+                  }
+                  strapColor={isDarkMode ? '#f3f1ec' : '#111215'}
+                  cardColor="#fdfdfe"
+                  finish="matte"
+                  orientation="portrait"
+                  cornerRadius={0.28}
+                  size={0.55}
+                  anchor="center"
+                  strapLength={0.65}
+                  strapWidth={0.65}
+                  metal={isDarkMode ? 'gold' : 'silver'}
+                  gravity={0.9}
+                  damping={0.55}
+                  elasticity={0.45}
+                  breeze={0.22}
+                  interactive={true}
+                  intro={true}
+                  className="w-full h-full overflow-visible"
+                />
+              )}
             </div>
           </div>
+
+          {/* Mobile View (< 1024px): Static ID Card Only (No Lanyard, No Hook, No Motion) */}
+          <div className="flex lg:hidden w-full items-center justify-center pt-4 pb-6">
+            <div className="relative w-full max-w-[270px] sm:max-w-[310px] aspect-[1/1.42] rounded-[22px] sm:rounded-[26px] p-[2.5px] bg-gradient-to-b from-white/20 via-white/5 to-white/10 dark:from-white/15 dark:via-white/5 dark:to-white/10 border border-[var(--border-color)] shadow-[0_20px_45px_rgba(0,0,0,0.45)] overflow-hidden">
+              <div className="relative w-full h-full rounded-[19px] sm:rounded-[23px] overflow-hidden bg-[var(--bg-card)]">
+                <AnimatePresence initial={false}>
+                  <m.div
+                    key={selectedExp.id}
+                    initial={{ clipPath: 'circle(0% at 100% 0%)' }}
+                    animate={{ clipPath: 'circle(150% at 100% 0%)' }}
+                    exit={{ opacity: 1, zIndex: 0 }}
+                    transition={{ duration: 0.65, ease: [0.5, 0, 0.1, 1] }}
+                    className="absolute inset-0 w-full h-full will-change-[clip-path] z-10"
+                  >
+                    <img
+                      src={selectedExp.badgeFront}
+                      alt={`${selectedExp.organization} ID Badge`}
+                      className="w-full h-full object-cover select-none pointer-events-none"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </m.div>
+                </AnimatePresence>
+              </div>
+            </div>
+          </div>
+
 
         </div>
       </div>
