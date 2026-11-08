@@ -1,5 +1,7 @@
 import talentpilotImg from '../assets/talentpilot.webp';
 import talentpilotAvif from '../assets/talentpilot.avif';
+import solarwiseImg from '../assets/solarwise.webp';
+import solarwiseAvif from '../assets/solarwise.avif';
 import flipzonImg from '../assets/flipzon_mockup.webp';
 import flipzonAvif from '../assets/flipzon_mockup.avif';
 import cryptochatImg from '../assets/cryptochat_mockup.webp';
@@ -44,6 +46,17 @@ export const projects: Project[] = [
     tags: ['Tauri v2', 'React', 'FastAPI', 'LangGraph', 'Ollama'],
     githubUrl: 'https://github.com/3bin-05/TalentPilot',
     caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/TalentPilot-AI-3f379bf218cc808ebe78c74a54318e8d?source=copy_link'
+  },
+  {
+    id: 'solarwise',
+    title: 'SolarWise',
+    category: 'CleanTech / Web App',
+    description: 'An intelligent solar energy feasibility platform designed to promote solar adoption by assessing rooftop viability, energy consumption patterns, and local living environments.',
+    image: solarwiseImg,
+    imageAvif: solarwiseAvif,
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Recharts', 'Vite'],
+    liveUrl: 'https://solarw-i-s-e.vercel.app',
+    githubUrl: 'https://github.com/3bin-05/SolarWise'
   },
   {
     id: 'cryptochat',

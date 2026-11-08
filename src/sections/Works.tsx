@@ -128,6 +128,7 @@ export function Works({ playClick, playType }: WorksProps) {
               {/* Project Image */}
               <div className={`relative overflow-hidden w-full rounded-[inherit] ${
                 project.id === 'talentpilot' ? 'aspect-[4/3]' :
+                project.id === 'solarwise' ? 'aspect-[4/5]' :
                 project.id === 'flipzon' ? 'aspect-[4/3]' :
                 project.id === 'cryptochat' ? 'aspect-[3/4]' :
                 project.id === 'kia-3d' ? 'aspect-[1.2]' :
@@ -145,6 +146,7 @@ export function Works({ playClick, playType }: WorksProps) {
                     alt={project.title}
                     width={
                       project.id === 'talentpilot' ? 400 :
+                      project.id === 'solarwise' ? 400 :
                       project.id === 'flipzon' ? 400 :
                       project.id === 'cryptochat' ? 300 :
                       project.id === 'kia-3d' ? 480 :
@@ -157,6 +159,7 @@ export function Works({ playClick, playType }: WorksProps) {
                     }
                     height={
                       project.id === 'talentpilot' ? 300 :
+                      project.id === 'solarwise' ? 500 :
                       project.id === 'flipzon' ? 300 :
                       project.id === 'cryptochat' ? 400 :
                       project.id === 'kia-3d' ? 400 :

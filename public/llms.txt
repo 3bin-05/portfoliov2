@@ -57,6 +57,13 @@ Beyond code, Ebin organizes student workshops, hosts community design marathons,
 - GitHub: https://github.com/3bin-05/TalentPilot
 - Case Study: https://sturdy-snail-3ee.notion.site/TalentPilot-AI-3f379bf218cc808ebe78c74a54318e8d?source=copy_link
 
+### SolarWise — Clean Energy & Decarbonization Platform
+- Category: CleanTech / Web App
+- Tech: React, TypeScript, Tailwind CSS, Recharts, Vite
+- Description: Intelligent household solar energy feasibility platform that promotes clean energy adoption by assessing rooftop viability, energy consumption patterns, and local living environments.
+- Live: https://solarw-i-s-e.vercel.app
+- GitHub: https://github.com/3bin-05/SolarWise
+
 ### CryptoChat — End-to-End Encrypted Messaging App
 - Category: Web Security / Messaging
 - Tech: React, Socket.io, Node.js, Web Crypto API, Tailwind CSS
