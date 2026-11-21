@@ -1,4 +1,7 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "outputDirectory": "dist",
   "headers": [
     {
       "source": "/.git/:path*",
@@ -97,7 +100,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(webp|avif|png|jpg|jpeg|svg|ico|woff2|woff|ttf))",
+      "source": "/(.*)\\.(webp|avif|png|jpg|jpeg|svg|ico|woff2|woff|ttf)",
       "headers": [
         {
           "key": "Cache-Control",
