@@ -85,7 +85,7 @@ export function Navbar({
   // ==========================================
   if (isHero) {
     return (
-      <nav className={`w-full z-40 bg-transparent py-0 sm:py-0.5 transition-colors duration-300 ${className}`}>
+      <nav className={`hidden md:block w-full z-40 bg-transparent py-0 sm:py-0.5 transition-colors duration-300 ${className}`}>
         <div className="w-full px-4 sm:px-6 md:px-8 flex items-center justify-between">
           
           {/* Hero Brand / Logo */}

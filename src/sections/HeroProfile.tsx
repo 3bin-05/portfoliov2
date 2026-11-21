@@ -117,7 +117,7 @@ export function HeroProfile({
     <section 
       id="hero"
       aria-label="Hero Introduction"
-      className="relative w-full h-screen min-h-[660px] max-h-[1150px] bg-[var(--hero-bg)] text-[var(--hero-cream)] flex flex-col justify-between overflow-hidden select-none transition-colors duration-300"
+      className="relative w-full h-[100dvh] min-h-[580px] sm:min-h-[660px] max-h-[1150px] bg-[var(--hero-bg)] text-[var(--hero-cream)] flex flex-col justify-between overflow-hidden select-none transition-colors duration-300"
     >
       {/* ===== SEO: Semantic heading for search crawlers & AI ===== */}
       <h1
@@ -145,15 +145,16 @@ export function HeroProfile({
         }}
         className="relative w-full h-full flex flex-col justify-between flex-1"
       >
-        {/* 1. Interactive Theme Pull-Cord Lamp Switch with Realistic Physics */}
+        {/* 1. Interactive Theme Pull-Cord Lamp Switch with Realistic Physics (Desktop Only) */}
         <ThemePullCord
           isDark={isDark}
           toggleTheme={toggleTheme}
           playClick={playClick}
           playType={playType}
+          className="hidden md:flex"
         />
-        {/* Phase 1: Navbar (Full width, cinematic margins, positioned upward) */}
-        <m.header variants={navFade} className="w-full pt-1.5 sm:pt-2 md:pt-3 z-40 relative">
+        {/* Phase 1: Navbar (Full width, cinematic margins, positioned upward — Desktop Only, StaggeredMenu handles mobile) */}
+        <m.header variants={navFade} className="hidden md:block w-full pt-1.5 sm:pt-2 md:pt-3 z-40 relative">
           <Navbar
             playClick={playClick}
             playType={playType}
@@ -163,8 +164,8 @@ export function HeroProfile({
           />
         </m.header>
 
-        {/* Hero Middle Content Area — Full Viewport Width */}
-        <div className="relative flex-1 w-full px-4 sm:px-6 md:px-8 flex flex-col justify-center my-auto z-20">
+        {/* Hero Middle Content Area — Full Viewport Width, aligned to top on mobile to prevent overlapping portrait */}
+        <div className="relative flex-1 w-full px-4 sm:px-6 md:px-8 flex flex-col justify-start md:justify-center pt-20 sm:pt-24 md:pt-0 md:my-auto z-20">
           
           {/* Top Intro Section (Badge + "Hello, I'm — UI/UX DESIGNER AND DEV") */}
           <div className="relative z-30 mb-2 sm:mb-4">
@@ -172,25 +173,25 @@ export function HeroProfile({
             {/* Phase 2: Availability Badge */}
             <m.div 
               variants={badgeFade} 
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[var(--hero-cream-border)] bg-[var(--hero-cream-badge-bg)] backdrop-blur-xs mb-3 sm:mb-5 transition-colors duration-300"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-[var(--hero-cream-border)] bg-[var(--hero-cream-badge-bg)] backdrop-blur-xs mb-2.5 sm:mb-4 transition-colors duration-300"
             >
-              <span className="w-2 h-2 rounded-full bg-[var(--hero-cream)] transition-colors duration-300" />
-              <span className="text-[11px] sm:text-xs font-sans tracking-wide text-[var(--hero-cream)] transition-colors duration-300">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[var(--hero-cream)] transition-colors duration-300" />
+              <span className="text-[10px] sm:text-xs font-sans tracking-wide text-[var(--hero-cream)] transition-colors duration-300">
                 Open to opportunities
               </span>
-              <span className="text-[var(--hero-cream-muted)] text-xs mx-1">|</span>
-              <span className="text-[11px] sm:text-xs font-sans tracking-wide text-[var(--hero-cream-muted)] transition-colors duration-300">
+              <span className="text-[var(--hero-cream-muted)] text-[10px] sm:text-xs mx-0.5 sm:mx-1">|</span>
+              <span className="text-[10px] sm:text-xs font-sans tracking-wide text-[var(--hero-cream-muted)] transition-colors duration-300">
                 UI/UX • Frontend • Product
               </span>
             </m.div>
 
             {/* Phase 3: Introduction Heading */}
-            <m.div variants={introFade} className="flex items-center gap-3 sm:gap-4 flex-wrap">
-              <span className="font-serif italic font-normal text-3xl sm:text-4xl md:text-5xl text-[var(--hero-cream)] tracking-tight transition-colors duration-300">
+            <m.div variants={introFade} className="flex items-center gap-2.5 sm:gap-4 flex-wrap">
+              <span className="font-serif italic font-normal text-2xl sm:text-4xl md:text-5xl text-[var(--hero-cream)] tracking-tight transition-colors duration-300">
                 Hello, I'm
               </span>
-              <span className="inline-block w-8 sm:w-12 h-px bg-[var(--hero-cream-border)] align-middle transition-colors duration-300" />
-              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.22em] text-[var(--hero-cream-muted)] align-middle transition-colors duration-300">
+              <span className="inline-block w-6 sm:w-12 h-px bg-[var(--hero-cream-border)] align-middle transition-colors duration-300" />
+              <span className="font-mono text-[9px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.22em] text-[var(--hero-cream-muted)] align-middle transition-colors duration-300">
                 UI/UX DESIGNER AND DEV
               </span>
             </m.div>
@@ -200,9 +201,9 @@ export function HeroProfile({
           {/* Phase 4: Main Oversized Headline (EBIN REJI) — Stretches from Left to Right Border */}
           <m.div 
             variants={headlineReveal} 
-            className="relative z-10 w-full select-none pointer-events-none my-1 sm:my-2 lg:my-3"
+            className="relative z-10 w-full select-none pointer-events-none my-0.5 sm:my-2 lg:my-3"
           >
-            <h2 className="w-full flex items-center justify-between font-sans font-black uppercase leading-[0.82] text-[clamp(4.2rem,19.8vw,30rem)] text-[var(--hero-headline)] transition-colors duration-300 select-none whitespace-nowrap">
+            <h2 className="w-full flex items-center justify-between font-sans font-black uppercase leading-[0.82] text-[clamp(3.8rem,19.8vw,30rem)] text-[var(--hero-headline)] transition-colors duration-300 select-none whitespace-nowrap">
               <span className="tracking-[-0.01em]">EBIN</span>
               <span className="tracking-[-0.01em]">REJI</span>
             </h2>
@@ -211,22 +212,22 @@ export function HeroProfile({
           {/* Phase 6: Description & Call-to-Action Group + Scroll Down Indicator */}
           <m.div 
             variants={contentFade} 
-            className="relative z-30 flex flex-col justify-between gap-4 sm:gap-6 pt-2 sm:pt-4 lg:pt-6"
+            className="relative z-30 flex flex-col justify-between gap-3 sm:gap-6 pt-1 sm:pt-4 lg:pt-6"
           >
-            <p className="font-sans text-xs sm:text-sm md:text-base text-[var(--hero-cream-muted)] leading-relaxed font-light transition-colors duration-300 max-w-[360px] sm:max-w-[440px] md:max-w-[480px]">
+            <p className="font-sans text-xs sm:text-sm md:text-base text-[var(--hero-cream-muted)] leading-relaxed font-light transition-colors duration-300 max-w-[320px] sm:max-w-[440px] md:max-w-[480px]">
               I create digital experiences that blend thoughtful design, clean code, and real-world impact.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 lg:gap-5 pt-1">
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 lg:gap-5 pt-1">
               {/* Primary Button: View Projects */}
               <a
                 href="#works"
                 onClick={(e) => handleScroll(e, '#works')}
                 onMouseEnter={playType}
-                className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-[var(--hero-btn-primary-bg)] text-[var(--hero-btn-primary-text)] font-sans text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] shadow-xs cursor-pointer shrink-0"
+                className="group inline-flex items-center gap-2 px-4.5 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-[var(--hero-btn-primary-bg)] text-[var(--hero-btn-primary-text)] font-sans text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] shadow-xs cursor-pointer shrink-0"
               >
                 <span>View Projects</span>
-                <ArrowUpRight size={15} className="transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight size={14} className="transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
 
               {/* Secondary Button: Download Resume */}
@@ -237,10 +238,10 @@ export function HeroProfile({
                 rel="noopener noreferrer"
                 onClick={playClick}
                 onMouseEnter={playType}
-                className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full border border-[var(--hero-btn-secondary-border)] bg-transparent text-[var(--hero-btn-secondary-text)] font-sans text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 hover:bg-[var(--hero-cream)]/10 hover:border-[var(--hero-cream)] active:scale-[0.98] cursor-pointer shrink-0"
+                className="group inline-flex items-center gap-2 px-4.5 sm:px-7 py-2.5 sm:py-3.5 rounded-full border border-[var(--hero-btn-secondary-border)] bg-transparent text-[var(--hero-btn-secondary-text)] font-sans text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 hover:bg-[var(--hero-cream)]/10 hover:border-[var(--hero-cream)] active:scale-[0.98] cursor-pointer shrink-0"
               >
                 <span>Download Resume</span>
-                <Download size={15} className="transition-transform duration-300 ease-out group-hover:translate-y-0.5" />
+                <Download size={14} className="transition-transform duration-300 ease-out group-hover:translate-y-0.5" />
               </a>
             </div>
           </m.div>
@@ -248,10 +249,10 @@ export function HeroProfile({
         </div>
 
         {/* Phase 5: Portrait of Ebin Reji */}
-        {/* Shifted more to the left to hide the gap between EBIN and REJI */}
+        {/* Positioned so head sits beneath the top-aligned content and between EBIN and REJI on mobile */}
         <m.div
           variants={portraitReveal}
-          className="absolute right-[8vw] sm:right-[14vw] md:right-[20vw] lg:right-[24vw] xl:right-[26vw] bottom-[46px] sm:bottom-[50px] md:bottom-[52px] z-15 sm:z-20 pointer-events-none flex items-end justify-end select-none opacity-45 sm:opacity-85 md:opacity-100 transition-opacity duration-500"
+          className="absolute right-[4vw] sm:right-[14vw] md:right-[20vw] lg:right-[24vw] xl:right-[26vw] bottom-[42px] sm:bottom-[50px] md:bottom-[52px] z-15 sm:z-20 pointer-events-none flex items-end justify-end select-none opacity-85 md:opacity-100 transition-opacity duration-500"
         >
           <picture>
             <source srcSet="/ebinreji.avif" type="image/avif" />
@@ -263,7 +264,7 @@ export function HeroProfile({
               loading="eager"
               decoding="async"
               fetchPriority="high"
-              className="h-[52vh] sm:h-[60vh] md:h-[68vh] lg:h-[75vh] xl:h-[79vh] max-h-[760px] w-auto object-contain object-bottom filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] dark:drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)] light:drop-shadow-none"
+              className="h-[45vh] sm:h-[58vh] md:h-[68vh] lg:h-[75vh] xl:h-[79vh] max-h-[760px] w-auto object-contain object-bottom filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] dark:drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)] light:drop-shadow-none"
             />
           </picture>
         </m.div>
@@ -273,13 +274,13 @@ export function HeroProfile({
           variants={scrollIndicatorFade}
           onClick={(e) => handleScroll(e, '#about')}
           onMouseEnter={playType}
-          className="absolute right-4 sm:right-6 md:right-8 lg:right-10 xl:right-12 bottom-[70px] sm:bottom-[76px] md:bottom-[84px] lg:bottom-[90px] z-30 group flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105 active:scale-95"
+          className="absolute right-3 sm:right-6 md:right-8 lg:right-10 xl:right-12 bottom-[54px] sm:bottom-[76px] md:bottom-[84px] lg:bottom-[90px] z-30 group flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105 active:scale-95"
           aria-label="Scroll down to About section"
         >
           {/* Rotating Circular Text (Continuous 360 deg) */}
           <svg
             viewBox="0 0 120 120"
-            className="w-[78px] h-[78px] sm:w-[86px] sm:h-[86px] md:w-[94px] md:h-[94px] animate-[spin_14s_linear_infinite] motion-reduce:animate-none origin-center pointer-events-none"
+            className="w-[62px] h-[62px] sm:w-[86px] sm:h-[86px] md:w-[94px] md:h-[94px] animate-[spin_14s_linear_infinite] motion-reduce:animate-none origin-center pointer-events-none"
           >
             <defs>
               <path
@@ -299,7 +300,7 @@ export function HeroProfile({
           {/* Stationary Downward Center Arrow */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <ArrowDown 
-              size={18} 
+              size={15} 
               className="text-[var(--hero-cream)] transition-transform duration-300 ease-out group-hover:translate-y-1" 
             />
           </div>
@@ -308,15 +309,15 @@ export function HeroProfile({
         {/* Bottom Hero Divider and Footer Labels — Full Viewport Width */}
         <div className="w-full px-4 sm:px-6 md:px-8 z-30 relative shrink-0">
           <div className="w-full h-px bg-[var(--hero-divider)] transition-colors duration-300" />
-          <div className="flex items-center justify-between py-3.5 sm:py-4 text-[10px] sm:text-[11px] md:text-xs font-mono uppercase tracking-[0.2em] text-[var(--hero-cream-muted)] transition-colors duration-300">
+          <div className="flex items-center justify-between py-2.5 sm:py-4 text-[9px] sm:text-[11px] md:text-xs font-mono uppercase tracking-[0.16em] sm:tracking-[0.2em] text-[var(--hero-cream-muted)] transition-colors duration-300">
             {/* Bottom Left Label */}
-            <div className="flex items-center gap-2.5">
-              <span className="w-px h-3.5 bg-[var(--hero-cream-muted)] transition-colors duration-300" />
+            <div className="flex items-center gap-2">
+              <span className="w-px h-3 bg-[var(--hero-cream-muted)] transition-colors duration-300" />
               <span>SCROLL TO EXPLORE</span>
             </div>
 
             {/* Bottom Right Label */}
-            <div className="tracking-[0.25em]">
+            <div className="tracking-[0.18em] sm:tracking-[0.25em]">
               <span>DESIGN • DEVELOP • CREATE</span>
             </div>
           </div>
