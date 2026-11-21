@@ -60,6 +60,41 @@ export function CountUp({ end, duration = 2000, suffix = '' }: CountUpProps) {
 export function Stats({ playClick, playType }: StatsProps) {
   const [repoCount, setRepoCount] = useState<number | null>(null);
   const [commitCount, setCommitCount] = useState<number | null>(null);
+  const [karmaCount, setKarmaCount] = useState<number>(() => {
+    try {
+      const cached = localStorage.getItem('mulearn_karma_k');
+      if (cached) {
+        const val = parseInt(cached, 10);
+        if (!isNaN(val) && val > 0) return val;
+      }
+    } catch {
+      // ignore
+    }
+    return 35; // Fallback based on verified live profile (35,060+ karma)
+  });
+
+  useEffect(() => {
+    fetch('https://mulearn.org/api/v1/dashboard/profile/user-profile/ebinreji@mulearn/')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch μLearn profile');
+        return res.json();
+      })
+      .then((data) => {
+        const karma = data?.response?.karma;
+        if (typeof karma === 'number' && karma > 0) {
+          const inK = Math.floor(karma / 1000);
+          setKarmaCount(inK);
+          try {
+            localStorage.setItem('mulearn_karma_k', inK.toString());
+          } catch {
+            // ignore
+          }
+        }
+      })
+      .catch((err) => {
+        console.error('Error fetching karma from μLearn:', err);
+      });
+  }, []);
 
   useEffect(() => {
     fetch('https://api.github.com/users/3bin-05')
@@ -166,12 +201,20 @@ export function Stats({ playClick, playType }: StatsProps) {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
                 
                 {/* MuLearn Karma */}
-                <div onMouseEnter={playType} onClick={playClick} className="flex flex-col text-left p-5 sm:p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl group cursor-pointer transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:scale-[1.01]">
+                <div
+                  onMouseEnter={playType}
+                  onClick={() => {
+                    playClick();
+                    window.open('https://app.mulearn.org/profile/ebinreji@mulearn', '_blank', 'noopener,noreferrer');
+                  }}
+                  className="flex flex-col text-left p-5 sm:p-6 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl group cursor-pointer transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:scale-[1.01]"
+                  title="View live profile on μLearn (ebinreji@mulearn)"
+                >
                   <div className="w-10 h-10 rounded-lg border border-[var(--border-color)] bg-transparent flex items-center justify-center text-[var(--color-accent)] shrink-0">
                     <Zap size={18} strokeWidth={1.5} />
                   </div>
                   <div className="font-serif text-3xl font-light text-[var(--text-primary)] mt-5 mb-1 leading-none">
-                    <CountUp end={33} suffix="K+" />
+                    <CountUp end={karmaCount} suffix="K+" />
                   </div>
                   <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] group-hover:text-[var(--color-accent)] transition-colors">
                     MuLearn Karma
