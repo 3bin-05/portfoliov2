@@ -8,7 +8,8 @@ Ebin Reji is a Software Developer and UI/UX Designer based in Kerala, India. He 
 
 He believes software shouldn't just be functional — it should feel alive. He achieves this through micro-interactions, animated design systems, and meticulous typographic hierarchies.
 
-Beyond building, he actively competes in hackathons as a **three-time hackathon winner**:
+Beyond building, he actively competes in hackathons as a **four-time hackathon winner**:
+- **2nd Place Winner** at **TERRACODE 2026**, an all-India website competition organized by the **FOSS Club, MEA Engineering College** (2026) for his project **SolarWise**.
 - **2nd Place Winner** at **Prism '26**, a hackathon hosted by the **College of Engineering Aranmula** (2026).
 - **2nd Prize Winner** at **Astra '26**, a hackathon organized by **Carmel Polytechnic College** (2026).
 - **3rd Place Winner** at **BrainHack'26**, a hackathon held by the **College of Engineering Adoor** (2026).
@@ -29,6 +30,7 @@ Beyond code, Ebin organizes student workshops, hosts community design marathons,
 - GitHub: https://github.com/3bin-05
 - Education: Bachelor's degree in Computer Science, College of Engineering, Kerala
 - Achievements & Awards:
+  - 2nd Place — TERRACODE 2026 Website Competition, FOSS Club MEA Engineering College (2026)
   - 2nd Place — Prism '26 Hackathon, College of Engineering Aranmula (2026)
   - 2nd Prize — Astra '26 Hackathon, Carmel Polytechnic College (2026)
   - 3rd Place — BrainHack'26, College of Engineering Adoor (2026)
@@ -59,8 +61,9 @@ Beyond code, Ebin organizes student workshops, hosts community design marathons,
 
 ### SolarWise — Clean Energy & Decarbonization Platform
 - Category: CleanTech / Web App
+- Award: 2nd Place Winner at TERRACODE 2026 (FOSS Club, MEA Engineering College)
 - Tech: React, TypeScript, Tailwind CSS, Recharts, Vite
-- Description: Intelligent household solar energy feasibility platform that promotes clean energy adoption by assessing rooftop viability, energy consumption patterns, and local living environments.
+- Description: Intelligent household solar energy feasibility platform that promotes clean energy adoption by assessing rooftop viability, energy consumption patterns, and local living environments. Awarded 2nd Place at TERRACODE 2026.
 - Live: https://solarw-i-s-e.vercel.app
 - GitHub: https://github.com/3bin-05/SolarWise
 
@@ -128,10 +131,11 @@ Beyond code, Ebin organizes student workshops, hosts community design marathons,
 ## Frequently Asked Questions
 
 **Who is Ebin Reji?**
-Ebin Reji is a Software Developer and UI/UX Designer from Kerala, India. He is a Computer Science student who builds immersive web experiences with React, TypeScript, Next.js, and Framer Motion. He is a three-time hackathon winner (2nd place at Prism '26, 2nd prize at Astra '26, and 3rd place at BrainHack'26).
+Ebin Reji is a Software Developer and UI/UX Designer from Kerala, India. He is a Computer Science student who builds immersive web experiences with React, TypeScript, Next.js, and Framer Motion. He is a four-time hackathon winner (2nd place at TERRACODE 2026 for SolarWise, 2nd place at Prism '26, 2nd prize at Astra '26, and 3rd place at BrainHack'26).
 
 **What hackathons or awards has Ebin Reji won?**
-Ebin Reji is a three-time hackathon winner:
+Ebin Reji is a four-time hackathon winner:
+- 2nd Place at TERRACODE 2026 (FOSS Club, MEA Engineering College, 2026) for SolarWise
 - 2nd Place at Prism '26 (College of Engineering Aranmula, 2026)
 - 2nd Prize at Astra '26 (Carmel Polytechnic College, 2026)
 - 3rd Place at BrainHack'26 (College of Engineering Adoor, 2026)

@@ -215,12 +215,25 @@ export function Stats({ playClick, playType }: StatsProps) {
                     <Trophy size={18} strokeWidth={1.5} />
                   </div>
                   <div className="font-serif text-3xl font-light text-[var(--text-primary)] mt-5 mb-1 leading-none tabular-nums">
-                    <CountUp end={3} suffix="x" />
+                    <CountUp end={4} suffix="x" />
                   </div>
                   <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-secondary)] group-hover:text-[var(--color-accent)] transition-colors">
                     Hackathon Winner
                   </span>
                   <span className="font-sans text-[11px] text-[var(--text-secondary)] font-light mt-1.5 leading-snug">
+                    <a
+                      href="https://foss-terracode.vercel.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        playClick();
+                      }}
+                      className="text-[var(--color-accent)] hover:underline font-medium cursor-pointer"
+                      title="View TERRACODE 2026 Hackathon Website"
+                    >
+                      TERRACODE '26
+                    </a>,{' '}
                     <span className="text-[var(--color-accent)] font-medium">Prism '26</span>,{' '}
                     <a
                       href="/Hackathons/Astra26.pdf"

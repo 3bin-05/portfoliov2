@@ -23,6 +23,7 @@ export function About({ playClick, playType }: AboutProps) {
       <meta itemProp="url" content="https://www.ebinreji.online/" />
       <meta itemProp="sameAs" content="https://www.linkedin.com/in/ebin-reji/" />
       <meta itemProp="sameAs" content="https://github.com/3bin-05" />
+      <meta itemProp="award" content="2nd Place — TERRACODE 2026, FOSS Club MEA Engineering College (2026)" />
       <meta itemProp="award" content="2nd Place — Prism '26 Hackathon, College of Engineering Aranmula (2026)" />
       <meta itemProp="award" content="2nd Prize — Astra '26 Hackathon, Carmel Polytechnic College (2026)" />
       <meta itemProp="award" content="3rd Place — BrainHack'26, College of Engineering Adoor (2026)" />
@@ -58,7 +59,19 @@ export function About({ playClick, playType }: AboutProps) {
               </p>
               <p>
                 Beyond building, I actively compete establishing myself as a{' '}
-                <strong className="font-semibold text-[var(--text-primary)]">three-time hackathon winner</strong>. I secured{' '}
+                <strong className="font-semibold text-[var(--text-primary)]">four-time hackathon winner</strong>. I secured{' '}
+                <a
+                  href="https://foss-terracode.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={playClick}
+                  onMouseEnter={playType}
+                  className="text-[var(--color-accent)] font-semibold underline decoration-[var(--color-accent)]/40 hover:decoration-[var(--color-accent)] transition-all cursor-pointer inline-flex items-center gap-0.5"
+                  title="View TERRACODE 2026 Hackathon Website"
+                >
+                  2nd place in TERRACODE 2026
+                </a>{' '}
+                for <span className="italic text-[var(--text-primary)]">SolarWise</span> hosted by the <span className="italic text-[var(--text-primary)]">FOSS Club, MEA Engineering College</span>, achieved{' '}
                 <strong className="font-semibold text-[var(--color-accent)]">2nd place in Prism '26</strong>{' '}
                 hosted by the <span className="italic text-[var(--text-primary)]">College of Engineering Aranmula</span>, won{' '}
                 <a

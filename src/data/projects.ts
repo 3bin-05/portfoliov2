@@ -26,6 +26,8 @@ export interface Project {
   title: string;
   category: string;
   description: string;
+  award?: string;
+  awardUrl?: string;
   image: string;
   imageAvif?: string;
   tags: string[];
@@ -51,7 +53,9 @@ export const projects: Project[] = [
     id: 'solarwise',
     title: 'SolarWise',
     category: 'CleanTech / Web App',
-    description: 'An intelligent solar energy feasibility platform designed to promote solar adoption by assessing rooftop viability, energy consumption patterns, and local living environments.',
+    award: '2nd Place Winner — TERRACODE 2026',
+    awardUrl: 'https://foss-terracode.vercel.app',
+    description: 'An intelligent solar energy feasibility platform designed to promote clean energy adoption by assessing rooftop viability, energy consumption patterns, and local living environments. Awarded 2nd Place at TERRACODE 2026, an all-India website competition organized by FOSS Club, MEA Engineering College.',
     image: solarwiseImg,
     imageAvif: solarwiseAvif,
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Recharts', 'Vite'],

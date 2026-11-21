@@ -1,5 +1,5 @@
 import { m } from 'framer-motion';
-import { ExternalLink, FileText, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, FileText, ArrowUpRight, Trophy } from 'lucide-react';
 import { GithubIcon } from '../components/SocialIcons';
 import { projects } from '../data/projects';
 
@@ -186,9 +186,17 @@ export function Works({ playClick, playType }: WorksProps) {
                 {/* Title indicator overlay (visible before hover) */}
                 <div className="absolute bottom-4 left-5 flex items-center justify-between right-5 group-hover:opacity-0 transition-opacity duration-300">
                   <div>
-                    <p className="font-mono text-[10px] uppercase text-zinc-300 tracking-wider">
-                      {project.category}
-                    </p>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <p className="font-mono text-[10px] uppercase text-zinc-300 tracking-wider">
+                        {project.category}
+                      </p>
+                      {project.award && (
+                        <span className="inline-flex items-center gap-1 font-mono text-[9px] uppercase px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/35 font-medium tracking-wide">
+                          <Trophy size={9} />
+                          <span>2nd Prize Winner</span>
+                        </span>
+                      )}
+                    </div>
                     <h3 className="font-sans font-semibold text-white text-base mt-0.5">
                       {project.title}
                     </h3>
@@ -210,9 +218,17 @@ export function Works({ playClick, playType }: WorksProps) {
                 
                 {/* Top Text Details */}
                 <div className="space-y-2 sm:space-y-2.5">
-                  <span className="font-mono text-[10px] uppercase text-[var(--text-secondary)] tracking-widest block">
-                    {project.category}
-                  </span>
+                  <div className="flex items-center justify-between flex-wrap gap-1.5">
+                    <span className="font-mono text-[10px] uppercase text-[var(--text-secondary)] tracking-widest block">
+                      {project.category}
+                    </span>
+                    {project.award && (
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-600 dark:text-amber-300 text-[10px] font-mono font-medium">
+                        <Trophy size={10} />
+                        <span>{project.award}</span>
+                      </span>
+                    )}
+                  </div>
                   <h3 className="font-serif text-xl font-medium text-[var(--text-primary)]">
                     {project.title}
                   </h3>
@@ -273,6 +289,21 @@ export function Works({ playClick, playType }: WorksProps) {
                       >
                         <GithubIcon size={11} />
                         <span>GitHub</span>
+                      </a>
+                    )}
+
+                    {/* Hackathon Award Link */}
+                    {project.awardUrl && (
+                      <a
+                        href={project.awardUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={playClick}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-300 hover:bg-amber-500/20 text-[10px] md:text-xs font-sans font-medium transition-all active:scale-95 cursor-pointer shrink-0"
+                        title="View TERRACODE 2026 Hackathon Website"
+                      >
+                        <Trophy size={11} />
+                        <span>TERRACODE</span>
                       </a>
                     )}
                   </div>
