@@ -39,6 +39,7 @@
 
 /* Light & Dark variables directly tied to tailwind standard color naming */
 :root {
+  color-scheme: dark;
   --bg-primary: #050505;
   --bg-card: #101010;
   --bg-elevated: #171717;
@@ -70,6 +71,7 @@
 }
 
 :root.light {
+  color-scheme: light;
   --bg-primary: #F4F4F4;
   --bg-card: #FFFFFF;
   --bg-elevated: #EBEBEB;
@@ -109,6 +111,8 @@ html, body {
   padding: 0;
   transition: background-color 0.5s ease, color 0.5s ease;
   scroll-behavior: auto; /* Managed by Lenis */
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-secondary) var(--bg-primary);
 }
 
 /* Custom Scrollbar */

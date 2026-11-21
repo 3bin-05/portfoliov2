@@ -19,6 +19,15 @@ export function useTheme() {
       root.classList.remove('dark');
     }
     localStorage.setItem('theme', theme);
+
+    // Update <meta name="color-scheme"> for native controls, scrollbars, and browser UI
+    let metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+    if (!metaColorScheme) {
+      metaColorScheme = document.createElement('meta');
+      metaColorScheme.setAttribute('name', 'color-scheme');
+      document.head.appendChild(metaColorScheme);
+    }
+    metaColorScheme.setAttribute('content', theme);
   }, [theme]);
 
   const toggleTheme = () => {
