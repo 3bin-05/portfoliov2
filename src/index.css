@@ -11,6 +11,12 @@
   --animate-marquee-reverse: marquee-reverse 30s linear infinite;
   --animate-highlight: highlight 0.6s ease forwards;
   --animate-flash: flash 0.6s ease forwards;
+  --animate-spin-slow: spin-slow 14s linear infinite;
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
 
   @keyframes marquee {
     0% { transform: translateX(0%); }
@@ -43,6 +49,19 @@
   --color-accent: #DCCFB3;
   --bg-hero: #0A0A0A;
 
+  /* Hero Section Theme Tokens matching reference screenshot */
+  --hero-bg: #0A0A0A;
+  --hero-cream: #F1E2CA;
+  --hero-cream-muted: rgba(241, 226, 202, 0.72);
+  --hero-cream-border: rgba(241, 226, 202, 0.22);
+  --hero-cream-badge-bg: rgba(241, 226, 202, 0.05);
+  --hero-headline: #F1E2CA;
+  --hero-btn-primary-bg: #F1E2CA;
+  --hero-btn-primary-text: #0A0A0A;
+  --hero-btn-secondary-border: rgba(241, 226, 202, 0.35);
+  --hero-btn-secondary-text: #F1E2CA;
+  --hero-divider: rgba(241, 226, 202, 0.22);
+
   /* Commits grid theme colors (Gold in dark mode) */
   --commit-level-1: #2c2518;
   --commit-level-2: #584a32;
@@ -60,6 +79,19 @@
   --text-hover: #000000;
   --color-accent: #2C2C2C;
   --bg-hero: #F4F4F4;
+
+  /* Hero Section Theme Tokens for Light Mode */
+  --hero-bg: #F7F5F0;
+  --hero-cream: #141414;
+  --hero-cream-muted: rgba(20, 20, 20, 0.68);
+  --hero-cream-border: rgba(20, 20, 20, 0.16);
+  --hero-cream-badge-bg: rgba(20, 20, 20, 0.04);
+  --hero-headline: #161616;
+  --hero-btn-primary-bg: #161616;
+  --hero-btn-primary-text: #F7F5F0;
+  --hero-btn-secondary-border: rgba(20, 20, 20, 0.3);
+  --hero-btn-secondary-text: #161616;
+  --hero-divider: rgba(20, 20, 20, 0.14);
 
   /* Commits grid theme colors (Grays in light mode) */
   --commit-level-1: #e2e8f0;

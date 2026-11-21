@@ -14,7 +14,7 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    visualizer({ open: true, gzipSize: true })
+    ...(process.env.ANALYZE === 'true' ? [visualizer({ open: false, gzipSize: true, filename: 'stats.html' })] : []),
   ],
   server: {
     watch: {
