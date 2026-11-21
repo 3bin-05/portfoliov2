@@ -1,5 +1,5 @@
 /* TEAM */
-Name: Ebin Reji
+Name: Ebin (Ebin Reji)
 Role: Software Developer & UI/UX Designer
 Location: Kerala, India
 LinkedIn: https://www.linkedin.com/in/ebin-reji/
@@ -7,7 +7,7 @@ GitHub: https://github.com/3bin-05
 Portfolio: https://www.ebinreji.online/
 
 /* SITE */
-Last update: 2026-07-16
+Last update: 2026-11-21
 Language: English
 Doctype: HTML5
 IDE: VS Code

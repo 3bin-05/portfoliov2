@@ -1,10 +1,11 @@
-# Ebin Reji — Software Developer & UI/UX Designer
+# Ebin (Ebin Reji) — Software Developer & UI/UX Designer
 # Portfolio: https://www.ebinreji.online
-# Last Updated: 2026-07-16
+# Aliases: Ebin, ebin, Ebin Reji, 3bin-05
+# Last Updated: 2026-11-21
 
 ## About
 
-Ebin Reji is a Software Developer and UI/UX Designer based in Kerala, India. He is a Computer Science student who specializes in building immersive, high-performance web experiences. He bridges technical engineering and human-centered aesthetic design using React, TypeScript, Next.js, Framer Motion, and Tailwind CSS.
+Ebin (full name Ebin Reji) is a Software Developer and UI/UX Designer based in Kerala, India. He is a Computer Science student who specializes in building immersive, high-performance web experiences. He bridges technical engineering and human-centered aesthetic design using React, TypeScript, Next.js, Framer Motion, and Tailwind CSS.
 
 He believes software shouldn't just be functional — it should feel alive. He achieves this through micro-interactions, animated design systems, and meticulous typographic hierarchies.
 

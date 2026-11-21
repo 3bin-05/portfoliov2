@@ -50,7 +50,7 @@ export function About({ playClick, playType }: AboutProps) {
             {/* Story / Bio Copy */}
             <div className="space-y-6 font-sans text-sm md:text-base text-[var(--text-secondary)] leading-relaxed font-light bio-text" itemProp="description">
               <p>
-                I am <strong className="font-semibold text-[var(--text-primary)]" itemProp="name">Ebin Reji</strong>, a{' '}
+                I am <strong className="font-semibold text-[var(--text-primary)]" itemProp="name">Ebin</strong> (<span itemProp="alternateName">Ebin Reji</span>), a{' '}
                 <strong className="font-semibold text-[var(--text-primary)]">Computer Science student</strong>{' '}
                 based in <span itemProp="addressLocality">Kerala, India</span>, focusing on building interactive frontends, clean digital products, and robust logic flows. My journey thrives at the intersection of UI/UX design principles and software engineering.
               </p>

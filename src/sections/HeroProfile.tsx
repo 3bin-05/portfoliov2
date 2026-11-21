@@ -125,10 +125,10 @@ export function HeroProfile({
         itemScope
         itemType="https://schema.org/Person"
       >
-        <span itemProp="name">Ebin Reji</span>{' '}
+        <span itemProp="name">Ebin</span> (<span itemProp="alternateName">Ebin Reji</span>){' '}
         — <span itemProp="jobTitle">Software Developer &amp; UI/UX Designer</span>{' '}
-        based in <span itemProp="addressLocality">Kerala, India</span>.{' '}
-        Computer Science student building modern digital experiences with React, TypeScript, and clean code.
+        Portfolio based in <span itemProp="addressLocality">Kerala, India</span>.{' '}
+        Four-time hackathon winner and Computer Science student building modern digital experiences with React, TypeScript, and clean code.
       </h1>
 
       {/* Main Parallax Animated Wrapper (progressive fade, hidden after 3 full scrolls) */}

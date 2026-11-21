@@ -5,13 +5,19 @@
 >
   <url>
     <loc>https://www.ebinreji.online/</loc>
-    <lastmod>2026-07-16</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.ebinreji.online/ebineb.webp</image:loc>
-      <image:title>Ebin Reji - Software Developer and UI/UX Designer</image:title>
-      <image:caption>Portrait of Ebin Reji, a Software Developer and UI/UX Designer based in Kerala, India</image:caption>
+      <image:loc>https://www.ebinreji.online/thumbnail.webp</image:loc>
+      <image:title>Ebin — Software Developer and UI/UX Designer Portfolio</image:title>
+      <image:caption>Official portfolio of Ebin (Ebin Reji) — Software Developer &amp; UI/UX Designer based in Kerala, India</image:caption>
+      <image:geo_location>Kerala, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ebinreji.online/ebinreji.webp</image:loc>
+      <image:title>Ebin — Portrait</image:title>
+      <image:caption>Portrait of Ebin Reji, 4x Hackathon Winner from Kerala, India</image:caption>
       <image:geo_location>Kerala, India</image:geo_location>
     </image:image>
   </url>
