@@ -21,7 +21,22 @@ export function HeroProfile({
   const shouldReduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
 
-  // Progressive transparency on scroll: becomes a bit more transparent initially, and completely invisible after ~3 full scrolls
+  const [isDesktop, setIsDesktop] = React.useState(() => {
+    return typeof window !== 'undefined' ? window.innerWidth >= 768 : true;
+  });
+
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+    const updateDesktop = (e: MediaQueryListEvent | MediaQueryList) => {
+      setIsDesktop(e.matches);
+    };
+    setIsDesktop(mediaQuery.matches);
+    mediaQuery.addEventListener('change', updateDesktop);
+    return () => mediaQuery.removeEventListener('change', updateDesktop);
+  }, []);
+
+  // Progressive transparency on scroll (Desktop only): becomes transparent initially, and invisible after ~3 full scrolls
   const parallaxY = useTransform(scrollY, [0, 1500], [0, shouldReduceMotion ? 0 : 160]);
   const heroOpacity = useTransform(scrollY, [0, 450, 950, 1500], [1, 0.6, 0.2, 0]);
   const heroPointerEvents = useTransform(scrollY, (v) => v >= 1400 ? 'none' : 'auto');
@@ -137,10 +152,10 @@ export function HeroProfile({
         initial="hidden"
         animate="visible"
         style={{
-          y: parallaxY,
-          opacity: heroOpacity,
-          pointerEvents: heroPointerEvents,
-          visibility: heroVisibility,
+          y: isDesktop ? parallaxY : 0,
+          opacity: isDesktop ? heroOpacity : 1,
+          pointerEvents: isDesktop ? heroPointerEvents : 'auto',
+          visibility: isDesktop ? heroVisibility : 'visible',
           transform: 'translateZ(0)',
         }}
         className="relative w-full h-full flex flex-col justify-between flex-1"

@@ -116,8 +116,8 @@ function App() {
 
       {/* Mock Operating System Desktop Container */}
       <div className="w-full h-full flex flex-col">
-        {/* Sticky Hero Section */}
-        <div className="sticky top-0 w-full h-screen z-0 overflow-hidden">
+        {/* Sticky Hero on Desktop, Normal Continuous Flow on Mobile */}
+        <div className="relative md:sticky md:top-0 w-full h-auto md:h-screen z-0 md:overflow-hidden">
           <HeroProfile
             isDark={isDark}
             toggleTheme={toggleTheme}
@@ -127,7 +127,7 @@ function App() {
           />
         </div>
 
-        {/* Portfolio Body and Browser Shell (scrolls over hero) */}
+        {/* Portfolio Body and Browser Shell (scrolls over hero on desktop, continuous on mobile) */}
         <div className="relative z-10 w-full">
           <BrowserShell playClick={playClick} playType={playType}>
             <Navbar 
