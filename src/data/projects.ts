@@ -1,170 +1,283 @@
-import talentpilotImg from '../assets/talentpilot.webp';
-import talentpilotAvif from '../assets/talentpilot.avif';
-import solarwiseImg from '../assets/solarwise.webp';
-import solarwiseAvif from '../assets/solarwise.avif';
-import flipzonImg from '../assets/flipzon_mockup.webp';
-import flipzonAvif from '../assets/flipzon_mockup.avif';
-import cryptochatImg from '../assets/cryptochat_mockup.webp';
-import cryptochatAvif from '../assets/cryptochat_mockup.avif';
-import kia3dImg from '../assets/kia3d_mockup.webp';
-import kia3dAvif from '../assets/kia3d_mockup.avif';
-import purpleMovementImg from '../assets/purple_movement_mockup.webp';
-import purpleMovementAvif from '../assets/purple_movement_mockup.avif';
-import beyondSyllabusImg from '../assets/beyondsyllabus_mockup.webp';
-import beyondSyllabusAvif from '../assets/beyondsyllabus_mockup.avif';
-import darknetraImg from '../assets/darknetra_mockup.webp';
-import darknetraAvif from '../assets/darknetra_mockup.avif';
-import dinodashImg from '../assets/dino.webp';
-import dinodashAvif from '../assets/dino.avif';
-import mileageUndoImg from '../assets/mileageundo.webp';
-import mileageUndoAvif from '../assets/mileageundo.avif';
-import mulearnsbcImg from '../assets/mulearnsbc.webp';
-import mulearnsbcAvif from '../assets/mulearnsbc.avif';
-
 export interface Project {
   id: string;
   title: string;
   category: string;
   description: string;
+  tags: string[];
+  image: string;
+  aspectRatio: '4/3' | '3/4' | '4/5' | '2/3' | '1.2' | string;
+  liveUrl?: string;
+  githubUrl?: string;
+  caseStudyUrl?: string;
+  videoUrl?: string;
   award?: string;
   awardUrl?: string;
-  image: string;
-  imageAvif?: string;
-  tags: string[];
-  githubUrl?: string;
-  liveUrl?: string;
-  caseStudyUrl?: string;
+  awardLabel?: string;
   isComingSoon?: boolean;
 }
 
-export const projects: Project[] = [
-  {
-    id: 'talentpilot',
-    title: 'TalentPilot AI',
-    category: 'AI Copilot / Desktop App',
-    description: 'An AI recruitment operating system leveraging local LLMs, FAISS vector search, and multi-node LangGraph agents for automated screening.',
-    image: talentpilotImg,
-    imageAvif: talentpilotAvif,
-    tags: ['Tauri v2', 'React', 'FastAPI', 'LangGraph', 'Ollama'],
-    githubUrl: 'https://github.com/3bin-05/TalentPilot',
-    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/TalentPilot-AI-3f379bf218cc808ebe78c74a54318e8d?source=copy_link'
-  },
-  {
-    id: 'solarwise',
-    title: 'SolarWise',
-    category: 'CleanTech / Web App',
-    award: '2nd Place Winner — TERRACODE 2026',
-    awardUrl: 'https://foss-terracode.vercel.app',
-    description: 'An intelligent solar energy feasibility platform designed to promote clean energy adoption by assessing rooftop viability, energy consumption patterns, and local living environments. Awarded 2nd Place at TERRACODE 2026, an all-India website competition organized by FOSS Club, MEA Engineering College.',
-    image: solarwiseImg,
-    imageAvif: solarwiseAvif,
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Recharts', 'Vite'],
-    liveUrl: 'https://solarw-i-s-e.vercel.app',
-    githubUrl: 'https://github.com/3bin-05/SolarWise'
-  },
-  {
-    id: 'cryptochat',
-    title: 'CryptoChat',
-    category: 'Web Security / Messaging',
-    description: 'An end-to-end encrypted messaging application with real-time delivery channels, secure user key exchanges, and customizable chat themes in high-contrast dark aesthetics.',
-    image: cryptochatImg,
-    imageAvif: cryptochatAvif,
-    tags: ['React', 'Socket.io', 'Node.js', 'Web Crypto API', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/3bin-05/CryptoChat',
-    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/CryptoChat-35579bf218cc80b2a36ced0b1022c281'
-  },
-  {
-    id: 'purple-movement',
-    title: 'Purple Movement',
-    category: 'UI/UX Design / Social Good',
-    description: 'A complete product design case study mapping user journeys, low-fidelity wireframes, high-fidelity prototypes, and design systems for a community activism initiative.',
-    image: purpleMovementImg,
-    imageAvif: purpleMovementAvif,
-    tags: ['UX Research', 'Figma Prototyping', 'Design System', 'User Testing'],
-    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/Purple-Movement-Website-35779bf218cc8018b325e7cca767c62a'
-  },
-  {
-    id: 'beyondsyllabus',
-    title: 'BeyondSyllabus',
-    category: 'Web Platform / Community',
-    description: 'A modern educational portal designed for peer resource sharing, study pathways navigation, and offline campus student event aggregation.',
-    image: beyondSyllabusImg,
-    imageAvif: beyondSyllabusAvif,
-    tags: ['Next.js', 'React', 'Tailwind CSS', 'Firebase'],
-    liveUrl: 'https://beyondsyllabus.in'
-  },
-  {
-    id: 'kia-3d',
-    title: 'KIA 3D',
-    category: 'Interactive WebGL / 3D',
-    description: 'An immersive 3D automotive visualizer built for real-time concept inspection. Enables dynamic paint customization, interactive camera sweeps, and material detailing.',
-    image: kia3dImg,
-    imageAvif: kia3dAvif,
-    tags: ['Three.js', 'React Three Fiber', 'WebGL', 'Framer Motion'],
-    githubUrl: 'https://github.com/3bin-05/Kia-seltos',
-    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/KIA-Seltos-3D-Website-Interactive-Product-Experience-35779bf218cc8091a529c29f8921de63'
-  },
-  {
-    id: 'darknetra',
-    title: 'DarkNetra',
-    category: 'Cybersecurity / Machine Learning',
-    description: 'An intelligent security platform for malicious URL classification. Utilizes machine learning to analyze, predict, and block phishing threats in real-time, complete with threat telemetry dashboards.',
-    image: darknetraImg,
-    imageAvif: darknetraAvif,
-    tags: ['Cybersecurity', 'Machine Learning', 'React', 'FastAPI', 'Threat Detection', 'ML Classification', 'Web App'],
-    githubUrl: 'https://github.com/3bin-05/Dark-netra-frontend',
-    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/DarkNetra-URL-Malicious-Detection-System-35579bf218cc805789f3ef686bc4c85c?source=copy_link'
-  },
-  {
-    id: 'dino-dash',
-    title: 'Dino Dash',
-    category: 'Game Dev / React',
-    description: 'A modern 2D endless runner game featuring progressive difficulty, responsive controls, and a custom achievement & daily tasks system.',
-    image: dinodashImg,
-    imageAvif: dinodashAvif,
-    tags: ['React.js', 'Tailwind CSS', 'Framer Motion', 'Game Logic'],
-    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/Dino-Dash-38d79bf218cc807fb7cccf69fd6ab1f0?source=copy_link',
-    liveUrl: 'https://d-inodash.vercel.app'
-  },
-  {
-    id: 'mileage-undo',
-    title: 'Mileage UNDO',
-    category: 'Web App / Intelligence',
-    description: 'A community-driven mileage intelligence platform helping vehicle owners track, compare, and optimize fuel efficiency with real-world driving data.',
-    image: mileageUndoImg,
-    imageAvif: mileageUndoAvif,
-    tags: ['React', 'Tailwind CSS', 'Interactive DB', 'Community Benchmarks'],
-    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/Mileage-UNDO-37c79bf218cc805e83c3ce69880c380d?source=copy_link'
-  },
-  {
-    id: 'mulearn-sbc',
-    title: 'µLearn SBC',
-    category: 'Web Platform / Community',
-    description: 'An interactive campus community platform designed to foster peer learning, skill-tracking pathways, and student event collaboration.',
-    image: mulearnsbcImg,
-    imageAvif: mulearnsbcAvif,
-    tags: ['React', 'Tailwind CSS', 'Vite', 'Community Platform'],
-    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/Learn-SBC-Campus-Community-39579bf218cc80768331ff578e5466f7'
-  },
-  {
-    id: 'flipzon',
-    title: 'FlipZon',
-    category: 'Full-stack / E-Commerce',
-    description: 'A modern e-commerce web platform featuring full catalog indexing, shopping cart state management, simulated secure checkout, and intuitive dashboard analytics.',
-    image: flipzonImg,
-    imageAvif: flipzonAvif,
-    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/3bin-05/FlopZon',
-    caseStudyUrl: 'https://sturdy-snail-3ee.notion.site/FlipZon-35579bf218cc80cca424fe9edb040a73?pvs=74'
-  },
-  {
-    id: 'coming-soon',
-    title: 'Coming Soon',
-    category: 'Upcoming',
-    description: 'Currently developing new tools, web platforms, and interactive experiences. Stay tuned for what\'s next!',
-    image: '',
-    tags: ['React Native', 'Next.js', 'AI Integration', 'Creative Coding'],
-    isComingSoon: true
-  }
-];
+export const COMING_SOON_PROJECT: Project = {
+  id: 'coming-soon',
+  title: 'Coming Soon',
+  category: 'Upcoming',
+  description: "Currently developing new tools, web platforms, and interactive experiences. Stay tuned for what's next!",
+  image: '',
+  aspectRatio: '4/3',
+  tags: [],
+  isComingSoon: true
+};
 
+export const SHEET_ID = import.meta.env.VITE_PROJECTS_SHEET_ID || '';
+export const SHEET_NAME = import.meta.env.VITE_PROJECTS_SHEET_NAME || 'Form responses 1';
+
+/**
+ * Generate a URL-safe slug from Project Title.
+ * Handles micro/Greek letters (e.g. 'µLearn SBC' -> 'mulearn-sbc')
+ */
+export function slugify(text: string): string {
+  return text
+    .replace(/[µ\u00B5\u03BC]/g, 'mu')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+interface GVizColumn {
+  id: string;
+  label?: string;
+  type?: string;
+}
+
+interface GVizCell {
+  v?: unknown;
+  f?: string;
+}
+
+interface GVizRow {
+  c?: (GVizCell | null)[];
+}
+
+interface GVizResponse {
+  status: string;
+  table: {
+    cols: GVizColumn[];
+    rows: GVizRow[];
+  };
+}
+
+/**
+ * Parses Google Visualization Table structure into Project[]
+ */
+export function parseGVizData(parsed: GVizResponse): Project[] {
+  if (!parsed.table || !Array.isArray(parsed.table.rows)) {
+    return [];
+  }
+
+  const cols = parsed.table.cols.map((col) => (col.label || '').trim().toLowerCase());
+  const getColIdx = (name: string): number => cols.indexOf(name.toLowerCase());
+
+  const titleIdx = getColIdx('project title');
+  const categoryIdx = getColIdx('category / sub-headline');
+  const descIdx = getColIdx('project description');
+  const tagsIdx = getColIdx('tech stack tags');
+  const coverImgIdx = getColIdx('cover image');
+  const aspectIdx = getColIdx('card aspect ratio');
+  const liveUrlIdx = getColIdx('live website / demo url');
+  const githubIdx = getColIdx('github repository url');
+  const caseStudyIdx = getColIdx('case study url');
+  const videoIdx = getColIdx('video demo url');
+  const awardIdx = getColIdx('award / recognition text');
+  const awardUrlIdx = getColIdx('award / hackathon url');
+  const awardLabelIdx = getColIdx('award button short label');
+
+  // Direct image columns: any column whose header is "directImageUrl" (e.g. columns O through W)
+  const directImgIndices = cols
+    .map((col, idx) => (col === 'directimageurl' ? idx : -1))
+    .filter((idx) => idx !== -1);
+
+  const getCellStr = (row: GVizRow, idx: number): string => {
+    if (idx < 0 || !row.c || !row.c[idx]) return '';
+    const cell = row.c[idx];
+    if (cell.v === null || cell.v === undefined) return '';
+    return String(cell.v).trim();
+  };
+
+  const projects: Project[] = [];
+
+  for (const row of parsed.table.rows) {
+    if (!row || !row.c) continue;
+
+    const title = getCellStr(row, titleIdx);
+    if (!title || title.toLowerCase() === 'project title') {
+      continue; // Skip blank rows or duplicated header rows
+    }
+
+    // 1. Direct Image Resolution:
+    // Look across any directImageUrl column and grab first non-empty URL.
+    let imageUrl = '';
+    for (const dIdx of directImgIndices) {
+      const candidate = getCellStr(row, dIdx);
+      if (candidate && candidate.startsWith('http')) {
+        imageUrl = candidate;
+        break;
+      }
+    }
+
+    // Fallback: extract Google Drive file ID from Cover Image
+    if (!imageUrl) {
+      const coverVal = getCellStr(row, coverImgIdx);
+      const driveMatch = coverVal.match(/[-\w]{25,}/);
+      if (driveMatch) {
+        imageUrl = `https://lh3.googleusercontent.com/d/${driveMatch[0]}=s1200`;
+      } else {
+        imageUrl = coverVal;
+      }
+    }
+
+    // 2. Tech Stack Tags
+    const rawTags = getCellStr(row, tagsIdx);
+    const tags = rawTags
+      ? rawTags
+          .split(',')
+          .map((t) => t.trim())
+          .filter(Boolean)
+      : [];
+
+    // 3. Aspect Ratio
+    const rawAspect = getCellStr(row, aspectIdx);
+    const validAspects = ['4/3', '3/4', '4/5', '2/3', '1.2'];
+    const aspectRatio = validAspects.includes(rawAspect) ? rawAspect : '4/3';
+
+    // 4. Action URLs
+    const liveUrl = getCellStr(row, liveUrlIdx) || undefined;
+    const githubUrl = getCellStr(row, githubIdx) || undefined;
+    const caseStudyUrl = getCellStr(row, caseStudyIdx) || undefined;
+    const videoUrl = getCellStr(row, videoIdx) || undefined;
+
+    // 5. Awards
+    const award = getCellStr(row, awardIdx) || undefined;
+    const awardUrl = getCellStr(row, awardUrlIdx) || undefined;
+    const rawAwardLabel = getCellStr(row, awardLabelIdx);
+    const awardLabel = rawAwardLabel || award || (awardUrl ? 'Award' : undefined);
+
+    projects.push({
+      id: slugify(title),
+      title,
+      category: getCellStr(row, categoryIdx) || 'Featured Project',
+      description: getCellStr(row, descIdx),
+      tags,
+      image: imageUrl,
+      aspectRatio,
+      liveUrl,
+      githubUrl,
+      caseStudyUrl,
+      videoUrl,
+      award,
+      awardUrl,
+      awardLabel
+    });
+  }
+
+  return projects;
+}
+
+/**
+ * Loads Google Visualization data via JSONP script tag.
+ * Completely immune to browser CORS, preflight OPTIONS, and proxy blocks.
+ */
+function fetchWithJSONP(sheetId: string, sheetName: string): Promise<GVizResponse> {
+  return new Promise((resolve, reject) => {
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      return reject(new Error('JSONP requires browser window/document environment'));
+    }
+
+    const callbackName = `__gviz_projects_cb_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+    const script = document.createElement('script');
+    let timeoutId: number | undefined;
+
+    const cleanup = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      delete (window as unknown as Record<string, unknown>)[callbackName];
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+
+    (window as unknown as Record<string, (data: GVizResponse) => void>)[callbackName] = (data: GVizResponse) => {
+      cleanup();
+      if (data && data.table) {
+        resolve(data);
+      } else {
+        reject(new Error('Invalid response received from Google Sheets'));
+      }
+    };
+
+    script.src = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=responseHandler:${callbackName}&sheet=${encodeURIComponent(sheetName)}&_t=${Date.now()}`;
+    script.async = true;
+    script.onerror = () => {
+      cleanup();
+      reject(new Error('Network error loading Google Sheets script'));
+    };
+
+    timeoutId = window.setTimeout(() => {
+      cleanup();
+      reject(new Error('Google Sheets request timed out'));
+    }, 8000);
+
+    document.head.appendChild(script);
+  });
+}
+
+/**
+ * Fallback loader using native fetch without custom headers to avoid preflight issues.
+ */
+async function fetchWithFetch(sheetId: string, sheetName: string): Promise<GVizResponse> {
+  const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}&_t=${Date.now()}`;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(`Google Sheets responded with HTTP ${response.status}`);
+  }
+
+  const rawText = await response.text();
+  const jsonStart = rawText.indexOf('{');
+  const jsonEnd = rawText.lastIndexOf('}');
+  if (jsonStart === -1 || jsonEnd === -1) {
+    throw new Error('Invalid Google Visualization response format');
+  }
+
+  return JSON.parse(rawText.substring(jsonStart, jsonEnd + 1));
+}
+
+/**
+ * Dynamically fetches 100% of portfolio projects from Google Sheets with JSONP + fetch fallback.
+ */
+export async function fetchProjectsFromSheet(
+  sheetId: string = SHEET_ID,
+  sheetName: string = SHEET_NAME
+): Promise<Project[]> {
+  if (!sheetId) {
+    throw new Error('VITE_PROJECTS_SHEET_ID is not configured');
+  }
+
+  let gvizData: GVizResponse | null = null;
+
+  // 1. Try JSONP (bypasses browser CORS preflight & restrictions)
+  try {
+    gvizData = await fetchWithJSONP(sheetId, sheetName);
+  } catch (jsonpErr) {
+    console.warn('JSONP fetch attempt failed, trying fetch API:', jsonpErr);
+    // 2. Fallback to native fetch
+    gvizData = await fetchWithFetch(sheetId, sheetName);
+  }
+
+  if (!gvizData) {
+    throw new Error('Unable to retrieve data from Google Sheets');
+  }
+
+  return parseGVizData(gvizData);
+}

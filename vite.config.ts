@@ -26,11 +26,11 @@ export default defineConfig({
       // injects styles dynamically. All other directives match vercel.json exactly.
       'Content-Security-Policy': [
         "default-src 'self'",
-        "script-src 'self' 'unsafe-inline'",              // 'unsafe-inline' needed for Vite HMR only
+        "script-src 'self' 'unsafe-inline' https://docs.google.com",
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
         "font-src 'self' https://fonts.gstatic.com",
-        "img-src 'self' data: https://www.ebinreji.online https://images.unsplash.com",
-        "connect-src 'self' https://formspree.io ws://localhost:* wss://localhost:*", // ws for HMR
+        "img-src 'self' data: https://www.ebinreji.online https://images.unsplash.com https://lh3.googleusercontent.com https://*.googleusercontent.com https://drive.google.com",
+        "connect-src 'self' https://formspree.io https://docs.google.com https://*.google.com https://*.googleusercontent.com ws://localhost:* wss://localhost:*",
         "frame-ancestors 'none'",
         "object-src 'none'",
         "base-uri 'self'",
